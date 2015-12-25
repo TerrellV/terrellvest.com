@@ -1,0 +1,20 @@
+- var aboutClass = "inactive"
+- var blogClass = "inactive"
+- var portfolioClass = "active"
+
+doctype HTML
+html(lang="en")
+  head
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    meta(name="apple-mobile-web-app-capable" content="yes")
+    meta(name="mobile-web-app-capable" content="yes")
+    link(href="../assets/styles/main.css" rel="stylesheet" type="text/css")
+  body
+    include ../assets/markup/nav.jade
+    div.subhead
+      h1#cat-one-title Business
+      h1#cat-two-title Web
+      span#slider.slider-default
+    main#posts-in-category
+    script(src="../assets/scripts/app.js")
+    

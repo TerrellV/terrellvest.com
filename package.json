@@ -1,0 +1,31 @@
+{
+  "name": "terrellvest.com",
+  "version": "1.0.0",
+  "description": "Personal Website",
+  "main": "gulpfile.js",
+  "dependencies": {},
+  "devDependencies": {
+    "babel-polyfill": "^6.3.14",
+    "babel-register": "^6.3.13",
+    "browser-sync": "^2.10.1",
+    "gulp": "^3.9.0",
+    "gulp-jade": "^1.1.0",
+    "gulp-markdown": "^1.2.0",
+    "gulp-sass": "^2.1.1",
+    "marked": "^0.3.5"
+  },
+  "scripts": {
+    "start": "node buildBlogs.js",
+    "build": "node renderBlogPosts.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MirPresT/terrellvest.com.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MirPresT/terrellvest.com/issues"
+  },
+  "homepage": "https://github.com/MirPresT/terrellvest.com#readme"
+}

@@ -1,0 +1,24 @@
+#blog-posts{
+  width: 100%;
+  margin: 2em 1em;
+  div {
+    cursor: pointer;
+    margin:2em 0;
+    &:hover {
+      p {
+        color: darken( $accent-blue,30%) !important;
+      }
+    }
+    a{
+      color: black;
+      text-decoration: none;
+      p{
+        font-family: "Roboto", sans-serif;
+        font-size: 14px;
+      }
+      span{
+        z-index: -1;
+      }
+    }
+  }
+}

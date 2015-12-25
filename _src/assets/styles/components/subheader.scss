@@ -1,0 +1,50 @@
+%page-title {
+  position: absolute;
+  bottom: 0px;
+  left: 1em;
+  box-sizing: border-box;
+  margin: 0 ;
+  padding: 0 0 12px 0;
+  display: inline;
+  font-weight: 600;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  &:after{
+    content: '';
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: $accent-blue;
+    bottom: -1px;
+    position: absolute;
+  }
+}
+
+
+.subhead {
+  position: relative;
+  width: 100%;
+  height: 40px;
+  box-sizing: border-box;
+  border-bottom: 1px solid transparentize(grey, .7);
+  .page-title{
+    @extend %page-title;
+  }
+  .page-title-port{
+    @extend .page-title;
+    &:after {
+      display: none;
+    }
+  }
+  .page-title-port + h1{
+    @extend .page-title;
+    position: relative;
+    margin-left: 20px;
+    &:after {
+      display: none;
+    }
+  }
+  #slider {
+    background-color: $accent-blue;
+  }
+}

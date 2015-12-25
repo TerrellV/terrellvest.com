@@ -1,0 +1,38 @@
+%h1--portfolio {
+  cursor: pointer;
+  &:after {
+    display: none;
+  }
+}
+
+.subhead {
+  #cat-one-title, #cat-two-title{
+    @extend .page-title;
+    @extend %h1--portfolio;
+  }
+  #cat-one-title + h1{
+    position: absolute;
+    left: 95px;
+  }
+  #slider{
+    position: absolute;
+    height: 3px;
+    left: 1em;
+    bottom: 0px;
+    background-color: $accent-blue;
+    transition: transform 400ms ease-in-out;
+  }
+  .default-slider{
+    transform: translateX(0);
+    width: 58px;
+  }
+  .right-slider{
+    transform: translateX(80px);
+    width: 27px;
+  }
+}
+
+#posts-in-category{
+  position: relative;
+  left: 1em;
+}

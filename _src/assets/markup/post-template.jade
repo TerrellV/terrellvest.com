@@ -1,0 +1,16 @@
+doctype HTML
+html(lang="en")
+  head
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    meta(name="apple-mobile-web-app-capable" content="yes")
+    meta(name="mobile-web-app-capable" content="yes")
+    link(href="../../assets/styles/main.css" rel="stylesheet" type="text/css")
+  body
+    include ./nav.jade
+    div.subhead
+      h1.page-title #{postTitle}
+    main#blog-post
+      div.post-description
+        span Posted On #{postDate}
+        span Estemated Read Time #{postReadTime} mins
+      article!= postContent

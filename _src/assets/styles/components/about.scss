@@ -1,0 +1,16 @@
+#about-post {
+  padding: 1em;
+  #profilePic{
+    width: 100%;
+    max-width: 600px;
+    padding: 1em 0 2em 0;
+  }
+  p {
+    font-size: 14px;
+    font-family:"Roboto", sans-serif;
+    line-height:1.5em;
+  }
+  p+p{
+    text-indent: 20px;
+  }
+}
