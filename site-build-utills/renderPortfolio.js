@@ -1,14 +1,8 @@
-const projects = require('./generateProjectBank.js');
 const fs = require('fs');
 const jade = require('jade');
 const marked = require('marked');
 
-// This must always be first or else the array's will not be formated correctly
-// check projects.build to see what is being called
-projects.build(projects.startData);
-
-
-module.exports = function generateProjectPosts(type, projTypeArr) {
+module.exports = function generateProjectPosts(type, projTypeArr, projects) {
   fs.readdir(`_src/portfolio/projects-md/${type}`, function(err,contents){
     if(err) throw err;
     // map through md files

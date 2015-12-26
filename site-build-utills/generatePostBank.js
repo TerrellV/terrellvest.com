@@ -2,7 +2,6 @@
   * Define all blog posts here.
   * Only touch the startData Array and the Objects inside. No need to edit other methods, especially if you are just adding a project.
 */
-
 const postBank = {
   startData: [
     {
@@ -18,14 +17,14 @@ const postBank = {
     {
       title: "Post Three",
       readTime: 4, // in min
-      date: [2015,22,15] // yr-mm-dd
+      date: [2015,4,15] // yr-mm-dd
     }
   ],
   addPaths: function (postBankArr){
     postBankArr.map( obj => {
       obj.path = '/blog/' + obj.title.replace(' ', '-').toLowerCase();
     });
-    return projectBank;
+    return postBankArr;
   },
   formatDates: function (postBankArr){
     postBankArr.map( obj => {
@@ -38,7 +37,7 @@ const postBank = {
   getMonth: function( n, title ){
     if (n > 12 || n < 1 ) {
       console.error(
-        "-------- Check The Date You Provided In the Project Bank for" + titel
+        "-------- Check The Date You Provided In the Project Bank for: " + title
       );
     }
     var months = [

@@ -1,17 +1,14 @@
 const fs = require('fs');
 const jade = require('jade');
 const marked = require('marked');
-const postBank = require('./generatePostBank.js');
 
-module.exports = function(){
+module.exports = function(postBank){
   // file paths
   const fp = {
     blogIndexTemplate: './_src/blog/index.jade',
     mdPosts: '_src/blog/md-posts',
     postTemplate: '_src/assets/markup/post-template.jade'
   }
-
-  postBank.build();
 
   /* 1. Write the blog index page and pass in postbank array */
   fs.readFile(fp.blogIndexTemplate, 'utf8', function(err,content){
@@ -48,7 +45,7 @@ module.exports = function(){
 
           // grab the file object from post bank
           var fileToMatch = file.replace(/\.(.+)/g,'').toLowerCase();
-          var postObj = postBank.filter( obj => {
+          var postObj = postBank.all().filter( obj => {
             var titleToMatch = obj.title.replace(' ','-').toLowerCase();
             return ( titleToMatch === fileToMatch) ? true : false;
           })[0];

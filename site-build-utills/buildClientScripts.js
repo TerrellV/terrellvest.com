@@ -1,5 +1,6 @@
-// get the portfolio projects object
-const projects = require('./generateProjectBank.js');
+const fs = require('fs');
+const jade = require('jade');
+const marked = require('marked');
 
 /*
   This function will create two html strings based on the number of business and web projects the md folders
@@ -8,7 +9,7 @@ const projects = require('./generateProjectBank.js');
   * The created js file will be used for client side javascript functionality
 */
 
-module.exports = function buildClientJs(destPath,fileName,templatePath){
+module.exports = function buildClientJs(destPath,fileName,templatePath,projects){
   function buildStrings(bizArr,webArr,callback){
     fs.readFile(templatePath,'utf8', function(err,content){
       if(err)throw err;
@@ -20,7 +21,7 @@ module.exports = function buildClientJs(destPath,fileName,templatePath){
     });
   }
   function makeTemplateCallback(bString, wString){
-    var writtenJs = require('./_src/assets/scripts/client.js');
+    var writtenJs = require('../_src/assets/scripts/client.js');
 
     var templateJs =
     `\n(function(){

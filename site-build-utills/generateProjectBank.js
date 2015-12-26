@@ -24,7 +24,7 @@ const projectBank = {
   getMonth: function( n, title ){
     if (n > 12 || n < 1 ) {
       console.error(
-        "-------- Check The Date You Provided In the Project Bank for" + titel
+        "-------- Check The Date You Provided In the Project Bank for" + title
       );
     }
     var months = [
@@ -50,9 +50,9 @@ const projectBank = {
     return projectBank;
   },
   formatDates: function (projectBank){
-    projectBank.map( obj => {
+    projectBank.map( (obj,i,arr) => {
       var year = obj.date[0];
-      var month = this.getMonth(obj.date[1],obj.title);
+      var month = this.getMonth(obj.date[1], obj.title);
       var day = obj.date[2];
       obj.date = `${month} ${day}, ${year}`;
     });
