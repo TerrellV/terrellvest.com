@@ -4,6 +4,17 @@ const markdown = require('gulp-markdown');
 const sass = require('gulp-sass');
 const browserSync = require('browser-sync').create();
 
+/* custom render functions */
+
+// not working task
+gulp.task('build', function(){
+  gulp.src('./_src/_about/about-text.md', {base: '_src'})
+    .pipe(markdown())
+    .pipe(gulp.dest('_src'));
+});
+
+/* normal gulp stuff below */
+
 gulp.task('browser-sync', function(){
   browserSync.init({
     server: {
@@ -15,7 +26,6 @@ gulp.task('browser-sync', function(){
 
 });
 
-// no markdown required
 gulp.task('jade',function(){
   gulp.src(['./_src/*.jade','./_src/portfolio/*.jade'], {base: '_src'})
     .pipe(jade({
