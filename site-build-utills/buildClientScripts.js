@@ -9,7 +9,8 @@ const marked = require('marked');
   * The created js file will be used for client side javascript functionality
 */
 
-module.exports = function buildClientJs(destPath,fileName,templatePath,projects){
+module.exports = function buildClientJs(destPath,fileName,templatePath,projects,res,rej){
+
   function buildStrings(bizArr,webArr,callback){
     fs.readFile(templatePath,'utf8', function(err,content){
       if(err)throw err;
@@ -37,8 +38,10 @@ module.exports = function buildClientJs(destPath,fileName,templatePath,projects)
 
     fs.writeFile(`${destPath}/${fileName}`, templateJs, function(err){
       if (err) throw err;
-      console.log(`${fileName} was just created with template strings as variables`);
+      // console.log(`${fileName} was just created with template strings as variables`);
+      res();
     })
   }
+
   buildStrings(projects.business(),projects.web(), makeTemplateCallback);
 }

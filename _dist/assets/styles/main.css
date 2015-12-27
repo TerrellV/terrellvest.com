@@ -4,6 +4,13 @@
   margin: 0px;
   padding: 0px; }
 
+#blog-post, #proj-post {
+  font-family: "Roboto",sans-serif;
+  color: black; }
+
+body {
+  padding: 1.5rem; }
+
 .site-header {
   position: relative;
   width: 100%;
@@ -19,7 +26,6 @@
       margin: 0px;
       position: absolute;
       top: 50%;
-      left: 1em;
       transform: translateY(-50%);
       list-style: none;
       box-sizing: border-box;
@@ -46,10 +52,10 @@
           .site-header .site-nav .navList li a:first-child {
             padding-left: 0px; }
 
-.subhead .page-title, .subhead .page-title-port, .subhead .page-title-port + h1, .subhead #cat-one-title, .subhead #cat-two-title {
+.subhead .page-title, .subhead .page-title-port, .subhead .page-title-port + h1, .subhead #cat-one-title,
+.subhead #cat-two-title {
   position: absolute;
   bottom: 0px;
-  left: 1em;
   box-sizing: border-box;
   margin: 0;
   padding: 0 0 12px 0;
@@ -57,7 +63,8 @@
   font-weight: 600;
   font-family: "Roboto", sans-serif;
   font-size: 14px; }
-  .subhead .page-title:after, .subhead .page-title-port:after, .subhead .page-title-port + h1:after, .subhead #cat-one-title:after, .subhead #cat-two-title:after {
+  .subhead .page-title:after, .subhead .page-title-port:after, .subhead .page-title-port + h1:after, .subhead #cat-one-title:after,
+  .subhead #cat-two-title:after {
     content: '';
     display: block;
     width: 100%;
@@ -66,12 +73,19 @@
     bottom: -1px;
     position: absolute; }
 
+body {
+  overflow-x: hidden; }
+
 .subhead {
   position: relative;
-  width: 100%;
+  width: 100vw;
   height: 40px;
+  margin-left: -1.5rem;
   box-sizing: border-box;
   border-bottom: 1px solid rgba(128, 128, 128, 0.3); }
+  .subhead .page-title, .subhead .page-title-port, .subhead .page-title-port + h1, .subhead #cat-one-title,
+  .subhead #cat-two-title {
+    left: 1.5rem; }
   .subhead .page-title-port:after {
     display: none; }
   .subhead .page-title-port + h1 {
@@ -79,64 +93,108 @@
     margin-left: 20px; }
     .subhead .page-title-port + h1:after {
       display: none; }
-  .subhead #slider {
-    background-color: #5FB7FF; }
 
-#about-post {
-  padding: 1em; }
-  #about-post #profilePic {
-    width: 100%;
-    max-width: 600px;
-    padding: 1em 0 2em 0; }
-  #about-post p {
-    font-size: 14px;
-    font-family: "Roboto", sans-serif;
-    line-height: 1.5em; }
-  #about-post p + p {
-    text-indent: 20px; }
-
-#blog-posts {
+#about-post #profilePic {
   width: 100%;
-  margin: 2em 1em; }
-  #blog-posts div {
+  max-width: 600px;
+  padding: 2em 0 2em 0; }
+
+#about-post p {
+  font-size: 14px;
+  font-family: "Roboto", sans-serif;
+  line-height: 1.5em; }
+
+#about-post p + p {
+  text-indent: 20px; }
+
+#blog-post-list {
+  width: 100%;
+  margin: 2em 0; }
+  #blog-post-list div {
     cursor: pointer;
     margin: 2em 0; }
-    #blog-posts div:hover p {
+    #blog-post-list div:hover p {
       color: #006cc5 !important; }
-    #blog-posts div a {
+    #blog-post-list div a {
       color: black;
       text-decoration: none; }
-      #blog-posts div a p {
+      #blog-post-list div a p, #blog-post-list div a span {
         font-family: "Roboto", sans-serif;
         font-size: 14px; }
-      #blog-posts div a span {
+      #blog-post-list div a span {
         z-index: -1; }
 
-.subhead #cat-one-title, .subhead #cat-two-title {
+#blog-post, #proj-post {
+  margin: 2em 0; }
+  #blog-post .post-description, #proj-post .post-description {
+    margin-bottom: 1em; }
+    #blog-post .post-description span, #proj-post .post-description span {
+      font-size: 16px;
+      line-height: 1.5em;
+      font-style: italic;
+      opacity: .6;
+      display: block; }
+  #blog-post article h1:first-child, #proj-post article h1:first-child {
+    margin-bottom: 1em; }
+  #blog-post article h2, #proj-post article h2, #blog-post article h3, #proj-post article h3, #blog-post article h4, #proj-post article h4, #blog-post article h5, #proj-post article h5, #blog-post article h6, #proj-post article h6 {
+    margin-bottom: .5em;
+    padding-top: 1.5em; }
+  #blog-post article p, #proj-post article p {
+    line-height: 1.5em; }
+  #blog-post article p + p, #proj-post article p + p {
+    text-indent: 1em; }
+  #blog-post article ul, #proj-post article ul {
+    list-style: disc inside none; }
+  #blog-post article ol, #proj-post article ol {
+    list-style: decimal inside none; }
+  #blog-post article hr, #proj-post article hr {
+    margin: 2em 0;
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border: none; }
+  #blog-post article blockquote, #proj-post article blockquote {
+    box-sizing: border-box;
+    margin: .5em 0 1em 0;
+    color: grey;
+    font-style: italic;
+    border-left: .2em solid grey;
+    padding-left: 1em; }
+
+.subhead #cat-one-title,
+.subhead #cat-two-title {
   cursor: pointer; }
-  .subhead #cat-one-title:after, .subhead #cat-two-title:after {
+  .subhead #cat-one-title:after,
+  .subhead #cat-two-title:after {
     display: none; }
 
 .subhead #cat-one-title + h1 {
   position: absolute;
-  left: 95px; }
+  left: 105px; }
 
 .subhead #slider {
   position: absolute;
   height: 3px;
-  left: 1em;
-  bottom: 0px;
+  bottom: 0;
   background-color: #5FB7FF;
-  transition: transform 400ms ease-in-out; }
+  transition: all 500ms ease-in-out;
+  left: 1.5rem; }
 
 .subhead .default-slider {
   transform: translateX(0);
   width: 58px; }
 
 .subhead .right-slider {
-  transform: translateX(80px);
-  width: 27px; }
+  transform: translateX(82px);
+  width: 114px; }
 
 #posts-in-category {
   position: relative;
-  left: 1em; }
+  margin: 2em 0; }
+  #posts-in-category div {
+    margin: 2em 0; }
+    #posts-in-category div a {
+      color: black;
+      text-decoration: none; }
+      #posts-in-category div a p, #posts-in-category div a span {
+        font-family: "Roboto", sans-serif;
+        font-size: 14px; }

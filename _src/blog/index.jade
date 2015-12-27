@@ -13,7 +13,7 @@ html(lang="en")
     include ../assets/markup/nav.jade
     div.subhead
       h1.page-title Posts
-    main#blog-posts
+    main#blog-post-list
       each post in postArr
         div
           a(href=post.path)

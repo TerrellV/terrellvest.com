@@ -1,7 +1,6 @@
 %page-title {
   position: absolute;
   bottom: 0px;
-  left: 1em;
   box-sizing: border-box;
   margin: 0 ;
   padding: 0 0 12px 0;
@@ -19,16 +18,21 @@
     position: absolute;
   }
 }
-
+// I don't like this body level / site wide rule but if I ever need the horizontal scroll on the body I will have to refactor this scsss and possibly remove the body padding
+body {
+  overflow-x: hidden;
+}
 
 .subhead {
   position: relative;
-  width: 100%;
+  width: 100vw;
   height: 40px;
+  margin-left: -1.5rem;
   box-sizing: border-box;
   border-bottom: 1px solid transparentize(grey, .7);
   .page-title{
     @extend %page-title;
+    left: 1.5rem;
   }
   .page-title-port{
     @extend .page-title;
@@ -44,7 +48,5 @@
       display: none;
     }
   }
-  #slider {
-    background-color: $accent-blue;
-  }
+
 }

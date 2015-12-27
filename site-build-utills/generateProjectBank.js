@@ -19,6 +19,11 @@ const projectBank = {
       title: "Personal Website",
       date: [2015,12,24], // year, month, day
       type: 'web' // business or web
+    },
+    {
+      title: "Twitch Viewer",
+      date: [2015,6,24], // year, month, day
+      type: 'web' // business or web
     }
   ],
   getMonth: function( n, title ){

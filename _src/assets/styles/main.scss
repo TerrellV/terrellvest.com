@@ -1,9 +1,13 @@
 // reset the browser styles
 @import "./partials/reset.scss";
+
 // set variables for use in other style sheets
 @import "./partials/vars.scss";
 // set typogrophy rules
 @import "./partials/typography.scss";
+
+// site body element
+@import "./components/body.scss";
 
 // site navigation
 @import "./components/nav.scss";
@@ -14,5 +18,10 @@
 
 // blog page
 @import "./components/blog.scss";
+  // Blog posts
+  @import "./components/blog-post.scss";
+
 // portfolio page
 @import "./components/portfolio.scss";
+  // proj post
+  @import "./components/proj-post.scss";

@@ -3,7 +3,7 @@
     
   var busHtml = '<div><a href="/portfolio/financial-literacy"><p>Financial Literacy</p><span>May 20, 2015</span></a></div><div><a href="/portfolio/entrepreneur-workshop"><p>Entrepreneur Workshop</p><span>December 4, 2015</span></a></div>';
     
-  var webHtml = '<div><a href="/portfolio/personal-website"><p>Personal Website</p><span>December 24, 2015</span></a></div>';
+  var webHtml = '<div><a href="/portfolio/personal-website"><p>Personal Website</p><span>December 24, 2015</span></a></div><div><a href="/portfolio/twitch-viewer"><p>Twitch Viewer</p><span>June 24, 2015</span></a></div>';
     
   function app(){
   var portModule = {

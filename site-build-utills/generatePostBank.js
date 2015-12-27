@@ -18,6 +18,11 @@ const postBank = {
       title: "Post Three",
       readTime: 4, // in min
       date: [2015,4,15] // yr-mm-dd
+    },
+    {
+      title: "Year End Reflection",
+      readTime: 5, // in min
+      date: [2015,12,28] // yr-mm-dd
     }
   ],
   addPaths: function (postBankArr){
