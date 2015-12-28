@@ -95,7 +95,7 @@ gulp.task('sass-update', function(){
     .pipe(gulp.dest('_dist'))
     .pipe(browserSync.stream());
 });
-gulp.task('jade',['render'], function(){
+gulp.task('jade',['clientJs'], function(){
   gulp.src([
     '_src/**/*.jade',
     '!_src/{assets,assets/**}',
@@ -104,9 +104,19 @@ gulp.task('jade',['render'], function(){
     .pipe(jade())
     .pipe(gulp.dest('_dist'));
 });
+gulp.task('clientJs',['render'], function(){
+  gulp.src('./_src/assets/scripts/helper.js', {base: '_src'})
+    .pipe(gulp.dest('_dist'));
+});
+gulp.task('clientJs-update', function(){
+  gulp.src('./_src/assets/scripts/helper.js', {base: '_src'})
+    .pipe(gulp.dest('_dist'));
+    browserSync.reload();
+});
 
 gulp.task('watch',['sass'], function(){
   gulp.watch('./_src/assets/styles/**/*.scss',['sass-update']);
+  gulp.watch('./_src/assets/scripts/helper.js',['clientJs-update']);
   gulp.watch([
     './_src/blog/md-posts/*.md',
     './_src/blog/*.jade'
@@ -127,4 +137,4 @@ gulp.task('watch',['sass'], function(){
   })
 });
 
-gulp.task('default', ['render','jade','sass','watch','browser-sync']);
+gulp.task('default', ['render','clientJs','jade','sass','watch','browser-sync']);

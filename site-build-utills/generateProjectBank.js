@@ -6,7 +6,7 @@
 const projectBank = {
   startData: [
     {
-      title: "Financial Literacy",
+      title: "Master Your Money",
       date: [2015,5,20], // year, month, day
       type: 'business' // business or web
     },
@@ -50,7 +50,8 @@ const projectBank = {
   },
   addPaths: function (projectBank){
     projectBank.map( obj => {
-      obj.path = '/portfolio/' + obj.title.replace(' ', '-').toLowerCase();
+      obj.path = '/portfolio/' + obj.title.replace(/\s/g,'-').toLowerCase();
+      console.log(obj.path);
     });
     return projectBank;
   },

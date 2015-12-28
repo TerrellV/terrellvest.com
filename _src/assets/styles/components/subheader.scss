@@ -23,30 +23,25 @@ body {
   overflow-x: hidden;
 }
 
-.subhead {
-  position: relative;
-  width: 100vw;
-  height: 40px;
-  margin-left: -1.5rem;
-  box-sizing: border-box;
-  border-bottom: 1px solid transparentize(grey, .7);
-  .page-title{
-    @extend %page-title;
-    left: 1.5rem;
-  }
-  .page-title-port{
-    @extend .page-title;
-    &:after {
-      display: none;
+.subhead-cont {
+  .subhead{
+    .page-title{
+      @extend %page-title;
+      left: 1.5rem;
+    }
+    .page-title-port{
+      @extend .page-title;
+      &:after {
+        display: none;
+      }
+    }
+    .page-title-port + h1{
+      @extend .page-title;
+      position: relative;
+      margin-left: 20px;
+      &:after {
+        display: none;
+      }
     }
   }
-  .page-title-port + h1{
-    @extend .page-title;
-    position: relative;
-    margin-left: 20px;
-    &:after {
-      display: none;
-    }
-  }
-
 }

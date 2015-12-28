@@ -1,7 +1,13 @@
+%first-headings {
+  padding-top: 0 !important;
+  margin-bottom: 1em !important;
+}
+
 #blog-post {
   @extend %post-text;
   margin: 2em 0;
   .post-description {
+    position: relative;
     span {
       font-size: 16px;
       line-height: 1.5em;
@@ -12,12 +18,28 @@
     margin-bottom: 1em;
   }
   article {
-    h1:first-child {
-      margin-bottom: 1em;
-    }
+    position: relative;
     h2,h3,h4,h5,h6 {
-      margin-bottom: .5em;
+      margin-bottom: 1em;
       padding-top: 1.5em;
+    }
+    h1:first-child {
+      @extend %first-headings;
+    }
+    h2:first-child {
+      @extend %first-headings;
+    }
+    h3:first-child {
+      @extend %first-headings;
+    }
+    h4:first-child {
+      @extend %first-headings;
+    }
+    h5:first-child {
+      @extend %first-headings;
+    }
+    h6:first-child {
+      @extend %first-headings;
     }
     p{
       line-height: 1.5em;
@@ -27,6 +49,11 @@
     }
     ul {
       list-style: disc inside none;
+    }
+    li > ul{
+      list-style-type: circle;
+      list-style-position: inside;
+      padding-left: 1em;
     }
     ol {
       list-style: decimal inside none;

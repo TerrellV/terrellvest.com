@@ -11,48 +11,42 @@
 body {
   padding: 1.5rem; }
 
-.site-header {
+.site-header .site-nav {
   position: relative;
   width: 100%;
-  height: 60px;
-  padding: 0px;
-  box-sizing: border-box; }
-  .site-header .site-nav {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    box-sizing: inherit; }
-    .site-header .site-nav .navList {
+  height: 100%;
+  box-sizing: inherit; }
+  .site-header .site-nav .navList {
+    margin: 0px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    list-style: none;
+    box-sizing: border-box;
+    position: absolute;
+    text-align: left; }
+    .site-header .site-nav .navList li {
       margin: 0px;
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      list-style: none;
-      box-sizing: border-box;
-      position: absolute;
-      text-align: left; }
-      .site-header .site-nav .navList li {
-        margin: 0px;
-        display: inline;
-        font-family: "Roboto",sans-serif;
-        font-size: 14px; }
-        .site-header .site-nav .navList li a {
-          text-decoration: none;
-          text-align: left;
-          color: black;
-          padding: 14px;
-          transition: "all 1s ease-in-out";
-          cursor: pointer; }
-          .site-header .site-nav .navList li a:hover {
-            opacity: 1 !important; }
-          .site-header .site-nav .navList li a.active {
-            opacity: 1; }
-          .site-header .site-nav .navList li a.inactive {
-            opacity: .4; }
-          .site-header .site-nav .navList li a:first-child {
-            padding-left: 0px; }
+      display: inline;
+      font-family: "Roboto",sans-serif;
+      font-size: 14px; }
+      .site-header .site-nav .navList li a {
+        text-decoration: none;
+        text-align: left;
+        color: black;
+        padding: 0 14px;
+        transition: all 1s ease-in-out;
+        cursor: pointer; }
+        .site-header .site-nav .navList li a:hover {
+          opacity: 1 !important; }
+        .site-header .site-nav .navList li a.active {
+          opacity: 1; }
+        .site-header .site-nav .navList li a.inactive {
+          opacity: .4; }
+        .site-header .site-nav .navList li a:first-child {
+          padding-left: 0px; }
 
-.subhead .page-title, .subhead .page-title-port, .subhead .page-title-port + h1, .subhead #cat-one-title,
+.subhead-cont .subhead .page-title, .subhead-cont .subhead .page-title-port, .subhead-cont .subhead .page-title-port + h1, .subhead-cont .subhead #cat-one-title, .subhead-cont
 .subhead #cat-two-title {
   position: absolute;
   bottom: 0px;
@@ -63,7 +57,7 @@ body {
   font-weight: 600;
   font-family: "Roboto", sans-serif;
   font-size: 14px; }
-  .subhead .page-title:after, .subhead .page-title-port:after, .subhead .page-title-port + h1:after, .subhead #cat-one-title:after,
+  .subhead-cont .subhead .page-title:after, .subhead-cont .subhead .page-title-port:after, .subhead-cont .subhead .page-title-port + h1:after, .subhead-cont .subhead #cat-one-title:after, .subhead-cont
   .subhead #cat-two-title:after {
     content: '';
     display: block;
@@ -76,23 +70,18 @@ body {
 body {
   overflow-x: hidden; }
 
-.subhead {
+.subhead-cont .subhead .page-title, .subhead-cont .subhead .page-title-port, .subhead-cont .subhead .page-title-port + h1, .subhead-cont .subhead #cat-one-title, .subhead-cont
+.subhead #cat-two-title {
+  left: 1.5rem; }
+
+.subhead-cont .subhead .page-title-port:after {
+  display: none; }
+
+.subhead-cont .subhead .page-title-port + h1 {
   position: relative;
-  width: 100vw;
-  height: 40px;
-  margin-left: -1.5rem;
-  box-sizing: border-box;
-  border-bottom: 1px solid rgba(128, 128, 128, 0.3); }
-  .subhead .page-title, .subhead .page-title-port, .subhead .page-title-port + h1, .subhead #cat-one-title,
-  .subhead #cat-two-title {
-    left: 1.5rem; }
-  .subhead .page-title-port:after {
+  margin-left: 20px; }
+  .subhead-cont .subhead .page-title-port + h1:after {
     display: none; }
-  .subhead .page-title-port + h1 {
-    position: relative;
-    margin-left: 20px; }
-    .subhead .page-title-port + h1:after {
-      display: none; }
 
 #about-post #profilePic {
   width: 100%;
@@ -124,9 +113,14 @@ body {
       #blog-post-list div a span {
         z-index: -1; }
 
+#blog-post article h1:first-child, #proj-post article h1:first-child, #blog-post article h2:first-child, #proj-post article h2:first-child, #blog-post article h3:first-child, #proj-post article h3:first-child, #blog-post article h4:first-child, #proj-post article h4:first-child, #blog-post article h5:first-child, #proj-post article h5:first-child, #blog-post article h6:first-child, #proj-post article h6:first-child {
+  padding-top: 0 !important;
+  margin-bottom: 1em !important; }
+
 #blog-post, #proj-post {
   margin: 2em 0; }
   #blog-post .post-description, #proj-post .post-description {
+    position: relative;
     margin-bottom: 1em; }
     #blog-post .post-description span, #proj-post .post-description span {
       font-size: 16px;
@@ -134,31 +128,35 @@ body {
       font-style: italic;
       opacity: .6;
       display: block; }
-  #blog-post article h1:first-child, #proj-post article h1:first-child {
-    margin-bottom: 1em; }
-  #blog-post article h2, #proj-post article h2, #blog-post article h3, #proj-post article h3, #blog-post article h4, #proj-post article h4, #blog-post article h5, #proj-post article h5, #blog-post article h6, #proj-post article h6 {
-    margin-bottom: .5em;
-    padding-top: 1.5em; }
-  #blog-post article p, #proj-post article p {
-    line-height: 1.5em; }
-  #blog-post article p + p, #proj-post article p + p {
-    text-indent: 1em; }
-  #blog-post article ul, #proj-post article ul {
-    list-style: disc inside none; }
-  #blog-post article ol, #proj-post article ol {
-    list-style: decimal inside none; }
-  #blog-post article hr, #proj-post article hr {
-    margin: 2em 0;
-    height: 1px;
-    background-color: rgba(0, 0, 0, 0.2);
-    border: none; }
-  #blog-post article blockquote, #proj-post article blockquote {
-    box-sizing: border-box;
-    margin: .5em 0 1em 0;
-    color: grey;
-    font-style: italic;
-    border-left: .2em solid grey;
-    padding-left: 1em; }
+  #blog-post article, #proj-post article {
+    position: relative; }
+    #blog-post article h2, #proj-post article h2, #blog-post article h3, #proj-post article h3, #blog-post article h4, #proj-post article h4, #blog-post article h5, #proj-post article h5, #blog-post article h6, #proj-post article h6 {
+      margin-bottom: 1em;
+      padding-top: 1.5em; }
+    #blog-post article p, #proj-post article p {
+      line-height: 1.5em; }
+    #blog-post article p + p, #proj-post article p + p {
+      text-indent: 1em; }
+    #blog-post article ul, #proj-post article ul {
+      list-style: disc inside none; }
+    #blog-post article li > ul, #proj-post article li > ul {
+      list-style-type: circle;
+      list-style-position: inside;
+      padding-left: 1em; }
+    #blog-post article ol, #proj-post article ol {
+      list-style: decimal inside none; }
+    #blog-post article hr, #proj-post article hr {
+      margin: 2em 0;
+      height: 1px;
+      background-color: rgba(0, 0, 0, 0.2);
+      border: none; }
+    #blog-post article blockquote, #proj-post article blockquote {
+      box-sizing: border-box;
+      margin: .5em 0 1em 0;
+      color: grey;
+      font-style: italic;
+      border-left: .2em solid grey;
+      padding-left: 1em; }
 
 .subhead #cat-one-title,
 .subhead #cat-two-title {
@@ -198,3 +196,71 @@ body {
       #posts-in-category div a p, #posts-in-category div a span {
         font-family: "Roboto", sans-serif;
         font-size: 14px; }
+
+@media (min-width: 600px) and (max-width: 750px) {
+  body {
+    padding: 1.5rem 10vw; }
+  .subhead-cont {
+    margin-left: -10vw !important; }
+    .subhead-cont .subhead .page-title, .subhead-cont .subhead .page-title-port, .subhead-cont .subhead .page-title-port + h1, .subhead-cont .subhead #cat-one-title, .subhead-cont
+    .subhead #cat-two-title {
+      left: 10vw; } }
+
+@media (max-width: 750px) {
+  .site-header {
+    position: relative;
+    width: 100%;
+    height: 60px;
+    padding: 0px;
+    box-sizing: border-box; }
+  .subhead-cont {
+    position: relative;
+    box-sizing: border-box;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.3);
+    padding: 0 1.5rem;
+    width: 100vw;
+    height: 40px;
+    margin-left: -1.5rem; }
+    .subhead-cont .subhead {
+      box-sizing: inherit;
+      height: 100%; } }
+
+@media (min-width: 751px) and (max-width: 1000px) {
+  .site-header {
+    border-bottom: 1px solid rgba(128, 128, 128, 0.3);
+    height: 80px;
+    margin-bottom: 2em; }
+    .site-header .site-nav {
+      margin-left: 20vw; }
+      .site-header .site-nav .navList {
+        padding-left: 1.5em; }
+  .subhead-cont {
+    color: black;
+    position: relative;
+    width: 20vw; }
+    .subhead-cont .subhead .page-title, .subhead-cont .subhead .page-title-port, .subhead-cont .subhead .page-title-port + h1, .subhead-cont .subhead #cat-one-title, .subhead-cont
+    .subhead #cat-two-title {
+      font-size: 16px;
+      left: 0;
+      margin: 0;
+      padding: 0;
+      display: block;
+      position: relative; }
+      .subhead-cont .subhead .page-title:after, .subhead-cont .subhead .page-title-port:after, .subhead-cont .subhead .page-title-port + h1:after, .subhead-cont .subhead #cat-one-title:after, .subhead-cont
+      .subhead #cat-two-title:after {
+        display: none; }
+  #proj-post, #blog-post, #proj-post {
+    position: relative;
+    width: 60vw;
+    margin: 16px 0 0 20vw; }
+    #proj-post .post-description, #blog-post .post-description, #proj-post .post-description {
+      position: absolute;
+      margin-top: -10px;
+      left: -20vw; }
+      #proj-post .post-description span, #blog-post .post-description span, #proj-post .post-description span {
+        font-size: 14px; }
+        #proj-post .post-description span #posted-on, #blog-post .post-description span #posted-on, #proj-post .post-description span #posted-on {
+          display: none; }
+    #proj-post article, #blog-post article, #proj-post article {
+      padding: 0 1.5em;
+      position: absolute; } }

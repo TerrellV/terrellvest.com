@@ -19,11 +19,11 @@ module.exports = function generateProjectPosts(type, projTypeArr, projects, res,
       var templatePath = '_src/assets/markup/proj-template.jade';
       var hyphFile = file.replace(/\.(.+)/g,''); // hyphenated file with no ext
       var projObj = projTypeArr.filter( obj => {
-        return obj.title.replace(' ','-').toLowerCase() === hyphFile;
+        return obj.title.replace(/\s/g,'-').toLowerCase() === hyphFile;
       })[0];
 
       // Fist Check if the files all have a corresponding projectBankObject
-      var projTitleFileBank = projTypeArr.map(o=>o.title.replace(' ','-').toLowerCase());
+      var projTitleFileBank = projTypeArr.map(o=>o.title.replace(/\s/g,'-').toLowerCase());
       if (projTitleFileBank.indexOf(hyphFile) === -1 ) {
         throw new Error(`We couldn't match your files with the project start data. Check to make sure you have defined an object for each post you have in md-projects/${type}. Also check to see if the titles match. your md file should be lowercase and hyphenated and your title should be uppercase with spaces wher the hypens are in your file.`);
       }

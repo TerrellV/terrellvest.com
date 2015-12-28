@@ -1,0 +1,90 @@
+@media (min-width: 600px) and (max-width: 750px) {
+  body {
+    padding: 1.5rem 10vw ;
+  }
+  .subhead-cont{
+    margin-left:-10vw !important;
+    .subhead {
+      .page-title {
+        left: 10vw;
+      }
+    }
+  }
+}
+
+@media (max-width: 750px) {
+  .site-header {
+    position: relative;
+    width: 100%;
+    height: 60px;
+    padding: 0px;
+    box-sizing: border-box;
+  }
+  .subhead-cont {
+    position: relative;
+    box-sizing: border-box;
+    border-bottom: 1px solid transparentize(grey, .7);
+    padding: 0 1.5rem;
+    width: 100vw;
+    height: 40px;
+    margin-left: -1.5rem;
+    .subhead{
+      box-sizing: inherit;
+      height: 100%;
+    }
+  }
+}
+@media (min-width: 751px) and (max-width: 1000px) {
+  // nav indent
+  .site-header {
+    border-bottom: 1px solid transparentize(grey, .7);
+    height: 80px;
+    margin-bottom: 2em;
+    .site-nav {
+      margin-left: 20vw;
+      .navList {
+        padding-left: 1.5em;
+      }
+    }
+  }
+  // subhead
+  .subhead-cont{
+    color: black;
+    position: relative;
+    width: 20vw;
+    .subhead{
+      .page-title{
+        font-size: 16px;
+        left: 0;
+        margin: 0;
+        padding: 0;
+        display: block;
+        position: relative;
+        &:after{
+          display: none;
+        }
+      }
+    }
+  }
+  // content
+  #proj-post, #blog-post {
+    position: relative;
+    width: 60vw;
+    margin: 16px 0 0 20vw;
+    .post-description{
+      position: absolute;
+      margin-top: -10px;
+      left: -20vw;
+      span {
+        font-size: 14px;
+        #posted-on{
+          display: none;
+        }
+      }
+    }
+    article {
+      padding: 0 1.5em;
+      position: absolute;
+    }
+  }
+}
