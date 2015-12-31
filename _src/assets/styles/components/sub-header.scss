@@ -1,0 +1,15 @@
+.sub-header {
+  box-sizing: border-box;
+  border-bottom: 1px solid transparentize(grey, .7);
+  width: 100vw;
+  margin-left: -$body-padding;
+  .page-title {
+    padding-top: 10px;
+    display: inline-block;
+    margin-left: $body-padding;
+    padding-bottom: 10px;
+    border-bottom: 2px solid $accent-blue;
+    font-family: "Roboto",sans-serif;
+    font-size: 14px;
+  }
+}

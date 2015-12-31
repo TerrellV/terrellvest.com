@@ -1,266 +1,216 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,700);
-@import url(https://fonts.googleapis.com/css?family=Fira+Sans:400,400italic);
 * {
-  margin: 0px;
-  padding: 0px; }
-
-#blog-post, #proj-post {
-  font-family: "Roboto",sans-serif;
-  color: black; }
+  padding: 0;
+  margin: 0; }
 
 body {
-  padding: 1.5rem; }
+  padding: 25px; }
+  body .page-container {
+    width: 100%; }
 
-.site-header .site-nav {
+#site-header {
+  width: 100vw;
+  height: 60px;
   position: relative;
-  width: 100%;
-  height: 100%;
-  box-sizing: inherit; }
-  .site-header .site-nav .navList {
-    margin: 0px;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    list-style: none;
-    box-sizing: border-box;
-    position: absolute;
-    text-align: left; }
-    .site-header .site-nav .navList li {
-      margin: 0px;
-      display: inline;
-      font-family: "Roboto",sans-serif;
-      font-size: 14px; }
-      .site-header .site-nav .navList li a {
-        text-decoration: none;
-        text-align: left;
-        color: black;
-        padding: 0 14px;
-        transition: all 1s ease-in-out;
-        cursor: pointer; }
-        .site-header .site-nav .navList li a:hover {
-          opacity: 1 !important; }
-        .site-header .site-nav .navList li a.active {
-          opacity: 1; }
-        .site-header .site-nav .navList li a.inactive {
-          opacity: .4; }
-        .site-header .site-nav .navList li a:first-child {
-          padding-left: 0px; }
-
-.subhead-cont .subhead .page-title, .subhead-cont .subhead .page-title-port, .subhead-cont .subhead .page-title-port + h1, .subhead-cont .subhead #cat-one-title, .subhead-cont
-.subhead #cat-two-title {
-  position: absolute;
-  bottom: 0px;
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0 0 12px 0;
-  display: inline;
-  font-weight: 600;
-  font-family: "Roboto", sans-serif;
-  font-size: 14px; }
-  .subhead-cont .subhead .page-title:after, .subhead-cont .subhead .page-title-port:after, .subhead-cont .subhead .page-title-port + h1:after, .subhead-cont .subhead #cat-one-title:after, .subhead-cont
-  .subhead #cat-two-title:after {
-    content: '';
-    display: block;
+  left: -25px;
+  box-sizing: border-box; }
+  #site-header #site-nav {
+    font-size: 14px;
     width: 100%;
-    height: 3px;
+    font-family: "Roboto", sans-serif;
+    position: relative;
+    left: 25px; }
+    #site-header #site-nav #nav-list {
+      list-style: circle inside; }
+      #site-header #site-nav #nav-list a {
+        color: black; }
+        #site-header #site-nav #nav-list a li {
+          display: inline-block;
+          margin: 0 10px; }
+      #site-header #site-nav #nav-list a:visited {
+        color: black; }
+      #site-header #site-nav #nav-list a:first-child li {
+        margin-left: 0; }
+
+.sub-header {
+  box-sizing: border-box;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.3);
+  width: 100vw;
+  margin-left: -25px; }
+  .sub-header .page-title {
+    padding-top: 10px;
+    display: inline-block;
+    margin-left: 25px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #5FB7FF;
+    font-family: "Roboto",sans-serif;
+    font-size: 14px; }
+
+#about-content #about-composition #about-md-content {
+  margin-top: 25px; }
+  #about-content #about-composition #about-md-content #profile-pic {
+    width: 100%; }
+
+#blog-content #blog-posts div {
+  cursor: pointer;
+  margin: 2em 0;
+  -webkit-tap-highlight-color: rgba(55, 183, 255, 0.1); }
+  #blog-content #blog-posts div:hover p {
+    color: #006cc5 !important; }
+  #blog-content #blog-posts div a {
+    color: black;
+    text-decoration: none; }
+    #blog-content #blog-posts div a p, #blog-content #blog-posts div a span {
+      font-family: "Roboto", sans-serif;
+      font-size: 14px; }
+
+.blog-post-content .blog-post-composition .blog-post-description {
+  margin: 25px 0; }
+  .blog-post-content .blog-post-composition .blog-post-description span {
+    font-family: "Roboto",sans-serif;
+    font-size: 14px;
+    display: block;
+    font-style: italic;
+    color: grey; }
+
+#portfolio-content #portfolio-header {
+  position: relative; }
+  #portfolio-content #portfolio-header .page-title {
+    border-bottom: none;
+    cursor: pointer; }
+  #portfolio-content #portfolio-header .default-slider {
     background-color: #5FB7FF;
-    bottom: -1px;
     position: absolute; }
+  #portfolio-content #portfolio-header .mobile-slider {
+    margin-left: 25px;
+    transform: translateX(0px);
+    height: 2px;
+    bottom: 0px;
+    left: 0px;
+    transition: transform 250ms linear, width 178.8ms linear 250ms; }
+  #portfolio-content #portfolio-header .desktop-slider {
+    width: 8px !important;
+    height: 8px;
+    border-radius: 50%;
+    left: -30px;
+    top: 5px;
+    transform: translateY(0px);
+    transition: transform 200ms ease-in-out, background-color 250ms ease-in-out; }
+  #portfolio-content #portfolio-header .slider-move-right {
+    transform: translateX(84px); }
+  #portfolio-content #portfolio-header .slider-move-down {
+    transform: translateY(43px); }
 
-body {
-  overflow-x: hidden; }
-
-.subhead-cont .subhead .page-title, .subhead-cont .subhead .page-title-port, .subhead-cont .subhead .page-title-port + h1, .subhead-cont .subhead #cat-one-title, .subhead-cont
-.subhead #cat-two-title {
-  left: 1.5rem; }
-
-.subhead-cont .subhead .page-title-port:after {
-  display: none; }
-
-.subhead-cont .subhead .page-title-port + h1 {
-  position: relative;
-  margin-left: 20px; }
-  .subhead-cont .subhead .page-title-port + h1:after {
-    display: none; }
-
-#about-post #profilePic {
-  width: 100%;
-  max-width: 600px;
-  padding: 2em 0 2em 0; }
-
-#about-post p {
-  font-size: 14px;
-  font-family: "Roboto", sans-serif;
-  line-height: 1.5em; }
-
-#about-post p + p {
-  text-indent: 20px; }
-
-#blog-post-list {
-  width: 100%;
+#portfolio-content div {
   margin: 2em 0; }
-  #blog-post-list div {
-    cursor: pointer;
-    margin: 2em 0; }
-    #blog-post-list div:hover p {
-      color: #006cc5 !important; }
-    #blog-post-list div a {
-      color: black;
-      text-decoration: none; }
-      #blog-post-list div a p, #blog-post-list div a span {
-        font-family: "Roboto", sans-serif;
-        font-size: 14px; }
-      #blog-post-list div a span {
-        z-index: -1; }
+  #portfolio-content div a {
+    color: black;
+    text-decoration: none; }
+    #portfolio-content div a p, #portfolio-content div a span {
+      font-family: "Roboto", sans-serif;
+      font-size: 14px; }
 
-#blog-post article h1:first-child, #proj-post article h1:first-child, #blog-post article h2:first-child, #proj-post article h2:first-child, #blog-post article h3:first-child, #proj-post article h3:first-child, #blog-post article h4:first-child, #proj-post article h4:first-child, #blog-post article h5:first-child, #proj-post article h5:first-child, #blog-post article h6:first-child, #proj-post article h6:first-child {
+.portfolio-post-content .portfolio-post-composition .portfolio-post-description {
+  margin: 25px 0; }
+  .portfolio-post-content .portfolio-post-composition .portfolio-post-description span {
+    font-family: "Roboto",sans-serif;
+    font-size: 14px;
+    display: block;
+    font-style: italic;
+    color: grey; }
+
+.md-content h1:first-child, .md-content h2:first-child, .md-content h3:first-child, .md-content h4:first-child, .md-content h5:first-child, .md-content h6:first-child {
   padding-top: 0 !important;
   margin-bottom: 1em !important; }
 
-#blog-post, #proj-post {
-  margin: 2em 0; }
-  #blog-post .post-description, #proj-post .post-description {
-    position: relative;
-    margin-bottom: 1em; }
-    #blog-post .post-description span, #proj-post .post-description span {
-      font-size: 16px;
-      line-height: 1.5em;
-      font-style: italic;
-      opacity: .6;
-      display: block; }
-  #blog-post article, #proj-post article {
-    position: relative; }
-    #blog-post article h2, #proj-post article h2, #blog-post article h3, #proj-post article h3, #blog-post article h4, #proj-post article h4, #blog-post article h5, #proj-post article h5, #blog-post article h6, #proj-post article h6 {
-      margin-bottom: 1em;
-      padding-top: 1.5em; }
-    #blog-post article p, #proj-post article p {
-      line-height: 1.5em; }
-    #blog-post article p + p, #proj-post article p + p {
-      text-indent: 1em; }
-    #blog-post article ul, #proj-post article ul {
-      list-style: disc inside none; }
-    #blog-post article li > ul, #proj-post article li > ul {
-      list-style-type: circle;
-      list-style-position: inside;
-      padding-left: 1em; }
-    #blog-post article ol, #proj-post article ol {
-      list-style: decimal inside none; }
-    #blog-post article hr, #proj-post article hr {
-      margin: 2em 0;
-      height: 1px;
-      background-color: rgba(0, 0, 0, 0.2);
-      border: none; }
-    #blog-post article blockquote, #proj-post article blockquote {
-      box-sizing: border-box;
-      margin: .5em 0 1em 0;
-      color: grey;
-      font-style: italic;
-      border-left: .2em solid grey;
-      padding-left: 1em; }
-
-.subhead #cat-one-title,
-.subhead #cat-two-title {
-  cursor: pointer; }
-  .subhead #cat-one-title:after,
-  .subhead #cat-two-title:after {
-    display: none; }
-
-.subhead #cat-one-title + h1 {
-  position: absolute;
-  left: 105px; }
-
-.subhead #slider {
-  position: absolute;
-  height: 3px;
-  bottom: 0;
-  background-color: #5FB7FF;
-  transition: all 500ms ease-in-out;
-  left: 1.5rem; }
-
-.subhead .default-slider {
-  transform: translateX(0);
-  width: 58px; }
-
-.subhead .right-slider {
-  transform: translateX(82px);
-  width: 114px; }
-
-#posts-in-category {
-  position: relative;
-  margin: 2em 0; }
-  #posts-in-category div {
-    margin: 2em 0; }
-    #posts-in-category div a {
-      color: black;
-      text-decoration: none; }
-      #posts-in-category div a p, #posts-in-category div a span {
-        font-family: "Roboto", sans-serif;
-        font-size: 14px; }
+.md-content {
+  font-size: 14px;
+  font-family: "Roboto",sans-serif; }
+  .md-content h2, .md-content h3, .md-content h4, .md-content h5, .md-content h6 {
+    margin-bottom: 1em;
+    padding-top: 1.5em; }
+  .md-content p {
+    line-height: 1.5em; }
+  .md-content p + p {
+    text-indent: 1em; }
+  .md-content ul {
+    list-style: disc inside none; }
+  .md-content li > ul {
+    list-style-type: circle;
+    list-style-position: inside;
+    padding-left: 1em; }
+  .md-content ol {
+    list-style: decimal inside none; }
+  .md-content hr {
+    margin: 2em 0;
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border: none; }
+  .md-content blockquote {
+    box-sizing: border-box;
+    margin: .5em 0 1em 0;
+    color: grey;
+    font-style: italic;
+    border-left: .2em solid grey;
+    padding-left: 1em; }
 
 @media (min-width: 600px) and (max-width: 750px) {
   body {
-    padding: 1.5rem 10vw; }
-  .subhead-cont {
-    margin-left: -10vw !important; }
-    .subhead-cont .subhead .page-title, .subhead-cont .subhead .page-title-port, .subhead-cont .subhead .page-title-port + h1, .subhead-cont .subhead #cat-one-title, .subhead-cont
-    .subhead #cat-two-title {
-      left: 10vw; } }
-
-@media (max-width: 750px) {
-  .site-header {
-    position: relative;
-    width: 100%;
-    height: 60px;
-    padding: 0px;
-    box-sizing: border-box; }
-  .subhead-cont {
-    position: relative;
-    box-sizing: border-box;
-    border-bottom: 1px solid rgba(128, 128, 128, 0.3);
-    padding: 0 1.5rem;
-    width: 100vw;
-    height: 40px;
-    margin-left: -1.5rem; }
-    .subhead-cont .subhead {
-      box-sizing: inherit;
-      height: 100%; } }
+    padding: 25px 10vw; }
+  .sub-header {
+    margin-left: -10vw; }
+    .sub-header .page-title:nth-child(1) {
+      margin-left: 10vw; }
+  #portfolio-content #portfolio-header .default-slider {
+    left: 10vw;
+    margin-left: 0; } }
 
 @media (min-width: 751px) and (max-width: 1000px) {
-  .site-header {
-    border-bottom: 1px solid rgba(128, 128, 128, 0.3);
-    height: 80px;
-    margin-bottom: 2em; }
-    .site-header .site-nav {
-      margin-left: 20vw; }
-      .site-header .site-nav .navList {
-        padding-left: 1.5em; }
-  .subhead-cont {
-    color: black;
+  body {
+    overflow-x: hidden;
     position: relative;
-    width: 20vw; }
-    .subhead-cont .subhead .page-title, .subhead-cont .subhead .page-title-port, .subhead-cont .subhead .page-title-port + h1, .subhead-cont .subhead #cat-one-title, .subhead-cont
-    .subhead #cat-two-title {
-      font-size: 16px;
-      left: 0;
-      margin: 0;
+    font-size: 16px !important; }
+    body .page-container {
+      width: 100%; }
+  #site-header {
+    height: 70px; }
+    #site-header #site-nav {
+      position: relative;
+      margin-top: 25px;
+      left: 15%; }
+  main .sub-header {
+    border: none;
+    width: 30%;
+    position: absolute;
+    margin-left: 0;
+    left: 15%; }
+    main .sub-header .page-title {
+      border: none;
       padding: 0;
-      display: block;
-      position: relative; }
-      .subhead-cont .subhead .page-title:after, .subhead-cont .subhead .page-title-port:after, .subhead-cont .subhead .page-title-port + h1:after, .subhead-cont .subhead #cat-one-title:after, .subhead-cont
-      .subhead #cat-two-title:after {
-        display: none; }
-  #proj-post, #blog-post, #proj-post {
+      margin-left: 0px; }
+  main .md-content {
+    width: 50%;
     position: relative;
-    width: 60vw;
-    margin: 16px 0 0 20vw; }
-    #proj-post .post-description, #blog-post .post-description, #proj-post .post-description {
-      position: absolute;
-      margin-top: -10px;
-      left: -20vw; }
-      #proj-post .post-description span, #blog-post .post-description span, #proj-post .post-description span {
-        font-size: 14px; }
-        #proj-post .post-description span #posted-on, #blog-post .post-description span #posted-on, #proj-post .post-description span #posted-on {
-          display: none; }
-    #proj-post article, #blog-post article, #proj-post article {
-      padding: 0 1.5em;
-      position: absolute; } }
+    left: 35%; }
+  #blog-content {
+    margin-top: 25px; }
+    #blog-content #blog-posts {
+      width: 50%;
+      position: relative;
+      left: 35%; }
+      #blog-content #blog-posts div:first-child {
+        margin-top: 0; }
+  .blog-post-content .blog-post-composition .blog-post-description {
+    position: relative;
+    left: 35%;
+    width: 50%;
+    margin-right: 0 !important; }
+  #portfolio-content #portfolio-header {
+    position: absolute; }
+    #portfolio-content #portfolio-header .page-title {
+      display: block; }
+    #portfolio-content #portfolio-header h1:nth-child(2) {
+      margin-top: 25px; }
+  #portfolio-content #portfolio-posts {
+    width: 50%;
+    position: relative;
+    left: 35%; } }

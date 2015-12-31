@@ -1,90 +1,111 @@
 @media (min-width: 600px) and (max-width: 750px) {
   body {
-    padding: 1.5rem 10vw ;
+    padding: $body-padding 10vw;
   }
-  .subhead-cont{
-    margin-left:-10vw !important;
-    .subhead {
-      .page-title {
+  // adding media queries to fix margin on header
+  .sub-header {
+    margin-left: -10vw;
+    .page-title:nth-child(1) {
+      margin-left: 10vw;
+    }
+  }
+
+  #portfolio-content {
+    #portfolio-header {
+      .default-slider {
         left: 10vw;
+        margin-left: 0;
       }
     }
   }
+
 }
 
-@media (max-width: 750px) {
-  .site-header {
-    position: relative;
-    width: 100%;
-    height: 60px;
-    padding: 0px;
-    box-sizing: border-box;
-  }
-  .subhead-cont {
-    position: relative;
-    box-sizing: border-box;
-    border-bottom: 1px solid transparentize(grey, .7);
-    padding: 0 1.5rem;
-    width: 100vw;
-    height: 40px;
-    margin-left: -1.5rem;
-    .subhead{
-      box-sizing: inherit;
-      height: 100%;
-    }
-  }
-}
+
 @media (min-width: 751px) and (max-width: 1000px) {
-  // nav indent
-  .site-header {
-    border-bottom: 1px solid transparentize(grey, .7);
-    height: 80px;
-    margin-bottom: 2em;
-    .site-nav {
-      margin-left: 20vw;
-      .navList {
-        padding-left: 1.5em;
-      }
+
+  body {
+    overflow-x: hidden;
+    position:relative;
+    font-size: 16px !important;
+    .page-container {
+      width: 100%;
     }
   }
-  // subhead
-  .subhead-cont{
-    color: black;
-    position: relative;
-    width: 20vw;
-    .subhead{
-      .page-title{
-        font-size: 16px;
-        left: 0;
-        margin: 0;
+
+  // site header and navigation
+  #site-header {
+    height: 70px;
+    #site-nav {
+      position: relative;
+      margin-top: 25px;
+      left: 15%;
+    }
+  }
+
+  main {
+    .sub-header {
+      border: none;
+      width: 30%;
+      position: absolute;
+      margin-left: 0;
+      left: 15%;
+      .page-title {
+        border: none;
         padding: 0;
-        display: block;
+        margin-left: 0px;
+      }
+    }
+    .md-content {
+      width: 50%;
+      position: relative;
+      left: 35%;
+    }
+  }
+
+  // blog index page
+  #blog-content{
+    margin-top: $body-padding;
+    #blog-posts {
+      width: 50%;
+      position: relative;
+      left: 35%;
+      div:first-child {
+        margin-top: 0;
+      }
+    }
+  }
+  // blog post
+  .blog-post-content{
+    .blog-post-composition{
+      .blog-post-description{
         position: relative;
-        &:after{
-          display: none;
-        }
+        left: 35%;
+        width: 50%;
+        margin-right: 0!important;
       }
     }
   }
-  // content
-  #proj-post, #blog-post {
-    position: relative;
-    width: 60vw;
-    margin: 16px 0 0 20vw;
-    .post-description{
+  // portfolio page
+  #portfolio-content{
+    #portfolio-header{
       position: absolute;
-      margin-top: -10px;
-      left: -20vw;
-      span {
-        font-size: 14px;
-        #posted-on{
-          display: none;
-        }
+      .page-title {
+        display: block;
+      }
+      h1:nth-child(2) {
+        margin-top: $body-padding;
       }
     }
-    article {
-      padding: 0 1.5em;
-      position: absolute;
+    #portfolio-posts {
+      width: 50%;
+      position: relative;
+      left: 35%;
     }
   }
+
+}
+
+@media (min-width:1001) and (max-width:1920) {
+
 }

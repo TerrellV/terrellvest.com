@@ -81,5 +81,5 @@ module.exports = function(postBank,res,rej){
       Promise.all(filePromises).then(res);
     });
   }
-  Promise.all(taskPromises).then(res);
+  Promise.all(taskPromises).then(res.bind(res('*** Blog Done')));
 }

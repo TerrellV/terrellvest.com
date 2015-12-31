@@ -5,7 +5,7 @@ const marked = require('marked');
 module.exports = function generateProjectPosts(type, projTypeArr, projects, res, rej) {
 
   function completeCallBack(){
-    res(`Done Building ${type} projects`);
+    res(`*** Done with ${type} projects`);
   }
 
   fs.readdir(`_src/portfolio/projects-md/${type}`, function(callback,err,contents){
@@ -13,10 +13,27 @@ module.exports = function generateProjectPosts(type, projTypeArr, projects, res,
 
     var filePromises = [];
 
+
+    /* 1. Write the portfolio index page */
+    filePromises.push(new Promise(createPortfolioIndex));
+
+    function createPortfolioIndex(res,rej){
+      fs.readFile('./_src/portfolio/index.jade', 'utf8', function(err,content){
+        if (err) {throw err;}
+        var jadeFunction = jade.compile(content,{filename:'./_src/portfolio/index.jade'});
+        var compiledHTML = jadeFunction();
+        fs.writeFile('./_dist/portfolio/index.html',compiledHTML, function(err){
+          if (err) {throw err;};
+          res();
+        });
+      });
+    }
+
+
     // map through md files
     contents.map( file => {
       var projPath = `_src/portfolio/projects-md/${type}`;
-      var templatePath = '_src/assets/markup/proj-template.jade';
+      var templatePath = '_src/assets/markup/portfolio-template.jade';
       var hyphFile = file.replace(/\.(.+)/g,''); // hyphenated file with no ext
       var projObj = projTypeArr.filter( obj => {
         return obj.title.replace(/\s/g,'-').toLowerCase() === hyphFile;

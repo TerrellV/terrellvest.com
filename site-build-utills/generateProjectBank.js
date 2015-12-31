@@ -51,7 +51,6 @@ const projectBank = {
   addPaths: function (projectBank){
     projectBank.map( obj => {
       obj.path = '/portfolio/' + obj.title.replace(/\s/g,'-').toLowerCase();
-      console.log(obj.path);
     });
     return projectBank;
   },

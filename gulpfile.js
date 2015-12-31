@@ -8,32 +8,29 @@ const browserSync = require('browser-sync').create();
 // custom render functions
 const posts = require('./site-build-utills/generatePostBank.js');
 const projects = require('./site-build-utills/generateProjectBank.js');
-const buildClientJs = require('./site-build-utills/buildClientScripts.js');
+const buildAbout = require('./site-build-utills/renderAbout.js');
 const buildBlog = require('./site-build-utills/renderBlog.js');
 const buildPortfolio = require('./site-build-utills/renderPortfolio.js');
+const buildClientJs = require('./site-build-utills/buildClientScripts.js');
 
 /* custom render functions */
 function buildArrays(){
   posts.build(posts.startData);
   projects.build(projects.startData);
 }
-function callBuildPorfolio(res,rej){
+function buildAbout_P(){
+  return new Promise(buildAbout)
+}
+function buildPort_P(){
   // Compile the portfolio posts into their own folders giving each their own index file
   const bP = new Promise(buildPortfolio.bind(null,'business', projects.business(), projects));
   const wP = new Promise(buildPortfolio.bind(null,'web', projects.web(), projects));
-
-  Promise.all([bP,wP]).then(function(){
-    console.log('*** Done with all portfolio building');
-    res();
-  });
+  return Promise.all( [bP,wP] );
 }
-function callbuildBlog(res,rej){
-  new Promise(buildBlog.bind(null,posts)).then(function(){
-    console.log('*** Done Building the Blog');
-    res();
-  });
+function buildBlog_P(){
+  return new Promise(buildBlog.bind(null,posts));
 }
-function callBuildClientJs(res,rej){
+function buildApp_P(){
   const config = {
     destPath: `_dist/assets/scripts`,
     fileName: `app.js`,
@@ -41,31 +38,13 @@ function callBuildClientJs(res,rej){
     projectObj: projects
   }
   const configArr = Object.keys(config).map(k => config[k]);
-
-  new Promise(buildClientJs.bind(null,...configArr)).then(function(){
-    console.log('*** Done Building the CientJsFile');
-    res();
-  });
+  return new Promise(buildClientJs.bind(null,...configArr));
 }
 
 gulp.task('render',function(){
-  // create a promise for the portfolio build
-  return new Promise(allRenderTasks);
-
-  function allRenderTasks(res,rej){
-    // Blog and Portfolio promises excecute at the same time
-    // Task 1.
-    buildArrays(); // build arrays must come first or arrays won't be formatted correctly
-    // Task 2.
-    const portPromise = new Promise(callBuildPorfolio);
-    // Task 3.
-    const blogPromise = new Promise(callbuildBlog);
-
-    const clienJsPromise = new Promise(callBuildClientJs);
-
-    Promise.all([portPromise,blogPromise,clienJsPromise]).then(res);
-  }
-
+  // Promises excecute at the same time not in any order
+  buildArrays(); // build arrays must come first or arrays won't be formatted correctly
+  return Promise.all([buildPort_P(), buildBlog_P(), buildApp_P(), buildAbout_P()]);
 });
 
 /* normal gulp stuff below */
@@ -99,7 +78,8 @@ gulp.task('jade',['clientJs'], function(){
   gulp.src([
     '_src/**/*.jade',
     '!_src/{assets,assets/**}',
-    '!_src/{blog,blog/**}'
+    '!_src/{blog,blog/**}',
+    '!_src/index.jade'
   ])
     .pipe(jade())
     .pipe(gulp.dest('_dist'));
@@ -108,31 +88,32 @@ gulp.task('clientJs',['render'], function(){
   gulp.src('./_src/assets/scripts/helper.js', {base: '_src'})
     .pipe(gulp.dest('_dist'));
 });
-gulp.task('clientJs-update', function(){
-  gulp.src('./_src/assets/scripts/helper.js', {base: '_src'})
-    .pipe(gulp.dest('_dist'));
-    browserSync.reload();
-});
-
 gulp.task('watch',['sass'], function(){
   gulp.watch('./_src/assets/styles/**/*.scss',['sass-update']);
-  gulp.watch('./_src/assets/scripts/helper.js',['clientJs-update']);
+  gulp.watch('./_src/assets/scripts/client.js',function(){
+    delete require.cache[require.resolve('./_src/assets/scripts/client.js')];
+    buildApp_P().then(browserSync.reload);
+  });
+  gulp.watch([
+    './_src/_about/*.md',
+    './_src/*.jade'
+  ], function(){
+    buildAbout_P().then(browserSync.reload);
+  });
   gulp.watch([
     './_src/blog/md-posts/*.md',
-    './_src/blog/*.jade'
+    './_src/blog/*.jade',
+    './_src/assets/markup/post-template.jade'
   ], function(){
-    new Promise(callbuildBlog).then(function(){
-      browserSync.reload();
-    })
-  })
+    buildBlog_P().then(browserSync.reload);
+  });
   gulp.watch([
     './_src/portfolio/projects-md/**/*.md',
-    './_src/portfolio/*.jade'
+    './_src/portfolio/*.jade',
+    './_src/assets/markup/portfolio-template.jade'
   ], function(){
-    new Promise(callBuildPorfolio).then(function(){
-      new Promise(callBuildClientJs).then(function(){
-        browserSync.reload();
-      })
+    buildPort_P().then(function(){
+      buildApp_P().then(browserSync.reload());
     })
   })
 });

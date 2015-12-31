@@ -10,12 +10,17 @@ html(lang="en")
     meta(name="mobile-web-app-capable" content="yes")
     link(href="assets/styles/main.css" rel="stylesheet" type="text/css")
   body
-    //- include sprites.jade
-    include ./assets/markup/nav.jade
-    div.subhead
-      h1.page-title Introduction
-    main#about-post
-      img( id="profilePic" src="assets/images/Profile.jpg" alt="Profile image of Terrell Vest")
-      include ./_about/about-text.html
+    .page-container
+      header#site-header
+        include ./assets/markup/nav.jade
+      
+      main#about-content
+        article#about-composition
+          header.sub-header
+            h1.page-title Introduction
+          #about-md-content.md-content
+            img(id="profile-pic" src="assets/images/Profile.jpg" alt="Profile image of Terrell Vest")
+            != postContent
+    
       
     

@@ -1,7 +1,7 @@
-.blog-post-content {
-  .blog-post-composition {
+.portfolio-post-content {
+  .portfolio-post-composition {
     // subheader already styled
-    .blog-post-description{
+    .portfolio-post-description{
       margin: $body-padding 0;
       span {
         font-family: "Roboto",sans-serif;
@@ -10,6 +10,9 @@
         font-style: italic;
         color: grey;
       }
+    }
+    .portfolio-post-md-content {
+
     }
   }
 }

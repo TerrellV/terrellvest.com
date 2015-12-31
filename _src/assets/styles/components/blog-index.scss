@@ -1,0 +1,21 @@
+#blog-content{ // main tag
+  // subheader already defined
+  #blog-posts { // div holding inserted html
+    div {
+      cursor: pointer;
+      margin:2em 0;
+      -webkit-tap-highlight-color: rgba(55,183,255,.1);
+      &:hover p{
+        color: darken( $accent-blue,30%) !important;
+      }
+      a{
+        color: black;
+        text-decoration: none;
+        p,span{
+          font-family: "Roboto", sans-serif;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}

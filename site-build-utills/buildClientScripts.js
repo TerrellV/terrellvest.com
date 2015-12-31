@@ -23,7 +23,6 @@ module.exports = function buildClientJs(destPath,fileName,templatePath,projects,
   }
   function makeTemplateCallback(bString, wString){
     var writtenJs = require('../_src/assets/scripts/client.js');
-
     var templateJs =
     `\n(function(){
     \n  var busHtml = '${bString}';
@@ -31,7 +30,6 @@ module.exports = function buildClientJs(destPath,fileName,templatePath,projects,
     \n  ${writtenJs};
     \n  if(typeof document !== undefined) {
     \n    app();
-    \n    console.log('we in the Browser');
     \n  }
 
     \n})()`;
@@ -39,7 +37,7 @@ module.exports = function buildClientJs(destPath,fileName,templatePath,projects,
     fs.writeFile(`${destPath}/${fileName}`, templateJs, function(err){
       if (err) throw err;
       // console.log(`${fileName} was just created with template strings as variables`);
-      res();
+      res('*** Done Building the CientJsFile');
     })
   }
 

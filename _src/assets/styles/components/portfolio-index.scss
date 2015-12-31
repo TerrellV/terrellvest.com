@@ -1,0 +1,48 @@
+#portfolio-content { // main content tag
+  // overide the default header styles slightly
+  #portfolio-header{
+    position: relative;
+    .page-title {
+      border-bottom: none;
+      cursor: pointer;
+    }
+    .default-slider {
+      background-color: $accent-blue;
+      position: absolute;
+    }
+    .mobile-slider {
+      margin-left: $body-padding;
+      transform: translateX(0px);
+      height: 2px;
+      bottom: 0px;
+      left:0px;
+      transition: transform 250ms linear, width 178.8ms linear 250ms;
+    }
+    .desktop-slider {
+      width: 8px !important;
+      height: 8px;
+      border-radius: 50%;
+      left: -30px;
+      top: 5px;
+      transform: translateY(0px);
+      transition: transform 200ms ease-in-out, background-color 250ms ease-in-out;
+    }
+    .slider-move-right {
+      transform: translateX(84px);
+    }
+    .slider-move-down {
+      transform: translateY(43px);
+    }
+  }
+  div {
+    margin: 2em 0;
+    a {
+      color: black;
+      text-decoration: none;
+      p,span {
+        font-family: "Roboto", sans-serif;
+        font-size: 14px;
+      }
+    }
+  }
+}

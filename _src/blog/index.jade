@@ -10,12 +10,15 @@ html(lang="en")
     meta(name="mobile-web-app-capable" content="yes")
     link(href="../assets/styles/main.css" rel="stylesheet" type="text/css")
   body
-    include ../assets/markup/nav.jade
-    div.subhead
-      h1.page-title Posts
-    main#blog-post-list
-      each post in postArr
-        div
-          a(href=post.path)
-            p=post.title
-            span=post.date
+    .page-container
+      header#site-header
+        include ../assets/markup/nav.jade
+      main#blog-content
+        header.sub-header
+          h1.page-title Posts
+        #blog-posts
+          each post in postArr
+            div
+              a(href=post.path)
+                p=post.title
+                span=post.date

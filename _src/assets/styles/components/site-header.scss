@@ -1,0 +1,32 @@
+#site-header{
+  width: 100vw;
+  height: 60px;
+  position: relative;
+  left: -$body-padding;
+  box-sizing: border-box;
+  #site-nav{
+    font-size: 14px;
+    width: 100%;
+    font-family: "Roboto", sans-serif;
+    position: relative;
+    left: $body-padding;
+    #nav-list {
+      list-style: circle inside;
+      a {
+        color: black;
+        li {
+          display: inline-block;
+          margin: 0 10px;
+        }
+      }
+      a:visited {
+        color: black;
+      }
+      a:first-child {
+        li {
+          margin-left: 0
+        }
+      }
+    }
+  }
+}
