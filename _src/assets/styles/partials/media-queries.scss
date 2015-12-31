@@ -22,12 +22,11 @@
 }
 
 
-@media (min-width: 751px) and (max-width: 1000px) {
+@media (min-width: 751px) and (max-width: 1100px) {
 
   body {
     overflow-x: hidden;
     position:relative;
-    font-size: 16px !important;
     .page-container {
       width: 100%;
     }
@@ -36,31 +35,59 @@
   // site header and navigation
   #site-header {
     height: 70px;
+    width: 100%;
+    left: 0;
     #site-nav {
       position: relative;
       margin-top: 25px;
       left: 15%;
+      #nav-list {
+        left: 0;
+      }
     }
   }
 
   main {
-    .sub-header {
-      border: none;
-      width: 30%;
-      position: absolute;
-      margin-left: 0;
-      left: 15%;
-      .page-title {
+    article {
+      position: relative;
+      .sub-header {
         border: none;
-        padding: 0;
-        margin-left: 0px;
+        width: 30%;
+        position: absolute;
+        margin-left: 0;
+        left: 15%;
+        .page-title {
+          border: none;
+          padding: 0;
+          margin-left: 0px;
+        }
+      }
+      .md-content {
+        width: 50%;
+        position: relative;
+        left: 35%;
       }
     }
-    .md-content {
-      width: 50%;
+  }
+  main {
       position: relative;
-      left: 35%;
-    }
+      .sub-header {
+        border: none;
+        width: 30%;
+        position: absolute;
+        margin-left: 0;
+        left: 15%;
+        .page-title {
+          border: none;
+          padding: 0;
+          margin-left: 0px;
+        }
+      }
+      .md-content {
+        width: 50%;
+        position: relative;
+        left: 35%;
+      }
   }
 
   // blog index page
@@ -86,7 +113,7 @@
       }
     }
   }
-  // portfolio page
+  // portfolio index page
   #portfolio-content{
     #portfolio-header{
       position: absolute;
@@ -103,9 +130,121 @@
       left: 35%;
     }
   }
+  // portfolio post page
+  .portfolio-post-content {
+    .portfolio-post-composition {
+      .portfolio-post-description {
+        position: relative;
+        left: 35%;
+        width: 50%;
+      }
+    }
+  }
 
 }
 
-@media (min-width:1001) and (max-width:1920) {
-
+@media (min-width:1100px) {
+  body {
+    overflow-x: hidden;
+    position:relative;
+    .page-container {
+      width: 1060px;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+  // site header and navigation
+  #site-header {
+    height: 70px;
+    left: 0px;
+    width: 100%;
+    #site-nav {
+      position: relative;
+      margin-top: 25px;
+      left: 15%;
+    }
+  }
+  // subheader for posts
+  main {
+    article {
+      position: relative;
+      .sub-header {
+        border: none;
+        width: 30%;
+        position: absolute;
+        margin-left: 0;
+        left: 15%;
+        .page-title {
+          border: none;
+          padding: 0;
+          margin-left: 0px;
+        }
+      }
+      .md-content {
+        width: 50%;
+        position: relative;
+        left: 35%;
+      }
+    }
+  }
+  main {
+    .sub-header {
+      border: none;
+      width: 30%;
+      position: absolute;
+      margin-left: 0;
+      left: 15%;
+      .page-title {
+        border: none;
+        padding: 0;
+        margin-left: 0px;
+      }
+    }
+  }
+  // blog index page
+  #blog-content{
+    margin-top: $body-padding;
+    #blog-posts {
+      width: 50%;
+      position: relative;
+      left: 35%;
+      div:first-child {
+        margin-top: 0;
+      }
+    }
+  }
+  // blog post
+  .blog-post-content{
+    .blog-post-composition{
+      .blog-post-description{
+        position: relative;
+        left: 35%;
+        width: 50%;
+        margin-right: 0!important;
+      }
+      #blog-post-md-content {
+        width: 50%;
+        position: relative;
+        left: 35%;
+      }
+    }
+  }
+  // portfolio page
+  #portfolio-content{
+    #portfolio-header{
+      position: absolute;
+      .page-title {
+        display: block;
+      }
+      h1:nth-child(2) {
+        margin-top: $body-padding;
+      }
+    }
+    #portfolio-posts {
+      width: 50%;
+      position: relative;
+      left: 45%;
+    }
+  }
 }

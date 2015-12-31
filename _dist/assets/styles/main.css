@@ -164,33 +164,54 @@ body {
     left: 10vw;
     margin-left: 0; } }
 
-@media (min-width: 751px) and (max-width: 1000px) {
+@media (min-width: 751px) and (max-width: 1100px) {
   body {
     overflow-x: hidden;
-    position: relative;
-    font-size: 16px !important; }
+    position: relative; }
     body .page-container {
       width: 100%; }
   #site-header {
-    height: 70px; }
+    height: 70px;
+    width: 100%;
+    left: 0; }
     #site-header #site-nav {
       position: relative;
       margin-top: 25px;
       left: 15%; }
-  main .sub-header {
-    border: none;
-    width: 30%;
-    position: absolute;
-    margin-left: 0;
-    left: 15%; }
-    main .sub-header .page-title {
+      #site-header #site-nav #nav-list {
+        left: 0; }
+  main article {
+    position: relative; }
+    main article .sub-header {
       border: none;
-      padding: 0;
-      margin-left: 0px; }
-  main .md-content {
-    width: 50%;
-    position: relative;
-    left: 35%; }
+      width: 30%;
+      position: absolute;
+      margin-left: 0;
+      left: 15%; }
+      main article .sub-header .page-title {
+        border: none;
+        padding: 0;
+        margin-left: 0px; }
+    main article .md-content {
+      width: 50%;
+      position: relative;
+      left: 35%; }
+  main {
+    position: relative; }
+    main .sub-header {
+      border: none;
+      width: 30%;
+      position: absolute;
+      margin-left: 0;
+      left: 15%; }
+      main .sub-header .page-title {
+        border: none;
+        padding: 0;
+        margin-left: 0px; }
+    main .md-content {
+      width: 50%;
+      position: relative;
+      left: 35%; }
   #blog-content {
     margin-top: 25px; }
     #blog-content #blog-posts {
@@ -213,4 +234,79 @@ body {
   #portfolio-content #portfolio-posts {
     width: 50%;
     position: relative;
-    left: 35%; } }
+    left: 35%; }
+  .portfolio-post-content .portfolio-post-composition .portfolio-post-description {
+    position: relative;
+    left: 35%;
+    width: 50%; } }
+
+@media (min-width: 1100px) {
+  body {
+    overflow-x: hidden;
+    position: relative; }
+    body .page-container {
+      width: 1060px;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%); }
+  #site-header {
+    height: 70px;
+    left: 0px;
+    width: 100%; }
+    #site-header #site-nav {
+      position: relative;
+      margin-top: 25px;
+      left: 15%; }
+  main article {
+    position: relative; }
+    main article .sub-header {
+      border: none;
+      width: 30%;
+      position: absolute;
+      margin-left: 0;
+      left: 15%; }
+      main article .sub-header .page-title {
+        border: none;
+        padding: 0;
+        margin-left: 0px; }
+    main article .md-content {
+      width: 50%;
+      position: relative;
+      left: 35%; }
+  main .sub-header {
+    border: none;
+    width: 30%;
+    position: absolute;
+    margin-left: 0;
+    left: 15%; }
+    main .sub-header .page-title {
+      border: none;
+      padding: 0;
+      margin-left: 0px; }
+  #blog-content {
+    margin-top: 25px; }
+    #blog-content #blog-posts {
+      width: 50%;
+      position: relative;
+      left: 35%; }
+      #blog-content #blog-posts div:first-child {
+        margin-top: 0; }
+  .blog-post-content .blog-post-composition .blog-post-description {
+    position: relative;
+    left: 35%;
+    width: 50%;
+    margin-right: 0 !important; }
+  .blog-post-content .blog-post-composition #blog-post-md-content {
+    width: 50%;
+    position: relative;
+    left: 35%; }
+  #portfolio-content #portfolio-header {
+    position: absolute; }
+    #portfolio-content #portfolio-header .page-title {
+      display: block; }
+    #portfolio-content #portfolio-header h1:nth-child(2) {
+      margin-top: 25px; }
+  #portfolio-content #portfolio-posts {
+    width: 50%;
+    position: relative;
+    left: 45%; } }
