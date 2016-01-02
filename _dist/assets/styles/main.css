@@ -309,4 +309,8 @@ body {
   #portfolio-content #portfolio-posts {
     width: 50%;
     position: relative;
-    left: 45%; } }
+    left: 45%; }
+  .portfolio-post-content .portfolio-post-composition .portfolio-post-description {
+    position: relative;
+    left: 35%;
+    width: 50%; } }
