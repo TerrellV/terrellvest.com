@@ -105,7 +105,9 @@ gulp.task('watch',['sass'], function(){
     './_src/blog/*.jade',
     './_src/assets/markup/post-template.jade'
   ], function(){
-    buildBlog_P().then(browserSync.reload);
+    buildBlog_P().then(function(){
+      browserSync.reload();
+    });
   });
   gulp.watch([
     './_src/portfolio/projects-md/**/*.md',

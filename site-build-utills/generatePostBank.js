@@ -20,14 +20,14 @@ const postBank = {
       date: [2015,4,15] // yr-mm-dd
     },
     {
-      title: "Year End Reflection",
+      title: "2015 A Year In Review",
       readTime: 5, // in min
-      date: [2015,12,28] // yr-mm-dd
+      date: [2016,1,1] // yr-mm-dd
     }
   ],
   addPaths: function (postBankArr){
     postBankArr.map( obj => {
-      obj.path = '/blog/' + obj.title.replace(' ', '-').toLowerCase();
+      obj.path = '/blog/' + obj.title.replace(/\s/g,'-').toLowerCase();
     });
     return postBankArr;
   },

@@ -1,5 +1,1 @@
-
-
-* The letters
-* Significance
-* Pride
+Ignore

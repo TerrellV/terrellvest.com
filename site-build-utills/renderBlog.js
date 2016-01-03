@@ -23,7 +23,7 @@ module.exports = function(postBank,res,rej){
           var html = fn({postArr:postBank.all()});
           fs.writeFile('./_dist/blog/index.html',html, function(err){
             if (err) {throw err;};
-            // console.log('Blog Index Created Based on Number of Objects in Post Bank');
+            // console.log('* Done with blog index');
             res();
           });
         }
@@ -35,7 +35,7 @@ module.exports = function(postBank,res,rej){
 
   function compileAllBlogPosts(res,rej){
     fs.readdir(fp.mdPosts,function(err,files){
-      const filePromises = [];
+      const filePromises = []; // res when all files are done ...
       // add check to ensure this is a valid post bank for each md file before continuing...
       // throw error if match not found
       if (err) throw err;
@@ -66,11 +66,11 @@ module.exports = function(postBank,res,rej){
                 postReadTime: postObj.readTime,
                 postDate: postObj.date
                });
-              var dashCaseFile = postObj.title.replace(" ", '-').toLowerCase();
+              var dashCaseFile = postObj.title.replace(/\s/g,'-').toLowerCase();
               // create / write the file to the correct folder
               fs.mkdir(`_dist/blog/${dashCaseFile}`, function(mode){
                 fs.writeFile(`_dist/blog/${dashCaseFile}/index.html`, pageHtml, function(err){
-                  // console.log('jade file compiled and outputed to Blog/' + dashCaseFile);
+                  // console.log('--- Jade file compiled and outputed to Blog/' + dashCaseFile);
                   res();
                 })
               })
@@ -78,8 +78,15 @@ module.exports = function(postBank,res,rej){
           })
         }
       })
-      Promise.all(filePromises).then(res);
+      Promise.all(filePromises).then(function(){
+        // console.log('* All files done');
+        res();
+      });
     });
   }
-  Promise.all(taskPromises).then(res.bind(res('*** Blog Done')));
+
+  Promise.all(taskPromises).then(function(){
+    console.log('*** Done with all blog stuff');
+    res();
+  });
 }
