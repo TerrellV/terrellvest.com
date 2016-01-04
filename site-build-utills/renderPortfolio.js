@@ -13,7 +13,6 @@ module.exports = function generateProjectPosts(type, projTypeArr, projects, res,
 
     var filePromises = [];
 
-
     /* 1. Write the portfolio index page */
     filePromises.push(new Promise(createPortfolioIndex));
 
@@ -29,6 +28,23 @@ module.exports = function generateProjectPosts(type, projTypeArr, projects, res,
       });
     }
 
+    /*2. transpile each category list of html into a partial file*/
+    filePromises.push(new Promise(createPortfolioLists));
+
+    function createPortfolioLists(res,rej){
+      fs.readFile('_src/assets/markup/projects-in-category.jade','utf8', function(err,content){
+        if(err)throw err;
+        var fn = jade.compile(content,{fileName:'_src/assets/markup/projects-in-category.jade'});
+
+        var fileName = `_dist/assets/html/${type}-list.html`;
+        var transpiledHTML = fn({postArr:projTypeArr})
+
+        fs.writeFile(fileName, transpiledHTML ,function(err){
+          if (err) throw err;
+          res("*Done with a list")
+        })
+      });
+    }
 
     // map through md files
     contents.map( file => {

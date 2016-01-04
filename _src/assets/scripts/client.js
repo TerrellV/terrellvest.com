@@ -1,8 +1,5 @@
-// these variables will be inserted
-// busHtml && webHtml as strings of html
-// everything in this function will be executed
+(function(){
 
-module.exports = function app(){
   var portModule = {
     isBizActive: true,
     isFirstLoad: true,
@@ -10,6 +7,7 @@ module.exports = function app(){
     prevSizeMobile: undefined,
     init: function(){
       this.cacheDom();
+      this.makeAjaxRequests().then(this.insertLists.bind(this));
       this.bindGenericEvents();
       this.render();
       this.determineEvents();
@@ -28,6 +26,51 @@ module.exports = function app(){
       this.boundBgBizListener = this.moveSliderUp.bind(this);
       this.boundBgWebListener = this.moveSliderDown.bind(this);
       window.addEventListener('resize', this.determineEvents.bind(this));
+    },
+    toCamelCase: function(str){
+      return str.replace(/-(.)/, function(match,p1,offset,string){
+        return p1.toUpperCase()
+      })
+    },
+    makeAjaxRequests: function(){
+      var _t = this;
+      var stringArr = ['business-list','web-list'];
+      var promiseArr = [];
+
+      stringArr.map(function(partial){
+        promiseArr.push(new Promise(makeIndivRequest));
+        function makeIndivRequest(res,rej){
+          var xhr = new XMLHttpRequest();
+          xhr.open('GET',`./../assets/html/${partial}.html`,true);
+          xhr.onreadystatechange = function(response){
+            if(xhr.readyState === 4 && xhr.status === 200) {
+               _t[_t.toCamelCase(partial)] = xhr.responseText;
+               res();
+            }
+          };
+          xhr.send(null);
+        }
+      })
+
+      return Promise.all(promiseArr);
+
+    },
+    insertLists: function(){
+      var bizDiv = document.createElement('div');
+      bizDiv.setAttribute('id','biz-posts');
+      bizDiv.innerHTML = this.businessList;
+
+      var webDiv = document.createElement('div');
+      webDiv.setAttribute('id','web-posts');
+      webDiv.innerHTML = this.webList;
+      webDiv.className = "hide-me";
+      this.main.innerHTML = `
+        ${bizDiv.outerHTML}
+        ${webDiv.outerHTML}
+      `;
+      // cache dome
+      this.bizListNode = document.querySelector("#portfolio-posts #biz-posts");
+      this.webListNode = document.querySelector("#portfolio-posts #web-posts");
     },
     switchTitleClickEvents: function(){
       var toRemove = (this.onMobile)
@@ -115,12 +158,17 @@ module.exports = function app(){
       this.isFirstLoad = false;
     },
     render: function(){
-
-      this.main.innerHTML = (this.isBizActive)? busHtml : webHtml;
+      // this.main.innerHTML = (this.isBizActive)? busHtml : webHtml;
     },
     switchPage: function(val){
       this.isBizActive = val;
-      this.render();
+      if(this.isBizActive) {
+        this.bizListNode.classList.remove('hide-me');
+        this.webListNode.classList.add('hide-me');
+      } else {
+        this.bizListNode.classList.add('hide-me');
+        this.webListNode.classList.remove('hide-me');
+      }
     },
     moveSliderRight: function(){
       this.switchPage(false);
@@ -141,5 +189,6 @@ module.exports = function app(){
       this.desktopSlider.classList.remove('slider-move-down');
     }
   }
+
   portModule.init();
-}
+})()

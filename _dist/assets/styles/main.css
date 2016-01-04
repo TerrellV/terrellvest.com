@@ -7,6 +7,9 @@ body {
   body .page-container {
     width: 100%; }
 
+.hide-me {
+  display: none !important; }
+
 #site-header {
   width: 100vw;
   height: 60px;

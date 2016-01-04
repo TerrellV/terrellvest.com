@@ -11,7 +11,6 @@ const projects = require('./site-build-utills/generateProjectBank.js');
 const buildAbout = require('./site-build-utills/renderAbout.js');
 const buildBlog = require('./site-build-utills/renderBlog.js');
 const buildPortfolio = require('./site-build-utills/renderPortfolio.js');
-const buildClientJs = require('./site-build-utills/buildClientScripts.js');
 
 /* custom render functions */
 function buildArrays(){
@@ -30,21 +29,11 @@ function buildPort_P(){
 function buildBlog_P(){
   return new Promise(buildBlog.bind(null,posts));
 }
-function buildApp_P(){
-  const config = {
-    destPath: `_dist/assets/scripts`,
-    fileName: `app.js`,
-    templatePath: `_src/assets/markup/projects-in-category.jade`,
-    projectObj: projects
-  }
-  const configArr = Object.keys(config).map(k => config[k]);
-  return new Promise(buildClientJs.bind(null,...configArr));
-}
 
 gulp.task('render',function(){
   // Promises excecute at the same time not in any order
   buildArrays(); // build arrays must come first or arrays won't be formatted correctly
-  return Promise.all([buildPort_P(), buildBlog_P(), buildApp_P(), buildAbout_P()]);
+  return Promise.all([buildPort_P(), buildBlog_P(), buildAbout_P()]);
 });
 
 /* normal gulp stuff below */
@@ -85,15 +74,17 @@ gulp.task('jade',['clientJs'], function(){
     .pipe(gulp.dest('_dist'));
 });
 gulp.task('clientJs',['render'], function(){
-  gulp.src('./_src/assets/scripts/helper.js', {base: '_src'})
+  gulp.src('./_src/assets/scripts/client.js', {base: '_src'})
     .pipe(gulp.dest('_dist'));
+});
+gulp.task('clientJs-update', function(){
+  gulp.src('./_src/assets/scripts/client.js', {base: '_src'})
+    .pipe(gulp.dest('_dist'));
+  buildPort_P().then(browserSync.reload);
 });
 gulp.task('watch',['sass'], function(){
   gulp.watch('./_src/assets/styles/**/*.scss',['sass-update']);
-  gulp.watch('./_src/assets/scripts/client.js',function(){
-    delete require.cache[require.resolve('./_src/assets/scripts/client.js')];
-    buildApp_P().then(browserSync.reload);
-  });
+  gulp.watch('./_src/assets/scripts/client.js',['clientJs-update']);
   gulp.watch([
     './_src/_about/*.md',
     './_src/*.jade'
