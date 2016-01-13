@@ -8,18 +8,17 @@
     init: function(){
       this.cacheDom();
       this.makeAjaxRequests().then(this.insertLists.bind(this));
-      this.bindGenericEvents();
-      this.render();
+      this.bindGenericListeners();
       this.determineEvents();
     },
     cacheDom: function(){
-      this.main = document.querySelector('#portfolio-posts');
-      this.portfolioHeader = document.querySelector('#portfolio-header');
-      this.bHeading = document.querySelector('#portfolio-header h1:nth-child(1)');
-      this.wHeading = document.querySelector('#portfolio-header h1:nth-child(2)');
+      this.portfolioPostsContainer = document.querySelector('#portfolio-posts');
+      this.portfolioHeader = document.querySelector('#portfolio-main header');
+      this.bHeading = document.querySelector('#portfolio-main header h1:nth-child(1)');
+      this.wHeading = document.querySelector('#portfolio-main header h1:nth-child(2)');
       this.headingsArr = [this.bHeading,this.wHeading];
     },
-    bindGenericEvents:function(){
+    bindGenericListeners:function(){
       // these new properties are added because bind creates a new functiona nd we need to hold reference to each specific function so that we can remove the function later. If function.bind was used evertime we used a method as a listener than a new function reference would be used
       this.boundSmBizListener = this.moveSliderLeft.bind(this);
       this.boundSmWebListener = this.moveSliderRight.bind(this);
@@ -33,7 +32,7 @@
       })
     },
     makeAjaxRequests: function(){
-      var _t = this;
+      var _this = this;
       var stringArr = ['business-list','web-list'];
       var promiseArr = [];
 
@@ -44,7 +43,8 @@
           xhr.open('GET',`./../assets/html/${partial}.html`,true);
           xhr.onreadystatechange = function(response){
             if(xhr.readyState === 4 && xhr.status === 200) {
-               _t[_t.toCamelCase(partial)] = xhr.responseText;
+              // make value accessable on parent object via this
+               _this[_this.toCamelCase(partial)] = xhr.responseText;
                res();
             }
           };
@@ -53,7 +53,6 @@
       })
 
       return Promise.all(promiseArr);
-
     },
     insertLists: function(){
       var bizDiv = document.createElement('div');
@@ -63,12 +62,13 @@
       var webDiv = document.createElement('div');
       webDiv.setAttribute('id','web-posts');
       webDiv.innerHTML = this.webList;
+
       webDiv.className = "hide-me";
-      this.main.innerHTML = `
+      this.portfolioPostsContainer.innerHTML = `
         ${bizDiv.outerHTML}
         ${webDiv.outerHTML}
       `;
-      // cache dome
+      // cache dome from newly created elements
       this.bizListNode = document.querySelector("#portfolio-posts #biz-posts");
       this.webListNode = document.querySelector("#portfolio-posts #web-posts");
     },
@@ -108,13 +108,13 @@
         this.desktopSlider.className = 'default-slider desktop-slider';
       }
     },
-    switchSliderStyles: function(){
+    switchSliderElement: function(){
 
       var ele = document.createElement('span');
 
       if(this.onMobile) {
         this.mobileSlider = ele;
-        var eleToRemove = document.querySelector('#portfolio-header span');
+        var eleToRemove = document.querySelector('#portfolio-main header span');
         var eleId = 'mobile-slider';
         ele.setAttribute('id',eleId);
         ele.className = (this.isBizActive)
@@ -123,7 +123,7 @@
         ele.style.width = val + "px";
       } else {
         this.desktopSlider = ele;
-        var eleToRemove = document.querySelector('#portfolio-header span');
+        var eleToRemove = document.querySelector('#portfolio-main header span');
         var eleId = 'desktop-slider';
         ele.setAttribute('id',eleId);
         ele.className = (this.isBizActive)
@@ -135,7 +135,7 @@
 
     },
     determineEvents:function(){
-      this.onMobile = window.innerWidth > 750? false : true;
+      this.onMobile = window.innerWidth > 700? false : true;
 
       // determine first load screen size
       if ( this.isFirstLoad ) {
@@ -146,28 +146,29 @@
       // determine if we moved from big to small or small to big
       if (!this.onMobile && this.prevSizeMobile) {
         this.switchTitleClickEvents();
-        this.switchSliderStyles();
+        this.switchSliderElement();
       }
       if (this.onMobile && this.prevSizeMobile === false) {
         this.switchTitleClickEvents();
-        this.switchSliderStyles()
+        this.switchSliderElement()
       }
 
       // will be used next function call
       this.prevSizeMobile = this.onMobile? true : false;
       this.isFirstLoad = false;
     },
-    render: function(){
-      // this.main.innerHTML = (this.isBizActive)? busHtml : webHtml;
-    },
     switchPage: function(val){
       this.isBizActive = val;
       if(this.isBizActive) {
         this.bizListNode.classList.remove('hide-me');
         this.webListNode.classList.add('hide-me');
+        this.bHeading.classList.remove('inactive-page-title');
+        this.wHeading.classList.add('inactive-page-title');
       } else {
         this.bizListNode.classList.add('hide-me');
         this.webListNode.classList.remove('hide-me');
+        this.wHeading.classList.remove('inactive-page-title');
+        this.bHeading.classList.add('inactive-page-title');
       }
     },
     moveSliderRight: function(){

@@ -19,7 +19,10 @@ module.exports = function(postBank,res,rej){
       fs.readFile(fp.blogIndexTemplate, 'utf8', function(err,content){
         if (err) {throw err;}
         else {
-          var fn = jade.compile(content,{filename:fp.blogIndexTemplate});
+          var fn = jade.compile(content,{
+            pretty: true,
+            filename:fp.blogIndexTemplate
+          });
           var html = fn({postArr:postBank.all()});
           fs.writeFile('./_dist/blog/index.html',html, function(err){
             if (err) {throw err;};
@@ -51,7 +54,10 @@ module.exports = function(postBank,res,rej){
             // read the jade template file and get jade string
             fs.readFile(fp.postTemplate, 'utf8', function(err,content){
               // create function with compiled jade string
-              var fn = jade.compile(content, {filename:fp.postTemplate});
+              var fn = jade.compile(content, {
+                pretty: true,
+                filename:fp.postTemplate
+              });
               // grab the file object from post bank
               var fileToMatch = file.replace(/\.(.+)/g,'').toLowerCase();
               var postObj = postBank.all().filter( obj => {

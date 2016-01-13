@@ -10,14 +10,16 @@ html(lang="en")
     meta(name="mobile-web-app-capable" content="yes")
     link(href="../assets/styles/main.css" rel="stylesheet" type="text/css")
   body
-    .page-container
-      header#site-header
-        include ../assets/markup/nav.jade
-      main#portfolio-content
-        header.sub-header#portfolio-header
+    header
+      nav
+        div.row
+          include ../assets/markup/nav.jade
+    main#portfolio-main
+      div.row
+        header.col.col--2-of-8
           h1.page-title Business
-          h1.page-title Web Development
-        #portfolio-posts
-      script(src="../assets/scripts/client.js")
+          h1.page-title.inactive-page-title Web Development
+        div#portfolio-posts.col.col--6-of-8
+    script(src="../assets/scripts/client.js")
     
     

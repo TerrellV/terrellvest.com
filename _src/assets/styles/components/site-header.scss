@@ -1,32 +1,25 @@
-#site-header{
-  width: 100vw;
-  height: 60px;
-  position: relative;
-  left: -$body-padding;
-  box-sizing: border-box;
-  #site-nav{
-    font-size: 14px;
-    width: 100%;
-    font-family: "Roboto", sans-serif;
-    position: relative;
-    left: $body-padding;
+body > header {
+  width: 100%;
+  font-family: "Roboto",sans-serif;
+  nav {
+    box-sizing: border-box;
+    height: 3.75rem;
     #nav-list {
-      list-style: circle inside;
+      list-style: none inside;
       a {
         color: black;
+        text-decoration: none;
         li {
           display: inline-block;
-          margin: 0 10px;
+          padding-right: .75em;
         }
       }
-      a:visited {
-        color: black;
-      }
-      a:first-child {
-        li {
-          margin-left: 0
-        }
+      a:nth-child(1) > li {
+        padding-left: 0;
       }
     }
+  }
+  @media(min-width:701px) {
+    margin-bottom: 2rem;
   }
 }

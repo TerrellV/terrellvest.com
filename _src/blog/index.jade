@@ -10,13 +10,15 @@ html(lang="en")
     meta(name="mobile-web-app-capable" content="yes")
     link(href="../assets/styles/main.css" rel="stylesheet" type="text/css")
   body
-    .page-container
-      header#site-header
-        include ../assets/markup/nav.jade
-      main#blog-content
-        header.sub-header
+    header#site-header
+      nav
+        .row
+          include ../assets/markup/nav.jade
+    main#blog-content
+      .row
+        header.sub-header.col.col--2-of-8
           h1.page-title Posts
-        #blog-posts
+        div#blog-posts.col.col--6-of-8
           each post in postArr
             div
               a(href=post.path)

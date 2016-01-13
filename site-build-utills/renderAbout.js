@@ -15,7 +15,10 @@ module.exports = function( /*normal arguments here*/ res,rej){
   // 2nd in sequence
   function readJade(writeHtml,mdHtml){
     fs.readFile('./_src/index.jade','utf8',function(err,content){
-      var jadeFunction = jade.compile(content,{filename:'./_src/index.jade'});
+      var jadeFunction = jade.compile(content,{
+        filename:'./_src/index.jade',
+        pretty: true
+      });
       var finalHtml = jadeFunction({postContent:mdHtml});
       writeHtml(finalHtml);
     })

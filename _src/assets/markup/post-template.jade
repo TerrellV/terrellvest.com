@@ -6,15 +6,17 @@ html(lang="en")
     meta(name="mobile-web-app-capable" content="yes")
     link(href="../../assets/styles/main.css" rel="stylesheet" type="text/css")
   body
-    .page-container
-      header#site-header
-        include ./nav.jade
-      main.blog-post-content
-        article.blog-post-composition
-          header.sub-header
+    header
+      nav
+        div.row
+          include ./nav.jade
+    main.blog-post-content
+      article.row
+        div#blog-header-wrap.col.col--2-of-8
+          header
             h1.page-title #{postTitle}
           div.blog-post-description
             span #{postDate}
             span Read Time #{postReadTime} mins
-          #blog-post-md-content.md-content
-            != postContent
+        div#blog-post-md-content.md-content.col.col--6-of-8
+          != postContent

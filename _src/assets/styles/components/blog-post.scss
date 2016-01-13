@@ -1,15 +1,27 @@
-.blog-post-content {
-  .blog-post-composition {
-    // subheader already styled
-    .blog-post-description{
-      margin: $body-padding 0;
-      span {
-        font-family: "Roboto",sans-serif;
-        font-size: 14px;
-        display: block;
-        font-style: italic;
-        color: grey;
+%post-description {
+  display: block;
+  margin-top: .75em;
+  margin-bottom: 1.5em;
+  span {
+    font-family: "Roboto",sans-serif;
+    font-size: 14px;
+    display: block;
+    font-style: italic;
+    color: grey;
+  }
+}
+
+#blog-header-wrap {
+  header {
+    @extend %sub-header;
+    @media(max-width:700px) {
+      margin-left: -$body-padding;
+      .page-title {
+        margin-left: $body-padding;
       }
     }
+  }
+  .blog-post-description{
+    @extend %post-description;
   }
 }

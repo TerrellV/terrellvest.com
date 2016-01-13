@@ -1,8 +1,10 @@
 const fs = require('fs');
 const jade = require('jade');
 const marked = require('marked');
+const callerID = require('caller-id');
 
 module.exports = function generateProjectPosts(type, projTypeArr, projects, res, rej) {
+
 
   function completeCallBack(){
     res(`*** Done with ${type} projects`);
@@ -13,28 +15,16 @@ module.exports = function generateProjectPosts(type, projTypeArr, projects, res,
 
     var filePromises = [];
 
-    /* 1. Write the portfolio index page */
-    filePromises.push(new Promise(createPortfolioIndex));
-
-    function createPortfolioIndex(res,rej){
-      fs.readFile('./_src/portfolio/index.jade', 'utf8', function(err,content){
-        if (err) {throw err;}
-        var jadeFunction = jade.compile(content,{filename:'./_src/portfolio/index.jade'});
-        var compiledHTML = jadeFunction();
-        fs.writeFile('./_dist/portfolio/index.html',compiledHTML, function(err){
-          if (err) {throw err;};
-          res();
-        });
-      });
-    }
-
-    /*2. transpile each category list of html into a partial file*/
+    /*1. transpile each category list of html into a partial file*/
     filePromises.push(new Promise(createPortfolioLists));
 
     function createPortfolioLists(res,rej){
       fs.readFile('_src/assets/markup/projects-in-category.jade','utf8', function(err,content){
         if(err)throw err;
-        var fn = jade.compile(content,{fileName:'_src/assets/markup/projects-in-category.jade'});
+        var fn = jade.compile(content,{
+          pretty: true,
+          fileName:'_src/assets/markup/projects-in-category.jade'
+        });
 
         var fileName = `_dist/assets/html/${type}-list.html`;
         var transpiledHTML = fn({postArr:projTypeArr})
@@ -70,7 +60,10 @@ module.exports = function generateProjectPosts(type, projTypeArr, projects, res,
           var mdPostHtml = marked(data);
           // read the jade template and generate the template function and variables to pass in
           fs.readFile(templatePath, 'utf8', function(err,data){
-            var fn = jade.compile(data,{filename: templatePath});
+            var fn = jade.compile(data,{
+              pretty: true,
+              filename: templatePath
+            });
             var jadeOutputHtml = fn(
               {
                 postTitle: projObj.title,

@@ -5,15 +5,17 @@ html(lang="en")
     meta(name="apple-mobile-web-app-capable" content="yes")
     meta(name="mobile-web-app-capable" content="yes")
     link(href="../../assets/styles/main.css" rel="stylesheet" type="text/css")
-    body
-      .page-container
-        header#site-header
+  body
+    header
+      nav
+        div.row
           include ./nav.jade
-        main.portfolio-post-content
-          article.portfolio-post-composition
-            header.sub-header
-              h1.page-title #{postTitle}
-            div.portfolio-post-description
-              span #{postDate}
-            #portfolio-post-md-content.md-content
-              != postContent
+    main.portfolio-post-main
+      article.row
+        div#portfolio-post-header-wrap.col.col--2-of-8
+          header.sub-header
+            h1.page-title #{postTitle}
+          div.portfolio-post-description
+            span #{postDate}
+        div#portfolio-post-md-content.md-content.col.col--6-of-8
+          != postContent

@@ -1,18 +1,15 @@
-.portfolio-post-content {
-  .portfolio-post-composition {
-    // subheader already styled
-    .portfolio-post-description{
-      margin: $body-padding 0;
-      span {
-        font-family: "Roboto",sans-serif;
-        font-size: 14px;
-        display: block;
-        font-style: italic;
-        color: grey;
+.portfolio-post-main {
+  article {
+    div {
+      header{
+        margin-left: -$body-padding;
+        .page-title {
+          margin-left: $body-padding;
+        }
       }
-    }
-    .portfolio-post-md-content {
-
+      .portfolio-post-description {
+        @extend %post-description;
+      }
     }
   }
 }

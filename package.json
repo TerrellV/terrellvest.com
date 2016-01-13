@@ -8,6 +8,7 @@
     "babel-polyfill": "^6.3.14",
     "babel-register": "^6.3.13",
     "browser-sync": "^2.10.1",
+    "caller-id": "^0.1.0",
     "gulp": "^3.9.0",
     "gulp-jade": "^1.1.0",
     "gulp-markdown": "^1.2.0",

@@ -10,6 +10,7 @@ const posts = require('./site-build-utills/generatePostBank.js');
 const projects = require('./site-build-utills/generateProjectBank.js');
 const buildAbout = require('./site-build-utills/renderAbout.js');
 const buildBlog = require('./site-build-utills/renderBlog.js');
+const buildPortfolioIndex = require('./site-build-utills/renderPortfolioIndex.js');
 const buildPortfolio = require('./site-build-utills/renderPortfolio.js');
 
 /* custom render functions */
@@ -21,10 +22,12 @@ function buildAbout_P(){
   return new Promise(buildAbout)
 }
 function buildPort_P(){
+  // compile portfolio index page
+  const iP = new Promise(buildPortfolioIndex);
   // Compile the portfolio posts into their own folders giving each their own index file
   const bP = new Promise(buildPortfolio.bind(null,'business', projects.business(), projects));
   const wP = new Promise(buildPortfolio.bind(null,'web', projects.web(), projects));
-  return Promise.all( [bP,wP] );
+  return Promise.all( [iP,bP,wP] );
 }
 function buildBlog_P(){
   return new Promise(buildBlog.bind(null,posts));
@@ -68,6 +71,17 @@ gulp.task('jade',['clientJs'], function(){
     '_src/**/*.jade',
     '!_src/{assets,assets/**}',
     '!_src/{blog,blog/**}',
+    '!_src/{portfolio,portfolio/**}',
+    '!_src/index.jade'
+  ])
+    .pipe(jade())
+    .pipe(gulp.dest('_dist'));
+});
+gulp.task('jade-update', function(){
+  gulp.src([
+    '_src/**/*.jade',
+    '!_src/{assets,assets/**}',
+    '!_src/{blog,blog/**}',
     '!_src/index.jade'
   ])
     .pipe(jade())
@@ -85,6 +99,7 @@ gulp.task('clientJs-update', function(){
 gulp.task('watch',['sass'], function(){
   gulp.watch('./_src/assets/styles/**/*.scss',['sass-update']);
   gulp.watch('./_src/assets/scripts/client.js',['clientJs-update']);
+  gulp.watch('./_src/assets/markup/nav.jade', ['jade-update']);
   gulp.watch([
     './_src/_about/*.md',
     './_src/*.jade'

@@ -1,10 +1,36 @@
-#portfolio-content { // main content tag
+#portfolio-main { // main content tag
   // overide the default header styles slightly
-  #portfolio-header{
+  header{
+    @extend %sub-header;
     position: relative;
     .page-title {
-      border-bottom: none;
       cursor: pointer;
+      border: none;
+      transition: opacity 250ms ease-in-out;
+    }
+    @media (max-width: 700px) {
+      .page-title:first-child {
+        margin-right: 2em;
+      }
+      .page-title:not(:first-child) {
+        margin-left: -.25rem;
+      }
+    }
+    @media (min-width: 701px){
+      .page-title {
+        display: block;
+        text-align: right;
+        width: 131px;
+        &:after {
+          display: none;
+        }
+      }
+      h1:first-child {
+        padding-bottom: 1em;
+      }
+    }
+    .inactive-page-title {
+      opacity: .3;
     }
     .default-slider {
       background-color: $accent-blue;
@@ -22,26 +48,27 @@
       width: 8px !important;
       height: 8px;
       border-radius: 50%;
-      left: -30px;
-      top: 5px;
+      left: 11em;
+      top: 6px;
       transform: translateY(0px);
       transition: transform 200ms ease-in-out, background-color 250ms ease-in-out;
     }
     .slider-move-right {
-      transform: translateX(84px);
+      transform: translateX( add_Em_Pix(2,66) );
     }
     .slider-move-down {
-      transform: translateY(43px);
+      transform: translateY(36px);
     }
   }
-  div {
-    margin: 2em 0;
-    a {
-      color: black;
-      text-decoration: none;
-      p,span {
-        font-family: "Roboto", sans-serif;
-        font-size: 14px;
+  #portfolio-posts {
+    div:not(.hide-me) {
+      div:not(:first-child) {
+        padding: 2em 0;
+      }
+      div > a{
+        color: black;
+        font-family: "Roboto",sans-serif;
+        text-decoration: none;
       }
     }
   }
