@@ -318,10 +318,11 @@ body {
 
 body > header {
   width: 100%;
-  font-family: "Roboto",sans-serif; }
+  font-family: "Roboto",sans-serif;
+  font-size: 16px; }
   body > header nav {
     box-sizing: border-box;
-    height: 3.75rem; }
+    height: 2.5rem; }
     body > header nav #nav-list {
       list-style: none inside; }
       body > header nav #nav-list a {
@@ -379,8 +380,7 @@ body > header {
     color: black;
     text-decoration: none; }
     #blog-content #blog-posts div a p, #blog-content #blog-posts div a span {
-      font-family: "Roboto", sans-serif;
-      font-size: 14px; }
+      font-family: "Roboto", sans-serif; }
 
 #blog-content #blog-posts div:nth-child(1) {
   margin-top: 0; }
@@ -421,7 +421,7 @@ body > header {
       #portfolio-main header .page-title:after {
         display: none; }
     #portfolio-main header h1:first-child {
-      padding-bottom: 1em; } }
+      padding-bottom: 1.5em; } }
   #portfolio-main header .inactive-page-title {
     opacity: .3; }
   #portfolio-main header .default-slider {
@@ -445,7 +445,7 @@ body > header {
   #portfolio-main header .slider-move-right {
     transform: translateX(98px); }
   #portfolio-main header .slider-move-down {
-    transform: translateY(36px); }
+    transform: translateY(43px); }
 
 #portfolio-main #portfolio-posts div:not(.hide-me) div:not(:first-child) {
   padding: 2em 0; }
@@ -465,13 +465,10 @@ body > header {
   margin-bottom: 1em !important; }
 
 .md-content {
-  font-size: 14px;
   font-family: "Roboto",sans-serif; }
   .md-content h2, .md-content h3, .md-content h4, .md-content h5, .md-content h6 {
     margin-bottom: 1em;
     padding-top: 1.5em; }
-  .md-content p {
-    line-height: 1.5em; }
   .md-content p + p {
     text-indent: 1em; }
   .md-content ul {
@@ -494,3 +491,14 @@ body > header {
     font-style: italic;
     border-left: .2em solid grey;
     padding-left: 1em; }
+  @media (max-width: 700px) {
+    .md-content {
+      font-size: 1rem; }
+      .md-content p {
+        line-height: 1.5em; } }
+  @media (min-width: 701px) {
+    .md-content {
+      font-size: 1rem;
+      letter-spacing: 1px; }
+      .md-content p {
+        line-height: 1.5em; } }

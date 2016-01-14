@@ -1,9 +1,12 @@
 body > header {
   width: 100%;
-  font-family: "Roboto",sans-serif;
+  font: {
+    family: "Roboto",sans-serif;
+    size: $root-font;
+  }
   nav {
     box-sizing: border-box;
-    height: 3.75rem;
+    height: 2.5rem;
     #nav-list {
       list-style: none inside;
       a {

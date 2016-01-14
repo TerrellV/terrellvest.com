@@ -4,32 +4,14 @@
 }
 
 .md-content {
-  font-size: 14px;
+  // allways
   font-family: "Roboto",sans-serif;
   h2,h3,h4,h5,h6 {
     margin-bottom: 1em;
     padding-top: 1.5em;
   }
-  h1:first-child {
+  h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child, h6:first-child {
     @extend %first-headings;
-  }
-  h2:first-child {
-    @extend %first-headings;
-  }
-  h3:first-child {
-    @extend %first-headings;
-  }
-  h4:first-child {
-    @extend %first-headings;
-  }
-  h5:first-child {
-    @extend %first-headings;
-  }
-  h6:first-child {
-    @extend %first-headings;
-  }
-  p{
-    line-height: 1.5em;
   }
   p+p {
     text-indent: 1em;
@@ -58,5 +40,22 @@
     font-style: italic;
     border-left: .2em solid grey;
     padding-left: 1em;
+  }
+
+  // small and medium devices
+  @media(max-width:700px) {
+    font-size: 1rem;
+    p{
+      line-height: 1.5em;
+    }
+  }
+
+  // medium and large devices
+  @media(min-width:701px) {
+    font-size: 1rem;
+    letter-spacing: 1px;
+    p {
+      line-height: 1.5em;
+    }
   }
 }
