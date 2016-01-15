@@ -24,6 +24,11 @@ const projectBank = {
       title: "Twitch Viewer",
       date: [2015,6,24], // year, month, day
       type: 'web' // business or web
+    },
+    {
+      title: "Tic Tac Toe",
+      date: [2015,11,21], // year, month, day
+      type: 'web' // business or web
     }
   ],
   getMonth: function( n, title ){
