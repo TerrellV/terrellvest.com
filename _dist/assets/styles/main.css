@@ -39,6 +39,7 @@
   That's it. Have fun.
 
 \*-----------------------------------*/
+@import url(https://fonts.googleapis.com/css?family=Merriweather:400,700,400italic);
 .row {
   list-style: none;
   margin-left: -25px; }
@@ -307,15 +308,6 @@ body {
 .hide-me {
   display: none !important; }
 
-.bg-p {
-  background-color: rgba(223, 180, 255, 0.3); }
-
-.bg-b {
-  background-color: rgba(10, 10, 220, 0.3); }
-
-.bg-r {
-  background-color: rgba(223, 0, 0, 0.3); }
-
 body > header {
   width: 100%;
   font-family: "Roboto",sans-serif;
@@ -465,7 +457,7 @@ body > header {
   margin-bottom: 1em !important; }
 
 .md-content {
-  font-family: "Roboto",sans-serif; }
+  font-family: "Merriweather",serif; }
   .md-content h2, .md-content h3, .md-content h4, .md-content h5, .md-content h6 {
     margin-bottom: 1em;
     padding-top: 1.5em; }
@@ -498,7 +490,6 @@ body > header {
         line-height: 1.5em; } }
   @media (min-width: 701px) {
     .md-content {
-      font-size: 1rem;
-      letter-spacing: 1px; }
+      font-size: 1rem; }
       .md-content p {
         line-height: 1.5em; } }
