@@ -1,4 +1,5 @@
 body > header {
+  @extend %main_tag;
   width: 100%;
   font: {
     family: "Roboto",sans-serif;
@@ -24,5 +25,8 @@ body > header {
   }
   @media(min-width:701px) {
     margin-bottom: 2rem;
+    #nav-list {
+      margin-left: 28%;
+    }
   }
 }

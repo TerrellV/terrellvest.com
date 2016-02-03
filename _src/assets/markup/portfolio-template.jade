@@ -12,10 +12,10 @@ html(lang="en")
           include ./nav.jade
     main.portfolio-post-main
       article.row
-        div#portfolio-post-header-wrap.col.col--2-of-8
+        div#portfolio-post-header-wrap.col
           header.sub-header
             h1.page-title #{postTitle}
           div.portfolio-post-description
             span #{postDate}
-        div#portfolio-post-md-content.md-content.col.col--6-of-8
+        div#portfolio-post-md-content.md-content.col
           != postContent

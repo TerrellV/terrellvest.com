@@ -1,5 +1,6 @@
 #portfolio-main { // main content tag
   // overide the default header styles slightly
+  @extend %main_tag;
   header{
     @extend %sub-header;
     position: relative;
@@ -8,7 +9,7 @@
       border: none;
       transition: opacity 250ms ease-in-out;
     }
-    @media (max-width: 700px) {
+    @media (max-width: 700px) { // below 700 px
       .page-title:first-child {
         margin-right: 2em;
       }
@@ -16,7 +17,8 @@
         margin-left: -.25rem;
       }
     }
-    @media (min-width: 701px){
+    @media (min-width: 701px){ // above 700 px
+      width: 28%;
       .page-title {
         display: block;
         text-align: right;
@@ -61,14 +63,33 @@
     }
   }
   #portfolio-posts {
-    div:not(.hide-me) {
-      div:not(:first-child) {
-        padding: 2em 0;
+    div:not(.hide-me) { // div that is visible
+      div:not(:first-child) { // all divs except the first
+        padding-top: 2.5em;
       }
+      div a {
+        span { // date
+          font-style: italic;
+        }
+        p { // description
+          padding-top: 1em;
+          max-width: 475px;
+        }
+      };
       div > a{
         color: black;
         font-family: "Roboto",sans-serif;
         text-decoration: none;
+      }
+    }
+    @media (min-width: 701px) {
+      width: 72%;
+      div:not(.hide-me) {
+        div a {
+          p { // description
+            // width: 450px
+          }
+        }
       }
     }
   }

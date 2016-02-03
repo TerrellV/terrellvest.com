@@ -1,14 +1,35 @@
 .portfolio-post-main {
+  @extend %main_tag;
   article {
-    div {
-      header{
+    @media(max-width:$medium-break-point) { // smaller than 700px
+      #portfolio-post-header-wrap {
         margin-left: -$body-padding;
-        .page-title {
+        .sub-header {
+          .page-title {
+            margin-left: $body-padding;
+          }
+        }
+        .portfolio-post-description {
           margin-left: $body-padding;
         }
       }
-      .portfolio-post-description {
-        @extend %post-description;
+      #portfolio-post-md-content {
+        margin-left: $body-padding;
+        padding-left: 0px;
+      }
+    }
+    @media(min-width:$medium-break-point + 1) { // larger than 700px
+      #portfolio-post-header-wrap {
+        width: 28%;
+        text-align: right;
+        .portfolio-post-description {
+          margin: .75em 0 1.5em 0;
+          padding-right: 50px;
+          margin-left: $body-padding;
+        }
+      }
+      #portfolio-post-md-content {
+        width: 72%;
       }
     }
   }

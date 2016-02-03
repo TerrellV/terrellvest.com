@@ -1,5 +1,6 @@
 each post in postArr
   div
     a(href=post.path)
-      p=post.title
+      h4=post.title
       span #{post.date}
+      p=post.description

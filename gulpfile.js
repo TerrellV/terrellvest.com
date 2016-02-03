@@ -130,8 +130,10 @@ gulp.task('watch', ['sass'], function() {
     });
   });
   // watch portfolio stuff
-  gulp.watch('./_src/portfolio/projects-md/web/*.md',function(){
-    console.log('file changed');
+  gulp.watch([
+    './_src/portfolio/projects-md/web/*.md',
+    './_src/portfolio/projects-md/business/*.md'
+  ],function(){
     buildPort_P().then(browserSync.reload)
   })
 });

@@ -12,11 +12,11 @@ html(lang="en")
           include ./nav.jade
     main.blog-post-content
       article.row
-        div#blog-header-wrap.col.col--2-of-8
+        div#blog-header-wrap.col
           header
             h1.page-title #{postTitle}
           div.blog-post-description
             span #{postDate}
             span Read Time #{postReadTime} mins
-        div#blog-post-md-content.md-content.col.col--6-of-8
+        div#blog-post-md-content.md-content.col
           != postContent

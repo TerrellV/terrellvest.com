@@ -1,5 +1,4 @@
 (function(){
-
   var portModule = {
     isBizActive: true,
     isFirstLoad: true,

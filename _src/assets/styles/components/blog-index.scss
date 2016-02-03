@@ -1,5 +1,6 @@
 #blog-content{ // main tag
-  // subheader already defined
+  @extend %main_tag;
+  // subheader has styling elsewhere
   #blog-posts { // div holding inserted html
     div{
       cursor: pointer;
@@ -18,6 +19,14 @@
     }
     div:nth-child(1) {
       margin-top: 0;
+    }
+  }
+  @media(min-width: $medium-break-point + 1) {
+    .sub-header {
+      width: 28%;
+    }
+    #blog-posts {
+      width: 72%;
     }
   }
 }

@@ -1,3 +1,15 @@
 #profile-pic {
   width: 100%;
 }
+
+#about-content {
+  @extend %main_tag;
+  @media (min-width: 701px) {
+    .sub-header {
+      width: 28%;
+    }
+    article > div {
+      width: 72%;
+    }
+  }
+}

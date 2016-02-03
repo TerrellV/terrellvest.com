@@ -16,9 +16,9 @@ html(lang="en")
           include ../assets/markup/nav.jade
     main#blog-content
       .row
-        header.sub-header.col.col--2-of-8
+        header.sub-header.col
           h1.page-title Posts
-        div#blog-posts.col.col--6-of-8
+        div#blog-posts.col
           each post in postArr
             div
               a(href=post.path)

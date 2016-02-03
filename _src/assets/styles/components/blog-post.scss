@@ -1,5 +1,5 @@
 %post-description {
-  display: block;
+  display: inline-block;
   margin-top: .75em;
   margin-bottom: 1.5em;
   span {
@@ -11,17 +11,33 @@
   }
 }
 
-#blog-header-wrap {
-  header {
-    @extend %sub-header;
-    @media(max-width:700px) {
-      margin-left: -$body-padding;
-      .page-title {
-        margin-left: $body-padding;
+.blog-post-content {
+  @extend %main_tag;
+  #blog-header-wrap {
+    header {
+      @extend %sub-header;
+      @media(max-width:700px) {
+        margin-left: -$body-padding;
+        .page-title {
+          margin-left: $body-padding;
+        }
       }
     }
+    .blog-post-description{
+      @media(min-width:$medium-break-point + 1) {
+        padding-right: 50px;
+      }
+      @extend %post-description;
+    }
+    @media(min-width:$medium-break-point + 1) {
+      width: 28%;
+      text-align: right;
+    }
   }
-  .blog-post-description{
-    @extend %post-description;
+  #blog-post-md-content {
+    @media(min-width:$medium-break-point + 1) {
+      width: 72%;
+    }
   }
+
 }

@@ -3,38 +3,20 @@ const jade = require('jade');
 const marked = require('marked');
 const callerID = require('caller-id');
 
-module.exports = function generateProjectPosts(type, projTypeArr, projects, res, rej) {
+// this function is being called once for every category of portfolio posts, check the type
+// to see which category is being rendered
+module.exports = function generateProjectPosts(type, projTypeArr, projectObj, res, rej) {
 
-
+  // this is called after last internal task is complete
   function completeCallBack(){
     res(`*** Done with ${type} projects`);
   }
 
+  /* 2. Do this first*/
   fs.readdir(`_src/portfolio/projects-md/${type}`, function(callback,err,contents){
     if(err) throw err;
 
     var filePromises = [];
-
-    /*1. transpile each category list of html into a partial file*/
-    filePromises.push(new Promise(createPortfolioLists));
-
-    function createPortfolioLists(res,rej){
-      fs.readFile('_src/assets/markup/projects-in-category.jade','utf8', function(err,content){
-        if(err)throw err;
-        var fn = jade.compile(content,{
-          pretty: true,
-          fileName:'_src/assets/markup/projects-in-category.jade'
-        });
-
-        var fileName = `_dist/assets/html/${type}-list.html`;
-        var transpiledHTML = fn({postArr:projTypeArr})
-
-        fs.writeFile(fileName, transpiledHTML ,function(err){
-          if (err) throw err;
-          res("*Done with a list")
-        })
-      });
-    }
 
     // map through md files
     contents.map( file => {
@@ -51,7 +33,7 @@ module.exports = function generateProjectPosts(type, projTypeArr, projects, res,
         throw new Error(`We couldn't match your files with the project start data. Check to make sure you have defined an object for each post you have in md-projects/${type}. Also check to see if the titles match. your md file should be lowercase and hyphenated and your title should be uppercase with spaces wher the hypens are in your file.`);
       }
 
-      // push promise for reading and creatign file into master filePromises array
+      // push promise for reading and creating file into master filePromises array
       filePromises.push(new Promise(readCompileCreate))
       function readCompileCreate(res,rej){
         // read the md file and convert it to html
@@ -84,8 +66,48 @@ module.exports = function generateProjectPosts(type, projTypeArr, projects, res,
         });
       }
     });
+
     // when all the promises in the filePromises array are done
-    // - Resolve the top level promise through a callback
+    // - move on to the next task
     Promise.all(filePromises).then(callback);
-  }.bind(null,completeCallBack));
+
+  }.bind(null,task2));
+
+  /* 2. Second Task: compile a category list of html into a partial file
+     this needs to happen after all md portfolio posts have been read and compiled so that the descriptions will be based on the most recently compiled versions
+  */
+
+  function task2(){
+    var projectList = new Promise(createPortfolioLists);
+    function createPortfolioLists(res,rej){
+      fs.readFile('_src/assets/markup/projects-in-category.jade','utf8', function(err,content){
+        if(err)throw err;
+        var fn = jade.compile(content,{
+          pretty: true,
+          fileName:'_src/assets/markup/projects-in-category.jade'
+        });
+
+        // create the descriptions now that the md pages have been compiled
+
+        // this line of code mutates the project bank for its use below
+        var waiting = new Promise( projectObj.addPreview.bind(projectObj,projectObj[type](),type ));
+        waiting.then(function(response){
+          writeFile( response )
+        });
+
+        function writeFile(arrayToPassJade){
+          var fileName = `_dist/assets/html/${type}-list.html`;
+          var transpiledHTML = fn({postArr:arrayToPassJade})
+
+          fs.writeFile(fileName, transpiledHTML ,function(err){
+            if (err) throw err;
+            res("*Done with a list")
+          })
+        }
+      });
+    }
+
+    projectList.then(completeCallBack)
+  }
+
 }

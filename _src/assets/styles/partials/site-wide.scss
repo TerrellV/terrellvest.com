@@ -3,6 +3,13 @@
   margin: 0;
 }
 
+%main_tag {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: $medium-large-break-point;
+}
+
 :root {
   font: {
     size: $root-font;

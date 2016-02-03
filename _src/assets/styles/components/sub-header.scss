@@ -6,7 +6,7 @@
     display: inline-block;
   }
   // screens smaller than 700px
-  @media (max-width:700px) {
+  @media (max-width:$medium-break-point) {
     width: 100vw;
     border-bottom: 1px solid transparentize(grey, .7);
     margin-bottom: 1.5rem;
@@ -18,9 +18,14 @@
   }
 
   // screens larger than 700px
-  @media (min-width:701px) {
+  @media (min-width:$medium-break-point + 1) {
+    position: relative;
+    text-align: right;
+    padding-right: 50px;
     .page-title {
+      display: inline-block;
       position: relative;
+      right: 0px;
       &:after {
         content: "";
         display: block;

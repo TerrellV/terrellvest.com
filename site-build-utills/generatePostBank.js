@@ -2,19 +2,11 @@
   * Define all blog posts here.
   * Only touch the startData Array and the Objects inside. No need to edit other methods, especially if you are just adding a project.
 */
+
+var blogPostBank = require('./blog-post-bank');
+
 const postBank = {
-  startData: [
-    {
-      title: "Post One",
-      readTime: 2.5, // in min
-      date: [2013,6,28] // yr-mm-dd
-    },
-    {
-      title: "2015 A Year In Review",
-      readTime: 5, // in min
-      date: [2016,1,1] // yr-mm-dd
-    }
-  ],
+  startData: blogPostBank,
   addPaths: function (postBankArr){
     postBankArr.map( obj => {
       obj.path = '/blog/' + obj.title.replace(/\s/g,'-').toLowerCase();
