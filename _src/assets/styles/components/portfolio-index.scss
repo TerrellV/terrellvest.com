@@ -22,7 +22,7 @@
       .page-title {
         display: block;
         text-align: right;
-        width: 131px;
+        // width: 131px;
         &:after {
           display: none;
         }
@@ -50,7 +50,7 @@
       width: 8px !important;
       height: 8px;
       border-radius: 50%;
-      left: 11em;
+      margin-left: 1.5rem;
       top: 6px;
       transform: translateY(0px);
       transition: transform 200ms ease-in-out, background-color 250ms ease-in-out;
