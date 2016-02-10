@@ -314,6 +314,27 @@ body {
 .hide-me {
   display: none !important; }
 
+/*
+ * COMPONENTS BELOW
+*/
+.nav_container {
+  position: absolute;
+  width: 100vw;
+  margin-top: -25px;
+  margin-left: -25px;
+  display: block;
+  height: 100px;
+  opacity: 3px;
+  box-shadow: 1px 1px 5px rgba(100, 100, 100, 0.3); }
+
+#logo-svg_elem {
+  fill: #4d4d4d;
+  height: 40px;
+  position: absolute;
+  top: 25px;
+  left: 200px;
+  transform: rotate(180deg); }
+
 body > header {
   width: 100%;
   font-family: "Roboto",sans-serif;
@@ -333,7 +354,7 @@ body > header {
         padding-left: 0; }
   @media (min-width: 701px) {
     body > header {
-      margin-bottom: 2rem; }
+      margin-bottom: 7rem; }
       body > header #nav-list {
         margin-left: 28%; } }
 

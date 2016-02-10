@@ -44,6 +44,14 @@ gulp.task('render', function() {
 
 /* normal gulp stuff below */
 
+/* copy images over*/
+gulp.task('copy-images', function(){
+  gulp.src('_src/assets/images/**/*',{
+      base: '_src'
+    })
+  .pipe(gulp.dest('_dist'));
+});
+
 /* Browser Sync Task*/
 gulp.task('browser-sync', ['watch'], function() {
   browserSync.init({

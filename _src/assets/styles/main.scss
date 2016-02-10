@@ -12,6 +12,13 @@
 // set typogrophy rules
 @import "./partials/typography.scss";
 
+/*
+ * COMPONENTS BELOW
+*/
+
+// navigation container
+@import "./components/nav-container.scss";
+
 // site headers
 @import "./components/site-header.scss";
 @import "./components/sub-header.scss";

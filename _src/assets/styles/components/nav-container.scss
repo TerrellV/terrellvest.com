@@ -1,0 +1,19 @@
+.nav_container {
+  position: absolute;
+  width: 100vw;
+  margin-top: -$body-padding;
+  margin-left: -$body-padding;
+  display: block;
+  height: 100px;
+  opacity: 3px;
+  box-shadow: 1px 1px 5px rgba(100,100,100,.3);
+}
+
+#logo-svg_elem {
+  fill: darken(grey, 20%);;
+  height: 40px;
+  position: absolute;
+  top: 25px;
+  left: 200px;
+  transform: rotate(180deg);
+}
