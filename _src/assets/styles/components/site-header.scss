@@ -24,9 +24,26 @@ body > header {
     }
   }
   @media(min-width:701px) {
-    margin-bottom: 7rem;
-    #nav-list {
-      margin-left: 28%;
+    height: 100px;
+    margin-bottom: 3rem;
+    margin-top: -$body-padding;
+    nav {
+      height: 100%;
+      .row {
+        height: 100%;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        #nav-list-container{
+          height: 100%;
+          width: 220px;
+          #nav-list {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+          }
+        }
+      }
     }
   }
 }
