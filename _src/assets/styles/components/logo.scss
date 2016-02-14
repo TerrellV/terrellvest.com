@@ -1,16 +1,38 @@
-#logo-container {
-  width: 28%;
-  text-align: right;
-  padding-right: 50px;
-  height: 100%;
+// default styles
+#logo-container{
+  padding-left: $body-padding;
+  display: inline-block;
   #logo-svg_elem {
+    $side: 40;
+    transition: transform 0.5s ease;
+    height: #{$side}px;
+    width: #{$side}px;
+  }
+}
+
+
+// mobile view
+@media(max-width: #{$medium-break-point}){
+  #logo-container{
+    #logo-svg_elem {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+// medium and large view
+@media(min-width: #{$medium-break-point + 1px}){
+  #logo-container{
+    box-sizing: border-box;
+    width: 28%;
     display: inline-block;
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-    fill: darken(grey, 20%);;
-    width: 40px;
-    height: 40px;
-    // transform-origin: 43px 31px;
+    height: 100%;
+    text-align: right;
+    padding-right: 50px;
+    #logo-svg_elem {
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%) rotate(0deg);
+    }
   }
 }

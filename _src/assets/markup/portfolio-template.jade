@@ -1,3 +1,5 @@
+- var logoURL = "../../assets/images/sprites/sprites.svg#logo"
+
 doctype HTML
 html(lang="en")
   head
@@ -6,9 +8,11 @@ html(lang="en")
     meta(name="mobile-web-app-capable" content="yes")
     link(href="../../assets/styles/main.css" rel="stylesheet" type="text/css")
   body
+    div.nav_container
     header
       nav
         div.row
+          include ./logo.jade
           include ./nav.jade
     main.portfolio-post-main
       article.row

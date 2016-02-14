@@ -1,11 +1,13 @@
 .nav_container {
   // background-color: darken(grey,20%);
-  position: absolute;
-  width: 100vw;
-  margin-top: -$body-padding;
-  margin-left: -$body-padding;
-  display: block;
-  height: 100px;
-  opacity: 3px;
-  box-shadow: 1px 1px 5px rgba(100,100,100,.3);
+  @media(min-width: #{$medium-break-point + 1px}){
+    position: absolute;
+    width: 100vw;
+    margin-top: -$body-padding;
+    margin-left: -$body-padding;
+    display: block;
+    height: 100px;
+    opacity: 3px;
+    box-shadow: 1px 1px 5px rgba(100,100,100,.3);
+  }
 }

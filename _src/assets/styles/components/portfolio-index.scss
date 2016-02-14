@@ -69,11 +69,17 @@
       }
       div a {
         span { // date
-          font-style: italic;
+          opacity: .4;
+          // font-style: italic;
         }
         p { // description
           padding-top: 1em;
           max-width: 475px;
+        }
+        &:hover {
+          h4 {
+            color:darken( $accent-blue,30%);
+          }
         }
       };
       div > a{

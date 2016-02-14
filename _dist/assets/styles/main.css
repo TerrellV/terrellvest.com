@@ -317,37 +317,48 @@ body {
 /*
  * COMPONENTS BELOW
 */
-.nav_container {
-  position: absolute;
-  width: 100vw;
-  margin-top: -25px;
-  margin-left: -25px;
-  display: block;
-  height: 100px;
-  opacity: 3px;
-  box-shadow: 1px 1px 5px rgba(100, 100, 100, 0.3); }
+@media (min-width: 701px) {
+  .nav_container {
+    position: absolute;
+    width: 100vw;
+    margin-top: -25px;
+    margin-left: -25px;
+    display: block;
+    height: 100px;
+    opacity: 3px;
+    box-shadow: 1px 1px 5px rgba(100, 100, 100, 0.3); } }
 
 #logo-container {
-  width: 28%;
-  text-align: right;
-  padding-right: 50px;
-  height: 100%; }
+  padding-left: 25px;
+  display: inline-block; }
   #logo-container #logo-svg_elem {
+    transition: transform 0.5s ease;
+    height: 40px;
+    width: 40px; }
+
+@media (max-width: 700px) {
+  #logo-container #logo-svg_elem {
+    transform: rotate(180deg); } }
+
+@media (min-width: 701px) {
+  #logo-container {
+    box-sizing: border-box;
+    width: 28%;
     display: inline-block;
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-    fill: #4d4d4d;
-    width: 40px;
-    height: 40px; }
+    height: 100%;
+    text-align: right;
+    padding-right: 50px; }
+    #logo-container #logo-svg_elem {
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%) rotate(0deg); } }
 
 body > header {
   width: 100%;
   font-family: "Roboto",sans-serif;
   font-size: 16px; }
   body > header nav {
-    box-sizing: border-box;
-    height: 2.5rem; }
+    box-sizing: border-box; }
     body > header nav #nav-list {
       list-style: none inside; }
       body > header nav #nav-list a {
@@ -358,6 +369,10 @@ body > header {
           padding-right: .75em; }
       body > header nav #nav-list a:nth-child(1) > li {
         padding-left: 0; }
+    @media (max-width: 700px) {
+      body > header nav #nav-list-container {
+        padding-top: 1.5rem;
+        padding-bottom: 2rem; } }
   @media (min-width: 701px) {
     body > header {
       height: 100px;
@@ -415,7 +430,8 @@ body > header {
         border-radius: 50%; } }
 
 #profile-pic {
-  width: 100%; }
+  width: 70%;
+  padding-bottom: 2rem; }
 
 @media (min-width: 701px) {
   #about-content .sub-header {
@@ -434,6 +450,8 @@ body > header {
     text-decoration: none; }
     #blog-content #blog-posts div a p, #blog-content #blog-posts div a span {
       font-family: "Roboto", sans-serif; }
+    #blog-content #blog-posts div a span {
+      opacity: .4; }
 
 #blog-content #blog-posts div:nth-child(1) {
   margin-top: 0; }
@@ -524,11 +542,14 @@ body > header {
   padding-top: 2.5em; }
 
 #portfolio-main #portfolio-posts div:not(.hide-me) div a span {
-  font-style: italic; }
+  opacity: .4; }
 
 #portfolio-main #portfolio-posts div:not(.hide-me) div a p {
   padding-top: 1em;
   max-width: 475px; }
+
+#portfolio-main #portfolio-posts div:not(.hide-me) div a:hover h4 {
+  color: #006cc5; }
 
 #portfolio-main #portfolio-posts div:not(.hide-me) div > a {
   color: black;
@@ -569,7 +590,8 @@ body > header {
   font-family: "Merriweather",serif; }
   .md-content h2, .md-content h3, .md-content h4, .md-content h5, .md-content h6 {
     margin-bottom: 1em;
-    padding-top: 1.5em; }
+    padding-top: 1.5em;
+    font-family: "Roboto",sans-serif; }
   .md-content p + p {
     text-indent: 1em; }
   .md-content ul {

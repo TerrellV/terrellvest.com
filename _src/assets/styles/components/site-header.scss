@@ -7,7 +7,6 @@ body > header {
   }
   nav {
     box-sizing: border-box;
-    height: 2.5rem;
     #nav-list {
       list-style: none inside;
       a {
@@ -20,6 +19,13 @@ body > header {
       }
       a:nth-child(1) > li {
         padding-left: 0;
+      }
+    }
+    @media(max-width:#{$medium-break-point}){
+      #nav-list-container{
+        // border: 1px dashed $accent-blue;
+        padding-top: 1.5rem;
+        padding-bottom: 2rem;
       }
     }
   }
