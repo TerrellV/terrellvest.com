@@ -20,7 +20,7 @@
 @import "./components/nav-container.scss";
 
 //logo
-@import "./components/logo.scss"; 
+@import "./components/logo.scss";
 
 // site headers
 @import "./components/site-header.scss";
@@ -38,6 +38,8 @@
 @import "./components/portfolio-index.scss";
   // proj post
   @import "./components/portfolio-post.scss";
+  @import "./components/post-action-buttons.scss";
+  @import "./partials/portfolio-button-classes.scss";
 
 // styles for html from markdown
 @import "./partials/md-content.scss";

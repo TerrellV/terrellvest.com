@@ -51,6 +51,8 @@ module.exports = function generateProjectPosts(type, projTypeArr, projectObj, re
                 postTitle: projObj.title,
                 postDate: projObj.date,
                 postContent: mdPostHtml,
+                // find a way to pass in the link variables for buttons at the
+                // bottom of each post .... how do we define these links .. in the bank! tadah
               }
             )
             // make the necessary directories

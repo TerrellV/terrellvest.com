@@ -1,0 +1,77 @@
+.actionButtons{
+  box-sizing: border-box;
+  border: 1px solid red;
+  position: relative;
+  padding-left: $body-padding;
+  .btn {
+    font: {
+      size: 1rem;
+      family: "Roboto",sans-serif;
+      weight: bold;
+    }
+    text-allign: center;
+    cursor: pointer;
+    display: inline-block;
+    box-shadow: 1px 3px 8px 0px rgba(100,100,100,.2);
+    padding: 1.5em 3em;
+    text-transform: uppercase;
+  }
+
+  // to app button
+  .toApp {
+    position: relative;
+    color: white;
+    overflow: hidden;
+    .content {
+      display: block;
+      position: absolute;
+      top: 0px;
+      left: 50%;
+      transform: translate(-50%);
+      height: 200%;
+      width: 200%;
+      z-index: -1000;
+    }
+  }
+
+  // to github button
+  .toGithub {
+    color: black;
+    background: {
+      color: white;
+    }
+  }
+}
+
+// mobile view
+@media(max-width: #{$medium-break-point}){
+  .actionButtons{
+    .btn{
+      display: block;
+      width: 7rem;
+      margin-bottom: 1rem;
+    }
+    .toApp {
+
+    }
+    .toGithub {
+
+    }
+  }
+}
+
+// medium and large view
+@media(min-width: #{$medium-break-point + 1px}){
+  .actionButtons{
+    left: 28%;
+    .btn{
+
+    }
+    .toApp {
+
+    }
+    .toGithub {
+
+    }
+  }
+}

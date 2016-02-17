@@ -24,16 +24,3 @@ Below are images of the various screens of the app I created during the design p
 
 <img id="" src="../../assets/images/tic-tac-toe/mobile-mockups.jpg" alt="">
 <img id="" src="../../assets/images/tic-tac-toe/Desktop-mockups.jpg" alt="">
-
-### Lets See It
-
-<div class="btn-container">
-  <a href="http://mirprest.github.io/tic-tac-toe/" target="_blank">
-    <div class="toApp btn">View App</div>
-  </a>
-</div>
-<div class="btn-container">
-  <a href="https://github.com/MirPresT/tic-tac-toe" target="_blank">
-    <div class="toGithub btn">&lt;View Code&gt;</div>
-  </a>
-</div>
