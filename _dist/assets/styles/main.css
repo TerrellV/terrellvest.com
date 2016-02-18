@@ -696,11 +696,22 @@ body > header {
     font-style: italic;
     border-left: .2em solid grey;
     padding-left: 1em; }
+  .md-content p img {
+    padding: 2rem 0;
+    margin-left: -1rem; }
+  .md-content p .portrait {
+    width: 60%; }
+  .md-content p .landscape {
+    width: 80%; }
   @media (max-width: 700px) {
     .md-content {
       font-size: 1rem; }
       .md-content p {
-        line-height: 1.65em; } }
+        line-height: 1.65em; }
+        .md-content p .portrait {
+          width: 80%; }
+        .md-content p .landscape {
+          width: 100%; } }
   @media (min-width: 701px) {
     .md-content {
       font-size: 1rem; }

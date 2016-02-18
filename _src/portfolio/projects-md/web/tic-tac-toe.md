@@ -15,12 +15,10 @@ After writing the entire app, It was brought to my attention that algorithms exi
 ### Design
 As you will find with most of my projects, I enjoy taking the time to design the visual representation of an app before I write any meaningful code. This particular app was designed in Adobe Illustrator.
 
-
-<img id="" src="../../assets/images/tic-tac-toe/mobile-mockups.jpg" alt="">
+<img id="" class="portrait" src="../../assets/images/tic-tac-toe/screen-with-palette.png">
 
 This app uses many concepts outlined in Google's material design documentation. With that said, only a miniscule amount of their pre written styles were used. For the purpose of learning I strive to personally code features or specific styling that I've yet to use myself.
 
 Below are images of the various screens of the app I created during the design process.
 
-<img id="" src="../../assets/images/tic-tac-toe/mobile-mockups.jpg" alt="">
-<img id="" src="../../assets/images/tic-tac-toe/Desktop-mockups.jpg" alt="">
+<img class="landscape" src="../../assets/images/tic-tac-toe/desktop-version.png" alt="">

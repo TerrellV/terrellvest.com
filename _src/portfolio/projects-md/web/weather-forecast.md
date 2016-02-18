@@ -15,6 +15,4 @@ This was the second app I had ever designed in illustrator. I went through many 
 
 This app uses many concepts outlined in Google's material design documentation. A few Material Design Light components are used. The advantage with this is the theoretical decrease in coding time. However, I found it difficult working with pre defined components that achieved styling I didn't understand. I've since opted to only use components I could create myself.
 
-// Final Design
-<img id="" src="../../assets/images/tic-tac-toe/mobile-mockups.jpg" alt="">
-<img id="" src="../../assets/images/tic-tac-toe/Desktop-mockups.jpg" alt="">
+<img class="landscape" src="../../assets/images/weather-forecast/weather-forecast-mockup.png" alt="">

@@ -42,12 +42,32 @@
     border-left: .2em solid grey;
     padding-left: 1em;
   }
+  // image classes and styles
+
+  p {
+    img {
+        padding: 2rem 0;
+        margin-left: -1rem;
+    }
+    .portrait {
+      width: 60%;
+    }
+    .landscape {
+      width: 80%;
+    }
+  }
 
   // small and medium devices
   @media(max-width:700px) {
     font-size: 1rem;
     p{
       line-height: 1.65em;
+      .portrait {
+        width: 80%;
+      }
+      .landscape {
+        width: 100%;
+      }
     }
   }
 
