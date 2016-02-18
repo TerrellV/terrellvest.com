@@ -1,0 +1,33 @@
+// default styles
+main {
+  // padding-left: $body-padding;
+  @extend %main_tag;
+  header {
+    @extend %sub-header;
+    width: 28%;
+  }
+  #contact-sections {
+    width: 72%;
+  }
+}
+
+// mobile
+@media(max-width: $medium-break-point) {
+  main {
+    header {
+    }
+    #contact-sections {
+      width: 100%;
+    }
+  }
+}
+
+// medium - large
+@media(min-width: #{$medium-break-point + 1}px) {
+  main {
+    header {
+    }
+    #contact-sections {
+    }
+  }
+}
