@@ -4,6 +4,7 @@
     @media(max-width:$medium-break-point) { // smaller than 700px
       #portfolio-post-header-wrap {
         margin-left: -$body-padding;
+        padding-bottom: 2rem;
         .sub-header {
           .page-title {
             margin-left: $body-padding;

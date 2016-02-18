@@ -1,27 +1,49 @@
+@keyframes psychodelic {
+  0%{
+    transform:translateX(-50%)
+  };
+  100%{
+    transform:translateX(-25%)
+  };
+}
+// fix the border radius that changes on hover
+@mixin fixHover() {
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0)
+}
+
 .actionButtons{
   box-sizing: border-box;
-  border: 1px solid red;
   position: relative;
-  padding-left: $body-padding;
+  padding: 2rem 0 2rem $body-padding;
   .btn {
     font: {
       size: 1rem;
       family: "Roboto",sans-serif;
       weight: bold;
     }
-    text-allign: center;
+    border-radius:#{50}px;
+    text-align: center;
+    text-decoration: none;
     cursor: pointer;
     display: inline-block;
-    box-shadow: 1px 3px 8px 0px rgba(100,100,100,.2);
-    padding: 1.5em 3em;
+    box-shadow: 1px 2px 4px 0px rgba(100,100,100,.2);
+    padding: 1em 2em;
     text-transform: uppercase;
   }
 
   // to app button
   .toApp {
     position: relative;
+    vertical-align: top;
     color: white;
     overflow: hidden;
+    @include fixHover();
+    &:hover > .content{
+      animation: psychodelic 4s alternate infinite;
+    }
     .content {
       display: block;
       position: absolute;
@@ -37,6 +59,7 @@
   // to github button
   .toGithub {
     color: black;
+    margin-left: 2rem;
     background: {
       color: white;
     }
@@ -47,8 +70,6 @@
 @media(max-width: #{$medium-break-point}){
   .actionButtons{
     .btn{
-      display: block;
-      width: 7rem;
       margin-bottom: 1rem;
     }
     .toApp {
@@ -64,14 +85,14 @@
 @media(min-width: #{$medium-break-point + 1px}){
   .actionButtons{
     left: 28%;
-    .btn{
-
+    width: 72%;
+    // display: inline-block;
+    .btn {
     }
     .toApp {
-
     }
     .toGithub {
-
+      margin-left: 2em;
     }
   }
 }

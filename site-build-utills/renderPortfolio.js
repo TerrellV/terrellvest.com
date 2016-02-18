@@ -51,10 +51,13 @@ module.exports = function generateProjectPosts(type, projTypeArr, projectObj, re
                 postTitle: projObj.title,
                 postDate: projObj.date,
                 postContent: mdPostHtml,
+                type: type,
+                links: projObj.links || undefined
                 // find a way to pass in the link variables for buttons at the
                 // bottom of each post .... how do we define these links .. in the bank! tadah
               }
             )
+
             // make the necessary directories
             fs.mkdir(`_dist/portfolio/${hyphFile}`, function(err){
               // write output html (jade and md) to an index file

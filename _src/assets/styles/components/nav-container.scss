@@ -2,7 +2,7 @@
   // background-color: darken(grey,20%);
   @media(min-width: #{$medium-break-point + 1px}){
     position: absolute;
-    width: 100vw;
+    width: 100%;
     margin-top: -$body-padding;
     margin-left: -$body-padding;
     display: block;

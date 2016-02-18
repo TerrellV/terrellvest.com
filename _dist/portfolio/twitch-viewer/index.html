@@ -33,54 +33,26 @@
           </header>
           <div class="portfolio-post-description"><span>June 24, 2015</span></div>
         </div>
-        <div id="portfolio-post-md-content" class="md-content col"><h3 id="project-description">PROJECT DESCRIPTION</h3>
+        <div id="portfolio-post-md-content" class="md-content col"><h1 id="project-description">Project Description</h1>
 <p>An app used to track the status of various twitch channels. By adding a channel to the front page the user has access to that channel&#39;s current status, live or offline, and additional information about the current broadcast. It should also be noted that this project was inspired by <a href="http://freecodecamp.com">Free Code Camp&#39;s</a> Twitch Tv Front End Development Project.</p>
-<h3 id="used">Used</h3>
-<ul>
-<li>ANGULAR<ul>
-<li>Custom Directives</li>
-<li>Factories</li>
-<li>Services</li>
-<li>Routing</li>
-</ul>
-</li>
-<li>GRUNT</li>
-<li>SASS<ul>
-<li>CSS Transitions</li>
-</ul>
-</li>
-<li>Github Pages</li>
-</ul>
-<h3 id="challenges">Challenges</h3>
-<h4 id="asynchronous-javascript">Asynchronous JavaScript</h4>
+<h1 id="used">Used</h1>
+<p>  Angular (Custom Directives, Factories, Services, Routing), Grunt, Sass, Github Pages</p>
+<h1 id="challenges">Challenges</h1>
+<h3 id="asynchronous-javascript">Asynchronous JavaScript</h3>
 <p>Because each channel&#39;s card or component required information from Twitch&#39;s API, many asynchronous  ajax calls were needed. Each ajax call for an individual car&#39;s information took an unknown amount of time to complete. In short, I needed to ensure that certain blocks of code, waited until other blocks of code where complete.</p>
 <p>This is where promises came in. Specifically, I used <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all">Promise.all</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/then">Promise.prototype.then</a> statements to control the execution of code.</p>
-<h4 id="repeating-components">Repeating Components</h4>
+<h3 id="repeating-components">Repeating Components</h3>
 <p>Looking at the design of this app you will see it called for multiple cards that all required similar functionality. Initially I attempted to use built in angular directives to display the cards as if they were a list of information. Unfortunately to implement specific functionality I needed to write a custom directive. Once I understood the syntax and workings of angular directives I was able to write code once and use it for each component.</p>
-<h3 id="design">DESIGN</h3>
+<h1 id="design">Design</h1>
 <p>Similar to most of the applications I write, a majority of the layout is first designed in illustrator.</p>
 <p>This app is heavily influenced by Google&#39;s Material Design Light Framework. With that said, an overwhelming majority of the application was written without the use of the framework specific code. I specifically liked the way Google displayed information via &quot;cards&quot; so I used a similar design for the channels. The animation on each card was inspired by many projects on Dribble that used interesting animations to transition screens.</p>
 <p>In previous projects, mobile screen sizes would quickly expose the limitations of my code. With this project, I made a conscious effort to ensure the mobile experience was on par with the viewing experience on larger devices.</p>
 <p>I decided to design a mobile specific version of the site. To implement this, I used media queries and JavaScript code to manipulate the DOM on the initial load and or screen resizing.</p>
-<h3 id="lets-see-it">Lets See It</h3>
-<div class="btn-container">
-  <a href="https://github.com/MirPresT/Twitch-Viewer">
-    <div class="toApp btn">View App</div>
-  </a>
-</div>
-<div class="btn-container">
-  <a href="https://mirprest.github.io/Twitch-Viewer/">
-    <div class="toGithub btn">&lt;View Code&gt;</div>
-  </a>
-</div>
+<h1 id="view">View</h1>
 
         </div>
-        <div class="actionButtons">
-          <div class="toApp btn"><span>View App</span>
-            <div class="content grad_twitch-viewer"></div>
-          </div>
-          <div class="toGithub btn">&lt;View Code&gt;</div>
-        </div>
+        <div class="actionButtons"><a href="https://mirprest.github.io/Twitch-Viewer/" target="_blank" class="toApp btn"><span>live app</span>
+            <div class="content grad_twitch-viewer"></div></a><a href="https://github.com/MirPresT/Twitch-Viewer" target="_blank" class="toGithub btn">&lt;Code&gt;</a></div>
       </article>
     </main>
   </body>

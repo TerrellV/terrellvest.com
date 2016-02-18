@@ -140,7 +140,9 @@ gulp.task('watch', ['sass'], function() {
   // watch portfolio stuff
   gulp.watch([
     './_src/portfolio/projects-md/web/*.md',
-    './_src/portfolio/projects-md/business/*.md'
+    './_src/portfolio/projects-md/business/*.md',
+    './_src/assets/markup/portfolio-template.jade',
+    './_src/assets/markup/post-action-buttons.jade'
   ],function(){
     buildPort_P().then(browserSync.reload)
   })

@@ -2,7 +2,7 @@
 This application allows the user to play “Tic Tac Toe” against the computer. The computer's skill level can be set to various difficulties.
 Choose easy and the computer will play in random locations. Pick regular and the computer will only react to certain conditions. Finally, if you set the difficulty to impossible, the computer will make the most ideal move every single time. Each game will result in a tie or a loss
 
-### Used In App
+### Used
 React, Flux, Grunt, Browserify, Sass, and GithubPages.
 
 ### Challenges

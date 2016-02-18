@@ -35,5 +35,14 @@ module.exports = [
       app: 'http://mirprest.github.io/tic-tac-toe/',
       github: 'https://github.com/MirPresT/tic-tac-toe'
     }
+  },
+  {
+    title: "Weather Forecast",
+    date: [2015,8,1], // year, month, day
+    type: 'web', // business or web
+    links: {
+      app: 'https://mirprest.github.io/Weather-App/',
+      github: 'https://github.com/MirPresT/Weather-App'
+    }
   }
 ]
