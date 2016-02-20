@@ -1,6 +1,6 @@
 // default styles
 main {
-  // padding-left: $body-padding;
+  font-family: "Roboto", sans-serif;
   @extend %main_tag;
   header {
     @extend %sub-header;
@@ -8,6 +8,31 @@ main {
   }
   #contact-sections {
     width: 72%;
+    box-sizing: border-box;
+    border: 1px solid black;
+
+    .social-container{
+      border: 1px solid $accent-red;
+      margin-bottom: 2rem;
+      h1{
+        padding-bottom: .5rem;
+      }
+      p {
+        color: rgba(100,100,100,.5);
+      }
+      .icons{
+        margin-top: 1rem;
+        .box{
+          width: 20%;
+          height: 50px;
+          background-color: $accent-blue;
+        }
+      }
+
+    }
+    .email-container{
+
+    }
   }
 }
 
