@@ -90,7 +90,9 @@ gulp.task('jade', ['clientJs'], function() {
       '!_src/{portfolio,portfolio/**}',
       '!_src/index.jade'
     ])
-    .pipe(jade())
+    .pipe(jade({
+      pretty: true
+    }))
     .pipe(gulp.dest('_dist'));
 });
 gulp.task('jade-update', function() {
@@ -101,7 +103,8 @@ gulp.task('jade-update', function() {
       '!_src/index.jade'
     ])
     .pipe(jade())
-    .pipe(gulp.dest('_dist'));
+    .pipe(gulp.dest('_dist'))
+    .pipe(browserSync.stream());
 });
 gulp.task('clientJs', ['render'], function() {
   gulp.src('./_src/assets/scripts/client.js', {
@@ -119,7 +122,10 @@ gulp.task('clientJs-update', function() {
 gulp.task('watch', ['sass'], function() {
   gulp.watch('./_src/assets/styles/**/*.scss', ['sass-update']);
   gulp.watch('./_src/assets/scripts/client.js', ['clientJs-update']);
-  gulp.watch('./_src/assets/markup/nav.jade', ['jade-update']);
+  gulp.watch([
+    './_src/assets/markup/nav.jade',
+    './_src/contact/*.jade'],
+    ['jade-update']);
   // watch about page
   gulp.watch([
     './_src/_about/*.md',

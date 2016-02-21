@@ -5,6 +5,8 @@
 
 - var logoURL = "../assets/images/sprites/sprites.svg#logo";
 
+- var imageNames = {"twitter":"twitter-logo-blue.png","facebook":"facebook-logo-white.png","instagram":"Glyph_Logo_png.png","linkedIn":"linkedIn-white.png","github":"github-white.png"}
+
 doctype HTML
 html(lang="en")
   head
@@ -22,14 +24,18 @@ html(lang="en")
     main
       .row.icons
         header.sub-header.col
-          h1.page-title Let's Talk
         #contact-sections.col
           div.social-container
             h1 Social
             p Perfect for a brief message
-            row
-              box.col
+            row.icons
+              each val, key in imageNames
+                .box.col(class="#{key}_circle")
+                  img(src="../assets/images/social-icons/" + val id=key).logo
+                  
+                  
           div.email-container
             h1 Email
-            p Or if your message is a bit longer
-            p terrell@terrellvest.com
+            p If your message is a bit longer
+            address 
+              a(href="mailto:terrell@terrellvest.com") terrell@terrellvest.com

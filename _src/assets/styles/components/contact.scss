@@ -9,29 +9,124 @@ main {
   #contact-sections {
     width: 72%;
     box-sizing: border-box;
-    border: 1px solid black;
+    font-size: 2rem;
 
-    .social-container{
-      border: 1px solid $accent-red;
-      margin-bottom: 2rem;
+    // for both
+    div {
       h1{
         padding-bottom: .5rem;
       }
       p {
+        font-size: .65em;
         color: rgba(100,100,100,.5);
+        margin: 1rem 0;
+      }
+    }
+
+    .social-container{
+      // border: 1px solid $accent-red;
+      margin-bottom: 5rem;
+      font-size: 2rem;
+      h1{
+        font-size: 1em;
       }
       .icons{
-        margin-top: 1rem;
+        margin-top: .5em;
         .box{
-          width: 20%;
-          height: 50px;
-          background-color: $accent-blue;
+          position: relative;
+          display: inline-block;
+          height: 80px;
+          width: 80px;
+          margin-right:10px;
+          margin-top:.5em;
+          cursor: pointer;
+          color: darken(#ECECEC,40%);
+          box-sizing: border-box;
+          transition: all 150ms ease-in-out;
+          &:after {
+            content: '';
+            width:100%; height: 100%;
+            display: block;
+            position: absolute;
+            bottom: 0px;
+            left: 0px;
+            z-index: -1
+          }
+          .logo{
+            position: absolute;
+            display: block;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            -webkit-filter: brightness(0) grayscale(1);
+            opacity: .5;
+          }
+          #facebook,#github,#instagram{
+            width: 30px;
+            height: 30px;
+          }
+          #twitter {
+            width: 50px;
+            height: 50px;
+          }
+          #linkedIn {
+            width: 40px;
+          }
         }
       }
 
     }
     .email-container{
+      font-size: 2rem;
+      h1{
+        font-size: 1em;
+      }
+      address{
+        margin-top: 1.5em;
+        &:hover{
+          a{
+            color: $accent-blue;
+            text-decoration: underline;
+          }
+        }
+        a{
+          font-size: 1em;
+          color: #868686 ;
+          text-decoration: none;
+          font-style: normal;
+          font-family:"Roboto", sans-serif;
+          letter-spacing: 1px;
+        }
+      }
+    }
+  }
+}
 
+$socialColors: (
+  twitter: #55ACEE,
+  facebook: #3B5998,
+  instagram: #9D6954,
+  linkedIn: #0077B5,
+  github: #333
+);
+
+// key, value in list
+@each $name, $color in $socialColors{
+  .#{$name}_circle{
+    // background-color: #ECECEC;
+    color: $color;
+    &:after{
+      transition: width 250ms ease-in-out;
+      // background-color:$color;
+    }
+    &:hover{
+      &:after{
+        background-color:$color;
+      }
+      .logo{
+        opacity: 1 !important;
+        -webkit-filter: grayscale(1) brightness(10) !important;
+      }
     }
   }
 }
@@ -43,6 +138,40 @@ main {
     }
     #contact-sections {
       width: 100%;
+      .social-container{
+        font-size: 1.5rem;
+        margin-bottom: 2em;
+        .icons{
+          $side: 50px;
+          .box{
+            margin-left: -4px;
+            margin-right: 8px;
+            width: $side !important;
+            height: $side !important;
+          }
+          #facebook,#github,#instagram{
+            width: 25px !important;
+            height: 25px !important;
+          }
+          #twitter {
+            width: 40px !important;
+            height: 40px !important;
+          }
+          #linkedIn {
+            width: 30px !important;
+            height: auto !important;
+          }
+        }
+      }
+      .email-container{
+        font-size: 1.5rem;
+        address {
+          a{
+            color: $accent-blue;
+            text-decoration: underline;
+          }
+        }
+      }
     }
   }
 }
@@ -53,6 +182,7 @@ main {
     header {
     }
     #contact-sections {
+
     }
   }
 }

@@ -365,7 +365,7 @@ body > header {
         text-decoration: none; }
         body > header nav #nav-list a li {
           display: inline-block;
-          padding-right: .75em; }
+          padding-right: 1em; }
       body > header nav #nav-list a:nth-child(1) > li {
         padding-left: 0; }
     @media (max-width: 700px) {
@@ -725,21 +725,145 @@ main {
   main #contact-sections {
     width: 72%;
     box-sizing: border-box;
-    border: 1px solid black; }
+    font-size: 2rem; }
+    main #contact-sections div h1 {
+      padding-bottom: .5rem; }
+    main #contact-sections div p {
+      font-size: .65em;
+      color: rgba(100, 100, 100, 0.5);
+      margin: 1rem 0; }
     main #contact-sections .social-container {
-      border: 1px solid #e74c3c;
-      margin-bottom: 2rem; }
+      margin-bottom: 5rem;
+      font-size: 2rem; }
       main #contact-sections .social-container h1 {
-        padding-bottom: .5rem; }
-      main #contact-sections .social-container p {
-        color: rgba(100, 100, 100, 0.5); }
+        font-size: 1em; }
       main #contact-sections .social-container .icons {
-        margin-top: 1rem; }
+        margin-top: .5em; }
         main #contact-sections .social-container .icons .box {
-          width: 20%;
-          height: 50px;
-          background-color: #5FB7FF; }
+          position: relative;
+          display: inline-block;
+          height: 80px;
+          width: 80px;
+          margin-right: 10px;
+          margin-top: .5em;
+          cursor: pointer;
+          color: #868686;
+          box-sizing: border-box;
+          transition: all 150ms ease-in-out; }
+          main #contact-sections .social-container .icons .box:after {
+            content: '';
+            width: 100%;
+            height: 100%;
+            display: block;
+            position: absolute;
+            bottom: 0px;
+            left: 0px;
+            z-index: -1; }
+          main #contact-sections .social-container .icons .box .logo {
+            position: absolute;
+            display: block;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            -webkit-filter: brightness(0) grayscale(1);
+            opacity: .5; }
+          main #contact-sections .social-container .icons .box #facebook, main #contact-sections .social-container .icons .box #github, main #contact-sections .social-container .icons .box #instagram {
+            width: 30px;
+            height: 30px; }
+          main #contact-sections .social-container .icons .box #twitter {
+            width: 50px;
+            height: 50px; }
+          main #contact-sections .social-container .icons .box #linkedIn {
+            width: 40px; }
+    main #contact-sections .email-container {
+      font-size: 2rem; }
+      main #contact-sections .email-container h1 {
+        font-size: 1em; }
+      main #contact-sections .email-container address {
+        margin-top: 1.5em; }
+        main #contact-sections .email-container address:hover a {
+          color: #5FB7FF;
+          text-decoration: underline; }
+        main #contact-sections .email-container address a {
+          font-size: 1em;
+          color: #868686;
+          text-decoration: none;
+          font-style: normal;
+          font-family: "Roboto", sans-serif;
+          letter-spacing: 1px; }
+
+.twitter_circle {
+  color: #55ACEE; }
+  .twitter_circle:after {
+    transition: width 250ms ease-in-out; }
+  .twitter_circle:hover:after {
+    background-color: #55ACEE; }
+  .twitter_circle:hover .logo {
+    opacity: 1 !important;
+    -webkit-filter: grayscale(1) brightness(10) !important; }
+
+.facebook_circle {
+  color: #3B5998; }
+  .facebook_circle:after {
+    transition: width 250ms ease-in-out; }
+  .facebook_circle:hover:after {
+    background-color: #3B5998; }
+  .facebook_circle:hover .logo {
+    opacity: 1 !important;
+    -webkit-filter: grayscale(1) brightness(10) !important; }
+
+.instagram_circle {
+  color: #9D6954; }
+  .instagram_circle:after {
+    transition: width 250ms ease-in-out; }
+  .instagram_circle:hover:after {
+    background-color: #9D6954; }
+  .instagram_circle:hover .logo {
+    opacity: 1 !important;
+    -webkit-filter: grayscale(1) brightness(10) !important; }
+
+.linkedIn_circle {
+  color: #0077B5; }
+  .linkedIn_circle:after {
+    transition: width 250ms ease-in-out; }
+  .linkedIn_circle:hover:after {
+    background-color: #0077B5; }
+  .linkedIn_circle:hover .logo {
+    opacity: 1 !important;
+    -webkit-filter: grayscale(1) brightness(10) !important; }
+
+.github_circle {
+  color: #333; }
+  .github_circle:after {
+    transition: width 250ms ease-in-out; }
+  .github_circle:hover:after {
+    background-color: #333; }
+  .github_circle:hover .logo {
+    opacity: 1 !important;
+    -webkit-filter: grayscale(1) brightness(10) !important; }
 
 @media (max-width: 700px) {
   main #contact-sections {
-    width: 100%; } }
+    width: 100%; }
+    main #contact-sections .social-container {
+      font-size: 1.5rem;
+      margin-bottom: 2em; }
+      main #contact-sections .social-container .icons .box {
+        margin-left: -4px;
+        margin-right: 8px;
+        width: 50px !important;
+        height: 50px !important; }
+      main #contact-sections .social-container .icons #facebook, main #contact-sections .social-container .icons #github, main #contact-sections .social-container .icons #instagram {
+        width: 25px !important;
+        height: 25px !important; }
+      main #contact-sections .social-container .icons #twitter {
+        width: 40px !important;
+        height: 40px !important; }
+      main #contact-sections .social-container .icons #linkedIn {
+        width: 30px !important;
+        height: auto !important; }
+    main #contact-sections .email-container {
+      font-size: 1.5rem; }
+      main #contact-sections .email-container address a {
+        color: #5FB7FF;
+        text-decoration: underline; } }
