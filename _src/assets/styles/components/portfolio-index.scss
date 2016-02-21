@@ -68,6 +68,10 @@
         padding-top: 2.5em;
       }
       div a {
+        h4{
+          font-weight: 600;
+          font-size: 1.05em;
+        }
         span { // date
           opacity: .4;
           // font-style: italic;
@@ -75,6 +79,9 @@
         p { // description
           padding-top: 1em;
           max-width: 475px;
+          line-height: 2em;
+          color: rgba(56, 56, 56, 0.9);
+          font-family: "Merriweather", serif;
         }
         &:hover {
           h4 {

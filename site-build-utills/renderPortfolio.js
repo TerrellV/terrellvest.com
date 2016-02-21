@@ -53,8 +53,6 @@ module.exports = function generateProjectPosts(type, projTypeArr, projectObj, re
                 postContent: mdPostHtml,
                 type: type,
                 links: projObj.links || undefined
-                // find a way to pass in the link variables for buttons at the
-                // bottom of each post .... how do we define these links .. in the bank! tadah
               }
             )
 

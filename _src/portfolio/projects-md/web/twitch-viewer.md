@@ -20,9 +20,24 @@ Looking at the design of this app you will see it called for multiple cards that
 Similar to most of the applications I write, a majority of the layout is first designed in illustrator.
 
 This app is heavily influenced by Google's Material Design Light Framework. With that said, an overwhelming majority of the application was written without the use of the framework specific code. I specifically liked the way Google displayed information via "cards" so I used a similar design for the channels. The animation on each card was inspired by many projects on Dribble that used interesting animations to transition screens.
+<br>
+<br>
+Here are a few mockups that never made it to the final application.
+
+<img class="landscape" src="../../assets/images/twitch-viewer/desktop-mockup-2.png" alt="">
+<img class="landscape" src="../../assets/images/twitch-viewer/desktop-mockups.png" alt="">
+
+It took me a really long time to decide on what card design I liked the best. I went back and forth with the card I was going to use. This added many unessecary hours to the development process. Moving forward I understand the importance of pushing my designs closer and closer to a 100% complete layout. I know calling a design 100% is unreasonable as there are always updates and changes but I believe striving for it certainly saves me a significant amount of time. Here are some of the versions I worked with.
+
+<img class="full-width" src="../../assets/images/twitch-viewer/card-mockups.png" alt="">
+
 
 In previous projects, mobile screen sizes would quickly expose the limitations of my code. With this project, I made a conscious effort to ensure the mobile experience was on par with the viewing experience on larger devices.
 
 I decided to design a mobile specific version of the site. To implement this, I used media queries and JavaScript code to manipulate the DOM on the initial load and or screen resizing.
+
+<img class="portrait shadow" src="../../assets/images/twitch-viewer/mobile-twitch.png" alt="">
+
+
 
 # View

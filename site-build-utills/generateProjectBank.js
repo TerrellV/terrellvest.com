@@ -75,7 +75,7 @@ const projectBank = {
           var postString = element.textContent;
           var postWords = postString.split(/\s/g);
           postWords = postWords.filter( word => word !== '');
-          var description = postWords.filter( (word,index) => index < 39 )
+          var description = postWords.filter( (word,index) => index < 28 )
             .join(' ');
           obj.description = description + '...';
           promObj.res();

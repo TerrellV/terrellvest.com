@@ -84,7 +84,10 @@ gulp.task('sass-update', function() {
   gulp.src('_src/assets/styles/main.scss', {
       base: '_src'
     })
+    .pipe(sourcemaps.init())
     .pipe(sass())
+    .pipe(autoprefixer({browsers: ['last 2 version', '> 5% in US']}))
+    .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest('_dist'))
     .pipe(browserSync.stream());
 });

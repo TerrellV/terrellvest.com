@@ -562,12 +562,19 @@ body > header {
 #portfolio-main #portfolio-posts div:not(.hide-me) div:not(:first-child) {
   padding-top: 2.5em; }
 
+#portfolio-main #portfolio-posts div:not(.hide-me) div a h4 {
+  font-weight: 600;
+  font-size: 1.05em; }
+
 #portfolio-main #portfolio-posts div:not(.hide-me) div a span {
   opacity: .4; }
 
 #portfolio-main #portfolio-posts div:not(.hide-me) div a p {
   padding-top: 1em;
-  max-width: 475px; }
+  max-width: 475px;
+  line-height: 2em;
+  color: rgba(56, 56, 56, 0.9);
+  font-family: "Merriweather", serif; }
 
 #portfolio-main #portfolio-posts div:not(.hide-me) div a:hover h4 {
   color: #006cc5; }
@@ -696,10 +703,36 @@ body > header {
 
 .md-content {
   font-family: "Merriweather",serif; }
+  .md-content p {
+    color: rgba(56, 56, 56, 0.9); }
   .md-content h1, .md-content h2, .md-content h3, .md-content h4, .md-content h5, .md-content h6 {
     margin-bottom: .5em;
     padding-top: 2em;
     font-family: "Roboto",sans-serif; }
+  .md-content h2 {
+    color: grey;
+    font-size: 1.25em;
+    font-weight: normal; }
+  .md-content h3 {
+    color: grey;
+    font-size: 1.25em;
+    font-weight: normal; }
+  .md-content h4 {
+    color: grey;
+    font-size: 1.25em;
+    font-weight: normal; }
+  .md-content h5 {
+    color: grey;
+    font-size: 1.25em;
+    font-weight: normal; }
+  .md-content h6 {
+    color: grey;
+    font-size: 1.25em;
+    font-weight: normal; }
+  .md-content a {
+    color: #ed7669; }
+    .md-content a:visited {
+      text-decoration: underline; }
   .md-content p + p {
     text-indent: 1em; }
   .md-content ul {
@@ -723,12 +756,16 @@ body > header {
     border-left: .2em solid grey;
     padding-left: 1em; }
   .md-content p img {
-    padding: 2rem 0;
-    margin-left: -1rem; }
+    margin: 3rem 0;
+    display: block; }
   .md-content p .portrait {
     width: 60%; }
+    .md-content p .portrait.shadow {
+      box-shadow: 1px 1px 5px 2px #cdcdcd; }
   .md-content p .landscape {
     width: 80%; }
+  .md-content p .full-width {
+    width: 100%; }
   @media (max-width: 700px) {
     .md-content {
       font-size: 1rem; }
@@ -766,43 +803,48 @@ main {
         font-size: 1em; }
       main #contact-sections .social-container .icons {
         margin-top: .5em; }
-        main #contact-sections .social-container .icons .box {
+        main #contact-sections .social-container .icons a {
           position: relative;
-          display: inline-block;
           height: 80px;
           width: 80px;
+          display: inline-block;
           margin-right: 10px;
           margin-top: .5em;
-          cursor: pointer;
-          color: #868686;
-          box-sizing: border-box; }
-          main #contact-sections .social-container .icons .box:after {
-            content: '';
-            width: 100%;
+          cursor: pointer; }
+          main #contact-sections .social-container .icons a .box {
+            position: relative;
+            display: block;
             height: 100%;
-            display: block;
-            position: absolute;
-            bottom: 0px;
-            left: 0px;
-            z-index: -1; }
-          main #contact-sections .social-container .icons .box .logo {
-            position: absolute;
-            display: block;
-            left: 50%;
-            top: 50%;
-            -webkit-transform: translate(-50%, -50%);
-                    transform: translate(-50%, -50%);
-            -webkit-filter: brightness(0) grayscale(1);
-                    filter: brightness(0) grayscale(1);
-            opacity: .5; }
-          main #contact-sections .social-container .icons .box #facebook, main #contact-sections .social-container .icons .box #github, main #contact-sections .social-container .icons .box #instagram {
-            width: 30px;
-            height: 30px; }
-          main #contact-sections .social-container .icons .box #twitter {
-            width: 50px;
-            height: 50px; }
-          main #contact-sections .social-container .icons .box #linkedIn {
-            width: 40px; }
+            width: 100%;
+            color: #868686;
+            box-sizing: border-box; }
+            main #contact-sections .social-container .icons a .box:after {
+              content: '';
+              width: 100%;
+              height: 100%;
+              display: block;
+              position: absolute;
+              bottom: 0px;
+              left: 0px;
+              z-index: -1; }
+            main #contact-sections .social-container .icons a .box .logo {
+              position: absolute;
+              display: block;
+              left: 50%;
+              top: 50%;
+              -webkit-transform: translate(-50%, -50%);
+                      transform: translate(-50%, -50%);
+              -webkit-filter: brightness(0) grayscale(1);
+                      filter: brightness(0) grayscale(1);
+              opacity: .5; }
+            main #contact-sections .social-container .icons a .box #facebook, main #contact-sections .social-container .icons a .box #github, main #contact-sections .social-container .icons a .box #instagram {
+              width: 30px;
+              height: 30px; }
+            main #contact-sections .social-container .icons a .box #twitter {
+              width: 50px;
+              height: 50px; }
+            main #contact-sections .social-container .icons a .box #linkedIn {
+              width: 40px; }
     main #contact-sections .email-container {
       font-size: 2rem; }
       main #contact-sections .email-container h1 {
@@ -881,7 +923,7 @@ main {
     main #contact-sections .social-container {
       font-size: 1.5rem;
       margin-bottom: 2em; }
-      main #contact-sections .social-container .icons .box {
+      main #contact-sections .social-container .icons a {
         margin-left: -4px;
         margin-right: 8px;
         width: 50px !important;

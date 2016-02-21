@@ -33,45 +33,51 @@ main {
       }
       .icons{
         margin-top: .5em;
-        .box{
+        a {
           position: relative;
-          display: inline-block;
           height: 80px;
           width: 80px;
+          display: inline-block;
           margin-right:10px;
           margin-top:.5em;
           cursor: pointer;
-          color: darken(#ECECEC,40%);
-          box-sizing: border-box;
-          // transition: all 150ms ease-in-out;
-          &:after {
-            content: '';
-            width:100%; height: 100%;
+          .box{
+            position: relative;
             display: block;
-            position: absolute;
-            bottom: 0px;
-            left: 0px;
-            z-index: -1
-          }
-          .logo{
-            position: absolute;
-            display: block;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%,-50%);
-            filter: brightness(0) grayscale(1);
-            opacity: .5;
-          }
-          #facebook,#github,#instagram{
-            width: 30px;
-            height: 30px;
-          }
-          #twitter {
-            width: 50px;
-            height: 50px;
-          }
-          #linkedIn {
-            width: 40px;
+            height: 100%;
+            width: 100%;
+            color: darken(#ECECEC,40%);
+            box-sizing: border-box;
+            // transition: all 150ms ease-in-out;
+            &:after {
+              content: '';
+              width:100%; height: 100%;
+              display: block;
+              position: absolute;
+              bottom: 0px;
+              left: 0px;
+              z-index: -1
+            }
+            .logo{
+              position: absolute;
+              display: block;
+              left: 50%;
+              top: 50%;
+              transform: translate(-50%,-50%);
+              filter: brightness(0) grayscale(1);
+              opacity: .5;
+            }
+            #facebook,#github,#instagram{
+              width: 30px;
+              height: 30px;
+            }
+            #twitter {
+              width: 50px;
+              height: 50px;
+            }
+            #linkedIn {
+              width: 40px;
+            }
           }
         }
       }
@@ -144,7 +150,7 @@ $socialColors: (
         margin-bottom: 2em;
         .icons{
           $side: 50px;
-          .box{
+          a {
             margin-left: -4px;
             margin-right: 8px;
             width: $side !important;

@@ -5,7 +5,7 @@
 
 - var logoURL = "../assets/images/sprites/sprites.svg#logo";
 
-- var imageNames = {"twitter":"twitter-logo-blue.png","facebook":"facebook-logo-white.png","instagram":"Glyph_Logo_png.png","linkedIn":"linkedIn-white.png","github":"github-white.png"}
+- var socialIcons = {"twitter": ["twitter-logo-blue.png","https://twitter.com/TerrellVest7"], "facebook":["facebook-logo-white.png","https://www.facebook.com/terrell.vest7"], "instagram":["Glyph_Logo_png.png","http://instagram.com/terrellvest7/","instagram://user?username=terrellvest7"], "linkedIn":["linkedIn-white.png","https://www.linkedin.com/profile/preview?vpa=pub&locale=en_US"], "github":["github-white.png", "https://github.com/MirPresT"]}
 
 doctype HTML
 html(lang="en")
@@ -44,9 +44,10 @@ html(lang="en")
             h1 Social
             p Perfect for a brief message
             row.icons
-              each val, key in imageNames
-                .box.col(class="#{key}_circle")
-                  img(src="../assets/images/social-icons/" + val id=key).logo
+              each val, key in socialIcons
+                a(href=val[1] target="_blank")
+                  .box.col(class="#{key}_circle")
+                    img(src="../assets/images/social-icons/" + val[0] id=key).logo
                   
                   
           div.email-container
