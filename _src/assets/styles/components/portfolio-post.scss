@@ -33,5 +33,13 @@
         width: 72%;
       }
     }
+    // from 701 =  800px
+    @media (min-width:$medium-break-point + 1) and (max-width: $medium-break-point + 100px) {
+      #portfolio-post-header-wrap {
+        .portfolio-post-description {
+          padding-right: 33px;
+        }
+      }
+    }
   }
 }

@@ -5,7 +5,9 @@ const marked = require('marked');
 const markdown = require('gulp-markdown');
 const sass = require('gulp-sass');
 const autoprefixer = require('gulp-autoprefixer');
+const sourcemaps = require('gulp-sourcemaps');
 const browserSync = require('browser-sync').create();
+
 // custom render functions
 const posts = require('./site-build-utills/generatePostBank.js');
 const projects = require('./site-build-utills/generateProjectBank.js');
@@ -70,8 +72,10 @@ gulp.task('sass', ['jade'], function() {
   gulp.src('_src/assets/styles/main.scss', {
       base: '_src'
     })
+    .pipe(sourcemaps.init())
     .pipe(sass())
     .pipe(autoprefixer({browsers: ['last 2 version', '> 5% in US']}))
+    .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest('_dist'))
     .pipe(browserSync.stream());
 });

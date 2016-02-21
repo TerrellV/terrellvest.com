@@ -2,7 +2,7 @@
 main {
   font-family: "Roboto", sans-serif;
   @extend %main_tag;
-  header {
+  #contact-sub-header {
     @extend %sub-header;
     width: 28%;
   }

@@ -63,10 +63,8 @@
       webDiv.innerHTML = this.webList;
 
       webDiv.className = "hide-me";
-      this.portfolioPostsContainer.innerHTML = `
-        ${bizDiv.outerHTML}
-        ${webDiv.outerHTML}
-      `;
+      this.portfolioPostsContainer.innerHTML = bizDiv.outerHTML + webDiv.outerHTML;
+      
       // cache dome from newly created elements
       this.bizListNode = document.querySelector("#portfolio-posts #biz-posts");
       this.webListNode = document.querySelector("#portfolio-posts #web-posts");
