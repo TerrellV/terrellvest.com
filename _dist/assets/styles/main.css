@@ -299,7 +299,8 @@
 body > header, #about-content, #blog-content, .blog-post-content, #portfolio-main, .portfolio-post-main, main {
   position: relative;
   left: 50%;
-  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
   max-width: 850px; }
 
 :root {
@@ -331,13 +332,16 @@ body {
   padding-left: 25px;
   display: inline-block; }
   #logo-container #logo-svg_elem {
+    transition: -webkit-transform 0.5s ease;
     transition: transform 0.5s ease;
+    transition: transform 0.5s ease, -webkit-transform 0.5s ease;
     height: 40px;
     width: 40px; }
 
 @media (max-width: 700px) {
   #logo-container #logo-svg_elem {
-    transform: rotate(180deg); } }
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg); } }
 
 @media (min-width: 701px) {
   #logo-container {
@@ -350,7 +354,8 @@ body {
     #logo-container #logo-svg_elem {
       position: relative;
       top: 50%;
-      transform: translateY(-50%) rotate(0deg); } }
+      -webkit-transform: translateY(-50%) rotate(0deg);
+              transform: translateY(-50%) rotate(0deg); } }
 
 body > header {
   width: 100%;
@@ -383,14 +388,16 @@ body > header {
           height: 100%;
           position: relative;
           top: 50%;
-          transform: translateY(-50%); }
+          -webkit-transform: translateY(-50%);
+                  transform: translateY(-50%); }
           body > header nav .row #nav-list-container {
             height: 100%;
             width: 220px; }
             body > header nav .row #nav-list-container #nav-list {
               position: absolute;
               top: 50%;
-              transform: translateY(-50%); } }
+              -webkit-transform: translateY(-50%);
+                      transform: translateY(-50%); } }
 
 .sub-header .page-title, .blog-post-content #blog-header-wrap header .page-title, #portfolio-main header .page-title, main #contact-sub-header .page-title {
   font-size: 1rem;
@@ -422,7 +429,8 @@ body > header {
         position: absolute;
         right: 0px;
         top: 50%;
-        transform: translate(2rem, -50%);
+        -webkit-transform: translate(2rem, -50%);
+                transform: translate(2rem, -50%);
         background-color: #5FB7FF;
         height: .5rem;
         width: .5rem;
@@ -525,23 +533,31 @@ body > header {
     position: absolute; }
   #portfolio-main header .mobile-slider {
     margin-left: 25px;
-    transform: translateX(0px);
+    -webkit-transform: translateX(0px);
+            transform: translateX(0px);
     height: 2px;
     bottom: 0px;
     left: 0px;
-    transition: transform 250ms linear, width 178.8ms linear 250ms; }
+    transition: width 178.8ms linear 250ms, -webkit-transform 250ms linear;
+    transition: transform 250ms linear, width 178.8ms linear 250ms;
+    transition: transform 250ms linear, width 178.8ms linear 250ms, -webkit-transform 250ms linear; }
   #portfolio-main header .desktop-slider {
     width: 8px !important;
     height: 8px;
     border-radius: 50%;
     margin-left: 1.5rem;
     top: 6px;
-    transform: translateY(0px);
-    transition: transform 200ms ease-in-out, background-color 250ms ease-in-out; }
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+    transition: background-color 250ms ease-in-out, -webkit-transform 200ms ease-in-out;
+    transition: transform 200ms ease-in-out, background-color 250ms ease-in-out;
+    transition: transform 200ms ease-in-out, background-color 250ms ease-in-out, -webkit-transform 200ms ease-in-out; }
   #portfolio-main header .slider-move-right {
-    transform: translateX(98px); }
+    -webkit-transform: translateX(98px);
+            transform: translateX(98px); }
   #portfolio-main header .slider-move-down {
-    transform: translateY(43px); }
+    -webkit-transform: translateY(43px);
+            transform: translateY(43px); }
 
 #portfolio-main #portfolio-posts div:not(.hide-me) div:not(:first-child) {
   padding-top: 2.5em; }
@@ -592,11 +608,21 @@ body > header {
   .portfolio-post-main article #portfolio-post-header-wrap .portfolio-post-description {
     padding-right: 33px; } }
 
+@-webkit-keyframes psychodelic {
+  0% {
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%); }
+  100% {
+    -webkit-transform: translateX(-25%);
+            transform: translateX(-25%); } }
+
 @keyframes psychodelic {
   0% {
-    transform: translateX(-50%); }
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%); }
   100% {
-    transform: translateX(-25%); } }
+    -webkit-transform: translateX(-25%);
+            transform: translateX(-25%); } }
 
 .actionButtons {
   box-sizing: border-box;
@@ -624,13 +650,15 @@ body > header {
     -webkit-transform: translate3d(0, 0, 0);
     -moz-transform: translate3d(0, 0, 0); }
     .actionButtons .toApp:hover > .content {
-      animation: psychodelic 4s alternate infinite; }
+      -webkit-animation: psychodelic 4s alternate infinite;
+              animation: psychodelic 4s alternate infinite; }
     .actionButtons .toApp .content {
       display: block;
       position: absolute;
       top: 0px;
       left: 50%;
-      transform: translate(-50%);
+      -webkit-transform: translate(-50%);
+              transform: translate(-50%);
       height: 200%;
       width: 200%;
       z-index: -1000; }
@@ -651,27 +679,15 @@ body > header {
       margin-left: 2em; } }
 
 .grad_tic-tac-toe {
-  background-image: -webkit-linear-gradient(left, #5FB7FF 10%, #00ADB5);
-  background-image: -moz-linear-gradient(left, #5FB7FF 10%, #00ADB5);
-  background-image: -o-linear-gradient(left, #5FB7FF 10%, #00ADB5);
   background-image: linear-gradient(to right, #5FB7FF 10%, #00ADB5); }
 
 .grad_twitch-viewer {
-  background-image: -webkit-linear-gradient(left, #5FB7FF 10%, #4538ae);
-  background-image: -moz-linear-gradient(left, #5FB7FF 10%, #4538ae);
-  background-image: -o-linear-gradient(left, #5FB7FF 10%, #4538ae);
   background-image: linear-gradient(to right, #5FB7FF 10%, #4538ae); }
 
 .grad_weather-forecast {
-  background-image: -webkit-linear-gradient(left, #5FB7FF 10%, #02c39a);
-  background-image: -moz-linear-gradient(left, #5FB7FF 10%, #02c39a);
-  background-image: -o-linear-gradient(left, #5FB7FF 10%, #02c39a);
   background-image: linear-gradient(to right, #5FB7FF 10%, #02c39a); }
 
 .grad_clock {
-  background-image: -webkit-linear-gradient(left, #5FB7FF 10%, #EE7C4B);
-  background-image: -moz-linear-gradient(left, #5FB7FF 10%, #EE7C4B);
-  background-image: -o-linear-gradient(left, #5FB7FF 10%, #EE7C4B);
   background-image: linear-gradient(to right, #5FB7FF 10%, #EE7C4B); }
 
 .md-content h1:first-child, .md-content h2:first-child, .md-content h3:first-child, .md-content h4:first-child, .md-content h5:first-child, .md-content h6:first-child {
@@ -731,7 +747,8 @@ body > header {
 main {
   font-family: "Roboto", sans-serif; }
   main #contact-sub-header {
-    width: 28%; }
+    width: 28%;
+    visibility: hidden; }
   main #contact-sections {
     width: 72%;
     box-sizing: border-box;
@@ -773,8 +790,10 @@ main {
             display: block;
             left: 50%;
             top: 50%;
-            transform: translate(-50%, -50%);
-            filter: brightness(0) grayscale(1);
+            -webkit-transform: translate(-50%, -50%);
+                    transform: translate(-50%, -50%);
+            -webkit-filter: brightness(0) grayscale(1);
+                    filter: brightness(0) grayscale(1);
             opacity: .5; }
           main #contact-sections .social-container .icons .box #facebook, main #contact-sections .social-container .icons .box #github, main #contact-sections .social-container .icons .box #instagram {
             width: 30px;
@@ -809,7 +828,8 @@ main {
     background-color: #55ACEE; }
   .twitter_circle:hover .logo {
     opacity: 1 !important;
-    filter: grayscale(1) brightness(10) !important; }
+    -webkit-filter: grayscale(1) brightness(10) !important;
+            filter: grayscale(1) brightness(10) !important; }
 
 .facebook_circle {
   color: #3B5998; }
@@ -819,7 +839,8 @@ main {
     background-color: #3B5998; }
   .facebook_circle:hover .logo {
     opacity: 1 !important;
-    filter: grayscale(1) brightness(10) !important; }
+    -webkit-filter: grayscale(1) brightness(10) !important;
+            filter: grayscale(1) brightness(10) !important; }
 
 .instagram_circle {
   color: #9D6954; }
@@ -829,7 +850,8 @@ main {
     background-color: #9D6954; }
   .instagram_circle:hover .logo {
     opacity: 1 !important;
-    filter: grayscale(1) brightness(10) !important; }
+    -webkit-filter: grayscale(1) brightness(10) !important;
+            filter: grayscale(1) brightness(10) !important; }
 
 .linkedIn_circle {
   color: #0077B5; }
@@ -839,7 +861,8 @@ main {
     background-color: #0077B5; }
   .linkedIn_circle:hover .logo {
     opacity: 1 !important;
-    filter: grayscale(1) brightness(10) !important; }
+    -webkit-filter: grayscale(1) brightness(10) !important;
+            filter: grayscale(1) brightness(10) !important; }
 
 .github_circle {
   color: #333; }
@@ -849,7 +872,8 @@ main {
     background-color: #333; }
   .github_circle:hover .logo {
     opacity: 1 !important;
-    filter: grayscale(1) brightness(10) !important; }
+    -webkit-filter: grayscale(1) brightness(10) !important;
+            filter: grayscale(1) brightness(10) !important; }
 
 @media (max-width: 700px) {
   main #contact-sections {
@@ -876,3 +900,5 @@ main {
       main #contact-sections .email-container address a {
         color: #5FB7FF;
         text-decoration: underline; } }
+
+/*# sourceMappingURL=main.css.map */

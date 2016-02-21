@@ -5,6 +5,7 @@ main {
   #contact-sub-header {
     @extend %sub-header;
     width: 28%;
+    visibility: hidden;
   }
   #contact-sections {
     width: 72%;

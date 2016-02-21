@@ -108,7 +108,9 @@ gulp.task('jade-update', function() {
       '!_src/{blog,blog/**}',
       '!_src/index.jade'
     ])
-    .pipe(jade())
+    .pipe(jade({
+      pretty: true
+    }))
     .pipe(gulp.dest('_dist'))
     .pipe(browserSync.stream());
 });
