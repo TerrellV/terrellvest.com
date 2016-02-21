@@ -39,7 +39,7 @@
         promiseArr.push(new Promise(makeIndivRequest));
         function makeIndivRequest(res,rej){
           var xhr = new XMLHttpRequest();
-          xhr.open('GET',`./../assets/html/${partial}.html`,true);
+          xhr.open('GET','./../assets/html/' + partial + '.html',true);
           xhr.onreadystatechange = function(response){
             if(xhr.readyState === 4 && xhr.status === 200) {
               // make value accessable on parent object via this

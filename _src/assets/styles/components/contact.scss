@@ -42,7 +42,7 @@ main {
           cursor: pointer;
           color: darken(#ECECEC,40%);
           box-sizing: border-box;
-          transition: all 150ms ease-in-out;
+          // transition: all 150ms ease-in-out;
           &:after {
             content: '';
             width:100%; height: 100%;
@@ -58,7 +58,7 @@ main {
             left: 50%;
             top: 50%;
             transform: translate(-50%,-50%);
-            -webkit-filter: brightness(0) grayscale(1);
+            filter: brightness(0) grayscale(1);
             opacity: .5;
           }
           #facebook,#github,#instagram{
@@ -125,7 +125,7 @@ $socialColors: (
       }
       .logo{
         opacity: 1 !important;
-        -webkit-filter: grayscale(1) brightness(10) !important;
+        filter: grayscale(1) brightness(10) !important;
       }
     }
   }
