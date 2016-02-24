@@ -12,7 +12,7 @@ module.exports = function generateProjectPosts(type, projTypeArr, projectObj, re
     res(`*** Done with ${type} projects`);
   }
 
-  /* 2. Do this first*/
+  /* Do this first*/
   fs.readdir(`_src/portfolio/projects-md/${type}`, function(callback,err,contents){
     if(err) throw err;
 

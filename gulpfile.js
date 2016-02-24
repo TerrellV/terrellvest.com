@@ -144,12 +144,12 @@ gulp.task('watch', function() {
     './_src/portfolio/projects-md/**/*.md',
     './_src/assets/markup/portfolio-template.jade',
     './_src/assets/markup/post-action-buttons.jade',
-    './_src/assets/markup/projects-in-category.jade'
+    './_src/assets/markup/projects-in-category.jade',
+    './_src/portfolio/index.jade'
   ],function(){
     buildPort_P().then(browserSync.reload)
   })
 });
-
 
 /* Browser Sync Task*/
 gulp.task('browser-sync', function() {

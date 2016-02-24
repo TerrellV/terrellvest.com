@@ -44,5 +44,14 @@ module.exports = [
       app: 'https://mirprest.github.io/Weather-App/',
       github: 'https://github.com/MirPresT/Weather-App'
     }
+  },
+  {
+    title: "Clock",
+    date: [2015,8,30], // year, month, day
+    type: 'web', // business or web
+    links: {
+      app: 'https://mirprest.github.io/Clock/#/',
+      github: 'https://github.com/MirPresT/Clock'
+    }
   }
 ]

@@ -705,44 +705,93 @@ body > header {
   font-family: "Merriweather",serif; }
   .md-content p {
     color: rgba(56, 56, 56, 0.9); }
+  .md-content ul {
+    color: rgba(56, 56, 56, 0.9);
+    list-style-type: none;
+    font-family: "Roboto",sans-serif;
+    font-size: 1.25em;
+    line-height: 1.5em; }
+  .md-content p + ul {
+    padding-top: 2em;
+    padding-left: 3em; }
+    .md-content p + ul li {
+      counter-increment: step-counter;
+      padding-bottom: 2em;
+      position: relative; }
+      .md-content p + ul li:before {
+        font-size: 1.25em;
+        content: counter(step-counter);
+        position: absolute;
+        left: -1.5em;
+        color: black;
+        text-align: center; }
+  .md-content ol {
+    color: rgba(56, 56, 56, 0.9);
+    list-style-type: none;
+    font-family: "Roboto",sans-serif;
+    font-size: 1.25em;
+    line-height: 1.5em; }
+  .md-content p + ol {
+    padding-top: 2em;
+    padding-left: 3em; }
+    .md-content p + ol li {
+      counter-increment: step-counter;
+      padding-bottom: 2em;
+      position: relative; }
+      .md-content p + ol li:before {
+        font-size: 1.25em;
+        content: counter(step-counter);
+        position: absolute;
+        left: -1.5em;
+        color: black;
+        text-align: center; }
+  .md-content h1 {
+    font-size: 1.75em; }
   .md-content h1, .md-content h2, .md-content h3, .md-content h4, .md-content h5, .md-content h6 {
     margin-bottom: .5em;
     padding-top: 2em;
     font-family: "Roboto",sans-serif; }
   .md-content h2 {
-    color: grey;
+    color: rgba(56, 56, 56, 0.6);
     font-size: 1.25em;
-    font-weight: normal; }
+    font-weight: 600; }
+  .md-content h1 + h2 {
+    padding-top: 1em;
+    margin-bottom: 1em; }
   .md-content h3 {
-    color: grey;
+    color: rgba(56, 56, 56, 0.6);
     font-size: 1.25em;
-    font-weight: normal; }
+    font-weight: 600; }
+  .md-content h1 + h3 {
+    padding-top: 1em;
+    margin-bottom: 1em; }
   .md-content h4 {
-    color: grey;
+    color: rgba(56, 56, 56, 0.6);
     font-size: 1.25em;
-    font-weight: normal; }
+    font-weight: 600; }
+  .md-content h1 + h4 {
+    padding-top: 1em;
+    margin-bottom: 1em; }
   .md-content h5 {
-    color: grey;
+    color: rgba(56, 56, 56, 0.6);
     font-size: 1.25em;
-    font-weight: normal; }
+    font-weight: 600; }
+  .md-content h1 + h5 {
+    padding-top: 1em;
+    margin-bottom: 1em; }
   .md-content h6 {
-    color: grey;
+    color: rgba(56, 56, 56, 0.6);
     font-size: 1.25em;
-    font-weight: normal; }
+    font-weight: 600; }
+  .md-content h1 + h6 {
+    padding-top: 1em;
+    margin-bottom: 1em; }
   .md-content a {
     color: #ed7669; }
     .md-content a:visited {
       text-decoration: underline; }
   .md-content p + p {
     text-indent: 1em; }
-  .md-content ul {
-    list-style: disc inside none; }
-  .md-content li > ul {
-    list-style-type: circle;
-    list-style-position: inside;
-    padding-left: 1em; }
-  .md-content ol {
-    list-style: decimal inside none; }
   .md-content hr {
     margin: 2em 0;
     height: 1px;
@@ -755,17 +804,37 @@ body > header {
     font-style: italic;
     border-left: .2em solid grey;
     padding-left: 1em; }
+  .md-content p + blockquote {
+    margin: 3em 0; }
   .md-content p img {
     margin: 3rem 0;
     display: block; }
+    .md-content p img.center {
+      margin-left: auto;
+      margin-right: auto; }
   .md-content p .portrait {
     width: 60%; }
     .md-content p .portrait.shadow {
       box-shadow: 1px 1px 5px 2px #cdcdcd; }
+    .md-content p .portrait.full {
+      height: 100%; }
+    .md-content p .portrait.med {
+      height: 450px;
+      width: auto; }
+    .md-content p .portrait.sml {
+      height: 300px;
+      width: auto; }
   .md-content p .landscape {
     width: 80%; }
-  .md-content p .full-width {
-    width: 100%; }
+    .md-content p .landscape.full {
+      width: 100%;
+      height: auto; }
+    .md-content p .landscape.med {
+      width: 450px;
+      height: auto; }
+    .md-content p .landscape.sml {
+      width: 300px;
+      height: auto; }
   @media (max-width: 700px) {
     .md-content {
       font-size: 1rem; }
@@ -773,8 +842,14 @@ body > header {
         line-height: 1.65em; }
         .md-content p .portrait {
           width: 80%; }
-        .md-content p .landscape {
-          width: 100%; } }
+          .md-content p .portrait.med {
+            height: 350px;
+            width: auto; }
+          .md-content p .portrait.sml {
+            height: 200px;
+            width: auto; }
+        .md-content p img.landscape {
+          width: 100% !important; } }
   @media (min-width: 701px) {
     .md-content {
       font-size: 1rem; }

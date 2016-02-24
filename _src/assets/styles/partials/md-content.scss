@@ -9,7 +9,40 @@ $sub-heading-list: h2 h3 h4 h5 h6;
   // allways
   font-family: "Merriweather",serif;
   p {
-    color: rgba(56, 56, 56, 0.9)
+    color: rgba(56, 56, 56, 0.9);
+  }
+
+  @each $list in ul,ol {
+    #{$list} {
+      color: rgba(56, 56, 56, 0.9);
+      list-style-type: none;
+      font-family:"Roboto",sans-serif;
+      font-size: 1.25em;
+      line-height: 1.5em;
+    }
+    p + #{$list} {
+      padding-top: 2em;
+      padding-left: 3em;
+      li {
+        // list-style-position: outside;
+        counter-increment: step-counter;
+        padding-bottom: 2em;
+        position: relative;
+        &:before{
+          font-size: 1.25em;
+          content: counter(step-counter);
+          position: absolute;
+          left: -1.5em;
+          color: black;
+          text-align: center;
+
+        }
+      }
+    }
+  }
+
+  h1 {
+    font-size: 1.75em;
   }
   h1,h2,h3,h4,h5,h6 {
     margin-bottom: .5em;
@@ -25,9 +58,13 @@ $sub-heading-list: h2 h3 h4 h5 h6;
 
   @each $var in $sub-heading-list {
     #{$var} {
-      color: grey;
+      color: rgba(56, 56, 56, 0.6);
       font-size:1.25em;
-      font-weight: normal;
+      font-weight: 600;
+    }
+    h1 + #{$var} {
+      padding-top: 1em;
+      margin-bottom: 1em;
     }
   }
 
@@ -43,17 +80,8 @@ $sub-heading-list: h2 h3 h4 h5 h6;
   p+p {
     text-indent: 1em;
   }
-  ul {
-    list-style: disc inside none;
-  }
-  li > ul{
-    list-style-type: circle;
-    list-style-position: inside;
-    padding-left: 1em;
-  }
-  ol {
-    list-style: decimal inside none;
-  }
+
+
   hr {
     margin: 2em 0;
     height: 1px;
@@ -68,25 +96,55 @@ $sub-heading-list: h2 h3 h4 h5 h6;
     border-left: .2em solid grey;
     padding-left: 1em;
   }
+  p + blockquote{
+    margin: 3em 0;
+  }
+
+
   // image classes and styles
 
   p {
     img {
         margin: 3rem 0;
         display: block;
+        &.center{
+          margin-left: auto;
+          margin-right: auto;
+        }
     }
     .portrait {
       width: 60%;
       &.shadow {
         box-shadow: 1px 1px 5px 2px lighten(grey, 30%);
       }
+      &.full {
+        height: 100%;
+      }
+      &.med {
+        height: 450px;
+        width: auto;
+      }
+      &.sml {
+        height: 300px;
+        width: auto;
+      }
     }
     .landscape {
       width: 80%;
+      &.full {
+        width: 100%;
+        height: auto;
+      }
+      &.med {
+        width: 450px;
+        height: auto;
+      }
+      &.sml {
+        width: 300px;
+        height: auto;
+      }
     }
-    .full-width {
-      width: 100%;
-    }
+
   }
 
   // small and medium devices
@@ -96,9 +154,17 @@ $sub-heading-list: h2 h3 h4 h5 h6;
       line-height: 1.65em;
       .portrait {
         width: 80%;
+        &.med {
+          height: 350px;
+          width: auto;
+        }
+        &.sml {
+          height: 200px;
+          width: auto;
+        }
       }
-      .landscape {
-        width: 100%;
+      img.landscape {
+        width: 100% !important;
       }
     }
   }

@@ -5,6 +5,18 @@ Choose easy and the computer will play in random locations. Pick regular and the
 # Used
 React, Flux, Grunt, Browserify, Sass, and GithubPages.
 
+# Design
+
+<img id="" class="portrait" src="../../assets/images/tic-tac-toe/screen-with-palette.png">
+
+As you will find with most of my projects, I enjoy taking the time to design the visual representation of an app before I write any meaningful code. This particular app was designed in Adobe Illustrator.
+
+This app uses many concepts outlined in Google's material design documentation. With that said, only a miniscule amount of their pre written styles were used. For the purpose of learning I strive to personally code features or specific styling that I've yet to use myself.
+
+Below are images of the various screens of the app I created during the design process.
+
+<img class="landscape" src="../../assets/images/tic-tac-toe/desktop-version.png" alt="">
+
 # Challenges
 This was the first application I built using both react and flux. Previously I had only used Angular while managing state in an unorganized manor.
 
@@ -12,13 +24,4 @@ Writing the logic for the computer in both the regular and impossible game modes
 
 After writing the entire app, It was brought to my attention that algorithms exist for implementing such logic. However, the code and ideas used in this application came simply from my analysis of many tic-tac-toe games.
 
-# Design
-As you will find with most of my projects, I enjoy taking the time to design the visual representation of an app before I write any meaningful code. This particular app was designed in Adobe Illustrator.
-
-<img id="" class="portrait" src="../../assets/images/tic-tac-toe/screen-with-palette.png">
-
-This app uses many concepts outlined in Google's material design documentation. With that said, only a miniscule amount of their pre written styles were used. For the purpose of learning I strive to personally code features or specific styling that I've yet to use myself.
-
-Below are images of the various screens of the app I created during the design process.
-
-<img class="landscape" src="../../assets/images/tic-tac-toe/desktop-version.png" alt="">
+# View
