@@ -3,6 +3,7 @@ const gulp = require('gulp');
 const jade = require('gulp-jade');
 const marked = require('marked');
 const markdown = require('gulp-markdown');
+const runSequence = require('run-sequence');
 const sass = require('gulp-sass');
 const autoprefixer = require('gulp-autoprefixer');
 const sourcemaps = require('gulp-sourcemaps');
@@ -39,15 +40,20 @@ function buildBlog_P() {
   return new Promise(buildBlog.bind(null, posts));
 }
 
+// GULP TASKS BELOW
+
+/*
+ * Render and Build Website
+*/
 gulp.task('render', function() {
   // Promises excecute at the same time not in any order
   buildArrays(); // build arrays must come first or arrays won't be formatted correctly
   return Promise.all([buildPort_P(), buildBlog_P(), buildAbout_P()]);
 });
 
-/* normal gulp stuff below */
-
-/* copy images over*/
+/*
+ * COPY IMAGES FROM SRC TO DIST
+*/
 gulp.task('copy-images', function(){
   gulp.src('_src/assets/images/**/*',{
       base: '_src'
@@ -55,43 +61,21 @@ gulp.task('copy-images', function(){
   .pipe(gulp.dest('_dist'));
 });
 
-/* Browser Sync Task*/
-gulp.task('browser-sync', ['watch'], function() {
-  browserSync.init({
-    server: {
-      baseDir: './_dist'
-    },
-    port: 3000,
-    open: false,
-    notify: false
-  })
+/*
+ * JAVASCRIPTS
+*/
+gulp.task('clientJs', function() {
+  gulp.src('./_src/assets/scripts/**/*.js', {
+      base: '_src'
+    })
+    .pipe(gulp.dest('_dist'));
+    buildPort_P().then(browserSync.reload);
+});
 
-});
-/*Gulp Task for the initial render sequence*/
-gulp.task('sass', ['jade'], function() {
-  gulp.src('_src/assets/styles/main.scss', {
-      base: '_src'
-    })
-    .pipe(sourcemaps.init())
-    .pipe(sass())
-    .pipe(autoprefixer({browsers: ['last 2 version', '> 5% in US']}))
-    .pipe(sourcemaps.write('./'))
-    .pipe(gulp.dest('_dist'))
-    .pipe(browserSync.stream());
-});
-/*Gulp Task for updating without dependencies*/
-gulp.task('sass-update', function() {
-  gulp.src('_src/assets/styles/main.scss', {
-      base: '_src'
-    })
-    .pipe(sourcemaps.init())
-    .pipe(sass())
-    .pipe(autoprefixer({browsers: ['last 2 version', '> 5% in US']}))
-    .pipe(sourcemaps.write('./'))
-    .pipe(gulp.dest('_dist'))
-    .pipe(browserSync.stream());
-});
-gulp.task('jade', ['clientJs'], function() {
+/*
+ * JADE TEMPLATES
+*/
+gulp.task('jade', function() {
   gulp.src([
       '_src/**/*.jade',
       '!_src/{assets,assets/**}',
@@ -104,39 +88,37 @@ gulp.task('jade', ['clientJs'], function() {
     }))
     .pipe(gulp.dest('_dist'));
 });
-gulp.task('jade-update', function() {
-  gulp.src([
-      '_src/**/*.jade',
-      '!_src/{assets,assets/**}',
-      '!_src/{blog,blog/**}',
-      '!_src/index.jade'
-    ])
-    .pipe(jade({
-      pretty: true
-    }))
+
+/*
+ * SCSS
+*/
+gulp.task('sass', function() {
+  gulp.src('_src/assets/styles/main.scss', {
+      base: '_src'
+    })
+    .pipe(sourcemaps.init())
+    .pipe(sass())
+    .pipe(autoprefixer({browsers: ['last 2 version', '> 5% in US']}))
+    .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest('_dist'))
     .pipe(browserSync.stream());
 });
-gulp.task('clientJs', ['render'], function() {
-  gulp.src('./_src/assets/scripts/client.js', {
-      base: '_src'
-    })
-    .pipe(gulp.dest('_dist'));
-});
-gulp.task('clientJs-update', function() {
-  gulp.src('./_src/assets/scripts/client.js', {
-      base: '_src'
-    })
-    .pipe(gulp.dest('_dist'));
-  buildPort_P().then(browserSync.reload);
-});
-gulp.task('watch', ['sass'], function() {
-  gulp.watch('./_src/assets/styles/**/*.scss', ['sass-update']);
-  gulp.watch('./_src/assets/scripts/client.js', ['clientJs-update']);
+
+
+/*
+ * WATCH TASKS
+*/
+gulp.task('watch', function() {
+  // sass updates
+  gulp.watch('./_src/assets/styles/**/*.scss', ['sass']);
+  // javascript updates
+  gulp.watch('./_src/assets/scripts/**/*.js', ['clientJs']);
+  // jade updates
   gulp.watch([
     './_src/assets/markup/nav.jade',
     './_src/contact/*.jade'],
-    ['jade-update']);
+    ['jade']);
+
   // watch about page
   gulp.watch([
     './_src/_about/*.md',
@@ -144,25 +126,45 @@ gulp.task('watch', ['sass'], function() {
   ], function() {
     buildAbout_P().then(browserSync.reload);
   });
+
   // watch blog stuff
   gulp.watch([
     './_src/blog/md-posts/*.md',
     './_src/blog/*.jade',
-    './_src/assets/markup/post-template.jade'
+    './_src/assets/markup/post-template.jade',
+    './_src/assets/markup/projects-in-category.jade',
   ], function() {
     buildBlog_P().then(function() {
       browserSync.reload();
     });
   });
+
   // watch portfolio stuff
   gulp.watch([
-    './_src/portfolio/projects-md/web/*.md',
-    './_src/portfolio/projects-md/business/*.md',
+    './_src/portfolio/projects-md/**/*.md',
     './_src/assets/markup/portfolio-template.jade',
-    './_src/assets/markup/post-action-buttons.jade'
+    './_src/assets/markup/post-action-buttons.jade',
+    './_src/assets/markup/projects-in-category.jade'
   ],function(){
     buildPort_P().then(browserSync.reload)
   })
 });
 
-gulp.task('default', ['render', 'clientJs', 'jade', 'sass', 'watch', 'browser-sync']);
+
+/* Browser Sync Task*/
+gulp.task('browser-sync', function() {
+  browserSync.init({
+    server: {
+      baseDir: './_dist'
+    },
+    port: 3000,
+    open: false,
+    notify: false
+  })
+});
+
+
+// run development build
+gulp.task('default', function(){
+  runSequence( 'render', ['copy-images','clientJs','jade','sass'], 'browser-sync', 'watch' )
+});
