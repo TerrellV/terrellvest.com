@@ -17,8 +17,6 @@ In terms of User Experience, I know there are times when animation is complete o
 
 ** Note: when cloning an element that has an animation attached to it via css, the element will animate as soon as it loads in the dom.
 
-
-
 ## Colors and Layout
 For this I used inspiration from multiple sources. I really liked the dark themes on the Spotify desktop app and the layout and spacing of stock mobile Samsung apps.  The tab layout pulls from the general trend of google material design apps.
 

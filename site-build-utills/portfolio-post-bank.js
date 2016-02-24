@@ -53,5 +53,14 @@ module.exports = [
       app: 'https://mirprest.github.io/Clock/#/',
       github: 'https://github.com/MirPresT/Clock'
     }
+  },
+  {
+    title: "Random Quote Generator",
+    date: [2015,7,30], // year, month, day
+    type: 'web', // business or web
+    links: {
+      app: 'https://rawgit.com/MirPresT/Random-Quote-Generator/master/html/index.html',
+      github: 'https://github.com/MirPresT/Random-Quote-Generator'
+    }
   }
 ]

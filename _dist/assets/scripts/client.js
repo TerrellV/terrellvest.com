@@ -13,9 +13,9 @@
     cacheDom: function(){
       this.portfolioPostsContainer = document.querySelector('#portfolio-posts');
       this.portfolioHeader = document.querySelector('#portfolio-main header');
-      this.bHeading = document.querySelector('#portfolio-main header h1:nth-child(1)');
-      this.wHeading = document.querySelector('#portfolio-main header h1:nth-child(2)');
-      this.headingsArr = [this.bHeading,this.wHeading];
+      this.headingOne = document.querySelector('#portfolio-main header h1:nth-child(1)');
+      this.headingTwo = document.querySelector('#portfolio-main header h1:nth-child(2)');
+      this.headingsArr = [this.headingOne,this.headingTwo];
     },
     bindGenericListeners:function(){
       // these new properties are added because bind creates a new functiona nd we need to hold reference to each specific function so that we can remove the function later. If function.bind was used evertime we used a method as a listener than a new function reference would be used
@@ -43,7 +43,7 @@
           xhr.onreadystatechange = function(response){
             if(xhr.readyState === 4 && xhr.status === 200) {
               // make value accessable on parent object via this
-               _this[_this.toCamelCase(partial)] = xhr.responseText;
+               _this[_this.toCamelCase(partial)] = xhr.responseText; // >> this.businessList
                res();
             }
           };
@@ -54,17 +54,20 @@
       return Promise.all(promiseArr);
     },
     insertLists: function(){
+      // create business list
       var bizDiv = document.createElement('div');
       bizDiv.setAttribute('id','biz-posts');
       bizDiv.innerHTML = this.businessList;
+      bizDiv.className = "hide-me";
 
+      // create web list
       var webDiv = document.createElement('div');
       webDiv.setAttribute('id','web-posts');
       webDiv.innerHTML = this.webList;
 
-      webDiv.className = "hide-me";
-      this.portfolioPostsContainer.innerHTML = bizDiv.outerHTML + webDiv.outerHTML;
-      
+      // add both components into one
+      this.portfolioPostsContainer.innerHTML =  webDiv.outerHTML + bizDiv.outerHTML;
+
       // cache dome from newly created elements
       this.bizListNode = document.querySelector("#portfolio-posts #biz-posts");
       this.webListNode = document.querySelector("#portfolio-posts #web-posts");
@@ -77,18 +80,18 @@
         ? [this.boundSmBizListener,this.boundSmWebListener]
         : [this.boundBgBizListener,this.boundBgWebListener];
 
-      this.bHeading.removeEventListener('click',toRemove[0], false)
-      this.wHeading.removeEventListener('click',toRemove[1], false)
+      this.headingOne.removeEventListener('click',toRemove[0], false)
+      this.headingTwo.removeEventListener('click',toRemove[1], false)
       // add events
-      this.bHeading.addEventListener('click', toAdd[0], false)
-      this.wHeading.addEventListener('click', toAdd[1], false)
+      this.headingOne.addEventListener('click', toAdd[0], false)
+      this.headingTwo.addEventListener('click', toAdd[1], false)
     },
     onLoadBindTitleClickEvents: function() {
       var bizListener = (this.onMobile)? this.boundSmBizListener : this.boundBgBizListener;
       var webListener = (this.onMobile)? this.boundSmWebListener : this.boundBgWebListener;
 
-      this.bHeading.addEventListener('click',bizListener,false);
-      this.wHeading.addEventListener('click',webListener,false);
+      this.headingOne.addEventListener('click',bizListener,false);
+      this.headingTwo.addEventListener('click',webListener,false);
     },
     insertCorrectSlider: function(){
       if (this.onMobile) {
@@ -96,9 +99,9 @@
         this.mobileSlider.setAttribute('id','mobile-slider');
         this.portfolioHeader.appendChild(this.mobileSlider);
         this.mobileSlider.className =  'default-slider mobile-slider';
-        this.mobileSlider.style.width = this.bHeading.clientWidth + "px";
+        this.mobileSlider.style.width = this.headingOne.clientWidth + "px";
       } else {
-        // creating correct slider element
+        // creating correct slider element for larger devices
         this.desktopSlider = document.createElement('span');
         this.desktopSlider.setAttribute('id','desktop-slider');
         this.portfolioHeader.appendChild(this.desktopSlider);
@@ -116,7 +119,7 @@
         ele.setAttribute('id',eleId);
         ele.className = (this.isBizActive)
         ? "default-slider mobile-slider" : "default-slider mobile-slider slider-move-right";
-        var val = (this.isBizActive)? this.bHeading.clientWidth : this.wHeading.clientWidth;
+        var val = (this.isBizActive)? this.headingOne.clientWidth : this.headingTwo.clientWidth;
         ele.style.width = val + "px";
       } else {
         this.desktopSlider = ele;
@@ -155,35 +158,39 @@
       this.isFirstLoad = false;
     },
     switchPage: function(val){
+      console.log('switching page',val,this.isBizActive);
       this.isBizActive = val;
       if(this.isBizActive) {
+        console.log('heading 2 should be active');
         this.bizListNode.classList.remove('hide-me');
         this.webListNode.classList.add('hide-me');
-        this.bHeading.classList.remove('inactive-page-title');
-        this.wHeading.classList.add('inactive-page-title');
+        this.headingTwo.classList.remove('inactive-page-title');
+        this.headingOne.classList.add('inactive-page-title');
       } else {
         this.bizListNode.classList.add('hide-me');
         this.webListNode.classList.remove('hide-me');
-        this.wHeading.classList.remove('inactive-page-title');
-        this.bHeading.classList.add('inactive-page-title');
+        this.headingOne.classList.remove('inactive-page-title');
+        this.headingTwo.classList.add('inactive-page-title');
       }
     },
     moveSliderRight: function(){
       this.switchPage(false);
       this.mobileSlider.classList.add('slider-move-right');
-      this.mobileSlider.style.width = this.wHeading.clientWidth + "px";
+      this.mobileSlider.style.width = this.headingTwo.clientWidth + "px";
     },
     moveSliderLeft: function(){
       this.switchPage(true);
       this.mobileSlider.classList.remove('slider-move-right');
-      this.mobileSlider.style.width = this.bHeading.clientWidth + "px";
+      this.mobileSlider.style.width = this.headingOne.clientWidth + "px";
     },
     moveSliderDown: function(){
-      this.switchPage(false);
+      console.log('moving slider down');
+      this.switchPage(true);
       this.desktopSlider.classList.add('slider-move-down');
     },
     moveSliderUp: function(){
-      this.switchPage(true);
+      console.log('moving slider up');
+      this.switchPage(false);
       this.desktopSlider.classList.remove('slider-move-down');
     }
   }
