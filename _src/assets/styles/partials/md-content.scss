@@ -1,3 +1,5 @@
+$text-grey: rgba(56, 56, 56, 0.9);
+
 $sub-heading-list: h2 h3 h4 h5 h6;
 
 %first-headings {
@@ -95,6 +97,13 @@ $sub-heading-list: h2 h3 h4 h5 h6;
     font-style: italic;
     border-left: .2em solid grey;
     padding-left: 1em;
+    &.bold {
+      font-size: 1.25em;
+      font-weight: bold;
+      color: $text-grey;
+      border-left: .2em solid $accent-blue;
+      line-height: 1.75em;
+    }
   }
   p + blockquote{
     margin: 3em 0;

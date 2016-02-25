@@ -1,6 +1,6 @@
 (function(){
   var portModule = {
-    isBizActive: true,
+    isBizActive: false,
     isFirstLoad: true,
     onMobile: undefined,
     prevSizeMobile: undefined,
@@ -94,6 +94,7 @@
       this.headingTwo.addEventListener('click',webListener,false);
     },
     insertCorrectSlider: function(){
+      // this is only called on initial load not on resize
       if (this.onMobile) {
         this.mobileSlider = document.createElement('span');
         this.mobileSlider.setAttribute('id','mobile-slider');
@@ -113,21 +114,25 @@
       var ele = document.createElement('span');
 
       if(this.onMobile) {
+        console.log('on mobile');
         this.mobileSlider = ele;
         var eleToRemove = document.querySelector('#portfolio-main header span');
         var eleId = 'mobile-slider';
         ele.setAttribute('id',eleId);
+        console.log(this.isBizActive);
         ele.className = (this.isBizActive)
-        ? "default-slider mobile-slider" : "default-slider mobile-slider slider-move-right";
-        var val = (this.isBizActive)? this.headingOne.clientWidth : this.headingTwo.clientWidth;
+        ? "default-slider mobile-slider slider-move-right" : "default-slider mobile-slider";
+        var val = (this.isBizActive)? this.headingTwo.clientWidth : this.headingOne.clientWidth;
         ele.style.width = val + "px";
+        console.log(ele);
       } else {
+        console.log('on desktop');
         this.desktopSlider = ele;
         var eleToRemove = document.querySelector('#portfolio-main header span');
         var eleId = 'desktop-slider';
         ele.setAttribute('id',eleId);
         ele.className = (this.isBizActive)
-        ? "default-slider desktop-slider" : "default-slider desktop-slider slider-move-down";
+        ? "default-slider desktop-slider slider-move-down" : "default-slider desktop-slider";
       }
 
       this.portfolioHeader.removeChild(eleToRemove);
@@ -158,10 +163,8 @@
       this.isFirstLoad = false;
     },
     switchPage: function(val){
-      console.log('switching page',val,this.isBizActive);
       this.isBizActive = val;
       if(this.isBizActive) {
-        console.log('heading 2 should be active');
         this.bizListNode.classList.remove('hide-me');
         this.webListNode.classList.add('hide-me');
         this.headingTwo.classList.remove('inactive-page-title');
@@ -174,12 +177,12 @@
       }
     },
     moveSliderRight: function(){
-      this.switchPage(false);
+      this.switchPage(true);
       this.mobileSlider.classList.add('slider-move-right');
       this.mobileSlider.style.width = this.headingTwo.clientWidth + "px";
     },
     moveSliderLeft: function(){
-      this.switchPage(true);
+      this.switchPage(false);
       this.mobileSlider.classList.remove('slider-move-right');
       this.mobileSlider.style.width = this.headingOne.clientWidth + "px";
     },

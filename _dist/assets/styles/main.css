@@ -440,7 +440,7 @@ body > header {
   .sub-header, .blog-post-content #blog-header-wrap header, #portfolio-main header, main #contact-sub-header {
     position: relative;
     text-align: right;
-    padding-right: 33px; } }
+    padding-right: 28px; } }
 
 #profile-pic {
   width: 70%;
@@ -512,10 +512,12 @@ body > header {
     border: none;
     transition: opacity 250ms ease-in-out; }
   @media (max-width: 700px) {
-    #portfolio-main header .page-title:first-child {
-      margin-right: 2em; }
-    #portfolio-main header .page-title:not(:first-child) {
-      margin-left: -.25rem; } }
+    #portfolio-main header {
+      margin-bottom: 3em; }
+      #portfolio-main header .page-title:first-child {
+        margin-right: 2em; }
+      #portfolio-main header .page-title:not(:first-child) {
+        margin-left: -.25rem; } }
   @media (min-width: 701px) {
     #portfolio-main header {
       width: 28%; }
@@ -538,9 +540,9 @@ body > header {
     height: 2px;
     bottom: 0px;
     left: 0px;
-    transition: width 178.8ms linear 250ms, -webkit-transform 250ms linear;
-    transition: transform 250ms linear, width 178.8ms linear 250ms;
-    transition: transform 250ms linear, width 178.8ms linear 250ms, -webkit-transform 250ms linear; }
+    transition: width 214ms linear 90ms, -webkit-transform 300ms linear;
+    transition: transform 300ms linear, width 214ms linear 90ms;
+    transition: transform 300ms linear, width 214ms linear 90ms, -webkit-transform 300ms linear; }
   #portfolio-main header .desktop-slider {
     width: 8px !important;
     height: 8px;
@@ -553,8 +555,8 @@ body > header {
     transition: transform 200ms ease-in-out, background-color 250ms ease-in-out;
     transition: transform 200ms ease-in-out, background-color 250ms ease-in-out, -webkit-transform 200ms ease-in-out; }
   #portfolio-main header .slider-move-right {
-    -webkit-transform: translateX(98px);
-            transform: translateX(98px); }
+    -webkit-transform: translateX(162.5px);
+            transform: translateX(162.5px); }
   #portfolio-main header .slider-move-down {
     -webkit-transform: translateY(43px);
             transform: translateY(43px); }
@@ -807,6 +809,12 @@ body > header {
     font-style: italic;
     border-left: .2em solid grey;
     padding-left: 1em; }
+    .md-content blockquote.bold {
+      font-size: 1.25em;
+      font-weight: bold;
+      color: rgba(56, 56, 56, 0.9);
+      border-left: 0.2em solid #5FB7FF;
+      line-height: 1.75em; }
   .md-content p + blockquote {
     margin: 3em 0; }
   .md-content p img {

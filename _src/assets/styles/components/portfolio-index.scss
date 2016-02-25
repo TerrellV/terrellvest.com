@@ -10,6 +10,7 @@
       transition: opacity 250ms ease-in-out;
     }
     @media (max-width: 700px) { // below 700 px
+      margin-bottom: 3em;
       .page-title:first-child {
         margin-right: 2em;
       }
@@ -44,7 +45,8 @@
       height: 2px;
       bottom: 0px;
       left:0px;
-      transition: transform 250ms linear, width 178.8ms linear 250ms;
+      // transition: transform 250ms linear, width 178.8ms linear 70ms;
+      transition: transform 300ms linear, width 214ms linear 90ms;// slower
     }
     .desktop-slider {
       width: 8px !important;
@@ -56,7 +58,7 @@
       transition: transform 200ms ease-in-out, background-color 250ms ease-in-out;
     }
     .slider-move-right {
-      transform: translateX( add_Em_Pix(2,66) );
+      transform: translateX( add_Em_Pix(2,130.5) );
     }
     .slider-move-down {
       transform: translateY(43px);
