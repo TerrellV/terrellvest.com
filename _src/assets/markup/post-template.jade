@@ -1,3 +1,8 @@
+- var aboutClass = "inactive";
+- var blogClass = "active";
+- var portfolioClass = "inactive";
+- var contactClass = "inactive";
+
 - var logoURL = "../../assets/images/sprites/sprites.svg#logo"
 
 doctype HTML
@@ -24,4 +29,6 @@ html(lang="en")
             span Read Time #{postReadTime} mins
         div#blog-post-md-content.md-content.col
           != postContent
+        #back-blog-container
+          a#back-blog.col(href="/blog") All Posts
     script(src="../../assets/scripts/g_a_code.js")

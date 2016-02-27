@@ -39,5 +39,33 @@
       width: 72%;
     }
   }
-
+  // button at bottom for going back to list
+  #back-blog-container {
+    padding-left: $body-padding;
+    position: relative;
+    width: 72%;
+    left: 28%;
+    margin-top: 3em;
+    margin-bottom: 2em;
+    #back-blog {
+      @media(min-width:$medium-break-point + 1) {
+        opacity: .3;
+        transition: background 250ms ease, color 250ms ease, opacity 200ms ease;
+        &:hover{
+          opacity: 1;
+        }
+      }
+      position: relative;
+      box-sizing: border-box;
+      padding: 0.75rem 1.75rem;
+      border-radius: 50px;
+      border: 2px solid $text-grey;
+      text-decoration: none;
+      color: $text-grey;
+      text-align: center;
+      color: $text-grey;
+      cursor: pointer;
+      outline: none;
+    }
+  }
 }
