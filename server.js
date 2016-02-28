@@ -12,6 +12,6 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(path.join( __dirname, '_dist' )));
 
 
-var server = app.listen(8080, function () {
-    console.log('Your server is running on port 8080');
+var server = app.listen(3020, function () {
+    console.log('Your server is running on port 3020');
 });
