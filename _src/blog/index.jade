@@ -27,6 +27,7 @@ html(lang="en")
           each post in postArr
             div
               a(href=post.path)
-                p=post.title
+                h1=post.title
                 span=post.date
+                div#blog-preview-dcr=post.dcr
     script(src="../assets/scripts/g_a_code.js")

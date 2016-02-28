@@ -458,18 +458,32 @@ body > header {
   cursor: pointer;
   margin: 2em 0;
   -webkit-tap-highlight-color: rgba(55, 183, 255, 0.1); }
-  #blog-content #blog-posts div:hover p {
-    color: #006cc5 !important; }
   #blog-content #blog-posts div a {
     color: black;
     text-decoration: none; }
-    #blog-content #blog-posts div a p, #blog-content #blog-posts div a span {
+    #blog-content #blog-posts div a h1 {
+      color: black;
+      font-weight: 600;
+      font-size: 1.25em;
+      padding-bottom: .5rem; }
+    #blog-content #blog-posts div a:hover h1 {
+      color: #0088f8; }
+    #blog-content #blog-posts div a h1, #blog-content #blog-posts div a span {
       font-family: "Roboto", sans-serif; }
     #blog-content #blog-posts div a span {
       opacity: .4; }
+    #blog-content #blog-posts div a #blog-preview-dcr {
+      color: rgba(56, 56, 56, 0.9);
+      line-height: 2rem;
+      max-width: 475px;
+      margin: 1rem 0;
+      font-family: "Merriweather", serif; }
 
 #blog-content #blog-posts div:nth-child(1) {
   margin-top: 0; }
+
+#blog-content #blog-posts div:not(:first-child) a h1 {
+  padding-top: 1.25rem; }
 
 @media (min-width: 701px) {
   #blog-content .sub-header {
