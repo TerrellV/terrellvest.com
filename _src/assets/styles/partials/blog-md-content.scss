@@ -9,38 +9,34 @@ $sub-heading-list: h2 h3 h4 h5 h6;
   }
 }
 
-%first-headings {
-  padding-top: 0 !important;
-  margin-bottom: 1em !important;
-}
 
-.md-content {
+#blog-post-md-content {
   // allways
   font-family: "Merriweather",serif;
   p {
     color: rgba(56, 56, 56, 0.9);
   }
 
-
-
   h1 {
-    font-size: 1.25em;
+    font-size: 1.75em;
   }
   h1,h2,h3,h4,h5,h6 {
     margin-bottom: .5em;
     padding-top: 2em;
     font-family: "Roboto",sans-serif;
-    &.solo {
-      padding-bottom: 1em;
-    }
   }
-  h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child, h6:first-child {
-    @extend %first-headings;
-  };
+  // specific items
 
-  // key, value in list with object like map or
-  // value, index in list : for single item list
+  #blog-statement {
+    font-weight: bold;
+    line-height: 2rem;
+    margin: 3rem 0;
+    font-family: "Roboto", sans-serif;
+    font-size: 1.25rem;
+  }
 
+
+  // for h2 h2 h4 h5 h6
   @each $var in $sub-heading-list {
     #{$var} {
       color: rgba(56, 56, 56, 0.6);
@@ -56,7 +52,6 @@ $sub-heading-list: h2 h3 h4 h5 h6;
   // links
   a {
     color: lighten($accent-red, 10%);
-    // text-decoration: none;
     &:visited {
       text-decoration: underline;
     }
@@ -64,9 +59,12 @@ $sub-heading-list: h2 h3 h4 h5 h6;
 
   p+p {
     text-indent: 2em;
+    &.own-line {
+      margin-top: 2rem;
+      text-indent: 0;
+    }
   }
-
-
+  // line seperator
   hr {
     margin: 2em 0;
     height: 1px;
@@ -88,10 +86,6 @@ $sub-heading-list: h2 h3 h4 h5 h6;
       line-height: 1.75em;
     }
   }
-  p + blockquote{
-    margin: 3em 0;
-  }
-
 
   // image classes and styles
 
@@ -139,30 +133,71 @@ $sub-heading-list: h2 h3 h4 h5 h6;
   }
 
   // lists
-  // normal lists
-  @each $list in ul,ol {
-    #{$list}.normal {
-      color: rgba(56, 56, 56, 0.9);
-      list-style-type: none;
-      font-family:"Roboto",sans-serif;
-      font-size: 1.25em;
-      line-height: 1.5em;
+  // generic lists
+  .gen-list-container{
+    margin-top: 2.5rem;
+    color: $text-grey;
+    & + p {
+      margin-top: 2rem;
     }
-    p + #{$list}.normal {
-      padding-top: 2em;
-      padding-left: 3em;
-      li {
-        counter-increment: step-counter;
-        padding-bottom: 2em;
+    .gen-list-heading {
+      margin: 0 0 0 2rem;
+      padding: 0;
+      padding-bottom: .75rem;
+    }
+    .gen-list{
+      list-style: none;
+      margin: 0 0 0 2rem;
+      .list-item {
+        line-height: 2.5rem;
         position: relative;
+        font-family: "Roboto",sans-serif;
+        font-size: 1.05em;
         &:before{
-          font-size: 1.25em;
-          content: counter(step-counter);
+          content: '';
+          display: block;
           position: absolute;
-          left: -1.5em;
-          color: black;
-          text-align: center;
+          top: 1.19rem;
+          left: -1rem;
+          height: 5px;
+          width: 5px;
+          background-color: $text-grey;
+          border-radius: 50%;
         }
+        #check{
+          transition: all 250ms ;
+          position: absolute;
+          left: -1.5rem;
+          transform: translateY(100%);
+          width: .75em;
+          height: .75em;
+          stroke-dasharray: 140;
+          animation: draw-check 1s ease-out backwards 1s ;
+        }
+      }
+    }
+  }
+
+
+  // task lists
+  .tasks{
+    list-style: none;
+    margin: 0 0 3rem 2rem;
+    li {
+      line-height: 2.5rem;
+      position: relative;
+      color: $text-grey;
+      font-family: "Roboto",sans-serif;
+      font-size: 1.05em;
+      #check{
+        transition: all 250ms ;
+        position: absolute;
+        left: -1.5rem;
+        transform: translateY(100%);
+        width: .75em;
+        height: .75em;
+        stroke-dasharray: 140;
+        animation: draw-check 1s ease-out backwards 1s ;
       }
     }
   }

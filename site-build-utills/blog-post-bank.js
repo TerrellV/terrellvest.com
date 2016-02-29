@@ -1,18 +1,17 @@
 module.exports = [
   {
-    title: 'Post One',
-    readTime: 2.5, // in min
-    date: [2013,6,28] // yr-mm-dd
+    title: 'Current Draft',
+    date: [2016,1,1], // yr-mm-dd
+    dcr: 'Lorum ipsum togotha bota quantam bugbaps famitum botta dim gin kinsu optiman fargarts.'
   },
   {
     title: 'Figuring it Out',
-    readTime: 5, // in min
     date: [2016,2,25], // yr-mm-dd
     dcr: 'Upon graduating high school I began chasing an idea. I needed to know how I was going to spend the rest of my life. I needed to \"figure it out\".' // description
   },
   {
-    title: '2015 A Year In Review',
-    readTime: 5, // in min
-    date: [2016,1,1] // yr-mm-dd
+    title: '2015 Goals',
+    date: [2016,1,1], // yr-mm-dd
+    dcr: 'A reflection on the goals I set out to accomplish and the lessons learned along the way.'
   }
 ];

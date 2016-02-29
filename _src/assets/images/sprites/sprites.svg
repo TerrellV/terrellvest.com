@@ -18,4 +18,7 @@
 	    <path d="M0 0h24v24H0z" fill="none"/>
 	    <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
 	</symbol>
+	<symbol id="blue-check" viewBox="0 0 100 100" >
+		 <path fill="none" stroke="#5FB7FF" stroke-width="12" stroke-miterlimit="10" d="M5.556 47.807L35.5 77.75l58.416-58.417"/>
+	</symbol>
 </svg>
