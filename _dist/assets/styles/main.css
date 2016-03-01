@@ -955,8 +955,7 @@ body > header {
     stroke-dashoffset: 0; } }
 
 .md-content h1:first-child, .md-content h2:first-child, .md-content h3:first-child, .md-content h4:first-child, .md-content h5:first-child, .md-content h6:first-child {
-  padding-top: 0 !important;
-  margin-bottom: 1em !important; }
+  padding-top: 0 !important; }
 
 .md-content {
   font-family: "Merriweather",serif; }
@@ -1060,46 +1059,28 @@ body > header {
     .md-content p .landscape.sml {
       width: 300px;
       height: auto; }
-  .md-content ul.normal {
-    color: rgba(56, 56, 56, 0.9);
-    list-style-type: none;
-    font-family: "Roboto",sans-serif;
-    font-size: 1.25em;
-    line-height: 1.5em; }
-  .md-content p + ul.normal {
-    padding-top: 2em;
-    padding-left: 3em; }
-    .md-content p + ul.normal li {
-      counter-increment: step-counter;
-      padding-bottom: 2em;
-      position: relative; }
-      .md-content p + ul.normal li:before {
-        font-size: 1.25em;
-        content: counter(step-counter);
-        position: absolute;
-        left: -1.5em;
-        color: black;
-        text-align: center; }
-  .md-content ol.normal {
-    color: rgba(56, 56, 56, 0.9);
-    list-style-type: none;
-    font-family: "Roboto",sans-serif;
-    font-size: 1.25em;
-    line-height: 1.5em; }
-  .md-content p + ol.normal {
-    padding-top: 2em;
-    padding-left: 3em; }
-    .md-content p + ol.normal li {
-      counter-increment: step-counter;
-      padding-bottom: 2em;
-      position: relative; }
-      .md-content p + ol.normal li:before {
-        font-size: 1.25em;
-        content: counter(step-counter);
-        position: absolute;
-        left: -1.5em;
-        color: black;
-        text-align: center; }
+  .md-content .num-list-container {
+    margin-top: 3rem;
+    margin-left: 2rem;
+    margin-bottom: 3rem;
+    width: 80%; }
+    .md-content .num-list-container .numbered-list {
+      list-style: none;
+      counter-reset: listItem; }
+      .md-content .num-list-container .numbered-list .list-heading {
+        margin-bottom: .5rem;
+        padding: 0; }
+      .md-content .num-list-container .numbered-list li {
+        font-family: "Roboto", sans-serif;
+        font-size: 1.05rem;
+        line-height: 2rem;
+        color: rgba(56, 56, 56, 0.9);
+        position: relative; }
+        .md-content .num-list-container .numbered-list li:before {
+          counter-increment: listItem;
+          content: counter(listItem) ".";
+          position: absolute;
+          left: -1.5rem; }
   @media (max-width: 700px) {
     .md-content {
       font-size: 1rem; }

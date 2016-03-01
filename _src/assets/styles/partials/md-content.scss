@@ -11,7 +11,6 @@ $sub-heading-list: h2 h3 h4 h5 h6;
 
 %first-headings {
   padding-top: 0 !important;
-  margin-bottom: 1em !important;
 }
 
 .md-content {
@@ -139,33 +138,37 @@ $sub-heading-list: h2 h3 h4 h5 h6;
   }
 
   // lists
-  // normal lists
-  @each $list in ul,ol {
-    #{$list}.normal {
-      color: rgba(56, 56, 56, 0.9);
-      list-style-type: none;
-      font-family:"Roboto",sans-serif;
-      font-size: 1.25em;
-      line-height: 1.5em;
-    }
-    p + #{$list}.normal {
-      padding-top: 2em;
-      padding-left: 3em;
-      li {
-        counter-increment: step-counter;
-        padding-bottom: 2em;
+  // numbered list
+  .num-list-container{
+    margin-top: 3rem;
+    margin-left: 2rem;
+    margin-bottom: 3rem;
+    width: 80%;
+    .numbered-list{
+      list-style: none;
+      counter-reset: listItem;
+      .list-heading{
+        margin-bottom: .5rem;
+        padding: 0;
+      }
+      li{
+        font:{
+          family: "Roboto", sans-serif;
+          size: 1.05rem;
+        }
+        line-height: 2rem;
+        color: $text-grey;
         position: relative;
         &:before{
-          font-size: 1.25em;
-          content: counter(step-counter);
+          counter-increment: listItem;
+          content: counter(listItem) '.';
           position: absolute;
-          left: -1.5em;
-          color: black;
-          text-align: center;
+          left: -1.5rem;
         }
       }
     }
   }
+
 
   // small and medium devices
   @media(max-width:700px) {

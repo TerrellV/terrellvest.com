@@ -41,12 +41,16 @@
 <h1 id="design">Design</h1>
 <h2 id="animation">Animation</h2>
 <p>In terms of User Experience, I know there are times when animation is complete overkill. However, I still wanted to &quot;see what I could do&quot;, specifically during the stopwatch timer. This animation was interesting because it needed to be played over and over again. which isn&#39;t built in to css. When I first thought about it, I hoped to simply define the animation in keyframes and then set the iteration count to infinite. My problem was starting two animations, one after the other can not be achieved with setting each to infinite. The reason being the delay is only applied to the initial start of the animation. On the second time around the delay no longer exists. Here is how I managed to solve the problem.</p>
-<ol>
-<li>Set the second ball animation delay equal to the total duration of the first. In other words, when the first finishes, the second starts.</li>
-<li>Ensure you have two different elements and set their animation-iteration-count to 1.</li>
-<li>Initiate the animation for the left and right ball at the same time</li>
-<li>When both animations are complete, clone and replace both elements.</li>
-</ol>
+<div class="num-list-container">
+  <h2 class="list-heading">Steps</h2>
+  <ol class="numbered-list">
+     <li>Set the second ball animation delay equal to the total duration of the first. In other words, when the first finishes, the second starts.</li>
+     <li>Ensure you have two different elements and set their animation-iteration-count to 1.</li>
+     <li>Initiate the animation for the left and right ball at the same time</li>
+     <li>When both animations are complete, clone and replace both elements.</li>
+  </ol>
+</div>
+
 <p>** Note: when cloning an element that has an animation attached to it via css, the element will animate as soon as it loads in the dom.</p>
 <h2 id="colors-and-layout">Colors and Layout</h2>
 <p>For this I used inspiration from multiple sources. I really liked the dark themes on the Spotify desktop app and the layout and spacing of stock mobile Samsung apps.  The tab layout pulls from the general trend of google material design apps.</p>

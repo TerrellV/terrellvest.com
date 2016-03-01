@@ -9,11 +9,15 @@ Angular, Grunt, Sass, jQuery
 ## Animation
 In terms of User Experience, I know there are times when animation is complete overkill. However, I still wanted to "see what I could do", specifically during the stopwatch timer. This animation was interesting because it needed to be played over and over again. which isn't built in to css. When I first thought about it, I hoped to simply define the animation in keyframes and then set the iteration count to infinite. My problem was starting two animations, one after the other can not be achieved with setting each to infinite. The reason being the delay is only applied to the initial start of the animation. On the second time around the delay no longer exists. Here is how I managed to solve the problem.
 
-
-1. Set the second ball animation delay equal to the total duration of the first. In other words, when the first finishes, the second starts.
-2. Ensure you have two different elements and set their animation-iteration-count to 1.
-3. Initiate the animation for the left and right ball at the same time
-4. When both animations are complete, clone and replace both elements.
+<div class="num-list-container">
+  <h2 class="list-heading">Steps</h2>
+  <ol class="numbered-list">
+     <li>Set the second ball animation delay equal to the total duration of the first. In other words, when the first finishes, the second starts.</li>
+     <li>Ensure you have two different elements and set their animation-iteration-count to 1.</li>
+     <li>Initiate the animation for the left and right ball at the same time</li>
+     <li>When both animations are complete, clone and replace both elements.</li>
+  </ol>
+</div>
 
 ** Note: when cloning an element that has an animation attached to it via css, the element will animate as soon as it loads in the dom.
 
