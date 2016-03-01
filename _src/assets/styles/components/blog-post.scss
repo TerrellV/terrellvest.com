@@ -4,9 +4,7 @@
   margin-bottom: 1.5em;
   span {
     font-family: "Roboto",sans-serif;
-    font-size: 14px;
     display: block;
-    font-style: italic;
     color: grey;
   }
 }
@@ -26,6 +24,9 @@
     .blog-post-description{
       @media(min-width:$medium-break-point + 1) {
         padding-right: 50px;
+      }
+      @media(max-width:$medium-break-point) {
+        // padding-right: 50px;
       }
       @extend %post-description;
     }
