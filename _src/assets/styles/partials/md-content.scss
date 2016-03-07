@@ -19,9 +19,6 @@ $sub-heading-list: h2 h3 h4 h5 h6;
   p {
     color: rgba(56, 56, 56, 0.9);
   }
-
-
-
   h1 {
     font-size: 1.25em;
   }
@@ -54,10 +51,13 @@ $sub-heading-list: h2 h3 h4 h5 h6;
 
   // links
   a {
-    color: lighten($accent-red, 10%);
-    // text-decoration: none;
-    &:visited {
-      text-decoration: underline;
+    color: $text-grey;
+    transition: color 100ms ease;
+    &:hover{
+      color: $accent-blue;
+    }
+    &:visited{
+      color: $accent-red;
     }
   }
 
@@ -169,12 +169,11 @@ $sub-heading-list: h2 h3 h4 h5 h6;
     }
   }
 
-
   // small and medium devices
   @media(max-width:700px) {
     font-size: 1rem;
     p{
-      line-height: 1.65em;
+      line-height: 2em;
       .portrait {
         width: 80%;
         &.med {
@@ -188,6 +187,13 @@ $sub-heading-list: h2 h3 h4 h5 h6;
       }
       img.landscape {
         width: 100% !important;
+      }
+    }
+    // links
+    a {
+      color: $accent-blue;
+      &:visited{
+        color: $accent-red;
       }
     }
   }

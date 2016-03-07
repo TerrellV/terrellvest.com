@@ -1,4 +1,3 @@
-# Introduction
 The Miramar Business Club hosted an event on campus to address student interest in entrepreneurship as a potential career path. A panel of local small business owners discussed their experience and provided valuable insight.
 
 <img src="../../assets/images/exploring-entrepreneurship/Panel.jpg" class="landscape full">
@@ -25,4 +24,4 @@ Instead I simply misjudged what was needed to be done and the potential roadbloc
 # Content
 Below is the flier our club created for the event. I was very proud with how it turned out. Design and Layout by [Angel Torres](http://angeltorr.es/) Content and Review by [Joshua Nunn](https://www.linkedin.com/in/joshua-nunn-082a56106) & Terrell Vest.
 
-<img src="../../assets/images/exploring-entrepreneurship/Event-flyer.jpg" class="portrait sml shadow">
+<img src="../../assets/images/exploring-entrepreneurship/Event-flyer.jpg" class="portrait med shadow">

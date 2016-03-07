@@ -1,8 +1,7 @@
-# Introduction
-A Financial literacy workshop for students of Miramar College. Topics discussed included, budgeting and debt management.
+A financial literacy workshop for students of Miramar College. Topics discussed included, budgeting and debt management.
 
 # Purpose
-To a Campus Administrator our goal was to provide Miramar College Students with a foundational understanding of Personal Finance.
+To a campus administrator our goal was to provide Miramar College students with a foundational understanding of personal finance.
 
 On a more personal level my goal was to provide others with information and an experience I wish I had available.
 

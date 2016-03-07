@@ -1,7 +1,7 @@
-My name is Terrell Vest. My goal for this website is to provide you with an introduction. An introduction to me, the skillsets I possess and most importantly the content I produce.
+My name is Terrell Vest. I am a college student with an expertise in the areas of personal finance and front end web development. In other words, I enjoy developing applications, and teaching people about money.
 
-Over the last 2 and a half years I have completed numerous projects outside of the class room. With just two courses left, I have applied to SDSU as a Finance major.
+At Miramar College, I am the President of the Business Club and Treasurer of the Phi Theta Kappa Miramar chapter (International Honors Society). I will graduate this spring with an Associates Degree in Business. In the Fall of 2016 I begin the remaining two years of my undergraduate degree at San Diego State University.
 
-Outside of the classroom I have completed numerous projects that display my skillset and ability. With only two courses left at Miramar, I have applied to continue my education at San Diego State University in the Fall of 2016. I am pursuing a degree in Finance.
+On my [portfolio page](/portfolio) is a collection of projects I've completed that display my professional and technical skillsets. You will see a list of the most recent applications I've built along with various projects I've lead as the Business Club President.
 
-I code applications, mainly on the web. Feel free to take a look at full descriptions of various projects. It is my desire and complete intension to pursue projects that utilize my soft skills, financial savvy, and engineering skills. For those interested, here is a direct link to my resume.
+Additionally, I am exploring Front End Development and Finance related internships. View my [resume](https://www.dropbox.com/s/lcjszjzyq0ymcly/Resume.docx?dl=0) or [get in touch](/contact).

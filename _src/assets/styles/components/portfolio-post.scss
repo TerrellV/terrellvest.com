@@ -18,6 +18,39 @@
         margin-left: $body-padding;
         padding-left: 0px;
       }
+      // button at bottom for going back to list
+      #back-portfolio-container {
+        padding-left: $body-padding;
+        position: relative;
+        margin-top: 3em;
+        margin-bottom: 2em;
+        font-family: "Roboto";
+        button {
+          position: relative;
+          box-sizing: border-box;
+          padding: 0.75rem 1.75rem;
+          text-align: center;
+          cursor: pointer;
+          outline: none;
+        }
+        #back-portfolio {
+          font-size: 1rem;
+          border-radius: 50px;
+          border: 2px solid $text-grey;
+          color: $text-grey;
+          background-color: transparent;
+        }
+        #back-portfolio-web {
+          background-color: transparent;
+          border-radius: 0;
+          color: $text-grey;
+          border: none;
+          border-radius: 5px;
+          padding: 0;
+          text-decoration: underline;
+          font-size: 1.2em;
+        }
+      }
     }
     @media(min-width:$medium-break-point + 1) { // larger than 700px
       #portfolio-post-header-wrap {
@@ -31,6 +64,48 @@
       }
       #portfolio-post-md-content {
         width: 72%;
+      }
+      // button at bottom for going back to list
+      #back-portfolio-container {
+        padding-left: $body-padding;
+        position: relative;
+        margin-top: 3em;
+        margin-bottom: 2em;
+        width: 72%;
+        left: 28%;
+        font-family: "Roboto";
+        button {
+          position: relative;
+          box-sizing: border-box;
+          padding: 0.75rem 1.75rem;
+          text-align: center;
+          cursor: pointer;
+          outline: none;
+          transition: background 250ms ease, color 250ms ease, opacity 200ms ease;
+          &:hover{
+            opacity: 1 !important;
+          }
+        }
+        #back-portfolio {
+          font-size: 1rem;
+          border-radius: 50px;
+          border: 2px solid $text-grey;
+          color: $text-grey;
+          opacity: .3;
+          background-color: transparent;
+
+        }
+        #back-portfolio-web {
+          background-color: transparent;
+          border-radius: 0;
+          color: $text-grey;
+          border: none;
+          border-radius: 5px;
+          padding: 0;
+          text-decoration: underline;
+          opacity: .4;
+          font-size: 1.2em;
+        }
       }
     }
     // from 701 =  800px

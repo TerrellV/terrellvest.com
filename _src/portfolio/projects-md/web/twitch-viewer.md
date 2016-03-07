@@ -1,5 +1,4 @@
 # Project Description
-
 An app used to track the status of various twitch channels. By adding a channel to the front page the user has access to that channel's current status, live or offline, and additional information about the current broadcast. It should also be noted that this project was inspired by [Free Code Camp's](http://freecodecamp.com) Twitch Tv Front End Development Project.
 
 # Used

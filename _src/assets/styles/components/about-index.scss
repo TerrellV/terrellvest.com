@@ -1,16 +1,42 @@
-#profile-pic {
-  width: 70%;
-  padding-bottom: 2rem;
-}
 
+// default styles
 #about-content {
   @extend %main_tag;
-  @media (min-width: 701px) {
-    .sub-header {
-      width: 28%;
+}
+
+
+// small devices
+@media (max-width: $medium-break-point) {
+  #about-content{
+    #profile-pic {
+      width: 80%;
+      padding-bottom: 2rem;
+      @media (max-width: 550px){
+        width: 100%;
+      }
     }
-    article > div {
-      width: 72%;
+    a {
+      color: $accent-blue;
     }
   }
 }
+
+  // large devices
+  @media (min-width: $medium-break-point + 1) {
+    article > div {
+      width: 72%;
+    }
+    #about-content {
+      #profile-pic {
+        width: 70%;
+        padding-bottom: 2rem;
+      }
+      a {
+        color: $text-grey;
+        transition: color 100ms ease;
+        &:hover{
+          color: $accent-blue;
+        }
+      }
+    }
+  }

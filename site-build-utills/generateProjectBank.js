@@ -45,48 +45,6 @@ const projectBank = {
       obj.date = `${month} ${day}, ${year}`;
     });
   },
-  addPreview: function(arrayToMap,type,res,rej) {
-    // this must be called AFTER portfolio has been built
-    // so that it has access to the newly compiled files
-    var promiseArr = [];
-    arrayToMap.map( function (obj, index, array) {
-      promiseArr.push( new Promise(readFile.bind(this,obj.path)) );
-
-      // read html files
-      function readFile(filePath,res,rej){
-        var fullPath = "_dist" + filePath + '/index.html';
-        fs.readFile(fullPath, 'utf8', function(err, contents){
-          if(err) throw err;
-          findPostElement(contents,{res,rej});
-        });
-      }
-
-      // will pull a specific html element from the string of html
-      function findPostElement(htmlString,promObj){
-        // console.log('promObj:',Object.keys(promObj));
-        jsdom.env(
-          htmlString,
-          parseHtmlCallback
-        )
-
-        function parseHtmlCallback(err,window){
-          var document = window.document;
-          var element = document.querySelector('#portfolio-post-md-content p');
-          var postString = element.textContent;
-          var postWords = postString.split(/\s/g);
-          postWords = postWords.filter( word => word !== '');
-          var description = postWords.filter( (word,index) => index < 28 )
-            .join(' ');
-          obj.description = description + '...';
-          promObj.res();
-        }
-      }
-    });
-
-    Promise.all(promiseArr).then( resolvedValue => {
-      res(this[type]());
-    });
-  },
   business: function(arr){
     return this.startData.filter( obj => obj.type === 'business');
   },

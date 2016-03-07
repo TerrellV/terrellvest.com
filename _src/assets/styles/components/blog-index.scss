@@ -2,21 +2,21 @@
   @extend %main_tag;
   // subheader has styling elsewhere
   #blog-posts { // div holding inserted html
-    div{
-      cursor: pointer;
-      margin:2em 0;
+    a{
+      color: black;
+      text-decoration: none;
       -webkit-tap-highlight-color: rgba(55,183,255,.1); // for mobile chrome
-      a{
-        color: black;
-        text-decoration: none;
+      &:hover div h1{
+        color: darken( $accent-blue,20%);
+      }
+      div{
+        position: relative;
+        margin:2em 0;
         h1 {
           color: black;
           font-weight: 600;
           font-size: 1.25em;
           padding-bottom: .5rem;
-        }
-        &:hover h1{
-          color: darken( $accent-blue,20%);
         }
         h1,span{
           font-family: "Roboto", sans-serif;

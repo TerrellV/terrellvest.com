@@ -1,5 +1,5 @@
 # Project Description
-A timer and stop watch with additional features. The timer has a [Promodoro]( https://en.wikipedia.org/wiki/Pomodoro_Technique) setting that allows for 25 minute intervals and a task list.
+This clock app has both a traditional and a [Promodoro]( https://en.wikipedia.org/wiki/Pomodoro_Technique) setting that allows for 25 minute intervals and a task list. There is also a stopwatch tab that will record lap times.
 
 # Used
 Angular, Grunt, Sass, jQuery
@@ -19,7 +19,7 @@ In terms of User Experience, I know there are times when animation is complete o
   </ol>
 </div>
 
-** Note: when cloning an element that has an animation attached to it via css, the element will animate as soon as it loads in the dom.
+Note: when cloning an element that has an animation attached to it via css, the element will animate as soon as it loads in the DOM.
 
 ## Colors and Layout
 For this I used inspiration from multiple sources. I really liked the dark themes on the Spotify desktop app and the layout and spacing of stock mobile Samsung apps.  The tab layout pulls from the general trend of google material design apps.
@@ -45,6 +45,5 @@ I also ran into the issue of managing state across separate components. It felt 
 > How do I separate the vital information from my app into a central location that could be accessed by different components?
 
 The discomfort I felt building this application forced me into improving my overall state management in subsequent projects.
-
 
 # View

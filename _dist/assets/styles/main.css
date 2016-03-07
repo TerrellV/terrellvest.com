@@ -369,7 +369,7 @@ body > header {
         color: black;
         text-decoration: none; }
         body > header nav #nav-list a.inactive {
-          opacity: .3; }
+          opacity: .4; }
         body > header nav #nav-list a li {
           display: inline-block;
           padding-right: 1em; }
@@ -410,7 +410,7 @@ body > header {
   .sub-header, .blog-post-content #blog-header-wrap header, #portfolio-main header, main #contact-sub-header {
     width: 100vw;
     border-bottom: 1px solid rgba(128, 128, 128, 0.3);
-    margin-bottom: 1.5rem; }
+    margin-bottom: 2rem; }
     .sub-header .page-title, .blog-post-content #blog-header-wrap header .page-title, #portfolio-main header .page-title, main #contact-sub-header .page-title {
       padding-top: .75em;
       padding-bottom: .75em;
@@ -444,35 +444,49 @@ body > header {
     text-align: right;
     padding-right: 28px; } }
 
-#profile-pic {
-  width: 70%;
-  padding-bottom: 2rem; }
+@media (max-width: 700px) {
+  #about-content #profile-pic {
+    width: 80%;
+    padding-bottom: 2rem; } }
+  @media (max-width: 700px) and (max-width: 550px) {
+    #about-content #profile-pic {
+      width: 100%; } }
+
+@media (max-width: 700px) {
+  #about-content a {
+    color: #5FB7FF; } }
 
 @media (min-width: 701px) {
-  #about-content .sub-header {
-    width: 28%; }
-  #about-content article > div {
-    width: 72%; } }
+  article > div {
+    width: 72%; }
+  #about-content #profile-pic {
+    width: 70%;
+    padding-bottom: 2rem; }
+  #about-content a {
+    color: rgba(56, 56, 56, 0.9);
+    transition: color 100ms ease; }
+    #about-content a:hover {
+      color: #5FB7FF; } }
 
-#blog-content #blog-posts div {
-  cursor: pointer;
-  margin: 2em 0;
+#blog-content #blog-posts a {
+  color: black;
+  text-decoration: none;
   -webkit-tap-highlight-color: rgba(55, 183, 255, 0.1); }
-  #blog-content #blog-posts div a {
-    color: black;
-    text-decoration: none; }
-    #blog-content #blog-posts div a h1 {
+  #blog-content #blog-posts a:hover div h1 {
+    color: #0088f8; }
+  #blog-content #blog-posts a div {
+    position: relative;
+    margin: 2em 0; }
+    #blog-content #blog-posts a div h1 {
       color: black;
       font-weight: 600;
       font-size: 1.25em;
       padding-bottom: .5rem; }
-    #blog-content #blog-posts div a:hover h1 {
-      color: #0088f8; }
-    #blog-content #blog-posts div a h1, #blog-content #blog-posts div a span {
+    #blog-content #blog-posts a div h1, #blog-content #blog-posts a div span {
       font-family: "Roboto", sans-serif; }
-    #blog-content #blog-posts div a span {
+    #blog-content #blog-posts a div span {
       opacity: .4; }
-    #blog-content #blog-posts div a #blog-preview-dcr {
+    #blog-content #blog-posts a div #blog-preview-dcr {
       color: rgba(56, 56, 56, 0.9);
       line-height: 2rem;
       max-width: 475px;
@@ -736,7 +750,7 @@ body > header {
     #blog-post-md-content {
       font-size: 1rem; }
       #blog-post-md-content p {
-        line-height: 1.65em; }
+        line-height: 2em; }
         #blog-post-md-content p .portrait {
           width: 80%; }
           #blog-post-md-content p .portrait.med {
@@ -753,6 +767,19 @@ body > header {
       #blog-post-md-content p {
         line-height: 2em; } }
 
+#disqus_thread {
+  margin-top: 5em; }
+
+@media (max-width: 700px) {
+  #disqus_thread {
+    width: 100%; } }
+
+@media (min-width: 701px) {
+  #disqus_thread {
+    width: 72%;
+    position: relative;
+    left: 28%; } }
+
 #portfolio-main header {
   position: relative; }
   #portfolio-main header .page-title {
@@ -761,7 +788,7 @@ body > header {
     transition: opacity 250ms ease-in-out; }
   @media (max-width: 700px) {
     #portfolio-main header {
-      margin-bottom: 3em; }
+      margin-bottom: 2em; }
       #portfolio-main header .page-title:first-child {
         margin-right: 2em; }
       #portfolio-main header .page-title:not(:first-child) {
@@ -799,18 +826,21 @@ body > header {
     top: 6px;
     -webkit-transform: translateY(0px);
             transform: translateY(0px);
-    transition: background-color 250ms ease-in-out, -webkit-transform 200ms ease-in-out;
-    transition: transform 200ms ease-in-out, background-color 250ms ease-in-out;
-    transition: transform 200ms ease-in-out, background-color 250ms ease-in-out, -webkit-transform 200ms ease-in-out; }
-  #portfolio-main header .slider-move-right {
+    transition: -webkit-transform 200ms ease-in-out;
+    transition: transform 200ms ease-in-out;
+    transition: transform 200ms ease-in-out, -webkit-transform 200ms ease-in-out; }
+  #portfolio-main header .slider-right {
     -webkit-transform: translateX(162.5px);
             transform: translateX(162.5px); }
-  #portfolio-main header .slider-move-down {
+  #portfolio-main header .slider-down {
     -webkit-transform: translateY(43px);
             transform: translateY(43px); }
 
 #portfolio-main #portfolio-posts div:not(.hide-me) div:not(:first-child) {
-  padding-top: 2.5em; }
+  padding-top: 3em; }
+
+#portfolio-main #portfolio-posts div:not(.hide-me) div a:visited h4 {
+  color: rgba(107, 107, 107, 0.9); }
 
 #portfolio-main #portfolio-posts div:not(.hide-me) div a h4 {
   font-weight: 600;
@@ -820,7 +850,7 @@ body > header {
   opacity: .4; }
 
 #portfolio-main #portfolio-posts div:not(.hide-me) div a p {
-  padding-top: 1em;
+  padding-top: .5em;
   max-width: 475px;
   line-height: 2em;
   color: rgba(56, 56, 56, 0.9);
@@ -848,7 +878,35 @@ body > header {
       margin-left: 25px; }
   .portfolio-post-main article #portfolio-post-md-content {
     margin-left: 25px;
-    padding-left: 0px; } }
+    padding-left: 0px; }
+  .portfolio-post-main article #back-portfolio-container {
+    padding-left: 25px;
+    position: relative;
+    margin-top: 3em;
+    margin-bottom: 2em;
+    font-family: "Roboto"; }
+    .portfolio-post-main article #back-portfolio-container button {
+      position: relative;
+      box-sizing: border-box;
+      padding: 0.75rem 1.75rem;
+      text-align: center;
+      cursor: pointer;
+      outline: none; }
+    .portfolio-post-main article #back-portfolio-container #back-portfolio {
+      font-size: 1rem;
+      border-radius: 50px;
+      border: 2px solid rgba(56, 56, 56, 0.9);
+      color: rgba(56, 56, 56, 0.9);
+      background-color: transparent; }
+    .portfolio-post-main article #back-portfolio-container #back-portfolio-web {
+      background-color: transparent;
+      border-radius: 0;
+      color: rgba(56, 56, 56, 0.9);
+      border: none;
+      border-radius: 5px;
+      padding: 0;
+      text-decoration: underline;
+      font-size: 1.2em; } }
 
 @media (min-width: 701px) {
   .portfolio-post-main article #portfolio-post-header-wrap {
@@ -859,7 +917,42 @@ body > header {
       padding-right: 50px;
       margin-left: 25px; }
   .portfolio-post-main article #portfolio-post-md-content {
-    width: 72%; } }
+    width: 72%; }
+  .portfolio-post-main article #back-portfolio-container {
+    padding-left: 25px;
+    position: relative;
+    margin-top: 3em;
+    margin-bottom: 2em;
+    width: 72%;
+    left: 28%;
+    font-family: "Roboto"; }
+    .portfolio-post-main article #back-portfolio-container button {
+      position: relative;
+      box-sizing: border-box;
+      padding: 0.75rem 1.75rem;
+      text-align: center;
+      cursor: pointer;
+      outline: none;
+      transition: background 250ms ease, color 250ms ease, opacity 200ms ease; }
+      .portfolio-post-main article #back-portfolio-container button:hover {
+        opacity: 1 !important; }
+    .portfolio-post-main article #back-portfolio-container #back-portfolio {
+      font-size: 1rem;
+      border-radius: 50px;
+      border: 2px solid rgba(56, 56, 56, 0.9);
+      color: rgba(56, 56, 56, 0.9);
+      opacity: .3;
+      background-color: transparent; }
+    .portfolio-post-main article #back-portfolio-container #back-portfolio-web {
+      background-color: transparent;
+      border-radius: 0;
+      color: rgba(56, 56, 56, 0.9);
+      border: none;
+      border-radius: 5px;
+      padding: 0;
+      text-decoration: underline;
+      opacity: .4;
+      font-size: 1.2em; } }
 
 @media (min-width: 701px) and (max-width: 800px) {
   .portfolio-post-main article #portfolio-post-header-wrap .portfolio-post-description {
@@ -1005,9 +1098,12 @@ body > header {
     padding-top: 1em;
     margin-bottom: 1em; }
   .md-content a {
-    color: #ed7669; }
+    color: rgba(56, 56, 56, 0.9);
+    transition: color 100ms ease; }
+    .md-content a:hover {
+      color: #5FB7FF; }
     .md-content a:visited {
-      text-decoration: underline; }
+      color: #e74c3c; }
   .md-content p + p {
     text-indent: 2em; }
   .md-content hr {
@@ -1085,7 +1181,7 @@ body > header {
     .md-content {
       font-size: 1rem; }
       .md-content p {
-        line-height: 1.65em; }
+        line-height: 2em; }
         .md-content p .portrait {
           width: 80%; }
           .md-content p .portrait.med {
@@ -1095,7 +1191,11 @@ body > header {
             height: 200px;
             width: auto; }
         .md-content p img.landscape {
-          width: 100% !important; } }
+          width: 100% !important; }
+      .md-content a {
+        color: #5FB7FF; }
+        .md-content a:visited {
+          color: #e74c3c; } }
   @media (min-width: 701px) {
     .md-content {
       font-size: 1rem; }

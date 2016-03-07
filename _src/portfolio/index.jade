@@ -2,6 +2,7 @@
 - var blogClass = "inactive";
 - var portfolioClass = "active";
 - var contactClass = "inactive";
+- var faviconURL = "../assets/images/site-wide/favicon-logo.png";
 - var logoURL = "../assets/images/sprites/sprites.svg#logo";
 
 doctype HTML
@@ -10,6 +11,7 @@ html(lang="en")
     meta(name="viewport" content="width=device-width, initial-scale=1")
     meta(name="apple-mobile-web-app-capable" content="yes")
     meta(name="mobile-web-app-capable" content="yes")
+    include ../assets/markup/favicon.jade
     link(href="../assets/styles/main.css" rel="stylesheet" type="text/css")
   body
     div.nav_container
@@ -22,7 +24,7 @@ html(lang="en")
       div.row
         header.col
           h1.page-title Web Development
-          h1.page-title.inactive-page-title Business
+          h1.page-title Business
         div#portfolio-posts.col
     script(src="../assets/scripts/g_a_code.js")
     script(src="../assets/scripts/client.js" type="text/javascript")    

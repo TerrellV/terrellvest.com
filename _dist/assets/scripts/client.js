@@ -1,4 +1,5 @@
 (function(){
+
   var portModule = {
     isBizActive: false,
     isFirstLoad: true,
@@ -10,6 +11,20 @@
       this.bindGenericListeners();
       this.determineEvents();
     },
+    checkHistoryState: function(){
+      // this needs to wait for ajax request and insertLists;
+      // this is also called onload of the page
+      if (history.state !== null )
+        if (history.state.activeTab === "business") {
+          this.switchPage(true);
+          // this.desktopSlider.classList.add('slider-down');
+        }
+
+        else if(history.state.activeTab === "web"){
+          this.switchPage(false);
+          // this.desktopSlider.classList.remove('slider-down');
+        }
+    },
     cacheDom: function(){
       this.portfolioPostsContainer = document.querySelector('#portfolio-posts');
       this.portfolioHeader = document.querySelector('#portfolio-main header');
@@ -18,6 +33,21 @@
       this.headingsArr = [this.headingOne,this.headingTwo];
     },
     bindGenericListeners:function(){
+
+      const _this = this;
+      // begin state with web as default;
+
+      // as user goes back or forward change page as necessary
+      window.onpopstate = function(e) {
+        if (e.state.activeTab === "business") {
+          _this.switchPage(true);
+          // _this.desktopSlider.classList.add('slider-down');
+        } else {
+          _this.switchPage(false);
+          // _this.desktopSlider.classList.remove('slider-down');
+        }
+      };
+
       // these new properties are added because bind creates a new functiona nd we need to hold reference to each specific function so that we can remove the function later. If function.bind was used evertime we used a method as a listener than a new function reference would be used
       this.boundSmBizListener = this.moveSliderLeft.bind(this);
       this.boundSmWebListener = this.moveSliderRight.bind(this);
@@ -71,6 +101,8 @@
       // cache dome from newly created elements
       this.bizListNode = document.querySelector("#portfolio-posts #biz-posts");
       this.webListNode = document.querySelector("#portfolio-posts #web-posts");
+      // call checkHistoryState
+      this.checkHistoryState();
     },
     switchTitleClickEvents: function(){
       var toRemove = (this.onMobile)
@@ -98,15 +130,31 @@
       if (this.onMobile) {
         this.mobileSlider = document.createElement('span');
         this.mobileSlider.setAttribute('id','mobile-slider');
+        if(location.hash === '#web' || location.hash === ''){
+          this.mobileSlider.className =  'default-slider mobile-slider';
+          this.mobileSlider.style.width = this.headingOne.clientWidth + "px";
+        } else if(location.hash === '#business'){
+          this.mobileSlider.className =  'default-slider mobile-slider slider-right';
+          this.mobileSlider.style.width = this.headingTwo.clientWidth + "px";
+        }
+
+
         this.portfolioHeader.appendChild(this.mobileSlider);
-        this.mobileSlider.className =  'default-slider mobile-slider';
-        this.mobileSlider.style.width = this.headingOne.clientWidth + "px";
       } else {
+        console.log('location:',location.hash);
         // creating correct slider element for larger devices
         this.desktopSlider = document.createElement('span');
         this.desktopSlider.setAttribute('id','desktop-slider');
+        if(location.hash === '#web' || location.hash === ''){
+          this.desktopSlider.className = 'default-slider desktop-slider';
+          this.headingTwo.classList.add('inactive-page-title');
+        }
+        else if (location.hash === '#business') {
+          this.desktopSlider.className = 'default-slider desktop-slider slider-down';
+          this.headingTwo.classList.remove('inactive-page-title');
+          this.headingOne.classList.add('inactive-page-title');
+        }
         this.portfolioHeader.appendChild(this.desktopSlider);
-        this.desktopSlider.className = 'default-slider desktop-slider';
       }
     },
     switchSliderElement: function(){
@@ -114,19 +162,15 @@
       var ele = document.createElement('span');
 
       if(this.onMobile) {
-        console.log('on mobile');
         this.mobileSlider = ele;
         var eleToRemove = document.querySelector('#portfolio-main header span');
         var eleId = 'mobile-slider';
         ele.setAttribute('id',eleId);
-        console.log(this.isBizActive);
         ele.className = (this.isBizActive)
-        ? "default-slider mobile-slider slider-move-right" : "default-slider mobile-slider";
+        ? "default-slider mobile-slider slider-right" : "default-slider mobile-slider";
         var val = (this.isBizActive)? this.headingTwo.clientWidth : this.headingOne.clientWidth;
         ele.style.width = val + "px";
-        console.log(ele);
       } else {
-        console.log('on desktop');
         this.desktopSlider = ele;
         var eleToRemove = document.querySelector('#portfolio-main header span');
         var eleId = 'desktop-slider';
@@ -177,24 +221,30 @@
       }
     },
     moveSliderRight: function(){
+      history.pushState({'activeTab':'business'},'Business Projects','#business');
+      console.log(window.history);
       this.switchPage(true);
-      this.mobileSlider.classList.add('slider-move-right');
+      this.mobileSlider.classList.add('slider-right');
       this.mobileSlider.style.width = this.headingTwo.clientWidth + "px";
     },
     moveSliderLeft: function(){
+      history.pushState({'activeTab':'web'},'Web Projects','#web');
+      console.log(window.history);
       this.switchPage(false);
-      this.mobileSlider.classList.remove('slider-move-right');
+      this.mobileSlider.classList.remove('slider-right');
       this.mobileSlider.style.width = this.headingOne.clientWidth + "px";
     },
     moveSliderDown: function(){
-      console.log('moving slider down');
+      history.pushState({'activeTab':'business'},'Business Projects','#business');
+      console.log(window.history);
       this.switchPage(true);
-      this.desktopSlider.classList.add('slider-move-down');
+      this.desktopSlider.classList.add('slider-down');
     },
     moveSliderUp: function(){
-      console.log('moving slider up');
+      history.pushState({'activeTab':'web'},'Web Projects','#web');
+      console.log(window.history);
       this.switchPage(false);
-      this.desktopSlider.classList.remove('slider-move-down');
+      this.desktopSlider.classList.remove('slider-down');
     }
   }
 

@@ -1,0 +1,20 @@
+// default
+#disqus_thread{
+  margin-top: 5em;
+}
+
+// mobile view
+@media(max-width: #{$medium-break-point}){
+  #disqus_thread{
+    width: 100%;
+  }
+}
+
+// medium and large view
+@media(min-width: #{$medium-break-point + 1px}){
+  #disqus_thread{
+    width: 72%;
+    position: relative;
+    left: 28%;
+  }
+}

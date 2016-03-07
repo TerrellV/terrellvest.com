@@ -2,7 +2,7 @@
 - var blogClass = "inactive";
 - var portfolioClass = "inactive";
 - var contactClass = "active";
-
+- var faviconURL = "../assets/images/site-wide/favicon-logo.png";
 - var logoURL = "../assets/images/sprites/sprites.svg#logo";
 
 - var socialIcons = {"twitter": ["twitter-logo-blue.png","https://twitter.com/TerrellVest7"], "facebook":["facebook-logo-white.png","https://www.facebook.com/terrell.vest7"], "instagram":["Glyph_Logo_png.png","http://instagram.com/terrellvest7/","instagram://user?username=terrellvest7"], "linkedIn":["linkedIn-white.png","https://www.linkedin.com/profile/preview?vpa=pub&locale=en_US"], "github":["github-white.png", "https://github.com/MirPresT"]}
@@ -13,6 +13,7 @@ html(lang="en")
     meta(name="viewport" content="width=device-width, initial-scale=1")
     meta(name="apple-mobile-web-app-capable" content="yes")
     meta(name="mobile-web-app-capable" content="yes")
+    include ../assets/markup/favicon.jade
     link(href="../assets/styles/main.css" rel="stylesheet" type="text/css")
     style.
       @media(max-width:700px){

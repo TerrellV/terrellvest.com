@@ -1,5 +1,5 @@
 # Project Description
-Click through a collection of quotes. Each quote is chosen randomly from a larger pool. No single quote will be chosen twice except after all the quotes have already been chosen.
+Each quote is chosen randomly from a pool of twenty. No single quote will be chosen twice except after all quotes have already been viewed.
 
 # Used
 Angular(most basic form), Grunt, Sass, jQuery
@@ -17,6 +17,6 @@ Here are some of the alternate center components I made for the app. The portrai
 
 
 # Challenges
-As the second project I ever built, this was an extremely straight forward project. The only challenge presented was randomly selecting from a pool and ensuring all items have been chosen before an item can be picked twice. I used Math. Random and a reduce function to achieve such functionality.
+As the second project I ever built, this was an extremely straight forward project. The only challenge presented was randomly selecting from a pool and ensuring all items had been chosen before a quote was shown again. I used Math.random() and a reduce function to achieve such functionality.
 
 # View

@@ -1,10 +1,5 @@
 module.exports = [
   {
-    title: 'Current Draft',
-    date: [2016,1,1], // yr-mm-dd
-    dcr: 'Lorum ipsum togotha bota quantam bugbaps famitum botta dim gin kinsu optiman fargarts.'
-  },
-  {
     title: 'Figuring it Out',
     date: [2016,2,25], // yr-mm-dd
     dcr: 'Upon graduating high school I began chasing an idea. I needed to know how I was going to spend the rest of my life. I needed to \"figure it out\".' // description

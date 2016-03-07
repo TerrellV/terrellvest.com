@@ -35,7 +35,7 @@
           <div class="portfolio-post-description"><span>July 1, 2015</span></div>
         </div>
         <div id="portfolio-post-md-content" class="md-content col"><h1 id="project-description">Project Description</h1>
-<p>Click through a collection of quotes. Each quote is chosen randomly from a larger pool. No single quote will be chosen twice except after all the quotes have already been chosen.</p>
+<p>Each quote is chosen randomly from a pool of twenty. No single quote will be chosen twice except after all quotes have already been viewed.</p>
 <h1 id="used">Used</h1>
 <p>Angular(most basic form), Grunt, Sass, jQuery</p>
 <h1 id="design">Design</h1>
@@ -44,14 +44,22 @@
 <p>Here are some of the alternate center components I made for the app. The portrait layout I considered would have been ideal for a mobile design. Unfortunately, they were merely intended to sit on top of a full width background for medium to large screens.</p>
 <p><img id="" class="landscape full" src="../../assets/images/random-quote-generator/cards.png"></p>
 <h1 id="challenges">Challenges</h1>
-<p>As the second project I ever built, this was an extremely straight forward project. The only challenge presented was randomly selecting from a pool and ensuring all items have been chosen before an item can be picked twice. I used Math. Random and a reduce function to achieve such functionality.</p>
+<p>As the second project I ever built, this was an extremely straight forward project. The only challenge presented was randomly selecting from a pool and ensuring all items had been chosen before a quote was shown again. I used Math.random() and a reduce function to achieve such functionality.</p>
 <h1 id="view">View</h1>
 
         </div>
         <div class="actionButtons"><a href="https://rawgit.com/MirPresT/Random-Quote-Generator/master/html/index.html" target="_blank" class="toApp btn"><span>App</span>
             <div class="content grad_random-quote-generator"></div></a><a href="https://github.com/MirPresT/Random-Quote-Generator" target="_blank" class="toGithub btn">&lt;Code&gt;</a></div>
+        <div id="back-portfolio-container">
+          <button id="back-portfolio-web" class="col">Portfolio</button>
+        </div>
       </article>
+      <div id="disqus_thread"></div>
     </main>
     <script src="../../assets/scripts/g_a_code.js"></script>
+    <script src="../../assets/scripts/portfolio-post.js"></script>
+    <noscript>
+      <Please>enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript></Please>
+    </noscript>
   </body>
 </html>

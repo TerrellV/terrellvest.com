@@ -90,17 +90,11 @@ module.exports = function generateProjectPosts(type, projTypeArr, projectObj, re
           fileName:'_src/assets/markup/projects-in-category.jade'
         });
 
-        // create the descriptions now that the md pages have been compiled
-
-        // this line of code mutates the project bank for its use below
-        var waiting = new Promise( projectObj.addPreview.bind(projectObj,projectObj[type](),type ));
-        waiting.then(function(response){
-          writeFile( response )
-        });
+        writeFile(projTypeArr);
 
         function writeFile(arrayToPassJade){
           var fileName = `_dist/assets/html/${type}-list.html`;
-          var transpiledHTML = fn({postArr:arrayToPassJade})
+          var transpiledHTML = fn( {postArr:arrayToPassJade} )
 
           fs.writeFile(fileName, transpiledHTML ,function(err){
             if (err) throw err;
