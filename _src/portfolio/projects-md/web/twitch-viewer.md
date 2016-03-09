@@ -24,7 +24,7 @@ In previous projects, mobile screen sizes would quickly expose the limitations o
 
 I decided to design a mobile specific version of the site. To implement this, I used media queries and JavaScript code to manipulate the DOM on the initial load and or screen resizing.
 
-<img class="portrait shadow" src="../../assets/images/twitch-viewer/mobile-twitch.png" alt="">
+<img class="portrait shadow" src="../../assets/images/twitch-viewer/mobile-view.png" alt="">
 
 
 # Challenges
