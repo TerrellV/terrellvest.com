@@ -109,6 +109,6 @@ Instead of being perfect every day, I aim to simply win more days than I lose. W
 
 <div id="blog-statement">Simply win more days than you lose</div>
 
-2015 has been an interesting year. The sequence of events is one that I would have never predicted. However, I'm extremely grateful for how it turned out and eager for all that is to come.
+2015 was an interesting year. The sequence of events is one that I would have never predicted. However, I'm extremely grateful for how it turned out and eager for all that is to come.
 
 <p class="own-line">Here's to a successful 2016</p>
