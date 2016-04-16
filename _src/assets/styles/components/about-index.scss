@@ -4,7 +4,6 @@
   @extend %main_tag;
 }
 
-
 // small devices
 @media (max-width: $medium-break-point) {
   #about-content{
@@ -20,7 +19,6 @@
     }
   }
 }
-
   // large devices
   @media (min-width: $medium-break-point + 1) {
     article > div {

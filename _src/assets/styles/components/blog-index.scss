@@ -1,6 +1,5 @@
 #blog-content{ // main tag
   @extend %main_tag;
-  // subheader has styling elsewhere
   #blog-posts { // div holding inserted html
     a{
       color: black;

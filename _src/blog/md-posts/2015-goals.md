@@ -87,7 +87,6 @@ Each of these items presented themselves throughout the year. For example, I wou
 
 These types of lists are great, but they fail to show the entire picture. My intent is to present a more complete and truthful illustration of the year. Here is a list of things I did that most people conveniently forget to share.
 
-
 <div class="gen-list-container">
   <h2 class="gen-list-heading">The not so good</h2>
   <ul class="gen-list">
