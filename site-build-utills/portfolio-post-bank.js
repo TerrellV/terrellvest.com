@@ -24,10 +24,11 @@ module.exports = [
     title: "Personal Website",
     date: [2016,3,7], // year, month, day
     type: 'web', // business or web
+    color: '#c9ddf0',
     dcr:
       'An insight into the development of terrellvest.com as it pertains to the build, design, and depoyment process',
     links: {
-      app: '',
+      app: '/',
       github: 'https://github.com/MirPresT/terrellvest.com'
     }
   },
@@ -35,6 +36,7 @@ module.exports = [
     title: "Tic Tac Toe",
     date: [2015,11,21], // year, month, day
     type: 'web', // business or web
+    color: '#c9e9f0',
     dcr:
       'Play Tic-Tac-Toe against a computer that, depending on the difficulty, will guess your next move',
     links: {
@@ -46,6 +48,7 @@ module.exports = [
     title: "Twitch Viewer",
     date: [2015,9,14], // year, month, day
     type: 'web', // business or web
+    color: '#cfcede',
     dcr:
       'Track the status of various twitch channels and view basic information relating to their current stream or follower count',
     links: {
@@ -56,7 +59,8 @@ module.exports = [
   {
     title: "Clock",
     date: [2015,9,1], // year, month, day
-    type: 'web', // business or web
+    type: 'web', // business or web\
+    color: '#f0e1c9',
     dcr:
       'Set a promodoro timer with individual tasks and start a stopwatch that displays lap times',
     links: {
@@ -68,6 +72,7 @@ module.exports = [
     title: "Weather Forecast",
     date: [2015,8,1], // year, month, day
     type: 'web', // business or web
+    color: '#c9f0e7',
     dcr:
       'View the current weather and 3 day forecast for your particular location',
     links: {
@@ -79,6 +84,7 @@ module.exports = [
     title: "Random Quote Generator",
     date: [2015,7,1], // year, month, day
     type: 'web', // business or web
+    color: '#dae5f1',
     dcr:
       'Click through a collection of quotes and share your favorite one on twitter',
     links: {

@@ -780,93 +780,90 @@ body > header {
     position: relative;
     left: 28%; } }
 
-#portfolio-main header {
-  position: relative; }
-  #portfolio-main header .page-title {
-    cursor: pointer;
-    border: none;
-    transition: opacity 250ms ease-in-out; }
-  @media (max-width: 700px) {
-    #portfolio-main header {
-      margin-bottom: 2em; }
-      #portfolio-main header .page-title:first-child {
-        margin-right: 2em; }
-      #portfolio-main header .page-title:not(:first-child) {
-        margin-left: -.25rem; } }
+#portfolio-main {
+  max-width: 1200px; }
+  #portfolio-main header {
+    position: relative; }
+    #portfolio-main header .page-title {
+      cursor: pointer;
+      border: none;
+      transition: opacity 250ms ease-in-out; }
+    @media (max-width: 700px) {
+      #portfolio-main header {
+        margin-bottom: 2em; }
+        #portfolio-main header .page-title:first-child {
+          margin-right: 2em; }
+        #portfolio-main header .page-title:not(:first-child) {
+          margin-left: -.25rem; } }
+    @media (min-width: 701px) {
+      #portfolio-main header {
+        width: 28%; }
+        #portfolio-main header .page-title {
+          display: block;
+          text-align: right; }
+          #portfolio-main header .page-title:after {
+            display: none; }
+        #portfolio-main header h1:first-child {
+          padding-bottom: 1.5em; } }
+    #portfolio-main header .inactive-page-title {
+      opacity: .3; }
+    #portfolio-main header .default-slider {
+      background-color: #5FB7FF;
+      position: absolute; }
+    #portfolio-main header .mobile-slider {
+      margin-left: 25px;
+      -webkit-transform: translateX(0px);
+              transform: translateX(0px);
+      height: 2px;
+      bottom: 0px;
+      left: 0px;
+      transition: width 214ms linear 90ms, -webkit-transform 300ms linear;
+      transition: transform 300ms linear, width 214ms linear 90ms;
+      transition: transform 300ms linear, width 214ms linear 90ms, -webkit-transform 300ms linear; }
+    #portfolio-main header .desktop-slider {
+      width: 8px !important;
+      height: 8px;
+      border-radius: 50%;
+      margin-left: 1.5rem;
+      top: 6px;
+      -webkit-transform: translateY(0px);
+              transform: translateY(0px);
+      transition: -webkit-transform 200ms ease-in-out;
+      transition: transform 200ms ease-in-out;
+      transition: transform 200ms ease-in-out, -webkit-transform 200ms ease-in-out; }
+    #portfolio-main header .slider-right {
+      -webkit-transform: translateX(162.5px);
+              transform: translateX(162.5px); }
+    #portfolio-main header .slider-down {
+      -webkit-transform: translateY(43px);
+              transform: translateY(43px); }
+  #portfolio-main #portfolio-posts div:not(.hide-me) .post-preview-container {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center; }
+    #portfolio-main #portfolio-posts div:not(.hide-me) .post-preview-container:not(:nth-child(1)) {
+      margin-top: 100px; }
+    #portfolio-main #portfolio-posts div:not(.hide-me) .post-preview-container .post-image-cont {
+      margin-right: 2rem;
+      width: 285px;
+      height: 225px; }
+    #portfolio-main #portfolio-posts div:not(.hide-me) .post-preview-container .text-container h4 {
+      font-weight: 600;
+      font-size: 1.25em; }
+    #portfolio-main #portfolio-posts div:not(.hide-me) .post-preview-container .text-container p {
+      padding-top: .5em;
+      max-width: 475px;
+      line-height: 2em;
+      color: rgba(56, 56, 56, 0.9);
+      font-family: "Merriweather", serif; }
+    #portfolio-main #portfolio-posts div:not(.hide-me) .post-preview-container .text-container:hover h4 {
+      color: #006cc5; }
   @media (min-width: 701px) {
-    #portfolio-main header {
-      width: 28%; }
-      #portfolio-main header .page-title {
-        display: block;
-        text-align: right; }
-        #portfolio-main header .page-title:after {
-          display: none; }
-      #portfolio-main header h1:first-child {
-        padding-bottom: 1.5em; } }
-  #portfolio-main header .inactive-page-title {
-    opacity: .3; }
-  #portfolio-main header .default-slider {
-    background-color: #5FB7FF;
-    position: absolute; }
-  #portfolio-main header .mobile-slider {
-    margin-left: 25px;
-    -webkit-transform: translateX(0px);
-            transform: translateX(0px);
-    height: 2px;
-    bottom: 0px;
-    left: 0px;
-    transition: width 214ms linear 90ms, -webkit-transform 300ms linear;
-    transition: transform 300ms linear, width 214ms linear 90ms;
-    transition: transform 300ms linear, width 214ms linear 90ms, -webkit-transform 300ms linear; }
-  #portfolio-main header .desktop-slider {
-    width: 8px !important;
-    height: 8px;
-    border-radius: 50%;
-    margin-left: 1.5rem;
-    top: 6px;
-    -webkit-transform: translateY(0px);
-            transform: translateY(0px);
-    transition: -webkit-transform 200ms ease-in-out;
-    transition: transform 200ms ease-in-out;
-    transition: transform 200ms ease-in-out, -webkit-transform 200ms ease-in-out; }
-  #portfolio-main header .slider-right {
-    -webkit-transform: translateX(162.5px);
-            transform: translateX(162.5px); }
-  #portfolio-main header .slider-down {
-    -webkit-transform: translateY(43px);
-            transform: translateY(43px); }
-
-#portfolio-main #portfolio-posts div:not(.hide-me) div:not(:first-child) {
-  padding-top: 3em; }
-
-#portfolio-main #portfolio-posts div:not(.hide-me) div a:visited h4 {
-  color: rgba(107, 107, 107, 0.9); }
-
-#portfolio-main #portfolio-posts div:not(.hide-me) div a h4 {
-  font-weight: 600;
-  font-size: 1.25em; }
-
-#portfolio-main #portfolio-posts div:not(.hide-me) div a span {
-  opacity: .4; }
-
-#portfolio-main #portfolio-posts div:not(.hide-me) div a p {
-  padding-top: .5em;
-  max-width: 475px;
-  line-height: 2em;
-  color: rgba(56, 56, 56, 0.9);
-  font-family: "Merriweather", serif; }
-
-#portfolio-main #portfolio-posts div:not(.hide-me) div a:hover h4 {
-  color: #006cc5; }
-
-#portfolio-main #portfolio-posts div:not(.hide-me) div > a {
-  color: black;
-  font-family: "Roboto",sans-serif;
-  text-decoration: none; }
-
-@media (min-width: 701px) {
-  #portfolio-main #portfolio-posts {
-    width: 72%; } }
+    #portfolio-main #portfolio-posts {
+      width: 72%; } }
 
 @media (max-width: 700px) {
   .portfolio-post-main article #portfolio-post-header-wrap {

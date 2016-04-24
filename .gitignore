@@ -2,6 +2,8 @@
 logs
 *.log
 
+design
+
 # Runtime data
 pids
 *.pid

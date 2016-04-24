@@ -1,6 +1,7 @@
 #portfolio-main { // main content tag
   // overide the default header styles slightly
   @extend %main_tag;
+  max-width: 1200px;
   header{
     @extend %sub-header;
     position: relative;
@@ -65,40 +66,36 @@
   }
   #portfolio-posts {
     div:not(.hide-me) { // div that is visible
-      div:not(:first-child) { // all divs except the first
-        padding-top: 3em;
-      }
-      div a {
-        &:visited {
-          h4 {
-            color:lighten($text-grey,20%);
-          }
+      .post-preview-container{
+        display: flex;
+        align-items: center;
+        &:not(:nth-child(1)){
+          // all divs except the first
+          margin-top: 100px;;
         }
-        h4{
-          font-weight: 600;
-          font-size: 1.25em;
+        .post-image-cont{
+          margin-right: 2rem;
+          width: 285px;
+          height: 225px;
         }
-        span { // date
-          opacity: .4;
-          // font-style: italic;
-        }
-        p { // description
-          padding-top: .5em;
-          max-width: 475px;
-          line-height: 2em;
-          color: rgba(56, 56, 56, 0.9);
-          font-family: "Merriweather", serif;
-        }
-        &:hover {
-          h4 {
-            color:darken( $accent-blue,30%);
-          }
-        }
-      };
-      div > a{
-        color: black;
-        font-family: "Roboto",sans-serif;
-        text-decoration: none;
+        .text-container{
+            h4{
+              font-weight: 600;
+              font-size: 1.25em;
+            }
+            p { // description
+              padding-top: .5em;
+              max-width: 475px;
+              line-height: 2em;
+              color: rgba(56, 56, 56, 0.9);
+              font-family: "Merriweather", serif;
+            }
+            &:hover {
+              h4 {
+                color:darken( $accent-blue,30%);
+              }
+            }
+          };
       }
     }
     @media (min-width: 701px) {

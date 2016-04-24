@@ -6,7 +6,7 @@ const callerID = require('caller-id');
 // this function is being called once for every category of portfolio posts, check the type
 // to see which category is being rendered
 module.exports = function generateProjectPosts(type, projTypeArr, projectObj, res, rej) {
-
+  
   // this is called after last internal task is complete
   function completeCallBack(){
     res(`*** Done with ${type} projects`);
@@ -34,7 +34,7 @@ module.exports = function generateProjectPosts(type, projTypeArr, projectObj, re
       }
 
       // push promise for reading and creating file into master filePromises array
-      filePromises.push(new Promise(readCompileCreate))
+      filePromises.push(new Promise(readCompileCreate));
       function readCompileCreate(res,rej){
         // read the md file and convert it to html
         fs.readFile(`${projPath}/${file}`, 'utf8', function(err,data){
