@@ -3,6 +3,9 @@
   margin: 0;
 }
 
+html, body {
+  height: 100%;
+}
 %main_tag {
   position: relative;
   left: 50%;
@@ -12,12 +15,13 @@
 
 :root {
   font: {
+    font-family: "Roboto", sans-serif;
     size: $root-font;
   }
 }
 
 body {
-  padding: $body-padding;
+  background-color: white;
   @media(max-width: 700px) {
     overflow-x: hidden;
   }

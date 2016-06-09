@@ -1,0 +1,33 @@
+.nav-parent-row {
+  font-family: "Roboto", sans-serif;
+  margin-bottom: 3rem;
+}
+
+$nav-padding: 3rem;
+
+.nav-wrapper-row {
+  height: $nav-height;
+}
+.logo-box{
+  padding-right: $nav-padding / 2;
+}
+.nav-list-box {
+  padding-left: $nav-padding / 2;
+}
+
+#nav-logo-svg {
+  @include center-vert(relative);
+  $side: 30px;
+  transition: transform 0.5s ease;
+  height: $side;
+  width: $side;
+}
+
+.nav-list-item-box {
+  text-decoration: none;
+  color: black;
+  opacity: 0.4;
+  &:not(:last-child){
+    padding-right: $nav-padding;
+  }
+}

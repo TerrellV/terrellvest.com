@@ -1,5 +1,6 @@
 const fs = require('fs');
 const gulp = require('gulp');
+var plumber = require('gulp-plumber');
 const jade = require('gulp-jade');
 const marked = require('marked');
 const markdown = require('gulp-markdown');
@@ -96,6 +97,7 @@ gulp.task('sass', function() {
   gulp.src('_src/assets/styles/main.scss', {
       base: '_src'
     })
+    .pipe(plumber())
     .pipe(sourcemaps.init())
     .pipe(sass())
     .pipe(autoprefixer({browsers: ['last 2 version', '> 5% in US']}))

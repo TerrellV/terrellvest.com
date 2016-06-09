@@ -6,24 +6,30 @@ module.exports = function( /*normal arguments here*/ res,rej){
   function sequenceDone(resVal){
     res(resVal);
   }
-  // 1st in sequence
+  // convert about me markdown text to html
   function readMd(readJade){
     fs.readFile('./_src/_about/about-text.md','utf8',function(err,content){
-      readJade(marked(content))
+      writeMd(marked(content));
     })
   }
-  // 2nd in sequence
-  function readJade(writeHtml,mdHtml){
+  // write about me markdown to file
+  function writeMd(html){
+    fs.writeFile('./_src/assets/html/about.html', html, function() {
+      readJade();
+    })
+  }
+  // convert index.jade to html
+  function readJade(){
     fs.readFile('./_src/index.jade','utf8',function(err,content){
       var jadeFunction = jade.compile(content,{
         filename:'./_src/index.jade',
         pretty: true
       });
-      var finalHtml = jadeFunction({postContent:mdHtml});
-      writeHtml(finalHtml);
+
+      writeHtml( jadeFunction() );
     })
   }
-  // 3rd in sequence
+  // write complete index.html page to folder
   function writeHtml(finalHtml){
     fs.writeFile('./_dist/index.html',finalHtml,function(err){
       if (err) throw err;

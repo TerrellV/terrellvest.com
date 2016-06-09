@@ -3,15 +3,13 @@ main {
   font-family: "Roboto", sans-serif;
   @extend %main_tag;
   #contact-sub-header {
-    @extend %sub-header;
-    width: 28%;
+     width: 28%;
     visibility: hidden;
   }
   #contact-sections {
     width: 72%;
     box-sizing: border-box;
     font-size: 2rem;
-
     div {
       h1{
         padding-bottom: .5rem;

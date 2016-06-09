@@ -15,13 +15,23 @@
               <svg id="logo-svg_elem">
                 <use xlink:href="../../assets/images/sprites/sprites.svg#logo"></use>
               </svg></a></div>
-          <div id="nav-list-container" class="col">
-            <ul id="nav-list"><a href="/" id="about-link" class="inactive">
-                <li>About</li></a><a href="/portfolio" id="portfolio-link" class="inactive">
-                <li>Portfolio</li></a><a href="/blog" id="blog-link" class="active">
-                <li>Blog</li></a><a href="/contact" id="contact-link" class="inactive">
-                <li>Contact</li></a></ul>
-          </div>
+          <nav class="row nav-parent-row">
+            <box class="wrapper">
+              <div class="row center--col-x nav-wrapper-row">
+                <div class="box auto--width logo-box"><a href="/">
+                    <svg id="nav-logo-svg">
+                      <use xlink:href="../../assets/images/sprites/sprites.svg#logo"></use>
+                    </svg></a></div>
+                <div class="box auto--width nav-list-box">
+                  <div class="row nav-list center--row-y"><a href="/" id="about-link" class="box nav-list-item-box auto--width inactive">
+                      <li>About</li></a><a href="/portfolio" id="portfolio-link" class="box nav-list-item-box auto--width inactive">
+                      <li>Portfolio</li></a><a href="/blog" id="blog-link" class="box nav-list-item-box auto--width active">
+                      <li>Blog</li></a><a href="/contact" id="contact-link" class="box nav-list-item-box auto--width inactive">
+                      <li>Contact</li></a></div>
+                </div>
+              </div>
+            </box>
+          </nav>
         </div>
       </nav>
     </header>

@@ -1,40 +1,57 @@
+$text-offset: 2.5rem;
 
-// default styles
-#about-content {
-  @extend %main_tag;
+.profile-pic-wrapper {
+  $size: 255px;
+  height: $size;
+  width: $size;
+  border-radius: 50%;
+  overflow: hidden;
 }
 
-// small devices
-@media (max-width: $medium-break-point) {
-  #about-content{
-    #profile-pic {
-      width: 80%;
-      padding-bottom: 2rem;
-      @media (max-width: 550px){
-        width: 100%;
-      }
-    }
-    a {
-      color: $accent-blue;
-    }
+#profile-pic {
+  display: inline-block;
+  height: 100%;
+  position: relative;
+  left: -43%;
+}
+
+.about-name-heading {
+  width: 100%;
+  font-weight: 300;
+  letter-spacing: 7px;
+  font-size: 2rem;
+  margin-bottom: $text-offset;
+}
+
+.about-text-content {
+  padding-left: 2.5rem;
+  p{
+    line-height: 2.25rem;
   }
 }
-  // large devices
-  @media (min-width: $medium-break-point + 1) {
-    article > div {
-      width: 72%;
-    }
-    #about-content {
-      #profile-pic {
-        width: 70%;
-        padding-bottom: 2rem;
-      }
-      a {
-        color: $text-grey;
-        transition: color 100ms ease;
-        &:hover{
-          color: $accent-blue;
-        }
-      }
-    }
-  }
+
+.action-button-cont{
+  margin-top: $text-offset;
+}
+
+.about-action-btn {
+  border: 3px solid $accent-blue;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  border-radius: 100px;
+  padding: 14px 42px;
+  cursor: pointer;
+  outline: none;
+}
+.abt-btn-resume {
+  color: white;
+  background-color: $accent-blue;
+  transition: box-shadow 200ms ease;
+}
+.abt-btn-projects {
+  color: $accent-blue;
+  font-sizeacing: 1px;
+  background-color: white;
+  transition: background-color 200ms ease;
+  margin-left: 2rem;
+}
