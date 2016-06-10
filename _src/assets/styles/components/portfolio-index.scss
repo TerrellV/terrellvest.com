@@ -1,6 +1,5 @@
 #portfolio-main { // main content tag
   // overide the default header styles slightly
-  @extend %main_tag;
   max-width: 1200px;
   header{
     position: relative;

@@ -10,7 +10,6 @@
 }
 
 .blog-post-content {
-  @extend %main_tag;
   #blog-header-wrap {
     header {
       @media(max-width:700px) {
@@ -21,21 +20,21 @@
       }
     }
     .blog-post-description{
-      @media(min-width:$medium-break-point + 1) {
+      @media(min-width:$m-bp + 1) {
         padding-right: 50px;
       }
-      @media(max-width:$medium-break-point) {
+      @media(max-width:$m-bp) {
         // padding-right: 50px;
       }
       @extend %post-description;
     }
-    @media(min-width:$medium-break-point + 1) {
+    @media(min-width:$m-bp + 1) {
       width: 28%;
       text-align: right;
     }
   }
   #blog-post-md-content {
-    @media(min-width:$medium-break-point + 1) {
+    @media(min-width:$m-bp + 1) {
       width: 72%;
     }
   }
@@ -62,7 +61,7 @@
 }
 
 // large devices
-@media(min-width:$medium-break-point + 1) {
+@media(min-width:$m-bp + 1) {
   .blog-post-content{
     article{
       #back-blog-container{
@@ -80,7 +79,7 @@
   }
 }
 // small devices
-@media(max-width:$medium-break-point) {
+@media(max-width:$m-bp) {
   .blog-post-content{
     article{
       #back-blog-container{

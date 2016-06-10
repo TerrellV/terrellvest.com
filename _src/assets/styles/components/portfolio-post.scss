@@ -1,7 +1,6 @@
 .portfolio-post-main {
-  @extend %main_tag;
   article {
-    @media(max-width:$medium-break-point) { // smaller than 700px
+    @media(max-width:$m-bp) { // smaller than 700px
       #portfolio-post-header-wrap {
         margin-left: -$body-padding;
         padding-bottom: 2rem;
@@ -52,7 +51,7 @@
         }
       }
     }
-    @media(min-width:$medium-break-point + 1) { // larger than 700px
+    @media(min-width:$m-bp + 1) { // larger than 700px
       #portfolio-post-header-wrap {
         width: 28%;
         text-align: right;
@@ -109,7 +108,7 @@
       }
     }
     // from 701 =  800px
-    @media (min-width:$medium-break-point + 1) and (max-width: $medium-break-point + 100px) {
+    @media (min-width:$m-bp + 1) and (max-width: $m-bp + 100px) {
       #portfolio-post-header-wrap {
         .portfolio-post-description {
           padding-right: 33px;

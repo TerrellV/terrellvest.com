@@ -1,11 +1,19 @@
 $text-offset: 2.5rem;
 
+.page-content {
+  padding-bottom: $footer-height;
+}
+
 .profile-pic-wrapper {
   $size: 255px;
   height: $size;
   width: $size;
   border-radius: 50%;
   overflow: hidden;
+  display: inline-block;
+  position:relative;
+  z-index:1;
+  transition: height 200ms ease, width 200ms ease;
 }
 
 #profile-pic {
@@ -24,7 +32,6 @@ $text-offset: 2.5rem;
 }
 
 .about-text-content {
-  padding-left: 2.5rem;
   p{
     line-height: 2.25rem;
   }
@@ -32,6 +39,7 @@ $text-offset: 2.5rem;
 
 .action-button-cont{
   margin-top: $text-offset;
+  margin-bottom: $text-offset;
 }
 
 .about-action-btn {
@@ -39,7 +47,7 @@ $text-offset: 2.5rem;
   font-size: 1rem;
   letter-spacing: 1px;
   border-radius: 100px;
-  padding: 14px 42px;
+  padding: 14px 32px;
   cursor: pointer;
   outline: none;
 }
@@ -54,4 +62,25 @@ $text-offset: 2.5rem;
   background-color: white;
   transition: background-color 200ms ease;
   margin-left: 2rem;
+}
+
+@media(max-width: $xl-bp){
+  .about-text-content {
+    text-align: center;
+  }
+  .about-name-heading {
+    margin-top: $text-offset;
+  }
+}
+@media(max-width: $m-bp){
+  .profile-pic-wrapper {
+    $size: 180px;
+    height: $size;
+    width: $size;
+  }
+  .about-name-heading {
+    margin-top: $text-offset;
+    font-size: 1.5rem;
+    letter-spacing: 4px;
+  }
 }

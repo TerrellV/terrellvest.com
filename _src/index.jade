@@ -15,20 +15,23 @@ html(lang="en")
     link(href="assets/styles/grizzly/grid.css" rel="stylesheet" type="text/css")
     link(href="assets/styles/main.css" rel="stylesheet" type="text/css")
   body
-    include ./assets/markup/nav.jade
-    main#about-content
-      article.row.center--col-x
-        .box.xl--4-12
-          .profile-pic-wrapper
-            img(id="profile-pic" src="assets/images/Profile.jpg" alt="Profile image of Terrell Vest")
-        .box.xl--8-12.about-text-content
-          h1.about-name-heading Terrell Vest
-          .md-content
-            include ./assets/html/about.html
-          .action-button-cont
-          button.about-action-btn.abt-btn-resume resume
-            button.about-action-btn.abt-btn-projects projects
-    footer.site-footer
+    .page-wrapper
+      include ./assets/markup/nav.jade
+      main.page-content#about-content
+        article.row.center--col-x
+          .box.wrapper
+            .row.center--col-x
+              .box.xl--5-12.center--content
+                .profile-pic-wrapper
+                  img(id="profile-pic" src="assets/images/Profile.jpg" alt="Profile image of Terrell Vest")
+              .box.s--10-12.m--7-12.about-text-content
+                h1.about-name-heading Terrell Vest
+                .md-content
+                  include ./assets/html/about.html
+                .action-button-cont
+                button.about-action-btn.abt-btn-resume resume
+                  button.about-action-btn.abt-btn-projects projects
+      footer.site-footer
     script(src="assets/scripts/g_a_code.js")
     
     

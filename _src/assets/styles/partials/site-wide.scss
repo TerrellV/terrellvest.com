@@ -6,16 +6,10 @@
 html, body {
   height: 100%;
 }
-%main_tag {
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
-  max-width: $medium-large-break-point;
-}
 
 :root {
   font: {
-    font-family: "Roboto", sans-serif;
+    family: "Roboto", sans-serif;
     size: $root-font;
   }
 }

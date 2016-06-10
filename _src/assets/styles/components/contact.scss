@@ -1,7 +1,6 @@
 // default styles
 main {
   font-family: "Roboto", sans-serif;
-  @extend %main_tag;
   #contact-sub-header {
      width: 28%;
     visibility: hidden;
@@ -136,7 +135,7 @@ $socialColors: (
 }
 
 // mobile
-@media(max-width: $medium-break-point) {
+@media(max-width: $m-bp) {
   main {
     header {
     }
@@ -181,7 +180,7 @@ $socialColors: (
 }
 
 // medium - large
-@media(min-width: #{$medium-break-point + 1}px) {
+@media(min-width: #{$m-bp + 1}px) {
   main {
     header {
     }

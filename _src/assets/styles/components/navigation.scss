@@ -1,24 +1,30 @@
+$nav-height: 80px;
+$nav-padding: 3rem;
+
 .nav-parent-row {
   font-family: "Roboto", sans-serif;
   margin-bottom: 3rem;
 }
 
-$nav-padding: 3rem;
+.nav-wrapper-row {}
 
-.nav-wrapper-row {
-  height: $nav-height;
-}
 .logo-box{
+  height: $nav-height;
   padding-right: $nav-padding / 2;
 }
 .nav-list-box {
   padding-left: $nav-padding / 2;
 }
-
-#nav-logo-svg {
-  @include center-vert(relative);
-  $side: 30px;
+.nav-logo-link {
+  position: relative;
+  width: auto;
+  height: auto;
+  display: inline-block;
+  @include center-both(relative);
   transition: transform 0.5s ease;
+}
+#nav-logo-svg {
+  $side: 30px;
   height: $side;
   width: $side;
 }
@@ -27,7 +33,33 @@ $nav-padding: 3rem;
   text-decoration: none;
   color: black;
   opacity: 0.4;
+  height: $nav-height;
+  position: relative;
   &:not(:last-child){
     padding-right: $nav-padding;
+  }
+}
+
+.nav-text-item {
+  display: inline-block;
+  @include center-vert(relative);
+}
+
+@media (max-width: $m-bp) {
+  .nav-logo-link {
+    transform: translate(-50%, -50%) rotate(180deg);
+  }
+  .box.logo-box{
+    width: 100%;
+    padding-right: 0;
+  }
+  .nav-list-box {
+    padding-left: 0;
+  }
+  .nav-list-item-box {
+    // opacity: 1;
+    &:not(:last-child){
+      padding-right: 1.5rem;
+    }
   }
 }
