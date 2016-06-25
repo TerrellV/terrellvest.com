@@ -1,0 +1,37 @@
+.portfolio-nav {
+}
+
+.portfolio-nav-box{
+  max-width: 280px;
+}
+.portfolio-nav-link {
+  cursor: pointer;
+  text-decoration: none;
+  color: black;
+}
+.portfolio-nav-text {
+  display: inline-block;
+  font-size: 1.2rem;
+  font-weight: 500;
+  -webkit-backface-visibility: hidden;
+}
+
+.slider-cont {
+  margin-top: 0.5rem;
+  height: 20px;
+}
+.slider-ball{
+  @include center-vert(absolute);
+  background-color: dodgerblue;
+  border-radius: 50%;
+  $size: 14px;
+  height: $size;
+  width: $size;
+  -webkit-backface-visibility: hidden;
+}
+.slider-rail {
+  @include center-vert(absolute);
+  background-color: #e4e4e4;
+  height: 1px;
+  width: 100%;
+}

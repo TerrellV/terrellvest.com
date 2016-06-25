@@ -1,4 +1,4 @@
-module.exports = [
+const portfolioPostBank = [
   {
     title: "Entrepreneur Workshop",
     date: [2015,12,4], // year, month, day
@@ -92,4 +92,6 @@ module.exports = [
       github: 'https://github.com/MirPresT/Random-Quote-Generator'
     }
   }
-]
+];
+
+export default portfolioPostBank;
