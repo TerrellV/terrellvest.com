@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react'
 import { Link } from 'react-router';
 import PortfolioNav from './portfolioNav';
+
 import portfolioPosts from '../../../../_dist/assets/json/portfolio.json';
 import WebProjects from './webProjects';
 import OtherProjects from './otherProjects';

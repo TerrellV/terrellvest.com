@@ -50,6 +50,7 @@ const buildPortfolioPosts = async function (bankString, template, res, rej) {
     fs.writeFileSync(`${dirPath}index.html`, indexHTML);
     return fileObj;
   }
+
   // ONLY FOR WRITING JSON TEMPLATE
   function writeJSON(path, filename, fileObj){
     const content = JSON.stringify(fileObj, null, 2);
@@ -58,6 +59,8 @@ const buildPortfolioPosts = async function (bankString, template, res, rej) {
   }
 
   // BUILD SEQUENCE FOR BUILDING POSTS OF A CERTAIN TYPE
+
+  // BUILD SEQUENCE
   function build(dirName) {
     readPortfolioDir( dirName )
       .map( verify.bind(null, projectBank) )
@@ -65,7 +68,9 @@ const buildPortfolioPosts = async function (bankString, template, res, rej) {
       .map( writeFile.bind(null, template) );
   }
 
+
   writeJSON('_dist/assets/json', 'portfolio.json', projectBank);
+
   build('business');
   build('web');
   res('DONE_BUILDING_PORTFOLIO_POSTS')
