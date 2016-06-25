@@ -86,7 +86,7 @@ const PortfolioNav = React.createClass({
         break;
       case 'LEFT':
         this.setState({ballPosition: 'ballLeft'});
-        pageTransition('/portfolio', pageSwitchDelay);
+        pageTransition('/portfolio/', pageSwitchDelay);
         break;
       default:
         break;

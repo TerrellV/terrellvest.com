@@ -1,0 +1,95 @@
+{
+  "0": {
+    "title": "Entrepreneur Workshop",
+    "date": "December 4th, 2015",
+    "type": "business",
+    "dcr": "An on campus event aimed to address student interest in entrepreneurship as a potential career path",
+    "path": "/portfolio/entrepreneur-workshop"
+  },
+  "1": {
+    "title": "Marketing Proposal",
+    "date": "November 18th, 2015",
+    "type": "business",
+    "dcr": "A marketing project designed to aid a Local Non Profit in their pursuit to increase awereness, share information, and tell their story to other businesses in San Diego",
+    "path": "/portfolio/marketing-proposal"
+  },
+  "2": {
+    "title": "Master Your Money",
+    "date": "May 20th, 2015",
+    "type": "business",
+    "dcr": "A financial literacy workshop for college students that addressed topics such as budgeting and debt management",
+    "path": "/portfolio/master-your-money"
+  },
+  "3": {
+    "title": "Personal Website",
+    "date": "March 7th, 2016",
+    "type": "web",
+    "color": "#c9ddf0",
+    "dcr": "An insight into the development of terrellvest.com as it pertains to the build, design, and depoyment process",
+    "links": {
+      "app": "/",
+      "github": "https://github.com/MirPresT/terrellvest.com"
+    },
+    "path": "/portfolio/personal-website"
+  },
+  "4": {
+    "title": "Tic Tac Toe",
+    "date": "November 21st, 2015",
+    "type": "web",
+    "color": "#c9e9f0",
+    "dcr": "Play Tic-Tac-Toe against a computer that, depending on the difficulty, will guess your next move",
+    "links": {
+      "app": "http://mirprest.github.io/tic-tac-toe/",
+      "github": "https://github.com/MirPresT/tic-tac-toe"
+    },
+    "path": "/portfolio/tic-tac-toe"
+  },
+  "5": {
+    "title": "Twitch Viewer",
+    "date": "September 14th, 2015",
+    "type": "web",
+    "color": "#cfcede",
+    "dcr": "Track the status of various twitch channels and view basic information relating to their current stream or follower count",
+    "links": {
+      "app": "https://mirprest.github.io/Twitch-Viewer/",
+      "github": "https://github.com/MirPresT/Twitch-Viewer"
+    },
+    "path": "/portfolio/twitch-viewer"
+  },
+  "6": {
+    "title": "Clock",
+    "date": "September 1st, 2015",
+    "type": "web",
+    "color": "#f0e1c9",
+    "dcr": "Set a promodoro timer with individual tasks and start a stopwatch that displays lap times",
+    "links": {
+      "app": "https://mirprest.github.io/Clock/#/",
+      "github": "https://github.com/MirPresT/Clock"
+    },
+    "path": "/portfolio/clock"
+  },
+  "7": {
+    "title": "Weather Forecast",
+    "date": "August 1st, 2015",
+    "type": "web",
+    "color": "#c9f0e7",
+    "dcr": "View the current weather and 3 day forecast for your particular location",
+    "links": {
+      "app": "https://mirprest.github.io/Weather-App/",
+      "github": "https://github.com/MirPresT/Weather-App"
+    },
+    "path": "/portfolio/weather-forecast"
+  },
+  "8": {
+    "title": "Random Quote Generator",
+    "date": "July 1st, 2015",
+    "type": "web",
+    "color": "#dae5f1",
+    "dcr": "Click through a collection of quotes and share your favorite one on twitter",
+    "links": {
+      "app": "https://rawgit.com/MirPresT/Random-Quote-Generator/master/html/index.html",
+      "github": "https://github.com/MirPresT/Random-Quote-Generator"
+    },
+    "path": "/portfolio/random-quote-generator"
+  }
+}

@@ -8,9 +8,7 @@ import OtherProjects from './components/otherProjects.js';
 
 render((
   <Router history={browserHistory}>
-    <Route path="portfolio" component={portfolio}>
-      <IndexRoute component={WebProjects} />
-      <Route path="other" component={OtherProjects} />
-    </Route>
+    <Route path="portfolio/:type" component={portfolio} />
+    <Route path="portfolio/" component={portfolio} />
   </Router>
 ), document.querySelector('#App'));

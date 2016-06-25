@@ -1,110 +1,22 @@
-#portfolio-main { // main content tag
-  // overide the default header styles slightly
-  max-width: 1200px;
-  header{
-    position: relative;
-    .page-title {
-      cursor: pointer;
-      border: 0;
-      transition: opacity 250ms ease-in-out;
-    }
-    @media (max-width: 700px) { // below 700 px
-      margin-bottom: 2em;
-      .page-title:first-child {
-        margin-right: 2em;
-      }
-      .page-title:not(:first-child) {
-        margin-left: -.25rem;
-      }
-    }
-    @media (min-width: 701px){ // above 700 px
-      width: 28%;
-      .page-title {
-        display: block;
-        text-align: right;
-        // width: 131px;
-        &:after {
-          display: none;
-        }
-      }
-      h1:first-child {
-        padding-bottom: 1.5em;
-      }
-    }
-    .inactive-page-title {
-      opacity: .3;
-    }
-    .default-slider {
-      background-color: $accent-blue;
-      position: absolute;
-    }
-    .mobile-slider {
-      margin-left: $body-padding;
-      transform: translateX(0px);
-      height: 2px;
-      bottom: 0px;
-      left:0px;
-      transition: transform 300ms linear, width 214ms linear 90ms;// slower
-    }
-    .desktop-slider {
-      width: 8px !important;
-      height: 8px;
-      border-radius: 50%;
-      margin-left: 1.5rem;
-      top: 6px;
-      transform: translateY(0px);
-      transition: transform 200ms ease-in-out;
-    }
-    .slider-right {
-      transform: translateX( add_Em_Pix(2,130.5) );
-    }
-    .slider-down {
-      transform: translateY(43px);
-    }
-  }
-  #portfolio-posts {
-    div:not(.hide-me) { // div that is visible
-      .post-preview-container{
-        display: flex;
-        align-items: center;
-        &:not(:nth-child(1)){
-          // all divs except the first
-          margin-top: 100px;;
-        }
-        .post-image-cont{
-          margin-right: 2rem;
-          width: 285px;
-          height: 225px;
-        }
-        .text-container{
-            h4{
-              font-weight: 600;
-              font-size: 1.25em;
-            }
-            p { // description
-              padding-top: .5em;
-              max-width: 475px;
-              line-height: 2em;
-              color: rgba(56, 56, 56, 0.9);
-              font-family: "Merriweather", serif;
-            }
-            &:hover {
-              h4 {
-                color:darken( $accent-blue,30%);
-              }
-            }
-          };
-      }
-    }
-    @media (min-width: 701px) {
-      width: 72%;
-      div:not(.hide-me) {
-        div a {
-          p { // description
-            // width: 450px
-          }
-        }
-      }
-    }
-  }
+.portfolio-container{
+
+}
+
+.web-project-container{
+
+}
+
+.project-item-row{
+  margin-bottom: 6rem;
+}
+$gutter: 2rem;
+// img container
+.proj-prev-img-cont{
+  padding-left: $gutter;
+  padding-right: $gutter / 2;
+}
+// text container
+.proj-prev-text-cont {
+  padding-left: $gutter / 2;
+  padding-right: $gutter;
 }
