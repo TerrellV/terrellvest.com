@@ -22,9 +22,12 @@
   },
   "3": {
     "title": "Personal Website",
+    "subheader": "React, Markdown, Node.js Build Process",
     "date": "March 7th, 2016",
     "type": "web",
     "color": "#c9ddf0",
+    "colorDark": "#66b3f6",
+    "previewSVG": "personal-site-preview-img",
     "dcr": "An insight into the development of terrellvest.com as it pertains to the build, design, and depoyment process",
     "links": {
       "app": "/",
@@ -34,9 +37,12 @@
   },
   "4": {
     "title": "Tic Tac Toe",
+    "subheader": "React, Flux, Webpack, Computer Algorithm.",
     "date": "November 21st, 2015",
     "type": "web",
     "color": "#c9e9f0",
+    "colorDark": "#4bd5ca ",
+    "previewSVG": "tic-tac-toe-preview-img",
     "dcr": "Play Tic-Tac-Toe against a computer that, depending on the difficulty, will guess your next move",
     "links": {
       "app": "http://mirprest.github.io/tic-tac-toe/",
@@ -46,9 +52,12 @@
   },
   "5": {
     "title": "Twitch Viewer",
+    "subheader": "Angular, Grunt, Nested Promises",
     "date": "September 14th, 2015",
     "type": "web",
     "color": "#cfcede",
+    "colorDark": "#ad9ae2",
+    "previewSVG": "twitch-viewer-preview-img",
     "dcr": "Track the status of various twitch channels and view basic information relating to their current stream or follower count",
     "links": {
       "app": "https://mirprest.github.io/Twitch-Viewer/",
@@ -58,9 +67,12 @@
   },
   "6": {
     "title": "Clock",
+    "subheader": "Angular, Grunt, Javascipt Time, Animation",
     "date": "September 1st, 2015",
     "type": "web",
     "color": "#f0e1c9",
+    "colorDark": "#f4a526",
+    "previewSVG": "clock-preview-img",
     "dcr": "Set a promodoro timer with individual tasks and start a stopwatch that displays lap times",
     "links": {
       "app": "https://mirprest.github.io/Clock/#/",
@@ -70,9 +82,12 @@
   },
   "7": {
     "title": "Weather Forecast",
+    "subheader": "Vanilla Javascipt, gulp",
     "date": "August 1st, 2015",
     "type": "web",
     "color": "#c9f0e7",
+    "colorDark": "#62eccc",
+    "previewSVG": "weather-forecast-preview-img",
     "dcr": "View the current weather and 3 day forecast for your particular location",
     "links": {
       "app": "https://mirprest.github.io/Weather-App/",
@@ -82,9 +97,12 @@
   },
   "8": {
     "title": "Random Quote Generator",
+    "subheader": "Jquery, first project",
     "date": "July 1st, 2015",
     "type": "web",
     "color": "#dae5f1",
+    "colorDark": "#5499e1",
+    "previewSVG": "random-quote-generator-preview-img",
     "dcr": "Click through a collection of quotes and share your favorite one on twitter",
     "links": {
       "app": "https://rawgit.com/MirPresT/Random-Quote-Generator/master/html/index.html",
