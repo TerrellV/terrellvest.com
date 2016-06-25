@@ -3,10 +3,7 @@
   * Only touch the startData Array and the Objects inside. No need to edit other methods, especially if you are just adding a project.
 */
 
-var blogPostBank = require('./blog-post-bank');
-
-const postBank = {
-  startData: blogPostBank,
+const genBlogBank = {
   addPaths: function (postBankArr){
     postBankArr.map( obj => {
       obj.path = '/blog/' + obj.title.replace(/\s/g,'-').toLowerCase();
@@ -53,4 +50,4 @@ const postBank = {
   }
 }
 
-module.exports = postBank;
+module.exports = genBlogBank;
