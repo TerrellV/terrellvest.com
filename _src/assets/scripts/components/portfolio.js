@@ -5,6 +5,7 @@ import PortfolioNav from './portfolioNav';
 import portfolioPosts from '../../../../_dist/assets/json/portfolio.json';
 import WebProjects from './webProjects';
 import OtherProjects from './otherProjects';
+import shortid from 'shortid';
 
 const postDB = Object.keys(portfolioPosts)
   .reduce( (acc, key) => {
@@ -13,7 +14,7 @@ const postDB = Object.keys(portfolioPosts)
       ...acc,
       [postObj.type]: {
         ...acc[postObj.type],
-        [key]: postObj
+        [shortid.generate()]: postObj
       }
     }
   }, {});

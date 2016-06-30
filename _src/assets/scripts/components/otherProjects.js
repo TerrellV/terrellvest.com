@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 const OtherProjects = React.createClass({
   render () {
     return (
-      <div>
+      <div className="other-project-container">
         <h1>other projects</h1>
       </div>
     )

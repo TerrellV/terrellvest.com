@@ -4,7 +4,7 @@ import { browserHistory, Link } from 'react-router';
 const PortfolioNav = React.createClass({
   getInitialState() {
 
-    const slideDuration = 400;
+    const slideDuration = 500;
     const pageSwitchDuration = Math.floor(slideDuration * 0.6);
     const pageSwitchDelay = Math.floor(slideDuration * 0.4);
 
@@ -91,10 +91,8 @@ const PortfolioNav = React.createClass({
       default:
         break;
     }
-    function pageTransition(path, delay) {
-      setTimeout(() => {
-        browserHistory.push(path);
-      }, delay)
+    function pageTransition(path) {
+      browserHistory.push(path);
     }
   },
   calcStyles(){

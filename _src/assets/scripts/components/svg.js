@@ -73,8 +73,6 @@ const SVG = ({id, className, props}) => {
     )
   };
 
-  console.log(id);
-
   return svgBank[id] || svgBank['clock'];
 };
 
