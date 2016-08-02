@@ -5,21 +5,21 @@
 	 width="120px" height="200px" viewBox="0 0 120 200" enable-background="new 0 0 120 200" xml:space="preserve">
 <path fill="#FFFFFF" d="M120,191c0,4.971-4.029,9-9,9H9c-4.971,0-9-4.029-9-9V9c0-4.971,4.029-9,9-9h102c4.971,0,9,4.029,9,9V191z"
 	/>
-<path fill="#91BAC1" d="M120,27H0V9c0-4.971,4.029-9,9-9h102c4.971,0,9,4.029,9,9V27z"/>
-<rect x="48" y="13" fill="#FFFFFF" width="25" height="2"/>
+<path fill="#91BAC1" d="M120,22H0V9c0-4.971,4.029-9,9-9h102c4.971,0,9,4.029,9,9V22z"/>
 <g>
-	<rect x="13" y="52" fill="#F4F4F4" width="32" height="32"/>
-	<rect x="45" y="52" fill="#FFFFFF" width="31" height="32"/>
-	<rect x="76" y="52" fill="#F4F4F4" width="32" height="32"/>
-	<rect x="76" y="84" fill="#FFFFFF" width="32" height="31"/>
-	<rect x="76" y="115" fill="#F4F4F4" width="32" height="32"/>
-	<rect x="45" y="115" fill="#FFFFFF" width="31" height="32"/>
-	<rect x="45" y="84" fill="#F4F4F4" width="31" height="31"/>
-	<rect x="13" y="84" fill="#FFFFFF" width="32" height="31"/>
-	<rect x="13" y="115" fill="#F4F4F4" width="32" height="32"/>
+	<circle fill="#C9E9F0" cx="50.875" cy="176.375" r="6.469"/>
+	<circle fill="#C9E9F0" cx="69.125" cy="176.375" r="6.469"/>
 </g>
 <g>
-	<circle fill="#C9E9F0" cx="50.297" cy="174" r="6.469"/>
-	<circle fill="#C9E9F0" cx="69.703" cy="174" r="6.469"/>
+	<rect x="15.516" y="56" fill="#F4F4F4" width="29.656" height="29.656"/>
+	<rect x="45.172" y="85.172" fill="#F4F4F4" width="29.656" height="29.656"/>
+	<rect x="74.465" y="55.879" fill="#F4F4F4" width="29.656" height="29.656"/>
+	<rect x="15.516" y="114.828" fill="#F4F4F4" width="29.656" height="29.656"/>
+	<rect x="74.828" y="114.828" fill="#F4F4F4" width="29.656" height="29.656"/>
+	<rect x="45.172" y="56" fill="#FFFFFF" width="29.656" height="29.656"/>
+	<rect x="74.586" y="85.414" fill="#FFFFFF" width="29.656" height="29.656"/>
+	<rect x="45.172" y="114.828" fill="#FFFFFF" width="29.656" height="29.656"/>
+	<rect x="15.637" y="85.293" fill="#FFFFFF" width="29.656" height="29.656"/>
 </g>
+<rect x="45.172" y="11" fill="#F4F4F4" width="29.656" height="3"/>
 </svg>

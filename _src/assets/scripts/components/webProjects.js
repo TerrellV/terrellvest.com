@@ -44,7 +44,7 @@ const PostItemView = ({postID, post, linkStyles}) =>
 
 const WebProjects = ({postDB}) => {
   return (
-    <div className="web-project-container">
+    <div className="project-container">
       {
         Object.keys(postDB).map( key =>
           <PostItemView

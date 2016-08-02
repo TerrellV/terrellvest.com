@@ -6,10 +6,17 @@
 .portfolio-container{
 }
 
-.web-project-container{
+.project-container {
   animation-name: fadeIn;
   animation-duration: 1000ms;
   animation-fill-mode: both;
+  padding: 6rem 1rem;
+  @media (max-width: $l-bp) {
+    padding: 4rem 1rem;
+  }
+}
+
+.web-project-container{
 }
 .other-project-container{
   animation-name: fadeIn;
@@ -19,8 +26,12 @@
 
 .project-item-row{
   margin-bottom: 130px;
+  @media (max-width: $m-bp) {
+    margin-bottom: 80px;
+  }
 }
 $gutter: 3rem;
+$mobile-gutter: 1.5rem;
 // img container
 .proj-prev-img-padding{
   padding-left: $gutter;
@@ -33,6 +44,10 @@ $gutter: 3rem;
   }
   .stretcher{
     padding-bottom: 70%;
+  }
+  @media (max-width: $m-bp) {
+    padding: 0 $mobile-gutter;
+    margin-bottom: 2rem;
   }
 }
 .prev-img-svg{
@@ -47,6 +62,9 @@ $gutter: 3rem;
   flex-direction: row;
   height: auto;
   font-family: "Open Sans", sans-serif;
+  @media (max-width: $m-bp) {
+    padding: 0 $mobile-gutter;
+  }
 }
 .proj-prev-heading{
   width: 100%;
@@ -65,6 +83,11 @@ $gutter: 3rem;
   opacity: 0.5;
   font-size: 1.1rem;
   letter-spacing: 1px;
+  @media (max-width: $m-bp) {
+    margin: 1rem 0;
+    letter-spacing: 0;
+    line-height: 1.75rem;
+  }
 }
 .proj-prev-text-links {
   align-self: flex-end;
