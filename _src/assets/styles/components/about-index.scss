@@ -4,8 +4,13 @@ $text-offset: 2.5rem;
   padding-bottom: $footer-height;
 }
 
+article.about-section {
+  padding: 10rem 1rem;
+  padding-top: 4rem;
+}
+
 .profile-pic-wrapper {
-  $size: 255px;
+  $size: 355px;
   height: $size;
   width: $size;
   border-radius: 50%;
@@ -23,10 +28,18 @@ $text-offset: 2.5rem;
   left: -43%;
 }
 
+// md content overides
+.md-content {
+  p + p {
+    text-indent: 0;
+    margin-top: 1rem;
+  }
+}
+
 .about-name-heading {
   width: 100%;
-  font-weight: 300;
-  letter-spacing: 7px;
+  font-weight: 400;
+  // letter-spacing: 7px;
   font-size: 2rem;
   margin-bottom: $text-offset;
 }
@@ -37,34 +50,65 @@ $text-offset: 2.5rem;
   }
 }
 
-.action-button-cont{
-  margin-top: $text-offset;
-  margin-bottom: $text-offset;
+.callToActionSection {
+  background-color: $dark-blue;
+  width: 100%;
+  padding: 6rem 1rem;
+}
+.call-to-action-content {
+  max-width: 500px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.call-to-action-heading {
+  width: 100%;
+  color: white;
+}
+.call-to-action-text {
+  width: 100%;
+  color: white;
+  margin: 2rem;
+  font-size: 18px;
+  opacity: 0.8;
 }
 
 .about-action-btn {
-  border: 3px solid $accent-blue;
+  border: 3px solid;
+  background-color: $accent-blue;
+  color: white;
   font-size: 1rem;
-  letter-spacing: 1px;
   border-radius: 100px;
-  padding: 14px 32px;
+  padding: 9px 25px;
   cursor: pointer;
   outline: none;
+  transition: box-shadow 200ms ease, color 200ms ease, background-color 200ms ease;
+  text-transform: capitalize;
+  margin: 1rem 1rem;
+  &:hover {
+    color: $accent-blue;
+    background-color: transparent;
+  }
 }
 .abt-btn-resume {
-  color: white;
-  background-color: $accent-blue;
-  transition: box-shadow 200ms ease;
+  border-color: $accent-blue;
 }
 .abt-btn-projects {
-  color: $accent-blue;
-  font-sizeacing: 1px;
+  color: $dark-blue;
   background-color: white;
-  transition: background-color 200ms ease;
-  margin-left: 2rem;
+  border-color: white;
+  &:hover {
+    background-color: transparent;
+    color: white;
+  }
 }
 
 @media(max-width: $xl-bp){
+  article.about-section {
+    padding: 4rem 1rem;
+    padding-top: 0rem;
+  }
   .about-text-content {
     text-align: center;
   }
@@ -73,6 +117,11 @@ $text-offset: 2.5rem;
   }
 }
 @media(max-width: $m-bp){
+  article.about-section {
+    margin-top: -2rem;
+    padding: 6rem 1rem;
+    padding-top: 0rem;
+  }
   .profile-pic-wrapper {
     $size: 180px;
     height: $size;
@@ -83,4 +132,8 @@ $text-offset: 2.5rem;
     font-size: 1.5rem;
     letter-spacing: 4px;
   }
+}
+
+.site-footer {
+  background-color: $dark-blue;
 }

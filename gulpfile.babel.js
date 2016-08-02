@@ -55,6 +55,7 @@ gulp.task('sass', function() {
 */
 gulp.task('watch', function() {
   gulp.watch('./_src/assets/styles/**/*.scss', ['sass']);
+  gulp.watch('./_src/index.jade', ['render']);
   gulp.watch(['./site-build-utils/*.js', ], ['render']);
   gulp.watch(['./devServer.js', ], ['devServer']);
 });
