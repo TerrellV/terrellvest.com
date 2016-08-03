@@ -27,7 +27,7 @@ const PostItemView = ({postID, post, linkStyles}) =>
         <a
           href={post.path}
           style={linkStyles}
-          target="_blank"
+          target="_self"
         >
           Read More
         </a>

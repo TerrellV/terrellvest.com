@@ -1,5 +1,5 @@
-Front End Web Developer, Full time student at San Diego State University, Finance Major.
+I am a Finance major at San Diego State University, and freelance front-end Web developer.
 
-On my [portfolio page](/portfolio) is a collection of projects I've completed that display my professional and technical skillsets. You will see a list of the most recent applications I've built along with various projects I've lead throughout college.
+If you'd like to hire me, view my [portfolio](/portfolio) for a collection of my most recent work. In addition, feel free to view my [resume](https://www.dropbox.com/s/lcjszjzyq0ymcly/Resume.docx?dl=0).
 
-[get in touch](/contact).
+On occasion I write about various topics on my [blog](/blog) - some technical, others personal.

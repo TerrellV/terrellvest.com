@@ -11,31 +11,28 @@ html(lang="en")
     meta(name="viewport" content="width=device-width, initial-scale=1")
     meta(name="apple-mobile-web-app-capable" content="yes")
     meta(name="mobile-web-app-capable" content="yes")
+    link(href="../../assets/styles/grizzly/grid.css" rel="stylesheet" type="text/css")
     link(href="../../assets/styles/main.css" rel="stylesheet" type="text/css")
   body
-    div.nav_container
-    header
-      nav
-        div.row
-          include ./logo.jade
-          include ./nav.jade
-    main.portfolio-post-main
-      article.row
-        div#portfolio-post-header-wrap.col
-          header.sub-header
-            h1.page-title #{postTitle}
-          div.portfolio-post-description
-            span #{postDate}
-        div#portfolio-post-md-content.md-content.col
-          != postContent
-        if type === 'web'
-          include ./post-action-buttons.jade
-          #back-portfolio-container
-            button#back-portfolio-web.col Portfolio
-        if type === 'business'
-          #back-portfolio-container
-            button#back-portfolio.col Portfolio
-      #disqus_thread
+    .page-wrapper
+      include ../../assets/markup/nav.jade
+      main.portfolio-post-main
+        article.row.center--col-x
+          div.post-wrap.box.wrapper.center-content
+            header.sub-header
+              h1.page-title #{postTitle}
+            div.portfolio-post-description
+              span #{postDate}
+            div.box.post-md-content.md-content
+              != pageMarkdownContent
+            if type === 'web'
+              include ./post-action-buttons.jade
+              #back-portfolio-container
+                button#back-portfolio-web.col Portfolio
+            if type === 'business'
+              #back-portfolio-container
+                button#back-portfolio.col Portfolio
+        #disqus_thread
     script(src="../../assets/scripts/g_a_code.js")
     script(src="../../assets/scripts/portfolio-post.js")
     noscript

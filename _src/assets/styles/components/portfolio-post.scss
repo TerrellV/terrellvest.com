@@ -1,119 +1,130 @@
-.portfolio-post-main {
-  article {
-    @media(max-width:$m-bp) { // smaller than 700px
-      #portfolio-post-header-wrap {
-        margin-left: -$body-padding;
-        padding-bottom: 2rem;
-        .sub-header {
-          .page-title {
-            margin-left: $body-padding;
-          }
-        }
-        .portfolio-post-description {
-          margin-left: $body-padding;
-        }
-      }
-      #portfolio-post-md-content {
-        margin-left: $body-padding;
-        padding-left: 0px;
-      }
-      // button at bottom for going back to list
-      #back-portfolio-container {
-        padding-left: $body-padding;
-        position: relative;
-        margin-top: 3em;
-        margin-bottom: 2em;
-        font-family: "Roboto";
-        button {
-          position: relative;
-          box-sizing: border-box;
-          padding: 0.75rem 1.75rem;
-          text-align: center;
-          cursor: pointer;
-          outline: none;
-        }
-        #back-portfolio {
-          font-size: 1rem;
-          border-radius: 50px;
-          border: 2px solid $text-grey;
-          color: $text-grey;
-          background-color: transparent;
-        }
-        #back-portfolio-web {
-          background-color: transparent;
-          border-radius: 0;
-          color: $text-grey;
-          border: none;
-          border-radius: 5px;
-          padding: 0;
-          text-decoration: underline;
-          font-size: 1.2em;
-        }
-      }
-    }
-    @media(min-width:$m-bp + 1) { // larger than 700px
-      #portfolio-post-header-wrap {
-        width: 28%;
-        text-align: right;
-        .portfolio-post-description {
-          margin: .75em 0 1.5em 0;
-          padding-right: 50px;
-          margin-left: $body-padding;
-        }
-      }
-      #portfolio-post-md-content {
-        width: 72%;
-      }
-      // button at bottom for going back to list
-      #back-portfolio-container {
-        padding-left: $body-padding;
-        position: relative;
-        margin-top: 3em;
-        margin-bottom: 2em;
-        width: 72%;
-        left: 28%;
-        font-family: "Roboto";
-        button {
-          position: relative;
-          box-sizing: border-box;
-          padding: 0.75rem 1.75rem;
-          text-align: center;
-          cursor: pointer;
-          outline: none;
-          transition: background 250ms ease, color 250ms ease, opacity 200ms ease;
-          &:hover{
-            opacity: 1 !important;
-          }
-        }
-        #back-portfolio {
-          font-size: 1rem;
-          border-radius: 50px;
-          border: 2px solid $text-grey;
-          color: $text-grey;
-          opacity: .3;
-          background-color: transparent;
 
-        }
-        #back-portfolio-web {
-          background-color: transparent;
-          border-radius: 0;
-          color: $text-grey;
-          border: none;
-          border-radius: 5px;
-          padding: 0;
-          text-decoration: underline;
-          opacity: .4;
-          font-size: 1.2em;
-        }
-      }
-    }
-    // from 701 =  800px
-    @media (min-width:$m-bp + 1) and (max-width: $m-bp + 100px) {
-      #portfolio-post-header-wrap {
-        .portfolio-post-description {
-          padding-right: 33px;
-        }
-      }
-    }
-  }
+.post-wrap {
+  max-width: 720px;
+}
+
+.post-md-content {
+  margin: 0 3rem;
+}
+
+
+
+.portfolio-post-main {
+  // article {
+  //   @media(max-width:$m-bp) { // smaller than 700px
+  //     #portfolio-post-header-wrap {
+  //       margin-left: -$body-padding;
+  //       padding-bottom: 2rem;
+  //       .sub-header {
+  //         .page-title {
+  //           margin-left: $body-padding;
+  //         }
+  //       }
+  //       .portfolio-post-description {
+  //         margin-left: $body-padding;
+  //       }
+  //     }
+  //     #portfolio-post-md-content {
+  //       margin-left: $body-padding;
+  //       padding-left: 0px;
+  //     }
+  //     // button at bottom for going back to list
+  //     #back-portfolio-container {
+  //       padding-left: $body-padding;
+  //       position: relative;
+  //       margin-top: 3em;
+  //       margin-bottom: 2em;
+  //       font-family: "Roboto";
+  //       button {
+  //         position: relative;
+  //         box-sizing: border-box;
+  //         padding: 0.75rem 1.75rem;
+  //         text-align: center;
+  //         cursor: pointer;
+  //         outline: none;
+  //       }
+  //       #back-portfolio {
+  //         font-size: 1rem;
+  //         border-radius: 50px;
+  //         border: 2px solid $text-grey;
+  //         color: $text-grey;
+  //         background-color: transparent;
+  //       }
+  //       #back-portfolio-web {
+  //         background-color: transparent;
+  //         border-radius: 0;
+  //         color: $text-grey;
+  //         border: none;
+  //         border-radius: 5px;
+  //         padding: 0;
+  //         text-decoration: underline;
+  //         font-size: 1.2em;
+  //       }
+  //     }
+  //   }
+  //   @media(min-width:$m-bp + 1) { // larger than 700px
+  //     #portfolio-post-header-wrap {
+  //       width: 28%;
+  //       text-align: right;
+  //       .portfolio-post-description {
+  //         margin: .75em 0 1.5em 0;
+  //         padding-right: 50px;
+  //         margin-left: $body-padding;
+  //       }
+  //     }
+  //     #portfolio-post-md-content {
+  //       width: 72%;
+  //     }
+  //     // button at bottom for going back to list
+  //     #back-portfolio-container {
+  //       padding-left: $body-padding;
+  //       position: relative;
+  //       margin-top: 3em;
+  //       margin-bottom: 2em;
+  //       width: 72%;
+  //       left: 28%;
+  //       font-family: "Roboto";
+  //       button {
+  //         position: relative;
+  //         box-sizing: border-box;
+  //         padding: 0.75rem 1.75rem;
+  //         text-align: center;
+  //         cursor: pointer;
+  //         outline: none;
+  //         transition: background 250ms ease, color 250ms ease, opacity 200ms ease;
+  //         &:hover{
+  //           opacity: 1 !important;
+  //         }
+  //       }
+  //       #back-portfolio {
+  //         font-size: 1rem;
+  //         border-radius: 50px;
+  //         border: 2px solid $text-grey;
+  //         color: $text-grey;
+  //         opacity: .3;
+  //         background-color: transparent;
+  //
+  //       }
+  //       #back-portfolio-web {
+  //         background-color: transparent;
+  //         border-radius: 0;
+  //         color: $text-grey;
+  //         border: none;
+  //         border-radius: 5px;
+  //         padding: 0;
+  //         text-decoration: underline;
+  //         opacity: .4;
+  //         font-size: 1.2em;
+  //       }
+  //     }
+  //   }
+  //   // from 701 =  800px
+  //   @media (min-width:$m-bp + 1) and (max-width: $m-bp + 100px) {
+  //     #portfolio-post-header-wrap {
+  //       .portfolio-post-description {
+  //         padding-right: 33px;
+  //       }
+  //     }
+  //   }
+  // }
 }

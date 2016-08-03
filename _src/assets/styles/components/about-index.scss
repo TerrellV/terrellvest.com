@@ -29,7 +29,7 @@ article.about-section {
 }
 
 // md content overides
-.md-content {
+#about-content {
   p + p {
     text-indent: 0;
     margin-top: 1rem;
@@ -39,7 +39,6 @@ article.about-section {
 .about-name-heading {
   width: 100%;
   font-weight: 400;
-  // letter-spacing: 7px;
   font-size: 2rem;
   margin-bottom: $text-offset;
 }
@@ -50,59 +49,9 @@ article.about-section {
   }
 }
 
-.callToActionSection {
-  background-color: $dark-blue;
-  width: 100%;
-  padding: 6rem 1rem;
-}
-.call-to-action-content {
-  max-width: 500px;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-.call-to-action-heading {
-  width: 100%;
-  color: white;
-}
-.call-to-action-text {
-  width: 100%;
-  color: white;
-  margin: 2rem;
-  font-size: 18px;
-  opacity: 0.8;
-}
 
-.about-action-btn {
-  border: 3px solid;
-  background-color: $accent-blue;
-  color: white;
-  font-size: 1rem;
-  border-radius: 100px;
-  padding: 9px 25px;
-  cursor: pointer;
-  outline: none;
-  transition: box-shadow 200ms ease, color 200ms ease, background-color 200ms ease;
-  text-transform: capitalize;
-  margin: 1rem 1rem;
-  &:hover {
-    color: $accent-blue;
-    background-color: transparent;
-  }
-}
-.abt-btn-resume {
-  border-color: $accent-blue;
-}
-.abt-btn-projects {
-  color: $dark-blue;
-  background-color: white;
-  border-color: white;
-  &:hover {
-    background-color: transparent;
-    color: white;
-  }
-}
+
+
 
 @media(max-width: $xl-bp){
   article.about-section {
@@ -132,8 +81,4 @@ article.about-section {
     font-size: 1.5rem;
     letter-spacing: 4px;
   }
-}
-
-.site-footer {
-  background-color: $dark-blue;
 }

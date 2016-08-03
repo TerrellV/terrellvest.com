@@ -13,9 +13,9 @@ const buildSite = function buildSite() {
   const portfolioJSON = genPortfolioBank.build(portfolioPostBank);
   const b_AboutIndex = new Promise(buildAbout);
   const b_PorfolioIndex = new Promise(buildPortfolioIndex); // no markdown
-  const b_PortfolioPosts = new Promise(buildPortfolioPosts.bind(
-    null, portfolioJSON, portTemplate
-  ));
+  const b_PortfolioPosts = new Promise(
+    buildPortfolioPosts.bind(null, portfolioJSON, portTemplate)
+  );
 
   const b_allPortfolio = Promise.all([b_PorfolioIndex, b_PortfolioPosts]);
 

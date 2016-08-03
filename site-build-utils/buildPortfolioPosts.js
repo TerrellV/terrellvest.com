@@ -3,17 +3,17 @@ import jade from 'jade';
 import marked from 'marked';
 import mkdirp from 'mkdirp';
 
-process.on('unhandledRejection', function(err){
+process.on('unhandledRejection', function(err) {
     console.log(err.stack);
     process.exit(1);
 });
 
-const buildPortfolioPosts = async function (bankString, template, res, rej) {
+const buildPortfolioPosts = async function(bankString, template, res, rej) {
 
   const projectBank = JSON.parse(bankString);
 
-  function readPortfolioDir(dirName){
-    return fs.readdirSync(`_src/portfolio/projects-md/${dirName}`)
+  function readPortfolioDir(dirName) {
+    return fs.readdirSync(`_src/portfolio/projects-md/${dirName}`);
   }
   function verify(projectBank, fileName, index) {
     const fileOnDisk = fileName

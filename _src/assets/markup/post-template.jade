@@ -13,12 +13,9 @@ html(lang="en")
     meta(name="mobile-web-app-capable" content="yes")
     link(href="../../assets/styles/main.css" rel="stylesheet" type="text/css")
   body
-    div.nav_container
-    header
-      nav
-        div.row
-          include ./logo.jade
-          include ./nav.jade
+  .page-wrapper
+    include ../assets/markup/nav.jade
+      test test test
     main.blog-post-content
       article.row
         div#blog-header-wrap.col

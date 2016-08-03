@@ -17,15 +17,18 @@ $sub-heading-list: h2 h3 h4 h5 h6;
   // allways
   font-family: "Merriweather",serif;
   p {
-    color: rgba(56, 56, 56, 0.9);
+    color: rgba(0, 0, 0, 0.8);
+    font-size: 18px;
+    line-height: 46px;
   }
   h1 {
-    font-size: 1.25em;
+    font-size: 2.5em;
   }
   h1,h2,h3,h4,h5,h6 {
     margin-bottom: .5em;
     padding-top: 2em;
     font-family: "Roboto",sans-serif;
+    letter-spacing: 1px;
     &.solo {
       padding-bottom: 1em;
     }
@@ -39,8 +42,8 @@ $sub-heading-list: h2 h3 h4 h5 h6;
 
   @each $var in $sub-heading-list {
     #{$var} {
-      color: rgba(56, 56, 56, 0.6);
-      font-size:1.25em;
+      color: black;
+      font-size:1.5rem;
       font-weight: 600;
     }
     h1 + #{$var} {
@@ -62,7 +65,7 @@ $sub-heading-list: h2 h3 h4 h5 h6;
   }
 
   p+p {
-    text-indent: 2em;
+    margin-top: 2rem;
   }
 
   hr {
@@ -198,9 +201,6 @@ $sub-heading-list: h2 h3 h4 h5 h6;
 
   // medium and large devices
   @media(min-width:701px) {
-    font-size: 1rem;
-    p {
-      line-height: 2em;
-    }
+
   }
 }
