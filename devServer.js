@@ -11,6 +11,7 @@ import webpackHotMiddleware from 'webpack-hot-middleware';
 import defaultRouter from './routes/default.js';
 
 function devServer() {
+
   const app = express();
   const compiler = webpack(config);
 

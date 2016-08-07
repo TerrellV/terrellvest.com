@@ -5,7 +5,7 @@
 - var faviconURL = "../assets/images/site-wide/favicon-logo.png";
 - var logoURL = "../assets/images/sprites/sprites.svg#logo";
 
-- var socialIcons = {"twitter": ["twitter-logo-blue.png","https://twitter.com/TerrellVest7"], "facebook":["facebook-logo-white.png","https://www.facebook.com/terrell.vest7"], "instagram":["Glyph_Logo_png.png","https://www.instagram.com/terrellvest/","instagram://user?username=terrellvest7"], "linkedIn":["linkedIn-white.png","https://www.linkedin.com/profile/preview?vpa=pub&locale=en_US"], "github":["github-white.png", "https://github.com/MirPresT"]}
+- var socialIcons = {"twitter": ["twitter-logo-blue.png","https://twitter.com/TerrellVest7"], "facebook":["facebook-logo-white.png","https://www.facebook.com/terrell.vest7"], "instagram":["glyph-logo_May2016.png","https://www.instagram.com/terrellvest/","instagram://user?username=terrellvest7"], "linkedIn":["linkedIn-white.png","https://www.linkedin.com/in/terrell-vest"], "github":["github-white.png", "https://github.com/MirPresT"]}
 
 doctype HTML
 html(lang="en")
@@ -14,45 +14,27 @@ html(lang="en")
     meta(name="apple-mobile-web-app-capable" content="yes")
     meta(name="mobile-web-app-capable" content="yes")
     include ../assets/markup/favicon.jade
+    link(href="../assets/styles/grizzly/grid.css" rel="stylesheet" type="text/css")
     link(href="../assets/styles/main.css" rel="stylesheet" type="text/css")
-    style.
-      @media(max-width:700px){
-        .nav_container {
-          position: absolute;
-          width: 100%;
-          //- margin-top: -25px;
-          margin-left: -25px;
-          display: block;
-          height: 130px;
-          box-shadow: 1px 1px 4px  rgba(100,100,100,.2);
-        }
-        #page-header{
-          margin-bottom: 1rem;
-        }
-      }
   body
-    div.nav_container
-    header#page-header
-      nav
-        div.row
-          include ../assets/markup/logo.jade
-          include ../assets/markup/nav.jade
-    main
-      .row.icons
-        header.sub-header.col#contact-sub-header
-        #contact-sections.col
-          div.social-container
-            h1 Social
-            p Perfect for a brief message
-            row.icons
-              each val, key in socialIcons
-                a(href=val[1] target="_blank")
-                  .box.col(class="#{key}_circle")
-                    img(src="../assets/images/social-icons/" + val[0] id=key).logo
-                  
-                  
-          div.email-container
-            h1 Email
-            p If your message is a bit longer
-            address 
-              a(href="mailto:terrell@terrellvest.com") terrell@terrellvest.com
+    .page-wrapper
+      include ../assets/markup/nav.jade
+      main
+        .row
+          .box.wrapper
+            .row.center--col-x.social-container.contact-section
+              .box.social-header.center--content.header
+                h1.heading Social
+                p.sub-heading short messages
+              .box.icons
+                .row.center--col-x.center--row-x.icon-row
+                  each val, key in socialIcons
+                    a.box.auto--width.social-link(href=val[1] target="_blank")
+                      .social-icon-circle(class="#{key}_circle")
+                        img.social-icon(src="../assets/images/social-icons/" + val[0] id=key)
+            .row.center--col-x.email-container.contact-section
+              .box.email-header.center--content.header
+                h1.heading Email
+                p.sub-heading longer messages
+              address.box.email.center--content
+                a.email-link(href="mailto:terrell@terrellvest.com") terrell@terrellvest.com

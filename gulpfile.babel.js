@@ -6,6 +6,7 @@ import devServer from './devServer';
 import sass from 'gulp-sass';
 import sourcemaps from 'gulp-sourcemaps';
 import autoprefixer from 'gulp-autoprefixer';
+import jade from 'gulp-jade';
 
 /*
  * COPY IMAGES FROM SRC TO DIST
@@ -26,14 +27,16 @@ gulp.task('render', function() {
 
 /* Dev Server */
 gulp.task('devServer', function() {
-  devServer();
+  return devServer();
 });
 
 /*
  * JADE TEMPLATES
 */
 gulp.task('jade', function() {
-
+  gulp.src('_src/contact/index.jade', {base: '_src'})
+  .pipe(jade({pretty: true}))
+  .pipe(gulp.dest('_dist'))
 });
 
 /*
@@ -55,12 +58,28 @@ gulp.task('sass', function() {
 */
 gulp.task('watch', function() {
   gulp.watch('./_src/assets/styles/**/*.scss', ['sass']);
-  gulp.watch('./_src/**/*.jade', ['render']);
-  gulp.watch(['./site-build-utils/*.js', ], ['render']);
-  gulp.watch(['./devServer.js', ], ['devServer']);
+
+  gulp.watch([
+    './_src/contact/**/*.jade',
+  ], ['jade']);
+
+  gulp.watch([
+    './_src/assets/**/*.jade',
+    './_src/blog/**/*.jade',
+    './_src/portfolio/**/*.jade'
+  ], ['render']);
+
+  gulp.watch([
+    './site-build-utils/*.js'
+  ], ['render']);
+
+  gulp.watch([
+    './devServer.js'
+  ], ['devServer']);
+
 });
 
 // run development build
 gulp.task('default', function(){
-  runSequence( ['render', 'sass'], 'devServer', 'watch' )
+  runSequence( ['render', 'sass', 'jade'], 'devServer', 'watch' )
 });
