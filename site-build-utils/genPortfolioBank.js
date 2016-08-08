@@ -1,10 +1,21 @@
 import moment from 'moment';
+import portfolioBank from './portfolio-post-bank';
 
 const genPortfolioBank = {
-  addPaths( postObj ) {
+  init() {
+    this.caterpillarCase = this.caterpillarCase.bind(this);
+    this.addPaths = this.addPaths.bind(this);
+    this.formatDates = this.formatDates.bind(this);
+    return this;
+  },
+  caterpillarCase(str) {
+    return str.replace(/\s/g, '-').toLowerCase();
+  },
+  addPaths( postObj, i, arr ) {
+    const file = this.caterpillarCase(postObj.title);
     return {
       ...postObj,
-      path: `/portfolio/${postObj.title.replace(/\s/g,'-').toLowerCase()}`
+      path: `/portfolio/${file}`,
     };
   },
   formatDates( postObj ) {
@@ -13,23 +24,20 @@ const genPortfolioBank = {
       date: moment(postObj.date.join('-'), 'YYYY-MM-DD').format('MMMM Do, YYYY')
     }
   },
-  toJson( accObj, currentObj, index, arr ) {
-    accObj[index] = currentObj;
-    // if at the end, stringify the obj
-    if (index === arr.length - 1 ) {
-      return JSON.stringify( accObj )
+  toObj( accObj, currentObj, index, arr ) {
+    return {
+      ...accObj,
+      [index]: currentObj,
     }
-    return accObj;
   },
   build( portfolioArr ) {
-
-    const jsonObj = portfolioArr
+    return portfolioArr
       .map( this.addPaths )
       .map( this.formatDates )
-      .reduce( this.toJson, {} );
-
-    return jsonObj;
+      .reduce( this.toObj, {} );
   }
 }
 
-module.exports = genPortfolioBank;
+export default genPortfolioBank
+  .init()
+  .build(portfolioBank);

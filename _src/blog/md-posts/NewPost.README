@@ -1,5 +1,0 @@
-# Blog Posting Guide
-
-1. Add a file to the folder \_src/blog/md-posts/
-The filename must be hyphenated and lowercase. ex: life-story
-2. add an object to the postbank array in \_src/blog/post-bank.js. In this object add the title as you would like it to display on the post. Otherwise follow example formatting for other information. Do not leave out information or it will be missing from the rendered Blog Post.

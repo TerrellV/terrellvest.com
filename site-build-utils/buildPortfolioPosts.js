@@ -2,53 +2,49 @@ import fs from 'fs';
 import jade from 'jade';
 import marked from 'marked';
 import mkdirp from 'mkdirp';
+import portfolioBank from './genPortfolioBank.js';
 
-process.on('unhandledRejection', function(err) {
-    console.log(err.stack);
-    process.exit(1);
-});
-
-const buildPortfolioPosts = async function(bankString, template, res, rej) {
-
-  const projectBank = JSON.parse(bankString);
+function promiseHandler(res, rej) {
+  const portTemplate = '_src/assets/markup/portfolio-template.jade';
 
   function readPortfolioDir(dirName) {
     return fs.readdirSync(`_src/portfolio/projects-md/${dirName}`);
   }
-  function verify(projectBank, fileName, index) {
+  function verify(portfolioBank, fileName, index) {
     const fileOnDisk = fileName
       .replace(/\.[^/.]+$/, '')
       .replace(/-/g, ' ')
       .toLowerCase();
-    const inBank = Object.keys(projectBank)
-      .map( key => projectBank[key].title.toLowerCase() );
+    const inBank = Object.keys(portfolioBank)
+      .map( key => portfolioBank[key].title.toLowerCase() );
     if (inBank.indexOf(fileOnDisk) < 0 ) {
       console.error('The files in the md directory do not match the files in the post bank. Check spelling and punctuation.')
     }
     return fileOnDisk;
   }
-  function getFileContent(projectBank, fileName, index ) {
-    const postId = Object.keys(projectBank)
-      .filter( key => projectBank[key].title.toLowerCase() === fileName)[0];
+  function getFileContent(portfolioBank, fileName, index ) {
+    const postId = Object.keys(portfolioBank)
+      .filter(key =>
+        portfolioBank[key].title.toLowerCase() === fileName
+      )[0];
 
-    const postObj = projectBank[postId];
+    const postObj = portfolioBank[postId];
     const file =  `${fileName.replace(/\s/g, '-' )}`;
     const filePath = `_src/portfolio/projects-md/${postObj.type}/${file}.md`;
     const html = marked( fs.readFileSync(filePath, 'utf8') );
     return { file, html };
   }
-  function writeFile(template, fileObj, i) {
-    const jadeContent = fs.readFileSync(template, 'utf8');
-    const renderJade = jade.compile( jadeContent, {
+  function writeFile(fileObj, i) {
+    const jadeContent = fs.readFileSync(portTemplate, 'utf8');
+    const renderJade = jade.compile(jadeContent, {
       pretty: true,
-      filename: template
+      filename: portTemplate,
     })
     const indexHTML = renderJade({pageMarkdownContent: fileObj.html});
-
     const dirPath = `_dist/portfolio/${fileObj.file}/`;
     mkdirp.sync(dirPath);
     fs.writeFileSync(`${dirPath}index.html`, indexHTML);
-    return fileObj;
+    return { file: fileObj.file, done: true };
   }
 
   // ONLY FOR WRITING JSON TEMPLATE
@@ -62,18 +58,29 @@ const buildPortfolioPosts = async function(bankString, template, res, rej) {
 
   // BUILD SEQUENCE
   function build(dirName) {
-    readPortfolioDir( dirName )
-      .map( verify.bind(null, projectBank) )
-      .map( getFileContent.bind(null, projectBank) )
-      .map( writeFile.bind(null, template) );
+    readPortfolioDir(dirName)
+      .map(verify.bind(null, portfolioBank))
+      .map(getFileContent.bind(null, portfolioBank))
+      .map(writeFile);
   }
 
 
-  writeJSON('_dist/assets/json', 'portfolio.json', projectBank);
+  writeJSON('_dist/assets/json', 'portfolio.json', portfolioBank);
 
   build('business');
   build('web');
-  res('DONE_BUILDING_PORTFOLIO_POSTS')
+  res('Done building portfolio posts');
 }
 
+
+const buildPortfolioPosts = async function() {
+  return new Promise(promiseHandler)
+}
 export default buildPortfolioPosts;
+
+
+// error handling
+process.on('unhandledRejection', function(err) {
+  console.log(err.stack);
+  process.exit(1);
+});
