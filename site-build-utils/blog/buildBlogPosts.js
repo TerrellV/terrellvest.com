@@ -2,7 +2,7 @@ import fs from 'fs';
 import jade from 'jade';
 import marked from 'marked';
 import mkdirp from 'mkdirp';
-import blogBank from './genBlogBank';
+import blogBank, { blogCategories } from './blog-post-bank';
 
 
 // error handler helper
@@ -74,6 +74,7 @@ const buildBlogPosts = async function() {
 
 
     writeJSON('_dist/assets/json', 'blog.json', blogBank);
+    writeJSON('_dist/assets/json', 'blogCategories.json', {...blogCategories});
 
     build();
     res('Done building blog posts')

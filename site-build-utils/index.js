@@ -1,25 +1,22 @@
-import buildAbout from './buildAbout.js';
-import buildPortfolioIndex from './buildPortfolioIndex.js';
-import buildPortfolioPosts from './buildPortfolioPosts.js';
-import buildBlogIndex from './buildBlogIndex.js';
-import buildBlogPosts from './buildBlogPosts';
+import buildAbout from './about/buildAbout.js';
+import buildPortfolioIndex from './portfolio/buildPortfolioIndex.js';
+import buildPortfolioPosts from './portfolio/buildPortfolioPosts.js';
+import buildBlogIndex from './blog/buildBlogIndex.js';
+import buildBlogPosts from './blog/buildBlogPosts';
 
 
 const buildSite = function buildSite() {
-  // about
-  const b_AboutIndex = new Promise(buildAbout);
-
 
   // all build related tasks
   return Promise.all([
-    b_AboutIndex,
+    buildAbout(),
     buildBlogIndex(),
     buildBlogPosts(),
     buildPortfolioIndex(),
     buildPortfolioPosts(),
-  ]);
+  ]).then( responseArr => {
+    console.log('\n####  Done building "Portfolio", "Blog", and "About" sections  ####\n');
+  });
 }
-
-buildSite();
 
 export default buildSite;

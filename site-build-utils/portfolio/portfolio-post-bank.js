@@ -1,4 +1,6 @@
-const portfolioPostBank = [
+import configurePortfolioBank from './configurePortfolioBank';
+
+const portfolioPosts = [
   {
     title: "Entrepreneur Workshop",
     date: [2015,12,4], // year, month, day
@@ -106,4 +108,6 @@ const portfolioPostBank = [
   }
 ];
 
-export default portfolioPostBank;
+// DONE EDIT CODE BELOW THIS LINE IF ADDING A POST
+export default configurePortfolioBank
+  .build(portfolioPosts);

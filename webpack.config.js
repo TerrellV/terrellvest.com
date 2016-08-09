@@ -44,9 +44,12 @@ module.exports = {
       {
         test: /\.scss$/,
         loaders: [
-          'style',
-          'css?sourceMap',
-          'sass?sourceMap', 'postcss'],
+          'style-loader?sourceMap',
+          'css-loader?modules&importLoaders=1&localIdentName=[local]___[hash:base64:10]',
+          'sass-loader?sourceMap',
+          'postcss-loader',
+          'sass-resources',
+        ],
       },
       {
         test: /\.(png|jpg|gif|svg)$/,
@@ -60,7 +63,13 @@ module.exports = {
   postcss() {
     return {
       plugins: [autoprefixer],
-      syntax: scss_syntax,
     };
   },
+  sassResources: [
+    './_src/assets/styles/partials/vars.scss',
+    './_src/assets/styles/partials/grid.scss',
+    './_src/assets/styles/partials/mixins.scss',
+    './_src/assets/styles/partials/site-wide.scss',
+    './_src/assets/styles/partials/typography.scss',
+  ],
 };

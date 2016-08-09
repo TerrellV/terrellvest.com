@@ -2,7 +2,7 @@ import fs from 'fs';
 import jade from 'jade';
 import marked from 'marked';
 import mkdirp from 'mkdirp';
-import portfolioBank from './genPortfolioBank.js';
+import portfolioBank from './portfolio-post-bank.js';
 
 function promiseHandler(res, rej) {
   const portTemplate = '_src/assets/markup/portfolio-template.jade';

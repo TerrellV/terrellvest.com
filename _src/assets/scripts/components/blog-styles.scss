@@ -1,0 +1,14 @@
+.blog-container {
+  border: 2px solid dodgerblue;
+  padding: 0 1.5rem;
+}
+
+.blog-row {
+  flex-wrap: nowrap;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  @media (max-width: 650px) {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}

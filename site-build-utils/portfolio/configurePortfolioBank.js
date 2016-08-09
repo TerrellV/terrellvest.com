@@ -1,7 +1,6 @@
 import moment from 'moment';
-import portfolioBank from './portfolio-post-bank';
 
-const genPortfolioBank = {
+const configurePortfolioBank = {
   init() {
     this.caterpillarCase = this.caterpillarCase.bind(this);
     this.addPaths = this.addPaths.bind(this);
@@ -38,6 +37,4 @@ const genPortfolioBank = {
   }
 }
 
-export default genPortfolioBank
-  .init()
-  .build(portfolioBank);
+export default configurePortfolioBank.init();

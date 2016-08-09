@@ -1,0 +1,42 @@
+$ballsize: 14px;
+$sidebarwidth: 240px;
+
+.blogSidebarCont {
+  width: 240px;
+  .sideBarRow {
+    flex-wrap: nowrap;
+    height: 100%;
+  }
+  .slider {
+    height: 100%;
+    display: inline-block;
+    width: $ballsize;
+  }
+  .sliderBall {
+    position: absolute;
+    height: $ballsize;
+    width: $ballsize;
+    border-radius: 50%;
+    z-index: 1;
+    background-color: $accent-blue;
+  }
+  .sliderRail {
+    display: inline-block;
+    @include center-horiz(relative);
+    height: 100%;
+    width: 1px;
+    background-color: #e4e4e4;
+  }
+
+  .categoriesList {
+  }
+  .categoryInSideBar {
+    display: block;
+    cursor: pointer;
+    padding: 1rem 0;
+    padding-left: 2rem;
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
+}

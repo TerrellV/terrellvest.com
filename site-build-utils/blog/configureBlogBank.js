@@ -1,12 +1,7 @@
-/*
-  * You should not need to touch this file if adding blog posts.
-*/
-
 import moment from 'moment';
-import blogPostBank from './blog-post-bank';
 
 
-const genBlogBank = {
+const configureBlogBank = {
   init() {
     this.caterpillarCase = this.caterpillarCase.bind(this);
     this.addPaths = this.addPaths.bind(this);
@@ -43,6 +38,4 @@ const genBlogBank = {
   }
 }
 
-export default genBlogBank
-  .init()
-  .build(blogPostBank);
+export default configureBlogBank.init();
