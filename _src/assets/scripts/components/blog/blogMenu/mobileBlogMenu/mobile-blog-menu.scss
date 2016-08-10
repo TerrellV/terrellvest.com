@@ -1,0 +1,10 @@
+.menu {
+  width: 100%;
+  padding: 1rem 0;
+  &.stickyTop{
+    position: fixed;
+    z-index: 1;
+    background-color: white;
+    top: 0px;
+  }
+}

@@ -3,7 +3,7 @@ import { render } from 'react-dom';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
 import portfolio from './components/portfolio.js';
-import blog from './components/blog';
+import blog from './components/blog/blog';
 
 render((
   <Router history={browserHistory}>

@@ -1,0 +1,32 @@
+.post-preview {
+  max-width: 450px;
+  &:not(:first-child) {
+    margin-top: 50px;
+  }
+  &:hover .heading {
+    text-decoration: underline;
+  }
+}
+
+.link {
+  color: black;
+  text-decoration: none;
+}
+
+.heading {
+  font-size: 24px;
+}
+
+.date {
+  font-weight: 300;
+  opacity: 0.7;
+  font-size: 16px;
+  margin: 8px 0;
+  text-decoration: italics;
+}
+
+.description {
+  line-height: 24px;
+  font-family: "Merriweather", serif;
+  opacity: 0.8;
+}

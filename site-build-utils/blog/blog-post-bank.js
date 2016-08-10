@@ -4,7 +4,7 @@ import genBlogCategories from './genBlogCategories';
 const blogPosts = [
   {
     title: 'Figuring it Out',
-    categories: ['personal', 'something longer'],
+    categories: ['personal', 'college'],
     date: [2016,2,25],
     dcr: 'Upon graduating high school I began chasing an idea. I needed to know how I was going to spend the rest of my life. I needed to \"figure it out\".'
   },
