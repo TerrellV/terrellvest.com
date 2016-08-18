@@ -1,3 +1,7 @@
+:global .page-wrapper.blurred {
+  position: relative;
+};
+
 .blog-container {
   padding: 0 1.5rem;
   padding-bottom: 50px;
@@ -5,6 +9,7 @@
 
 .blog-wrapper {
   max-width: 880px;
+  width: 100%;
 }
 
 .blog-row {

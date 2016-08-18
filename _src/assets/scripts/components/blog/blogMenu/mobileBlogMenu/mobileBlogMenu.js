@@ -1,24 +1,63 @@
-import React, { PropTypes } from 'react'
+import React from 'react';
 import CSSModules from 'react-css-modules';
 import styles from './mobile-blog-menu.scss';
+import MobilePopup from './popup';
+import { DropDownIcon } from '../../../icons';
 
 const MobileBlogMenu = React.createClass({
   getInitialState() {
     return {
       popupActive: false,
-    }
+    };
+  },
+  togglePopup() {
+    this.setState({
+      popupActive: !this.state.popupActive,
+    });
+    this.blurBody();
+  },
+  blurBody() {
+    document
+      .querySelector('.page-wrapper')
+      .className = 'page-wrapper blurred';
   },
   render() {
+    const dropDownCn = this.props.styles['drop-down-icon'];
     const { popupActive } = this.state;
-    const { categories, dynamicClass } = this.props;
+    const {
+      categories,
+      dynamicClass,
+      activeCategory,
+      setActiveCategory,
+    } = this.props;
+
+    const cap = str => `${str[0].toUpperCase()}${str.slice(1)}`;
 
     return (
       <div styleName={`menu ${dynamicClass}`}>
-        Mobile Header
-        {popupActive ? <MobilePopup categories={categories} /> : null}
+        <span styleName="title">category</span>
+        <span
+          styleName="activeCategory"
+          onClick={this.togglePopup}
+        >
+          <span styleName="text">{cap(activeCategory)}</span>
+          <DropDownIcon className={dropDownCn} />
+        </span>
+        {
+          popupActive
+            ? <MobilePopup
+              categories={categories}
+              activeCategory={activeCategory}
+              togglePopup={this.togglePopup}
+              setActiveCategory={(e, cat) => {
+                this.togglePopup();
+                setActiveCategory(e, cat);
+              }}
+            /> : null
+        }
       </div>
-    )
-  }
+    );
+  },
 });
 export default CSSModules(MobileBlogMenu, styles, {
   allowMultiple: true,

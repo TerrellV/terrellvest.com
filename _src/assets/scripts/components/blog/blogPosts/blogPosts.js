@@ -5,10 +5,14 @@ import PostPreview from './PostPreview';
 
 
 const BlogPosts = props => {
+  const posts = Array.from(props.posts);
+  posts.push(...posts);
+  posts.push(...posts);
+  posts.push(...posts);
   return (
     <div styleName={`box blogPostsCont ${props.dynamicClass}`}>
       {
-        props.posts.map(post =>
+        posts.map(post =>
           <PostPreview {...post} />
         )
       }

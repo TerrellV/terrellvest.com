@@ -35,7 +35,7 @@ $nav-padding: 3rem;
   opacity: 0.4;
   height: $nav-height;
   position: relative;
-  &:not(:last-child){
+  &:not(:last-child) {
     padding-right: $nav-padding;
   }
 }
@@ -46,6 +46,9 @@ $nav-padding: 3rem;
 }
 
 @media (max-width: $m-bp) {
+  .nav-parent-row {
+    margin-bottom: 2.5rem;
+  }
   .nav-logo-link {
     transform: translate(-50%, -50%) rotate(180deg);
   }
@@ -57,7 +60,8 @@ $nav-padding: 3rem;
     padding-left: 0;
   }
   .nav-list-item-box {
-    // opacity: 1;
+    opacity: 1;
+    height: 28px;
     &:not(:last-child){
       padding-right: 1.5rem;
     }

@@ -3,6 +3,9 @@
   position: relative;
   height: auto;
   width: 240px;
+  &.TOP_HEADER {
+    width: 100%;
+  }
   @media (min-width: $m-bp + 1) {
     width: 280px;
     margin-left: 40px;

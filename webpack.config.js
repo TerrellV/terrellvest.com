@@ -14,7 +14,7 @@ module.exports = {
   output: {
     path: '/',
     filename: 'bundle.js',
-    publicPath: '/public/portfolio'
+    publicPath: '/public/portfolio',
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
@@ -30,6 +30,13 @@ module.exports = {
     modulesDirectories: ['node_modules'],
   },
   module: {
+    // preLoaders: [
+    //   {
+    //     test: /\.jsx?$/,
+    //     loader: 'eslint',
+    //     exclude: /node_modules/,
+    //   },
+    // ],
     loaders: [
       {
         test: /\.json?$/,
@@ -72,4 +79,7 @@ module.exports = {
     './_src/assets/styles/partials/site-wide.scss',
     './_src/assets/styles/partials/typography.scss',
   ],
+  // eslint: {
+  //   configFile: './.eslintrc.json'
+  // }
 };

@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react'
+import React from 'react';
 import CSSModules from 'react-css-modules';
 import styles from './blog.scss';
 
@@ -8,40 +8,35 @@ import BlogPosts from './blogPosts/blogPosts';
 import BlogMenuContainer from './blogMenu/blogMenuContainer';
 
 const Blog = React.createClass({
-  componentWillMount() {
-    this._handleHorizResize();
-    window.onresize = this._handleHorizResize;
-  },
-  componentWillUnmount() {
-    window.onresize = undefined;
-    window.onscroll = undefined;
-  },
-  componentDidMount() {
-    this._handleVertScroll();
-  },
   getInitialState() {
     return {
       headerType: null,
       mobileHeaderClass: '',
       activeCategory: 'all',
-    }
+    };
   },
-  _handleHorizResize() {
-    const screenWidth = window.innerWidth;
-    const { headerType } = this.state;
-
-    if (screenWidth <= 650 ) {
-      if (headerType !== 'TOP_HEADER') {
-        this.setState({ headerType: 'TOP_HEADER' });
-      }
-    } else if (headerType !== 'SIDE_BAR') {
-      this.setState({ headerType: 'SIDE_BAR' });
-    }
+  componentWillMount() {
+    this.handleHorizResize();
+    window.onresize = this.handleHorizResize;
+    const onMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent);
+    this.onMobile = onMobile;
   },
-  _handleVertScroll() {
+  componentDidMount() {
+    this.handleVertScroll();
+  },
+  componentWillUnmount() {
+    window.onresize = undefined;
+    window.onscroll = undefined;
+  },
+  setActiveCategory(e, newCat) {
+    this.setState({
+      activeCategory: newCat,
+    });
+  },
+  handleVertScroll() {
     const { mobileHeaderClass, headerType } = this.state;
-    window.onscroll = this._handleVertScroll;
-
+    window.onscroll = this.handleVertScroll;
+    const topPos = this.onMobile ? 6 : 0;
     if (headerType === 'SIDE_BAR') return;
 
     const rect = this.blogHeaderComponent.blogHeader
@@ -59,14 +54,21 @@ const Blog = React.createClass({
         this.setState({
           mobileHeaderClass: '',
           blogPostsDynamicClass: '',
-        })
+        });
       }
     }
   },
-  _setActiveCategory(e, newCat) {
-    this.setState({
-      activeCategory: newCat,
-    })
+  handleHorizResize() {
+    const screenWidth = window.innerWidth;
+    const { headerType } = this.state;
+
+    if (screenWidth <= 650) {
+      if (headerType !== 'TOP_HEADER') {
+        this.setState({ headerType: 'TOP_HEADER' });
+      }
+    } else if (headerType !== 'SIDE_BAR') {
+      this.setState({ headerType: 'SIDE_BAR' });
+    }
   },
   render() {
     const { headerType, mobileHeaderClass, blogPostsDynamicClass, activeCategory } = this.state;
@@ -76,10 +78,10 @@ const Blog = React.createClass({
 
     // add something to sort them by order
     const postsToShow = Object.keys(blogPosts)
-      .reduce((arr, key, i) => arr.concat(blogPosts[key]), [])
+      .reduce((arr, key) => arr.concat(blogPosts[key]), [])
       .filter(post => {
         if (activeCategory === 'all') return true;
-        return post.categories.indexOf(activeCategory) > -1
+        return post.categories.indexOf(activeCategory) > -1;
       });
 
     return (
@@ -91,8 +93,10 @@ const Blog = React.createClass({
               mobileHeaderClass={mobileHeaderClass}
               headerType={headerType}
               categories={blogCatArray}
-              ref={el => this.blogHeaderComponent = el}
-              setActiveCategory={this._setActiveCategory}
+              ref={el => {
+                this.blogHeaderComponent = el;
+              }}
+              setActiveCategory={this.setActiveCategory}
             />
             <BlogPosts
               activeCategory={activeCategory}
@@ -102,16 +106,14 @@ const Blog = React.createClass({
           </div>
         </div>
       </div>
-
-    )
-  }
-})
+    );
+  },
+});
 
 export default CSSModules(Blog, styles, {
   allowMultiple: true,
   errorWhenNotFound: false,
 });
-
 
 
 /* SAVE FOR later

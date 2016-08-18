@@ -5,27 +5,38 @@ import MobileBlogMenu from './mobileBlogMenu/mobileBlogMenu';
 import styles from './blog-menu-container.scss';
 
 const BlogMenuContainer = React.createClass({
-  render () {
-    const { headerType, categories, mobileHeaderClass, setActiveCategory, activeCategory } = this.props;
+  render() {
+    const {
+      headerType,
+      categories,
+      mobileHeaderClass,
+      setActiveCategory,
+      activeCategory } = this.props;
+
     return (
-      <div styleName="blogMenuCont" ref={el => this.blogHeader = el} >
+      <div
+        styleName={`blogMenuCont ${headerType}`}
+        ref={el => {
+          this.blogHeader = el;
+        }}
+      >
         {
           headerType === 'SIDE_BAR'
             ? <DesktopBlogMenu
-                activeCategory={activeCategory}
-                categories={categories}
-                setActiveCategory={setActiveCategory}
-              />
+              activeCategory={activeCategory}
+              categories={categories}
+              setActiveCategory={setActiveCategory}
+            />
             : <MobileBlogMenu
-                dynamicClass={mobileHeaderClass}
-                activeCategory={activeCategory}
-                categories={categories}
-                setActiveCategory={setActiveCategory}
-              />
+              dynamicClass={mobileHeaderClass}
+              activeCategory={activeCategory}
+              categories={categories}
+              setActiveCategory={setActiveCategory}
+            />
         }
       </div>
-    )
-  }
+    );
+  },
 });
 
 
@@ -36,4 +47,4 @@ export default CSSModules(
     allowMultiple: true,
     errorWhenNotFound: false,
   }
-)
+);

@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react'
+import React from 'react';
 import CSSModules from 'react-css-modules';
 import styles from './post-preview.scss';
 
@@ -9,9 +9,9 @@ const PostPreview = props =>
       <h3 styleName="date">{props.date}</h3>
       <p styleName="description">{props.dcr}..</p>
     </a>
-  </div>
+  </div>;
 
-  export default CSSModules(PostPreview, styles, {
-    allowMultiple: true,
-    errorWhenNotFound: false,
-  })
+export default CSSModules(PostPreview, styles, {
+  allowMultiple: true,
+  errorWhenNotFound: false,
+});
