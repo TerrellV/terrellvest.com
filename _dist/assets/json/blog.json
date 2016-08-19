@@ -3,6 +3,7 @@
     "title": "Figuring it Out",
     "categories": [
       "personal",
+      "sample",
       "college"
     ],
     "date": "February 25th, 2016",
@@ -17,5 +18,14 @@
     "date": "January 1st, 2016",
     "dcr": "A reflection on the goals I set out to accomplish and the lessons learned along the way.",
     "path": "blog/2015-goals"
+  },
+  "2": {
+    "title": "Super Test",
+    "categories": [
+      "sample"
+    ],
+    "date": "August 29th, 2016",
+    "dcr": "Some test description that Im using so that I can see the animation of a post",
+    "path": "blog/super-test"
   }
 }

@@ -11,13 +11,14 @@ const BlogMenuContainer = React.createClass({
       categories,
       mobileHeaderClass,
       setActiveCategory,
-      activeCategory } = this.props;
+      activeCategory,
+    } = this.props;
 
     return (
       <div
         styleName={`blogMenuCont ${headerType}`}
         ref={el => {
-          this.blogHeader = el;
+          this.menuContDiv = el;
         }}
       >
         {

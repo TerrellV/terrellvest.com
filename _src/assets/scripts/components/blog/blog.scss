@@ -1,10 +1,8 @@
-:global .page-wrapper.blurred {
-  position: relative;
-};
+
 
 .blog-container {
   padding: 0 1.5rem;
-  padding-bottom: 50px;
+  padding-bottom: calc(#{$nav-height} + 2.5rem + #{$footer-height});
 }
 
 .blog-wrapper {

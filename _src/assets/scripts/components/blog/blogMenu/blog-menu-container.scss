@@ -1,9 +1,10 @@
 .blogMenuCont {
   box-sizing: border-box;
   position: relative;
-  height: auto;
   width: 240px;
+  height: auto;
   &.TOP_HEADER {
+    height: 70px;
     width: 100%;
   }
   @media (min-width: $m-bp + 1) {

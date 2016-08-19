@@ -1,27 +1,32 @@
-import React, { PropTypes } from 'react'
+import React from 'react';
 import CSSModules from 'react-css-modules';
 import styles from './blog-posts.scss';
-import PostPreview from './PostPreview';
+import PostPreview from './postPreview';
+import shortid from 'shortid';
 
-
-const BlogPosts = props => {
-  const posts = Array.from(props.posts);
-  posts.push(...posts);
-  posts.push(...posts);
-  posts.push(...posts);
-  return (
-    <div styleName={`box blogPostsCont ${props.dynamicClass}`}>
-      {
-        posts.map(post =>
-          <PostPreview {...post} />
-        )
-      }
-    </div>
-  )
-}
+const BlogPosts = React.createClass({
+  render() {
+    const { dynamicClass: dc, posts, headerType } = this.props;
+    return (
+      <div
+        styleName={`box blogPostsCont ${headerType} ${dc}`}
+      >
+        {
+          posts.map((post) =>
+            <PostPreview
+              {...post}
+              key={shortid.generate()}
+              onMobile={this.props.onMobile}
+            />
+          )
+        }
+      </div>
+    );
+  },
+});
 
 
 export default CSSModules(BlogPosts, styles, {
   allowMultiple: true,
   errorWhenNotFound: false,
-})
+});

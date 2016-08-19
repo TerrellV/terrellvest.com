@@ -14,12 +14,6 @@ const MobileBlogMenu = React.createClass({
     this.setState({
       popupActive: !this.state.popupActive,
     });
-    this.blurBody();
-  },
-  blurBody() {
-    document
-      .querySelector('.page-wrapper')
-      .className = 'page-wrapper blurred';
   },
   render() {
     const dropDownCn = this.props.styles['drop-down-icon'];
@@ -32,6 +26,8 @@ const MobileBlogMenu = React.createClass({
     } = this.props;
 
     const cap = str => `${str[0].toUpperCase()}${str.slice(1)}`;
+
+    console.log('menu dynamic cn: ' + dynamicClass);
 
     return (
       <div styleName={`menu ${dynamicClass}`}>

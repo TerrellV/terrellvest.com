@@ -1,45 +1,65 @@
 import React from 'react';
 import CSSModules from 'react-css-modules';
 import styles from './blog.scss';
+import shortid from 'shortid';
 
-import blogPosts from '../../../../../_dist/assets/json/blog.json';
+import blogPostsBank from '../../../../../_dist/assets/json/blog.json';
 import blogCategories from '../../../../../_dist/assets/json/blogCategories.json';
 import BlogPosts from './blogPosts/blogPosts';
 import BlogMenuContainer from './blogMenu/blogMenuContainer';
 
 const Blog = React.createClass({
   getInitialState() {
+    const defaultCategory = 'all';
+    const allPosts = Object.keys(blogPostsBank)
+      .reduce((arr, key) =>
+        arr.concat(blogPostsBank[key]), []
+      );
+
     return {
+      onMobile: this.isOnMobile(),
       headerType: null,
       mobileHeaderClass: '',
-      activeCategory: 'all',
+      activeCategory: defaultCategory,
+      blogPostsKey: shortid.generate(),
+      postsToShow: this.filterPosts(defaultCategory, allPosts),
+      blogPostsDynamicClass: '',
+      allPosts,
     };
   },
   componentWillMount() {
     this.handleHorizResize();
     window.onresize = this.handleHorizResize;
-    const onMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent);
-    this.onMobile = onMobile;
+    // window.onscroll = this.handleVertScroll;
+    window.onscroll = function scroll() {
+      this.handleVertScroll();
+    }.bind(this);
   },
-  componentDidMount() {
-    this.handleVertScroll();
+  isOnMobile() {
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent);
+  },
+  componentWillUpdate(nProps, nState) {
+    if (nState.activeCategory !== this.state.activeCategory) {
+      this.setState({ blogPostsKey: shortid.generate() });
+    }
   },
   componentWillUnmount() {
     window.onresize = undefined;
     window.onscroll = undefined;
   },
   setActiveCategory(e, newCat) {
+    const { allPosts } = this.state;
     this.setState({
       activeCategory: newCat,
+      postsToShow: this.filterPosts(newCat, allPosts),
     });
   },
   handleVertScroll() {
+    // debugger;
     const { mobileHeaderClass, headerType } = this.state;
-    window.onscroll = this.handleVertScroll;
-    const topPos = this.onMobile ? 6 : 0;
     if (headerType === 'SIDE_BAR') return;
 
-    const rect = this.blogHeaderComponent.blogHeader
+    const rect = this.BlogMenuContainer.menuContDiv
       .getBoundingClientRect();
 
     if (rect.top <= 0) {
@@ -70,19 +90,29 @@ const Blog = React.createClass({
       this.setState({ headerType: 'SIDE_BAR' });
     }
   },
+  filterPosts(activeCategory, allPosts) {
+    if (activeCategory === 'all') return allPosts;
+
+    const filteredPosts = Array.from(allPosts)
+      .filter(post =>
+        post.categories.indexOf(activeCategory) > -1
+      );
+    return filteredPosts;
+  },
   render() {
-    const { headerType, mobileHeaderClass, blogPostsDynamicClass, activeCategory } = this.state;
+    const {
+      headerType,
+      mobileHeaderClass,
+      activeCategory,
+      blogPostsKey,
+      postsToShow,
+      blogPostsDynamicClass,
+      onMobile,
+    } = this.state;
+
 
     const blogCatArray = Object.keys(blogCategories)
       .map(key => blogCategories[key]);
-
-    // add something to sort them by order
-    const postsToShow = Object.keys(blogPosts)
-      .reduce((arr, key) => arr.concat(blogPosts[key]), [])
-      .filter(post => {
-        if (activeCategory === 'all') return true;
-        return post.categories.indexOf(activeCategory) > -1;
-      });
 
     return (
       <div styleName="row blog-container">
@@ -94,14 +124,17 @@ const Blog = React.createClass({
               headerType={headerType}
               categories={blogCatArray}
               ref={el => {
-                this.blogHeaderComponent = el;
+                this.BlogMenuContainer = el;
               }}
               setActiveCategory={this.setActiveCategory}
             />
             <BlogPosts
+              key={blogPostsKey}
+              headerType={headerType}
               activeCategory={activeCategory}
               posts={postsToShow}
               dynamicClass={blogPostsDynamicClass}
+              onMobile={onMobile}
             />
           </div>
         </div>
@@ -114,10 +147,3 @@ export default CSSModules(Blog, styles, {
   allowMultiple: true,
   errorWhenNotFound: false,
 });
-
-
-/* SAVE FOR later
-
-  const onMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent);
-
-*/
