@@ -25,10 +25,13 @@
       <main class="portfolio-post-main">
         <article class="row center--col-x">
           <div class="post-wrap box wrapper center-content">
-            <header class="sub-header">
-              <h1 class="page-title"></h1>
+            <header style="border-color:#66b3f6" class="header">
+              <h1 class="post-title">Personal Website</h1><span class="post-date">March 7th, 2016</span>
+              <div class="btn-links">
+                <button style="background-color:#66b3f6" class="header-btn">App</button>
+                <button class="header-btn">Code </button>
+              </div>
             </header>
-            <div class="portfolio-post-description"><span></span></div>
             <div class="box post-md-content md-content"><p>My first decision for this site was to make it static. I wanted to avoid building a single page application. Instead I only added JavaScript where necessary. The main reason for this was because I felt a static site would be more fitting for a blog. Also, I wanted to build something different than my previous portfolio projects which were all single page applications.</p>
 <h1 id="build-process-development-setup">Build Process &amp; Development Setup</h1>
 <p>Because this site is static, everything is built using custom build scripts that have been included as a single gulp task. In other words these &quot;build scripts&quot; are simply a series of JavaScript files that build my site. The gulp task that runs all of the build scripts, returns a promise that will only resolve once each individual script has completed its execution.</p>

@@ -19,19 +19,14 @@ html(lang="en")
       main.portfolio-post-main
         article.row.center--col-x
           div.post-wrap.box.wrapper.center-content
-            header.sub-header
-              h1.page-title #{postTitle}
-            div.portfolio-post-description
-              span #{postDate}
+            header.header(style='border-color:' + colorDark)
+              h1.post-title #{title}
+              span.post-date #{date}
+              div.btn-links
+                button(style='background-color:' + colorDark).header-btn App
+                button.header-btn Code 
             div.box.post-md-content.md-content
               != pageMarkdownContent
-            if type === 'web'
-              include ./post-action-buttons.jade
-              #back-portfolio-container
-                button#back-portfolio-web.col Portfolio
-            if type === 'business'
-              #back-portfolio-container
-                button#back-portfolio.col Portfolio
         #disqus_thread
     script(src="../../assets/scripts/g_a_code.js")
     script(src="../../assets/scripts/portfolio-post.js")

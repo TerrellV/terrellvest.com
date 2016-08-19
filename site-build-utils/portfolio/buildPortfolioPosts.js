@@ -32,15 +32,18 @@ function promiseHandler(res, rej) {
     const file =  `${fileName.replace(/\s/g, '-' )}`;
     const filePath = `_src/portfolio/projects-md/${postObj.type}/${file}.md`;
     const html = marked( fs.readFileSync(filePath, 'utf8') );
-    return { file, html };
+    return { file, html, post: postObj };
   }
   function writeFile(fileObj, i) {
     const jadeContent = fs.readFileSync(portTemplate, 'utf8');
     const renderJade = jade.compile(jadeContent, {
       pretty: true,
       filename: portTemplate,
-    })
-    const indexHTML = renderJade({pageMarkdownContent: fileObj.html});
+    });
+    const indexHTML = renderJade({
+      pageMarkdownContent: fileObj.html,
+      ...fileObj.post,
+    });
     const dirPath = `_dist/portfolio/${fileObj.file}/`;
     mkdirp.sync(dirPath);
     fs.writeFileSync(`${dirPath}index.html`, indexHTML);

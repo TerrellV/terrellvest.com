@@ -10,7 +10,6 @@
 };
 
 .post-preview {
-  // animation: postPreviewAnimation 500ms ease backwards;
   max-width: 450px;
   width: 100%;
   &:not(:first-child) {
@@ -19,9 +18,6 @@
   &:hover {
     .description::after {
       @extend %readMore;
-    }
-    .heading {
-      text-decoration: underline;
     }
   }
   &.mobile {
