@@ -11,52 +11,56 @@ import jade from 'gulp-jade';
 /*
  * COPY IMAGES FROM SRC TO DIST
 */
-gulp.task('copy-images', function(){
-  gulp.src('_src/assets/images/**/*',{
-      base: '_src'
-    })
+gulp.task('copy-images', () => {
+  gulp.src('_src/assets/images/**/*', {
+    base: '_src',
+  })
   .pipe(gulp.dest('_dist'));
 });
 
 /*
  * PRESITE BUILD
 */
-gulp.task('render', function() {
-  return buildSite();
-});
+gulp.task('render', () =>
+  buildSite()
+);
 
 /* Dev Server */
-gulp.task('devServer', function() {
-  return devServer();
-});
+gulp.task('devServer', () =>
+  devServer()
+);
 
 /*
  * JADE TEMPLATES
 */
-gulp.task('jade', function() {
-  gulp.src('_src/contact/index.jade', {base: '_src'})
-  .pipe(jade({pretty: true}))
-  .pipe(gulp.dest('_dist'))
+gulp.task('jade', () => {
+  gulp.src('_src/contact/index.jade', {
+    base: '_src',
+  })
+  .pipe(jade({ pretty: true }))
+  .pipe(gulp.dest('_dist'));
 });
 
 /*
  * SCSS
 */
-gulp.task('sass', function() {
+gulp.task('sass', () => {
   gulp.src('_src/assets/styles/main.scss')
     .pipe(plumber())
     .pipe(sourcemaps.init())
     .pipe(sass())
-    .pipe(autoprefixer({browsers: ['last 2 version', '> 5% in US']}))
+    .pipe(autoprefixer({
+      browsers: ['last 2 version', '> 5% in US'],
+    }))
     .pipe(sourcemaps.write())
-    .pipe(gulp.dest('_dist/assets/styles'))
+    .pipe(gulp.dest('_dist/assets/styles'));
 });
 
 
 /*
  * WATCH TASKS
 */
-gulp.task('watch', function() {
+gulp.task('watch', () => {
   gulp.watch('./_src/assets/styles/**/*.scss', ['sass']);
 
   gulp.watch([
@@ -65,21 +69,21 @@ gulp.task('watch', function() {
 
   gulp.watch([
     './_src/assets/**/*.jade',
+    './_src/**/*.md',
     './_src/blog/**/*.jade',
-    './_src/portfolio/**/*.jade'
+    './_src/portfolio/**/*.jade',
   ], ['render']);
 
   gulp.watch([
-    './site-build-utils/*.js'
+    './site-build-utils/*.js',
   ], ['render']);
 
   gulp.watch([
-    './devServer.js'
+    './devServer.js',
   ], ['devServer']);
-
 });
 
 // run development build
-gulp.task('default', function(){
-  runSequence( ['render', 'sass', 'jade'], 'devServer', 'watch' )
+gulp.task('default', () => {
+  runSequence(['render', 'sass', 'jade'], 'devServer', 'watch');
 });

@@ -1,5 +1,17 @@
 $sub-heading-list: h2 h3 h4 h5 h6;
 
+$baseHeadingSize: 20px;
+$headingsMap: (
+  h1: $baseHeadingSize * 2,
+  h2: $baseHeadingSize * 1.5,
+  h3: $baseHeadingSize * 1.3,
+  h4: $baseHeadingSize * 1,
+  h5: $baseHeadingSize * 0.8,
+  h6: $baseHeadingSize * 0.7,
+);
+
+
+
 @keyframes draw-check {
   from {
     stroke-dashoffset: 140;
@@ -14,21 +26,18 @@ $sub-heading-list: h2 h3 h4 h5 h6;
 }
 
 .md-content {
-  // allways
-  font-family: "Merriweather",serif;
+  font-family: "Merriweather", serif;
+  @each $heading, $fontSize in $headingsMap {
+    #{$heading} { font-size: $fontSize }
+  }
   p {
     color: rgba(0, 0, 0, 0.8);
-    font-size: 18px;
-    line-height: 46px;
-  }
-  h1 {
-    font-size: 2.5em;
+    font-size: 1.125em;
+    line-height: 2.857em;
   }
   h1,h2,h3,h4,h5,h6 {
     margin-bottom: .5em;
-    padding-top: 2em;
-    font-family: "Roboto",sans-serif;
-    letter-spacing: 1px;
+    font-family: "Roboto", sans-serif;
     &.solo {
       padding-bottom: 1em;
     }
@@ -43,12 +52,14 @@ $sub-heading-list: h2 h3 h4 h5 h6;
   @each $var in $sub-heading-list {
     #{$var} {
       color: black;
-      font-size:1.5rem;
       font-weight: 600;
     }
     h1 + #{$var} {
       padding-top: 1em;
       margin-bottom: 1em;
+    }
+    p + #{$var} {
+      margin-top: 4rem;
     }
   }
 

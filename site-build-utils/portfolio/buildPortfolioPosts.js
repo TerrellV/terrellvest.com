@@ -35,14 +35,20 @@ function promiseHandler(res, rej) {
     return { file, html, post: postObj };
   }
   function writeFile(fileObj, i) {
+    const { post, post: { links={}, type } } = fileObj;
+    const { app: appLink, github: ghLink } = links;
+
     const jadeContent = fs.readFileSync(portTemplate, 'utf8');
     const renderJade = jade.compile(jadeContent, {
       pretty: true,
       filename: portTemplate,
     });
+
     const indexHTML = renderJade({
       pageMarkdownContent: fileObj.html,
-      ...fileObj.post,
+      ...post,
+      appLink: type === 'web' ? appLink : '',
+      githubLink: type === 'web' ? ghLink : '',
     });
     const dirPath = `_dist/portfolio/${fileObj.file}/`;
     mkdirp.sync(dirPath);

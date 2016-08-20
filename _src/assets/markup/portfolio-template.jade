@@ -19,15 +19,18 @@ html(lang="en")
       main.portfolio-post-main
         article.row.center--col-x
           div.post-wrap.box.wrapper.center-content
-            header.header(style='border-color:' + colorDark)
+            header.portfolio-post-header(style='border-color:' + colorDark)
               h1.post-title #{title}
               span.post-date #{date}
               div.btn-links
-                button(style='background-color:' + colorDark).header-btn App
-                button.header-btn Code 
+                a.btn-link-wrapper(target="_blank" href=appLink)
+                  button(style='background-color:' + colorDark).btn App
+                a.btn-link-wrapper(target="_blank" href=githubLink)
+                  button.btn Code
             div.box.post-md-content.md-content
               != pageMarkdownContent
         #disqus_thread
+      footer.site-footer
     script(src="../../assets/scripts/g_a_code.js")
     script(src="../../assets/scripts/portfolio-post.js")
     noscript
