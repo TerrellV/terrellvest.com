@@ -16,7 +16,7 @@ const SVG = ({id, className, props}) => {
           <path fill="#F1F2F2" d="M208 91.335h112v68H208z"/>
           <path fill="#D1D3D4" d="M208 177.335h112v2H208zm12 7h88v2h-88zm-6 6h100v2H214zm3 7h95v2h-95zm3 25h90v2h-90zm6 6h78v2h-78zm9 7h60v2h-60zm-10-32h79v2h-79z"/>
           <path fill="#00AEEF" d="M261 264.835c0 2.475-2.25 4.5-5 4.5h-25c-2.75 0-5-2.025-5-4.5s2.25-4.5 5-4.5h25c2.75 0 5 2.025 5 4.5z"/>
-          <path fill="none" stroke="#00AEEF" stroke-miterlimit="10" d="M306 265.335c0 2.475-2.25 4.5-5 4.5h-25c-2.75 0-5-2.025-5-4.5s2.25-4.5 5-4.5h25c2.75 0 5 2.025 5 4.5z"/>
+          <path fill="none" stroke="#00AEEF" strokeMiterlimit="10" d="M306 265.335c0 2.475-2.25 4.5-5 4.5h-25c-2.75 0-5-2.025-5-4.5s2.25-4.5 5-4.5h25c2.75 0 5 2.025 5 4.5z"/>
         </g>
       </svg>
     ),
@@ -71,8 +71,8 @@ const SVG = ({id, className, props}) => {
         <circle fill="#D7D0C4" cx="81.667" cy="68.667" r="15.667"/>
         <circle fill="#938F8A" cx="39.667" cy="68.667" r="15.667"/>
         <path fill="#D7D0C4" d="M50 104h21v2H50zM44 109h33v2H44zM39 114h43v2H39z"/>
-        <path opacity=".2" fill="none" stroke="#FFF" stroke-miterlimit="10" d="M0 21.5h120"/>
-        <path fill="none" stroke="#D7D0C4" stroke-width="2" stroke-miterlimit="10" d="M31 185h60"/>
+        <path opacity=".2" fill="none" stroke="#FFF" strokeMiterlimit="10" d="M0 21.5h120"/>
+        <path fill="none" stroke="#D7D0C4" strokeWidth="2" strokeMiterlimit="10" d="M31 185h60"/>
         <g>
           <path fill="#F2C37E" stroke="#F2C37E" d="M54.5 154.625c0 1.588-1.287 2.875-2.875 2.875h-18.25c-1.588 0-2.875-1.287-2.875-2.875v-.25c0-1.588 1.287-2.875 2.875-2.875h18.25c1.588 0 2.875 1.287 2.875 2.875v.25z"/>
           <path fill="none" stroke="#FFF" d="M88.5 154.625c0 1.588-1.287 2.875-2.875 2.875h-18.25c-1.588 0-2.875-1.287-2.875-2.875v-.25c0-1.588 1.287-2.875 2.875-2.875h18.25c1.588 0 2.875 1.287 2.875 2.875v.25zM72 154.5h10"/>
@@ -117,16 +117,16 @@ const SVG = ({id, className, props}) => {
       >
         <path fill="#B0C4D9" d="M516,318.207c0,5.502-4.478,9.965-10,9.965H10c-5.523,0-10-4.463-10-9.965V10.3
         	c0-5.503,4.477-9.965,10-9.965h496c5.522,0,10,4.461,10,9.965V318.207z"/>
-        <path opacity="0.89" fill="none" stroke="#F1F2F2" enable-background="new    " d="M516,57.835"/>
-        <path opacity="0.89" fill="none" stroke="#F1F2F2" enable-background="new    " d="M0,57.835"/>
+        <path opacity="0.89" fill="none" stroke="#F1F2F2" enableBackground="new    " d="M516,57.835"/>
+        <path opacity="0.89" fill="none" stroke="#F1F2F2" enableBackground="new    " d="M0,57.835"/>
         <rect x="111" y="23.335" fill="#F9F9F9" width="345" height="13"/>
         <path fill="#9EACBC" d="M0,44.835v-35c0-5.523,4.479-10,10-10l496,0c5.523,0,10,4.477,10,10v35H0z"/>
         <g>
-        	<rect x="200.75" y="21.085" opacity="0.8" fill="#FFFFFF" enable-background="new    " width="114.5" height="4.5"/>
+        	<rect x="200.75" y="21.085" opacity="0.8" fill="#FFFFFF" enableBackground="new    " width="114.5" height="4.5"/>
         </g>
         <g>
-        	<circle opacity="0.8" fill="#FFFFFF" enable-background="new    " cx="242.25" cy="296.085" r="10.25"/>
-        	<circle opacity="0.8" fill="#FFFFFF" enable-background="new    " cx="273.75" cy="296.085" r="10.25"/>
+        	<circle opacity="0.8" fill="#FFFFFF" enableBackground="new    " cx="242.25" cy="296.085" r="10.25"/>
+        	<circle opacity="0.8" fill="#FFFFFF" enableBackground="new    " cx="273.75" cy="296.085" r="10.25"/>
         </g>
         <g>
         	<circle fill="#FFFFFF" cx="217.25" cy="178.252" r="81.834"/>

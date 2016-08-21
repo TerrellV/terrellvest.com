@@ -1,167 +1,193 @@
-import React, { PropTypes } from 'react'
-import { browserHistory, Link } from 'react-router';
+import React from 'react';
+import { browserHistory } from 'react-router';
 
 const PortfolioNav = React.createClass({
   getInitialState() {
-
-    const slideDuration = 500;
+    const slideDuration = 206;
     const pageSwitchDuration = Math.floor(slideDuration * 0.6);
     const pageSwitchDelay = Math.floor(slideDuration * 0.4);
+    const navItems = {
+      ONE: {
+        text: 'web development',
+        path: '/portfolio/',
+        route: 'portfolio',
+      },
+      TWO: {
+        text: 'business',
+        path: '/portfolio/other',
+        route: 'other',
+      },
+    };
+    const blankPositions = Object.keys(navItems)
+      .reduce((newObj, key) => ({
+        ...newObj,
+        [`POSITION_${key}`]: 0,
+      }), {});
 
     return {
+      offsetVal: 40,
       slideDuration,
       pageSwitchDuration,
       pageSwitchDelay,
       showBall: false,
-      ballPosition: this.activeBallPosition(this.currentRoute()),
+      ballPosition: this.activeBallPosition(this.currentRoute(), navItems),
       ballSize: 14,
       ballStyles: {},
+      navItems,
       styleBank: {
         textDefault: {
-          transition: `opacity ${pageSwitchDuration}ms ${pageSwitchDelay}ms`
+          transition: `opacity ${pageSwitchDuration}ms ${pageSwitchDelay}ms, color ${pageSwitchDuration}ms ${pageSwitchDelay}ms`,
+          color: 'black',
         },
-        textActive: { opacity: 1 },
+        textActive: { opacity: 1, color: 'dodgerblue' },
         textInactive: { opacity: 0.2 },
         ballDefault: {
-          transition: `transform ${slideDuration}ms ease`
+          transition: `transform ${slideDuration}ms ease-in-out`,
         },
-        ballRight: {},
-        ballLeft: {},
+        ...blankPositions,
       },
-    }
+    };
   },
-  componentDidMount(){
-    this.setLeftAndRightCenterVal()
-      .then( () => {this.setState({ showBall: true })} );
+  componentDidMount() {
+    const { navItems, offsetVal } = this.state;
+    this.initBallPositions(navItems, offsetVal)
+      .then(() => {
+        this.setState({ showBall: true });
+      });
   },
-  currentRoute(){
+  initBallPositions(navItems) {
+    return new Promise(res => {
+      const { ballSize } = this.state;
+      function calcPixels(navKey) {
+        const ele = this[`heading${navKey}`];
+        const halfEleWidth = ele.offsetWidth / 2;
+        const offset = ele
+          .parentElement
+          .offsetLeft;
+        const num = offset + halfEleWidth - ballSize / 2;
+        return { transform: `translate(${num}px, -50%)` };
+      }
+
+      const positions = Object.keys(navItems)
+        .reduce((newOBj, navKey) => ({
+          ...newOBj,
+          [`POSITION_${navKey}`]: calcPixels.call(this, navKey),
+        }), {});
+
+      this.setState({
+        styleBank: {
+          ...this.state.styleBank,
+          ...positions,
+        },
+      }, () => { res('DONE_SETTING_INIT_POSITIONS'); });
+    });
+  },
+  activeBallPosition(route, navItems) {
+    const numberText = Object.keys(navItems)
+      .filter(key => navItems[key].route === route)
+      .pop();
+
+    return `POSITION_${numberText}`;
+  },
+  currentRoute() {
     return location.pathname
       .split('/')
-      .filter( route => route !== '' )
+      .filter(route => route !== '')
       .slice(-1)[0];
   },
-  activeBallPosition(route){
-    switch (route) {
-      case 'portfolio':
-        return 'ballLeft';
-      case 'other':
-        return 'ballRight';
-      default:
-        return 'ballLeft';
-    }
-  },
-  setLeftAndRightCenterVal(){
-    const { styleBank, ballSize } = this.state;
-    const ballHalf = ballSize / 2;
-    const halfHeading1 = this.headingOne.clientWidth / 2;
-    const offset1 = halfHeading1 - ballHalf;
-    const halfHeading2 = this.headingTwo.clientWidth / 2;
-    const offset2 = this.deepestRow.clientWidth - halfHeading2 - ballHalf;
-
-    function updateStateVal(ballPosition, offset, oldState) {
-      return new Promise((res, rej) => {
-        this.setState({
-          styleBank: {
-            ...oldState.styleBank,
-            [ballPosition]: {
-              transform: `translate(${offset}px, -50%)`,
-            }
-          }
-        }, () => {
-          res(this.state)
-        })
-      })
-    }
-    return updateStateVal.call(this, 'ballLeft', offset1, this.state)
-      .then( oldState => {
-        updateStateVal.call(this, 'ballRight', offset2, oldState)
-      })
-  },
-  slideBall(direction, e){
-    const { pageSwitchDelay } = this.state;
-    switch(direction) {
-      case 'RIGHT':
-        this.setState({ballPosition: 'ballRight'});
-        pageTransition('/portfolio/other', pageSwitchDelay);
-        break;
-      case 'LEFT':
-        this.setState({ballPosition: 'ballLeft'});
-        pageTransition('/portfolio/', pageSwitchDelay);
-        break;
-      default:
-        break;
-    }
-    function pageTransition(path) {
+  slideBall(ballPosition, positionObj) {
+    const { path } = positionObj;
+    this.setState({
+      ballPosition,
+    }, () => {
       browserHistory.push(path);
-    }
+    });
   },
-  calcStyles(){
-    const { styleBank, ballPosition } = this.state;
-    const { textDefault, textActive, textInactive, ballDefault, ballLeft, ballRight } = styleBank;
+  calcStyles() {
+    const { styleBank, ballPosition, navItems } = this.state;
+    const { textDefault, textActive, textInactive, ballDefault } = styleBank;
+
     const headingOne = ballPosition === 'ballLeft'
       ? { ...textDefault, ...textActive }
       : { ...textDefault, ...textInactive };
-    const headingTwo = ballPosition === 'ballRight'
-      ? { ...textDefault, ...textActive }
-      : { ...textDefault, ...textInactive };
+
+    const headingStyles = Object.keys(navItems)
+      .reduce((newObj, key) => {
+        const navObj = navItems[key];
+        const { route } = navObj;
+        const isActive = route === this.currentRoute();
+        const decStyles = isActive ? textActive : textInactive;
+
+        return {
+          ...newObj,
+          [`heading${key}`]: {
+            ...textDefault,
+            ...decStyles,
+          },
+        };
+      }, {});
+
     return {
-      headingOne,
-      headingTwo,
+      ...headingStyles,
       ball: {
         ...ballDefault,
-        ...this.state.styleBank[ballPosition]
-      }
-    }
+        ...this.state.styleBank[ballPosition],
+      },
+    };
   },
-  render () {
-    const {showBall, ballPosition, styleBank} = this.state;
+  render() {
+    const { showBall, navItems } = this.state;
     const styles = this.calcStyles();
 
-    const ball = showBall
-      ? <div style={styles.ball} className="slider-ball"></div>
-      : null;
+    const navElements = Object.keys(navItems)
+      .map(numKey => {
+        const positionObj = navItems[numKey];
+        return (
+          <div
+            key={numKey}
+            className="box auto--width portfolio-nav-link"
+            onClick={() =>
+              this.slideBall(`POSITION_${numKey}`, positionObj)
+            }
+          >
+            <span
+              className="portfolio-nav-text"
+              ref={c => {
+                this[`heading${numKey}`] = c;
+              }}
+              style={styles[`heading${numKey}`]}
+            >
+              {positionObj.text}
+            </span>
+          </div>
+        );
+      });
+
     return (
       <div className="portfolio-nav center--col-x row">
         <div className="box portfolio-nav-box">
           <div
-            className="row pull--edges"
-            ref={ref => this.deepestRow = ref}
+            className="row"
+            ref={ref => { this.deepestRow = ref; }}
           >
-            <div
-              className="box auto--width portfolio-nav-link"
-              onClick={() => this.slideBall('LEFT')}
-            >
-              <span
-                className="portfolio-nav-text"
-                ref={ref => this.headingOne = ref}
-                style={styles.headingOne}
-              >
-                Web Development
-              </span>
-            </div>
-            <div
-              to="/portfolio/other"
-              className="box auto--width portfolio-nav-link"
-              onClick={() => this.slideBall('RIGHT')}
-            >
-              <span
-                className="portfolio-nav-text"
-                ref={(ref) => this.headingTwo = ref}
-                style={styles.headingTwo}
-              >
-                Business
-              </span>
-            </div>
+            {navElements}
             <div className="box s--12-12 slider-cont">
               <div className="slider-rail">
               </div>
-              {ball}
+              {
+                showBall
+                ? <div
+                  style={styles.ball}
+                  className="slider-ball"
+                >
+                </div> : null
+              }
             </div>
           </div>
         </div>
       </div>
-    )
-  }
-})
+    );
+  },
+});
 
 export default PortfolioNav;

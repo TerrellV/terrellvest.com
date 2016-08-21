@@ -1,19 +1,16 @@
-# Project Description
-This application allows the user to view information about the current weather and forecast.
+View information about the current weather and forecast. Switch between Fahrenheit and Celsius.
 
-# Used In App
-Sass, JQUERY
+## Build
 
-# Design
+Sass, Vanilla JavaScript
 
-<img class="landscape" src="../../assets/images/weather-forecast/weather-forecast-mockup.png" alt="">
+## Design
 
-This was the second app I had ever designed in illustrator. I went through many prototypes and mockups before I came up with something I felt appropriate.
+This app was designed predominantly in Illustrator.
 
-This app uses many concepts outlined in Google's material design documentation. A few Material Design Light components are used. The advantage with this is the theoretical decrease in coding time. However, I found it difficult working with pre defined components that achieved styling I didn't understand. I've since opted to only use components I could create myself.
+It uses many concepts outlined in Google's material design documentation. A few Material Design Light components are used. The advantage with this is the theoretical decrease in coding time. However, I found it difficult working with pre defined components. Styling them was a pain. I've since opted to lean towards coding small components myself.
 
 
-# Challenges
-The motivation behind this project involved learning how to make and handle ajax requests to an external api. The code is not organized properly and doesn't always achieve the intended goal in an efficient manor. Because I did not use angular, react or any other common front end framework, I relied heavily on jquery. This is a practice I've since grown out of.
+## Other Notes
 
-# View
+The motivation behind this project involved learning how to make and handle ajax requests to an external api. (This was essentially just my second project into JavaScript Development)

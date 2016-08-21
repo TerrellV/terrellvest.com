@@ -31,15 +31,13 @@
                   <button style="background-color:#f4a526" class="btn">App</button></a><a target="_blank" href="https://github.com/MirPresT/Clock" class="btn-link-wrapper">
                   <button class="btn">Code</button></a></div>
             </header>
-            <div class="box post-md-content md-content"><h1 id="project-description">Project Description</h1>
-<p>This clock app has both a traditional and a <a href="https://en.wikipedia.org/wiki/Pomodoro_Technique">Promodoro</a> setting that allows for 25 minute intervals and a task list. There is also a stopwatch tab that will record lap times.</p>
-<h1 id="used">Used</h1>
+            <div class="box post-md-content md-content"><p>This clock has both a traditional and a <a href="https://en.wikipedia.org/wiki/Pomodoro_Technique">Promodoro</a> setting that allows for 25 minute intervals and a task list. There is also a stopwatch tab that will record lap times.</p>
+<h2 id="build">Build</h2>
 <p>Angular, Grunt, Sass, jQuery</p>
-<h1 id="design">Design</h1>
-<h2 id="animation">Animation</h2>
-<p>In terms of User Experience, I know there are times when animation is complete overkill. However, I still wanted to &quot;see what I could do&quot;, specifically during the stopwatch timer. This animation was interesting because it needed to be played over and over again. which isn&#39;t built in to css. When I first thought about it, I hoped to simply define the animation in keyframes and then set the iteration count to infinite. My problem was starting two animations, one after the other can not be achieved with setting each to infinite. The reason being the delay is only applied to the initial start of the animation. On the second time around the delay no longer exists. Here is how I managed to solve the problem.</p>
+<h2 id="design">Design</h2>
+<p>In terms of User Experience, I know there are times when animation is complete overkill. However, I still wanted to &quot;see what I could do&quot;. The stopwatch animation was interesting because it needed to be played over and over again with a delay; something you can&#39;t do natively with css.</p>
+<h3 id="animation-solution">Animation Solution</h3>
 <div class="num-list-container">
-  <h2 class="list-heading">Steps</h2>
   <ol class="numbered-list">
      <li>Set the second ball animation delay equal to the total duration of the first. In other words, when the first finishes, the second starts.</li>
      <li>Ensure you have two different elements and set their animation-iteration-count to 1.</li>
@@ -48,26 +46,8 @@
   </ol>
 </div>
 
-<p>Note: when cloning an element that has an animation attached to it via css, the element will animate as soon as it loads in the DOM.</p>
-<h2 id="colors-and-layout">Colors and Layout</h2>
-<p>For this I used inspiration from multiple sources. I really liked the dark themes on the Spotify desktop app and the layout and spacing of stock mobile Samsung apps.  The tab layout pulls from the general trend of google material design apps.</p>
-<p><img id="" class="landscape med" src="../../assets/images/clock/first-render.png">
-I really liked these visual circles and wanted to animate them</p>
-<p><img id="" class="portrait med" src="../../assets/images/clock/orange-mockup.png">
-This was an experimentation with different forms of input. I really don&#39;t know why I tried to design my own keyboard when the browser takes care of it on mobile devices.</p>
-<p>You will notice that the final design below is pretty far from what I initially began with. What you won’t see is that I created a mockup for every screen in the app. Making decisions early on in illustrator generally saves me from going back and forth in my code.</p>
-<p><img id="" class="portrait" src="../../assets/images/clock/final-mockup.png"></p>
-<h1 id="challenges">Challenges</h1>
-<h2 id="timing">Timing</h2>
-<p>This was a great introduction into timing functions and intervals. Dealing with time in JavaScript doesn’t always work as you might expect. Often the execution of code on different devices produces a slight difference in calculations that must be accounted for.</p>
-<h2 id="state-management">State management</h2>
-<p>I also ran into the issue of managing state across separate components. It felt weird. It felt impractical. I was having to code factories and services that were poorly organized.</p>
-<blockquote>
-<p>How do I separate the vital information from my app into a central location that could be accessed by different components?</p>
-</blockquote>
-<p>The discomfort I felt building this application forced me into improving my overall state management in subsequent projects.</p>
-<h1 id="view">View</h1>
-
+<p>The key is that when cloning an element with an animation attached to it, the element will animate as soon as it loads into the DOM. Success!</p>
+<a href="/portfolio" style="color:#f4a526" class="back-portfolio-link">Back to portfolio</a>
             </div>
           </div>
         </article>

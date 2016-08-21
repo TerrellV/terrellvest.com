@@ -1,25 +1,27 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import { Link } from 'react-router';
 import SVG from './svg';
 
 
-const PostItemView = ({postID, post, linkStyles}) =>
+const PostItemView = ({ postID, post, linkStyles }) =>
   <div className="row project-item-row" key={postID}>
     <div
-      className="box m--5-12 proj-prev-img-padding"
+      className="box l--5-12 proj-prev-img-padding"
     >
-      <div
-        className="proj-prev-img-cont"
-        style={{backgroundColor: `${post.color}`}}
-      >
-        <SVG
-          className="prev-img-svg"
-          id={post.title.toLowerCase().trim().replace(/\s/g, '-')}
+      <a href={post.links.app} target="_blank" >
+        <div
+          className="proj-prev-img-cont"
+          style={{ backgroundColor: `${post.color}` }}
+        >
+          <SVG
+            className="prev-img-svg"
+            id={post.title.toLowerCase().trim().replace(/\s/g, '-')}
           />
-        <div className={"stretcher"}></div>
-      </div>
+          <div className={"stretcher"}></div>
+        </div>
+      </a>
     </div>
-    <div className="box m--7-12 proj-prev-text-cont">
+    <div className="box l--7-12 proj-prev-text-cont">
       <h1 className="proj-prev-heading">{post.title}</h1>
       <h4 className="proj-prev-subheader">{post.subheader}</h4>
       <p className="proj-prev-descripton">{post.dcr}</p>
@@ -29,7 +31,7 @@ const PostItemView = ({postID, post, linkStyles}) =>
           style={linkStyles}
           target="_self"
         >
-          Read More
+          Learn More
         </a>
         <a
           href={post.links.app}

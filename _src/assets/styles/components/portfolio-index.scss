@@ -12,47 +12,75 @@
   animation-fill-mode: both;
   padding: 6rem 1rem;
   @media (max-width: $l-bp) {
-    padding: 4rem 1rem;
+    padding: 4rem 1.5rem;
+  }
+  @media (min-width: $m-bp) and (max-width: $l-bp - 1px) {
+    max-width: 580px;
+    padding: 0;
+    margin: {
+      right: auto;
+      left: auto;
+      top: 50px;
+    }
   }
 }
 
-.web-project-container{
-}
-.other-project-container{
-  animation-name: fadeIn;
-  animation-duration:  1000ms;
-  animation-fill-mode: both;
-}
+
+// .other-project-container{
+//   animation-name: fadeIn;
+//   animation-duration:  1000ms;
+//   animation-fill-mode: both;
+// }
+$gutter: 3rem;
+$mobile-gutter: 1.5rem;
 
 .project-item-row{
   margin-bottom: 130px;
   @media (max-width: $m-bp) {
-    margin-bottom: 80px;
+    margin-bottom: 100px;
+  }
+  @media (min-width: $m-bp) and (max-width: $l-bp - 1px) {
+
+    padding: 0;
   }
 }
-$gutter: 3rem;
-$mobile-gutter: 1.5rem;
 // img container
-.proj-prev-img-padding{
+.proj-prev-img-padding {
   padding-left: $gutter;
   padding-right: $gutter / 2;
-  .proj-prev-img-cont{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-  }
+  max-width: 323px;
   .stretcher{
     padding-bottom: 70%;
   }
-  @media (max-width: $m-bp) {
-    padding: 0 $mobile-gutter;
+  @media (max-width: $l-bp - 1px) {
+    padding: 0;
     margin-bottom: 2rem;
   }
 }
-.prev-img-svg{
-  -webkit-filter: drop-shadow(2px 2px 6px rgba(100, 100, 100, 0.30));
+.proj-prev-img-cont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  @media (min-width: $m-bp + 1px) {
+    .prev-img-svg {
+      transition: filter 100ms ease-in-out;
+    }
+    &:hover {
+      .prev-img-svg {
+        transition: filter 300ms ease-in-out;
+        -webkit-filter: drop-shadow(2px 2px 6px rgba(100, 100, 100, 0.30));
+      }
+    }
+  }
+  @media (max-width: $m-bp) {
+    .prev-img-svg {
+      -webkit-filter: drop-shadow(2px 2px 6px rgba(100, 100, 100, 0.30));
+    }
+  }
 }
+
 // text container
 .proj-prev-text-cont {
   padding-left: $gutter / 2;
@@ -64,6 +92,9 @@ $mobile-gutter: 1.5rem;
   font-family: "Open Sans", sans-serif;
   @media (max-width: $m-bp) {
     padding: 0 $mobile-gutter;
+  }
+  @media (max-width: $l-bp - 1px) {
+    padding: 0;
   }
 }
 .proj-prev-heading{
@@ -85,7 +116,6 @@ $mobile-gutter: 1.5rem;
   line-height: 2.5rem;
   opacity: 0.5;
   font-size: 1.1rem;
-  letter-spacing: 1px;
   @media (max-width: $m-bp) {
     margin: 1rem 0;
     letter-spacing: 0;
