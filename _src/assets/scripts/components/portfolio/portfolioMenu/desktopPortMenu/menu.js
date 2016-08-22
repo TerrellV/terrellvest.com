@@ -1,23 +1,12 @@
 import React from 'react';
 import { browserHistory } from 'react-router';
 
-const PortfolioNav = React.createClass({
+const Menu = React.createClass({
   getInitialState() {
     const slideDuration = 206;
     const pageSwitchDuration = Math.floor(slideDuration * 0.6);
     const pageSwitchDelay = Math.floor(slideDuration * 0.4);
-    const navItems = {
-      ONE: {
-        text: 'web development',
-        path: '/portfolio/',
-        route: 'portfolio',
-      },
-      TWO: {
-        text: 'business',
-        path: '/portfolio/other',
-        route: 'other',
-      },
-    };
+    const { navItems } = this.props;
     const blankPositions = Object.keys(navItems)
       .reduce((newObj, key) => ({
         ...newObj,
@@ -33,7 +22,6 @@ const PortfolioNav = React.createClass({
       ballPosition: this.activeBallPosition(this.currentRoute(), navItems),
       ballSize: 14,
       ballStyles: {},
-      navItems,
       styleBank: {
         textDefault: {
           transition: `opacity ${pageSwitchDuration}ms ${pageSwitchDelay}ms, color ${pageSwitchDuration}ms ${pageSwitchDelay}ms`,
@@ -49,7 +37,8 @@ const PortfolioNav = React.createClass({
     };
   },
   componentDidMount() {
-    const { navItems, offsetVal } = this.state;
+    const { offsetVal } = this.state;
+    const { navItems } = this.props;
     this.initBallPositions(navItems, offsetVal)
       .then(() => {
         this.setState({ showBall: true });
@@ -104,7 +93,8 @@ const PortfolioNav = React.createClass({
     });
   },
   calcStyles() {
-    const { styleBank, ballPosition, navItems } = this.state;
+    const { styleBank, ballPosition } = this.state;
+    const { navItems } = this.props;
     const { textDefault, textActive, textInactive, ballDefault } = styleBank;
 
     const headingOne = ballPosition === 'ballLeft'
@@ -136,7 +126,8 @@ const PortfolioNav = React.createClass({
     };
   },
   render() {
-    const { showBall, navItems } = this.state;
+    const { showBall } = this.state;
+    const { navItems } = this.props;
     const styles = this.calcStyles();
 
     const navElements = Object.keys(navItems)
@@ -190,4 +181,4 @@ const PortfolioNav = React.createClass({
   },
 });
 
-export default PortfolioNav;
+export default Menu;

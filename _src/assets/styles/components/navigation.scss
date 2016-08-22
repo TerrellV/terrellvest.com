@@ -45,14 +45,14 @@ $nav-padding: 3rem;
   @include center-vert(relative);
 }
 
-@media (max-width: $m-bp) {
+@media (max-width: $m-bp - 1px) {
   .nav-parent-row {
     margin-bottom: 2.5rem;
   }
   .nav-logo-link {
     transform: translate(-50%, -50%) rotate(180deg);
   }
-  .box.logo-box{
+  .box.logo-box {
     width: 100%;
     padding-right: 0;
   }
@@ -62,7 +62,7 @@ $nav-padding: 3rem;
   .nav-list-item-box {
     opacity: 1;
     height: 28px;
-    &:not(:last-child){
+    &:not(:last-child) {
       padding-right: 1.5rem;
     }
   }

@@ -1,14 +1,13 @@
-import React, { PropTypes } from 'react';
-import { Link } from 'react-router';
+import React from 'react';
 
 const OtherProjects = React.createClass({
-  render () {
+  render() {
     return (
       <div className="other-project-container">
         <h1>other projects</h1>
       </div>
-    )
-  }
-})
+    );
+  },
+});
 
 export default OtherProjects;

@@ -11,8 +11,12 @@
   animation-duration: 1000ms;
   animation-fill-mode: both;
   padding: 6rem 1rem;
-  @media (max-width: $l-bp) {
-    padding: 4rem 1.5rem;
+  @media (max-width: $l-bp - 1px) {
+    padding: 0 1.5rem;
+    margin: {
+      top: 50px;
+      bottom: 50px;
+    }
   }
   @media (min-width: $m-bp) and (max-width: $l-bp - 1px) {
     max-width: 580px;
@@ -35,12 +39,8 @@ $gutter: 3rem;
 $mobile-gutter: 1.5rem;
 
 .project-item-row{
-  margin-bottom: 130px;
-  @media (max-width: $m-bp) {
-    margin-bottom: 100px;
-  }
+  margin-bottom: 100px;
   @media (min-width: $m-bp) and (max-width: $l-bp - 1px) {
-
     padding: 0;
   }
 }
@@ -102,7 +102,7 @@ $mobile-gutter: 1.5rem;
   font-size: 1.75rem;
   font-weight: 500;
 }
-.proj-prev-subheader{
+.proj-prev-subheader {
   width: 100%;
   opacity: 1;
   font-size: 1.2rem;
@@ -111,9 +111,9 @@ $mobile-gutter: 1.5rem;
     margin-top: 1rem;
   }
 }
-.proj-prev-descripton{
+.proj-prev-descripton {
   align-self: center;
-  line-height: 2.5rem;
+  line-height: 28px;
   opacity: 0.5;
   font-size: 1.1rem;
   @media (max-width: $m-bp) {

@@ -1,6 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router';
-import SVG from './svg';
+import SVG from '../svg';
 
 
 const PostItemView = ({ postID, post, linkStyles }) =>

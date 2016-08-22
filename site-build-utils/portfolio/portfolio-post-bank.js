@@ -58,7 +58,7 @@ const portfolioPosts = [
     color: '#cfcede',
     colorDark: '#ad9ae2',
     dcr:
-      'Track the status of various twitch channels and view basic information relating to their current stream or follower count',
+      'Track the status of various twitch channels and their current or previus stream',
     links: {
       app: 'https://mirprest.github.io/Twitch-Viewer/',
       github: 'https://github.com/MirPresT/Twitch-Viewer'
