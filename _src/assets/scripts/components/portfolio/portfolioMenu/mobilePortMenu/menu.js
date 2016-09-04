@@ -18,11 +18,13 @@ const Menu = React.createClass({
   render() {
     const dropDownCn = this.props.styles['drop-down-icon'];
     const { popupActive } = this.state;
-    const { navItems } = this.props;
     const {
       categories,
       activeCategory,
+      navItems,
+      mobileHeaderClass,
     } = this.props;
+
     const navItemObjects = Object.keys(navItems)
       .map(key => ({ ...navItems[key] }));
 
@@ -30,7 +32,7 @@ const Menu = React.createClass({
 
 
     return (
-      <div styleName="menu">
+      <div styleName={`menu ${mobileHeaderClass}`} >
         <span styleName="title">category</span>
         <span
           styleName="activeCategory"

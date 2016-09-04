@@ -27,8 +27,6 @@ const MobileBlogMenu = React.createClass({
 
     const cap = str => `${str[0].toUpperCase()}${str.slice(1)}`;
 
-    console.log('menu dynamic cn: ' + dynamicClass);
-
     return (
       <div styleName={`menu ${dynamicClass}`}>
         <span styleName="title">category</span>

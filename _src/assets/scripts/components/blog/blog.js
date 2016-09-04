@@ -30,10 +30,7 @@ const Blog = React.createClass({
   componentWillMount() {
     this.handleHorizResize();
     window.onresize = this.handleHorizResize;
-    // window.onscroll = this.handleVertScroll;
-    window.onscroll = function scroll() {
-      this.handleVertScroll();
-    }.bind(this);
+    window.onscroll = this.handleVertScroll;
   },
   isOnMobile() {
     return /Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent);
@@ -55,7 +52,6 @@ const Blog = React.createClass({
     });
   },
   handleVertScroll() {
-    // debugger;
     const { mobileHeaderClass, headerType } = this.state;
     if (headerType === 'SIDE_BAR') return;
 

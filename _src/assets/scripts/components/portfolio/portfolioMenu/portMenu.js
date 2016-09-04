@@ -1,6 +1,8 @@
 import React from 'react';
 import DesktopMenu from './desktopPortMenu/menu';
 import MobileMenu from './mobilePortMenu/menu';
+import CSSModules from 'react-css-modules';
+import styles from './port-menu.scss';
 
 const PortMenu = React.createClass({
   render() {
@@ -12,7 +14,10 @@ const PortMenu = React.createClass({
     };
 
     return (
-      <div className="portfolioMenuMaster">
+      <div
+        styleName="portfolioMenuMaster"
+        ref={el => { this.childDiv = el; }}
+      >
         {
           isSmallScreen
           ? <MobileMenu {...propsToPass} />
@@ -23,4 +28,7 @@ const PortMenu = React.createClass({
   },
 });
 
-export default PortMenu;
+export default CSSModules(PortMenu, styles, {
+  errorWhenNotFound: false,
+  allowMultiple: true,
+});

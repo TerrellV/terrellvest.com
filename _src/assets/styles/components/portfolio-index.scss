@@ -11,6 +11,9 @@
   animation-duration: 1000ms;
   animation-fill-mode: both;
   padding: 6rem 1rem;
+  &.stickyHeaderSpace {
+    margin-top: 50px + 50px;
+  }
   @media (max-width: $l-bp - 1px) {
     padding: 0 1.5rem;
     margin: {
@@ -29,12 +32,6 @@
   }
 }
 
-
-// .other-project-container{
-//   animation-name: fadeIn;
-//   animation-duration:  1000ms;
-//   animation-fill-mode: both;
-// }
 $gutter: 3rem;
 $mobile-gutter: 1.5rem;
 

@@ -43,20 +43,20 @@ const PostItemView = ({ postID, post, linkStyles }) =>
     </div>
   </div>
 
-const WebProjects = ({postDB}) => {
+const WebProjects = ({ postDB, postsDynamicClass }) => {
   return (
-    <div className="project-container">
+    <div className={`project-container ${postsDynamicClass}`}>
       {
-        Object.keys(postDB).map( key =>
+        Object.keys(postDB).map(key =>
           <PostItemView
-            linkStyles={{color: `${postDB[key].colorDark}`}}
+            linkStyles={{ color: `${postDB[key].colorDark}` }}
             key={key}
             post={postDB[key]}
           />
         )
       }
     </div>
-  )
-}
+  );
+};
 
 export default WebProjects;

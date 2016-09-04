@@ -36,6 +36,8 @@ const Portfolio = React.createClass({
           route: 'other',
         },
       },
+      mobileHeaderClass: '',
+      postsDynamicClass: '',
       categories: ['web', 'business'],
       activeCategory: this.getActiveCategory(),
       isSmallScreen: this.getIsSmallScreen(),
@@ -43,6 +45,7 @@ const Portfolio = React.createClass({
   },
   componentDidMount() {
     window.onresize = this.handleResize;
+    window.onscroll = this.handleScroll;
   },
   componentWillUpdate(nextProps) {
     const { params: nextParams } = nextProps;
@@ -53,8 +56,18 @@ const Portfolio = React.createClass({
       });
     }
   },
+  componentDidUpdate(prevProps, prevState) {
+    const { isSmallScreen: currentIsSmallScreen } = this.state;
+    const { isSmallScreen: wasSmallScreen } = prevState;
+
+    if (currentIsSmallScreen !== wasSmallScreen) {
+      console.log('switched');
+      this.handleScroll();
+    }
+  },
   componentWillUnmount() {
-    window.onresize = null;
+    window.onresize = undefined;
+    window.onscroll = undefined;
   },
   getIsSmallScreen() {
     return window.innerWidth < 650;
@@ -77,15 +90,57 @@ const Portfolio = React.createClass({
       });
     }
   },
+  handleScroll() {
+    const { mobileHeaderClass, isSmallScreen } = this.state;
+
+    if (!isSmallScreen) {
+      if (mobileHeaderClass === 'stickyTop') {
+        this.setState({
+          mobileHeaderClass: '',
+          postsDynamicClass: '',
+        });
+      }
+      return;
+    }
+
+
+    const rect = this.portMenu.childDiv
+      .getBoundingClientRect();
+
+    if (rect.top <= 0) {
+      if (mobileHeaderClass !== 'stickyTop') {
+        this.setState({
+          mobileHeaderClass: 'stickyTop',
+          postsDynamicClass: 'stickyHeaderSpace',
+        });
+      }
+    } else {
+      if (mobileHeaderClass === 'stickyTop') {
+        this.setState({
+          mobileHeaderClass: '',
+          postsDynamicClass: '',
+        });
+      }
+    }
+  },
   determineChild() {
+    const { postsDynamicClass } = this.state;
+    const propsToPass = {
+      postsDynamicClass,
+    };
     switch (this.props.params.type) {
       case 'other':
         return (
-          <OtherProjects />
+          <OtherProjects
+            {...propsToPass}
+          />
         );
       default:
         return (
-          <WebPosts postDB={postDB.web} />
+          <WebPosts
+            postDB={postDB.web}
+            {...propsToPass}
+          />
         );
     }
   },
@@ -95,6 +150,7 @@ const Portfolio = React.createClass({
       activeCategory,
       isSmallScreen,
       categories,
+      mobileHeaderClass,
     } = this.state;
 
     const infoForMenu = {
@@ -102,12 +158,16 @@ const Portfolio = React.createClass({
       navItems,
       activeCategory,
       isSmallScreen,
+      mobileHeaderClass,
     };
 
     return (
       <div className="row portfolio-container">
         <div className="box wrapper">
-          <PortMenu portfolioState={infoForMenu} />
+          <PortMenu
+            portfolioState={infoForMenu}
+            ref={el => { this.portMenu = el; }}
+          />
           {this.determineChild()}
         </div>
       </div>
