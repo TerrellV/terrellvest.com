@@ -13,8 +13,7 @@
 // medium and large view
 @media(min-width: #{$m-bp + 1px}){
   #disqus_thread{
-    width: 72%;
+    width: 100%;
     position: relative;
-    left: 28%;
   }
 }

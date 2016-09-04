@@ -36,18 +36,26 @@ const buildBlogPosts = async function() {
         .filter( key => blogBank[key].title.toLowerCase() === fileName)[0];
 
       const postObj = blogBank[postId];
+      const { title, date, dcr } = postObj
       const file =  `${fileName.replace(/\s/g, '-' )}`;
       const filePath = `_src/blog/md-posts/${file}.md`;
       const html = marked( fs.readFileSync(filePath, 'utf8') );
-      return { file, html };
+      return { file, html, title, date, dcr };
     }
     function writeFile(template, fileObj, i) {
+      const { title, dcr, date, html: markdownContent } = fileObj;
       const jadeContent = fs.readFileSync(template, 'utf8');
       const renderJade = jade.compile( jadeContent, {
         pretty: true,
         filename: template
-      })
-      const indexHTML = renderJade({pageMarkdownContent: fileObj.html});
+      });
+
+      const indexHTML = renderJade({
+        title,
+        dcr,
+        date,
+        markdownContent,
+      });
 
       const dirPath = `_dist/blog/${fileObj.file}`;
       mkdirp.sync(dirPath);
