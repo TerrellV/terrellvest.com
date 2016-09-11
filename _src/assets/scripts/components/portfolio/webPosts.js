@@ -21,8 +21,13 @@ const PostItemView = ({ postID, post, linkStyles }) =>
       </a>
     </div>
     <div className="box l--7-12 proj-prev-text-cont">
-      <h1 className="proj-prev-heading">{post.title}</h1>
-      <h4 className="proj-prev-subheader">{post.subheader}</h4>
+      <h1
+        className="proj-prev-heading"
+        style={{ color: `${post.colorDark}` }}
+      >
+        {post.title}
+      </h1>
+      <h2 className="proj-prev-subheader">{post.subheader}</h2>
       <p className="proj-prev-descripton">{post.dcr}</p>
       <div className="proj-prev-text-links" >
         <a

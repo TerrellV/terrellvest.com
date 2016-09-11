@@ -14,7 +14,7 @@ $sub-heading-list: h2 h3 h4 h5 h6;
   // allways
   font-family: "Merriweather",serif;
   p {
-    color: black;
+    color: rgba(0, 0, 0, 0.70);
   }
 
   h1 {
@@ -57,7 +57,7 @@ $sub-heading-list: h2 h3 h4 h5 h6;
   }
 
   p+p {
-    text-indent: 2em;
+    margin-top: 29px;
     &.own-line {
       margin-top: 2rem;
       text-indent: 0;
