@@ -1,0 +1,113 @@
+$gutter: 3rem;
+$mobile-gutter: 1.5rem;
+
+.project-link {
+  color: black;
+  text-decoration: none;
+}
+
+.project-item-row{
+  margin-bottom: 100px;
+  align-items: flex-start;
+  @media (min-width: $m-bp) and (max-width: $l-bp - 1px) {
+    padding: 0;
+  }
+}
+// img container
+.proj-prev-img-padding {
+  padding-left: $gutter;
+  padding-right: $gutter / 2;
+  height: 175px;
+  max-width: 323px;
+  .stretcher{
+    padding-bottom: 70%;
+  }
+  @media (max-width: $l-bp - 1px) {
+    padding: 0;
+    margin-bottom: 2rem;
+  }
+}
+.proj-prev-img-cont {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  .preview-img {
+    width: 251px;
+    height: 175px;
+    object-fit: cover;
+    font-family: 'object-fit: cover';
+  }
+  @media (min-width: $m-bp + 1px) {
+    .prev-img-svg {
+      transition: filter 100ms ease-in-out;
+    }
+    &:hover {
+      .prev-img-svg {
+        transition: filter 300ms ease-in-out;
+        -webkit-filter: drop-shadow(2px 2px 6px rgba(100, 100, 100, 0.30));
+      }
+    }
+  }
+  @media (max-width: $l-bp) {
+    .preview-img {
+      width: 323px;
+      height: 226px;
+    }
+    .prev-img-svg {
+      -webkit-filter: drop-shadow(2px 2px 6px rgba(100, 100, 100, 0.30));
+    }
+  }
+}
+
+// text container
+.proj-prev-text-cont {
+  margin-top: -6px;
+  padding-left: $gutter / 2;
+  padding-right: $gutter;
+  font-family: $font-sans;
+  @media (max-width: $m-bp) {
+    padding: 0 $mobile-gutter;
+  }
+  @media (max-width: $l-bp - 1px) {
+    padding: 0;
+  }
+}
+.proj-prev-heading {
+  width: 100%;
+  font-size: 24px;
+  font-weight: 700;
+}
+.proj-prev-subheader {
+  width: 100%;
+  opacity: 0.7;
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 16px 0;
+  @media (min-width: $m-bp + 1px) and (max-width: $l-bp) {
+    margin: 1rem 0;
+  }
+  @media (max-width: $m-bp) {
+    margin: 1rem 0;
+  }
+}
+.proj-prev-descripton {
+  align-self: center;
+  line-height: 32px;
+  color: rgba(0, 0, 0, 0.7);
+  font-size: 1rem;
+  font-family: $font-serif;
+  @media (max-width: $l-bp) {
+    margin-bottom: 1rem;
+    letter-spacing: 0;
+    line-height: 1.75rem;
+  }
+}
+.proj-prev-text-links {
+  align-self: flex-end;
+  a:not(:first-child) {
+    margin-left: 1.5rem;
+  }
+}

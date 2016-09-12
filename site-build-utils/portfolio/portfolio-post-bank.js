@@ -3,21 +3,32 @@ import configurePortfolioBank from './configurePortfolioBank';
 const portfolioPosts = [
   {
     title: "Entrepreneur Workshop",
-    date: [2015,12,4], // year, month, day
+    pic: true,
+    date: [2015, 12, 4], // year, month, day
+    subheader: 'Miramar College Business Club 2015',
     type: 'business', // business or web
+    color: '#4996c3',
+    colorDark: '#0f4d72',
     dcr:
       'An on campus event aimed to address student interest in entrepreneurship as a potential career path'
   },
   {
     title: "Marketing Proposal",
-    date: [2015,11,18], // year, month, day
+    subheader: 'SAY San Diego 2014-2016',
+    date: [2015, 11, 18], // year, month, day
     type: 'business', // business or web
+    color: '#ffe9df',
+    colorDark: '#ff9800',
     dcr:
       'A marketing project designed to aid a Local Non Profit in their pursuit to increase awereness, share information, and tell their story to other businesses in San Diego'
   },
   {
-    title: "Master Your Money",
-    date: [2015,5,20], // year, month, day
+    title: 'Master Your Money',
+    pic: true,
+    color: '#84bbb3',
+    colorDark: '#077766',
+    subheader: 'Miramar College Business Club 2015',
+    date: [2015, 5, 20], // year, month, day
     type: 'business', // business or web
     dcr:
       'A financial literacy workshop for college students that addressed topics such as budgeting and debt management'

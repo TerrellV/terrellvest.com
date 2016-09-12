@@ -53,19 +53,15 @@ article.about-section {
 }
 
 
-
-
-
 @media(max-width: $xl-bp){
   article.about-section {
     padding: 4rem 1rem;
     padding-top: 0rem;
   }
   .about-text-content {
-    text-align: center;
   }
   .about-name-heading {
-    margin-top: $text-offset;
+    margin-top: 40px;
   }
 }
 @media(max-width: $m-bp){
@@ -80,7 +76,6 @@ article.about-section {
     width: $size;
   }
   .about-name-heading {
-    margin-top: $text-offset;
     font-size: 1.5rem;
     letter-spacing: 4px;
   }

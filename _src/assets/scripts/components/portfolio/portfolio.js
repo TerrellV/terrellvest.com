@@ -1,11 +1,14 @@
 import React from 'react';
 import shortid from 'shortid';
-
+import CSSModules from 'react-css-modules';
+import portfolioStyles from './portfolio.scss';
 import PortMenu from './portfolioMenu/portMenu';
+import ObjectFitImages from 'object-fit-images';
 
 import portfolioPosts from '../../../.../../../../_dist/assets/json/portfolio.json';
 import WebPosts from './webPosts';
-import OtherProjects from './otherProjects';
+import BizProjects from './bizProjects';
+
 
 const postDB = Object.keys(portfolioPosts)
   .reduce((acc, key) => {
@@ -32,8 +35,8 @@ const Portfolio = React.createClass({
         TWO: {
           type: 'business',
           text: 'business',
-          path: '/portfolio/other',
-          route: 'other',
+          path: '/portfolio/business',
+          route: 'business',
         },
       },
       mobileHeaderClass: '',
@@ -46,6 +49,7 @@ const Portfolio = React.createClass({
   componentDidMount() {
     window.onresize = this.handleResize;
     window.onscroll = this.handleScroll;
+    ObjectFitImages('img.preview-img');
   },
   componentWillUpdate(nextProps) {
     const { params: nextParams } = nextProps;
@@ -60,8 +64,11 @@ const Portfolio = React.createClass({
     const { isSmallScreen: currentIsSmallScreen } = this.state;
     const { isSmallScreen: wasSmallScreen } = prevState;
 
+    if (prevProps.params.type !== this.props.params.type) {
+      console.log('switched portfolio projects page');
+      ObjectFitImages('img.preview-img');
+    }
     if (currentIsSmallScreen !== wasSmallScreen) {
-      console.log('switched');
       this.handleScroll();
     }
   },
@@ -74,7 +81,7 @@ const Portfolio = React.createClass({
   },
   getActiveCategory(props = this.props) {
     switch (props.params.type) {
-      case 'other':
+      case 'business':
         return 'business';
       default:
         return 'web';
@@ -129,9 +136,10 @@ const Portfolio = React.createClass({
       postsDynamicClass,
     };
     switch (this.props.params.type) {
-      case 'other':
+      case 'business':
         return (
-          <OtherProjects
+          <BizProjects
+            postDB={postDB.business}
             {...propsToPass}
           />
         );
@@ -162,8 +170,8 @@ const Portfolio = React.createClass({
     };
 
     return (
-      <div className="row portfolio-container">
-        <div className="box wrapper">
+      <div styleName="row portfolio-container">
+        <div styleName="box wrapper">
           <PortMenu
             portfolioState={infoForMenu}
             ref={el => { this.portMenu = el; }}
@@ -175,4 +183,7 @@ const Portfolio = React.createClass({
   },
 });
 
-export default Portfolio;
+export default CSSModules(Portfolio, portfolioStyles, {
+  allowMultiple: true,
+  errorWhenNotFound: false,
+});

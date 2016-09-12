@@ -1,35 +1,37 @@
 import React from 'react';
 import SVG from '../svg';
-
+import CSSModules from 'react-css-modules';
+import portfolioListStyles from './portfolio-list.scss';
+import portfolioListItemStyles from './portfolio-list-item.scss';
 
 const PostItemView = ({ postID, post, linkStyles }) =>
-  <div className="row project-item-row" key={postID}>
+  <div styleName="row project-item-row" key={postID}>
     <div
-      className="box l--5-12 proj-prev-img-padding"
+      styleName="box l--5-12 proj-prev-img-padding"
     >
       <a href={post.links.app} target="_blank" >
         <div
-          className="proj-prev-img-cont"
+          styleName="proj-prev-img-cont"
           style={{ backgroundColor: `${post.color}` }}
         >
           <SVG
-            className="prev-img-svg"
+            styleName="prev-img-svg"
             id={post.title.toLowerCase().trim().replace(/\s/g, '-')}
           />
-          <div className={"stretcher"}></div>
+          <div styleName={"stretcher"}></div>
         </div>
       </a>
     </div>
-    <div className="box l--7-12 proj-prev-text-cont">
+    <div styleName="box l--7-12 proj-prev-text-cont">
       <h1
-        className="proj-prev-heading"
+        styleName="proj-prev-heading"
         style={{ color: `${post.colorDark}` }}
       >
         {post.title}
       </h1>
-      <h2 className="proj-prev-subheader">{post.subheader}</h2>
-      <p className="proj-prev-descripton">{post.dcr}</p>
-      <div className="proj-prev-text-links" >
+      <h2 styleName="proj-prev-subheader">{post.subheader}</h2>
+      <p styleName="proj-prev-descripton">{post.dcr}</p>
+      <div styleName="proj-prev-text-links" >
         <a
           href={post.path}
           style={linkStyles}
@@ -46,14 +48,18 @@ const PostItemView = ({ postID, post, linkStyles }) =>
         </a>
       </div>
     </div>
-  </div>
+  </div>;
 
+const PostItemViewWithStyles = CSSModules(PostItemView, portfolioListItemStyles, {
+  allowMultiple: true,
+  errorWhenNotFound: false,
+});
 const WebProjects = ({ postDB, postsDynamicClass }) => {
   return (
-    <div className={`project-container ${postsDynamicClass}`}>
+    <div styleName={`project-container ${postsDynamicClass}`}>
       {
         Object.keys(postDB).map(key =>
-          <PostItemView
+          <PostItemViewWithStyles
             linkStyles={{ color: `${postDB[key].colorDark}` }}
             key={key}
             post={postDB[key]}
@@ -64,4 +70,7 @@ const WebProjects = ({ postDB, postsDynamicClass }) => {
   );
 };
 
-export default WebProjects;
+export default CSSModules(WebProjects, portfolioListStyles, {
+  allowMultiple: true,
+  errorWhenNotFound: true,
+});
