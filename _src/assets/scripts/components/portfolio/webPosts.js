@@ -22,32 +22,22 @@ const PostItemView = ({ postID, post, linkStyles }) =>
         </div>
       </a>
     </div>
-    <div styleName="box l--7-12 proj-prev-text-cont">
-      <h1
-        styleName="proj-prev-heading"
-        style={{ color: `${post.colorDark}` }}
-      >
-        {post.title}
-      </h1>
-      <h2 styleName="proj-prev-subheader">{post.subheader}</h2>
-      <p styleName="proj-prev-descripton">{post.dcr}</p>
-      <div styleName="proj-prev-text-links" >
-        <a
-          href={post.path}
-          style={linkStyles}
-          target="_self"
+    <a
+      href={post.path}
+      styleName="box l--7-12 portfolio-list-text-link" target="_self" style={{ color: `${post.colorDark}` }}
+    >
+      <div styleName="box proj-prev-text-cont">
+        <h1
+          styleName="proj-prev-heading"
+          style={{ color: `${post.colorDark}` }}
         >
-          Learn More
-        </a>
-        <a
-          href={post.links.app}
-          style={linkStyles}
-          target="_blank"
-        >
-          View App
-        </a>
+          {post.title}
+        </h1>
+        <h2 styleName="proj-prev-subheader">{post.subheader}</h2>
+        <p styleName="proj-prev-descripton">{post.dcr}</p>
+
       </div>
-    </div>
+    </a>
   </div>;
 
 const PostItemViewWithStyles = CSSModules(PostItemView, portfolioListItemStyles, {

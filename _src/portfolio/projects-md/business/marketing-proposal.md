@@ -1,9 +1,9 @@
 The Miramar Business club partnered with one of the largest nonprofits in San Diego. In this partnership our club developed a project to help SAY San Diego, promote their organization in the local community.
 
-# Objectives
+## Objectives
 More specifically, the goal of this project was to increase awareness, share information, and tell their story to other businesses in San Diego with the goal of increasing donor support.
 
-# Projects
+## Projects
 To satisfy these objectives we set out to create a social media guide along with a website critique. Both projects followed a timeline identical to the one below.
 
 <div class="num-list-container">
@@ -33,6 +33,5 @@ Angel Torres, a club officer, significantly contributed to the design of the soc
 
 For the website critique I simply provided guidance and presentational assistance. The rest of the significant contributions came from Joshua Nunn and Andrew Clark. Both individuals conducted research, aided in the creation of the written documentation, and lead the final presentation of the project.
 
-
-# Significance
+## Significance
 Both the social media guide and the website critique served as valuable resources to SAY in their effort to develop a more in depth online marketing strategy. This project also benefited the students participating. It allowed us to develop our skills beyond a class room environment. I got to lead meetings with business professionals and present finished projects.

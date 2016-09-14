@@ -2,8 +2,10 @@ $gutter: 3rem;
 $mobile-gutter: 1.5rem;
 
 .project-link {
+  position: relative;
   color: black;
   text-decoration: none;
+
 }
 
 .project-item-row{
@@ -25,6 +27,8 @@ $mobile-gutter: 1.5rem;
   @media (max-width: $l-bp - 1px) {
     padding: 0;
     margin-bottom: 2rem;
+    width: 323px;
+    height: 226px;
   }
 }
 .proj-prev-img-cont {
@@ -39,6 +43,10 @@ $mobile-gutter: 1.5rem;
     height: 175px;
     object-fit: cover;
     font-family: 'object-fit: cover';
+    @media (max-width: $l-bp - 1px) {
+      width: 323px;
+      height: 226px;
+    }
   }
   @media (min-width: $m-bp + 1px) {
     .prev-img-svg {
@@ -52,10 +60,6 @@ $mobile-gutter: 1.5rem;
     }
   }
   @media (max-width: $l-bp) {
-    .preview-img {
-      width: 323px;
-      height: 226px;
-    }
     .prev-img-svg {
       -webkit-filter: drop-shadow(2px 2px 6px rgba(100, 100, 100, 0.30));
     }
@@ -63,12 +67,32 @@ $mobile-gutter: 1.5rem;
 }
 
 // text container
+.portfolio-list-text-link {
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+  &:hover {
+    &:after {
+      color: inherit;
+      content: 'read more...';
+      position: absolute;
+      bottom: 0px;
+      transform: translateY(100%);
+      top: 4px;
+      @media (min-width: $l-bp) {
+        top: 4px;
+        transform: translateY(103%);
+        padding-left: $mobile-gutter;
+      }
+    }
+  }
+}
 .proj-prev-text-cont {
-  margin-top: -6px;
+  margin-top: -2px;
   padding-left: $gutter / 2;
   padding-right: $gutter;
   font-family: $font-sans;
-  @media (max-width: $m-bp) {
+  @media (max-width: $m-bp - 1px) {
     padding: 0 $mobile-gutter;
   }
   @media (max-width: $l-bp - 1px) {
@@ -85,6 +109,7 @@ $mobile-gutter: 1.5rem;
   opacity: 0.7;
   font-size: 1rem;
   font-weight: 700;
+  color: black;
   margin: 16px 0;
   @media (min-width: $m-bp + 1px) and (max-width: $l-bp) {
     margin: 1rem 0;
