@@ -11,7 +11,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(path.join( __dirname, '_dist' )));
 
+app.use('/portfolio/*', (req, res, next) => {
+  res.sendFile(path.join(__dirname, '_dist/portfolio/index.html'))
+});
 
 var server = app.listen(3020, function () {
-    console.log('Your server is running on port 3020');
+  console.log('Your server is running on port 3020');
 });
