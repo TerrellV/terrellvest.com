@@ -1,117 +1,72 @@
 // default styles
 main {
   font-family: "Roboto", sans-serif;
-  @extend %main_tag;
-  #contact-sub-header {
-    @extend %sub-header;
-    width: 28%;
-    visibility: hidden;
-  }
-  #contact-sections {
-    width: 72%;
-    box-sizing: border-box;
-    font-size: 2rem;
+}
 
-    div {
-      h1{
-        padding-bottom: .5rem;
-      }
-      p {
-        font-size: .65em;
-        color: rgba(100,100,100,.5);
-        margin: 1rem 0;
-      }
+// general
+.contact-section {
+  .header {
+    .heading {
+      font-size: 32px;
     }
-
-    .social-container{
-      // border: 1px solid $accent-red;
-      margin-bottom: 5rem;
-      font-size: 2rem;
-      h1{
-        font-size: 1em;
-      }
-      .icons{
-        margin-top: .5em;
-        a {
-          position: relative;
-          height: 80px;
-          width: 80px;
-          display: inline-block;
-          margin-right:10px;
-          margin-top:.5em;
-          cursor: pointer;
-          .box{
-            position: relative;
-            display: block;
-            height: 100%;
-            width: 100%;
-            color: darken(#ECECEC,40%);
-            box-sizing: border-box;
-            // transition: all 150ms ease-in-out;
-            &:after {
-              content: '';
-              width:100%; height: 100%;
-              display: block;
-              position: absolute;
-              bottom: 0px;
-              left: 0px;
-              z-index: -1
-            }
-            .logo{
-              position: absolute;
-              display: block;
-              left: 50%;
-              top: 50%;
-              transform: translate(-50%,-50%);
-              filter: brightness(0) grayscale(1);
-              opacity: .5;
-            }
-            #facebook,#github,#instagram{
-              width: 30px;
-              height: 30px;
-            }
-            #twitter {
-              width: 50px;
-              height: 50px;
-            }
-            #linkedIn {
-              width: 40px;
-            }
-          }
-        }
-      }
-
-    }
-    .email-container{
-      font-size: 2rem;
-      h1{
-        font-size: 1em;
-      }
-      address{
-        margin-top: 1.5em;
-        &:hover{
-          a{
-            color: $accent-blue;
-            text-decoration: underline;
-          }
-        }
-        a{
-          font-size: 1em;
-          color: #868686 ;
-          text-decoration: none;
-          font-style: normal;
-          font-family:"Roboto", sans-serif;
-          letter-spacing: 1px;
-        }
-      }
+    .sub-heading {
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      font-size: 22px;
+      font-weight: 300;
+      opacity: 0.5;
     }
   }
 }
 
+.social-container{
+  margin-bottom: 6rem;
+  font-size: 2rem;
+  .icons {
+    margin-top: 24px;
+    .icon-row {
+      width: 100%;
+      max-width: 650px;
+      justify-content: space-around;
+    }
+    .social-link {}
+    .social-icon-circle {
+      transition: height 200ms ease, width 200ms ease;
+      border-radius: 50%;
+      height: 80px;
+      width: 80px;
+      position: relative;
+      &:not(:first-of-type()) {
+        margin-left: 5
+      }
+    }
+    $iconSize: 27px;
+    .social-icon {
+      transition: height 200ms ease, width 200ms ease;
+      height: $iconSize;
+      width: $iconSize;
+      display: inline-block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      &:not(#twitter) {
+        top: 49%;
+      }
+    }
+    #linkedIn {
+      $mySize: $iconSize - 3px;
+      height: $mySize;
+      width: $mySize * 1.2222;
+    }
+  }
+}
+
+
 $socialColors: (
   twitter: #55ACEE,
   facebook: #3B5998,
-  instagram: #9D6954,
+  instagram: #e43f5e,
   linkedIn: #0077B5,
   github: #333
 );
@@ -119,15 +74,18 @@ $socialColors: (
 // key, value in list
 @each $name, $color in $socialColors{
   .#{$name}_circle{
-    // background-color: #ECECEC;
     color: $color;
+    background-color: $color;
+    .logo{
+      opacity: 1 !important;
+      filter: grayscale(1) brightness(10) !important;
+    }
     &:after{
       transition: width 250ms ease-in-out;
-      // background-color:$color;
     }
     &:hover{
       &:after{
-        background-color:$color;
+        // apply styles to after on hover
       }
       .logo{
         opacity: 1 !important;
@@ -137,58 +95,55 @@ $socialColors: (
   }
 }
 
-// mobile
-@media(max-width: $medium-break-point) {
-  main {
-    header {
-    }
-    #contact-sections {
-      width: 100%;
-      .social-container{
-        font-size: 1.5rem;
-        margin-bottom: 2em;
-        .icons{
-          $side: 50px;
-          a {
-            margin-left: -4px;
-            margin-right: 8px;
-            width: $side !important;
-            height: $side !important;
-          }
-          #facebook,#github,#instagram{
-            width: 25px !important;
-            height: 25px !important;
-          }
-          #twitter {
-            width: 40px !important;
-            height: 40px !important;
-          }
-          #linkedIn {
-            width: 30px !important;
-            height: auto !important;
-          }
-        }
-      }
-      .email-container{
-        font-size: 1.5rem;
-        address {
-          a{
-            color: $accent-blue;
-            text-decoration: underline;
-          }
-        }
+
+// email container
+.email-container{
+  margin-bottom: 5rem;
+  font-size: 2rem;
+  .email {
+    .email-link {
+      color: black;
+      text-decoration: none;
+      font-style: normal;
+      color: $accent-blue;
+      &:hover {
+        text-decoration: underline;
       }
     }
   }
 }
 
-// medium - large
-@media(min-width: #{$medium-break-point + 1}px) {
-  main {
-    header {
-    }
-    #contact-sections {
 
+// mobile
+@media(max-width: $m-bp) {
+
+  .social-container{
+    margin-bottom: 4rem;
+    font-size: 2rem;
+    .icons {
+      padding: 0 50px;
+      .social-link {
+        margin: 1rem;
+      }
+      .social-icon-circle {
+        border-radius: 50%;
+        height: 60px;
+        width: 60px;
+        position: relative;
+      }
+      $iconSize: 20px;
+      .social-icon {
+        height: $iconSize;
+        width: $iconSize;
+      }
+    }
+  }
+
+  .email-container {
+    .email {
+      .email-link {
+        font-size: 20px;
+      }
     }
   }
 }

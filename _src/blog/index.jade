@@ -13,23 +13,13 @@ html(lang="en")
     meta(name="apple-mobile-web-app-capable" content="yes")
     meta(name="mobile-web-app-capable" content="yes")
     include ../assets/markup/favicon.jade
+    link(href="../assets/styles/grizzly/grid.css" rel="stylesheet" type="text/css")
     link(href="../assets/styles/main.css" rel="stylesheet" type="text/css")
   body
-    div.nav_container
-    header#site-header
-      nav
-        div.row
-          include ../assets/markup/logo.jade
-          include ../assets/markup/nav.jade
-    main#blog-content
-      .row
-        header.sub-header.col
-          h1.page-title Posts
-        div#blog-posts.col
-          each post in postArr
-            a(href=post.path)
-              div
-                h1=post.title
-                span=post.date
-                div#blog-preview-dcr=post.dcr
+    .page-wrapper
+      include ../assets/markup/nav.jade
+      main#App
+      footer.site-footer
     script(src="../assets/scripts/g_a_code.js")
+    script(src="/public/portfolio/bundle.js" type="text/javascript")
+    

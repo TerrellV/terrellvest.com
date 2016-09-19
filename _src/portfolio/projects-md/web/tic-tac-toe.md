@@ -1,27 +1,23 @@
-# Project Description
-This application allows the user to play “Tic Tac Toe” against the computer. The computer's skill level can be set to various difficulties.
-Choose easy and the computer will play in random locations. Pick regular and the computer will only react to certain conditions. Finally, if you set the difficulty to impossible, the computer will make the most ideal move every single time. Each game will result in a tie or a loss
+Play “Tic Tac Toe” against the computer. The computer's skill level can be set to various difficulties.
 
-# Used
-React, Flux, Grunt, Browserify, Sass, and GithubPages.
+Choose easy and the computer will play in random locations. Pick regular and the computer will only react to certain conditions. Finally, if you set the difficulty to impossible, the computer will make the most ideal move every single time. Each game will result in a tie or a loss!
 
-# Design
+I dare you to try and beat the computer on impossible mode.
 
-<img id="" class="portrait" src="../../assets/images/tic-tac-toe/screen-with-palette.png">
+## Build With
 
-As you will find with most of my projects, I enjoy taking the time to design the visual representation of an app before I write any meaningful code. This particular app was designed in Adobe Illustrator.
+React, Flux, Grunt, & Browserify.
 
-This app uses many concepts outlined in Google's material design documentation. With that said, only a miniscule amount of their pre written styles were used. For the purpose of learning I strive to personally code features or specific styling that I've yet to use myself.
+## Design
 
-Below are images of the various screens of the app I created during the design process.
+Overall layout and page design was created in Photoshop while some individual elements were created in Illustrator.
 
-<img class="landscape" src="../../assets/images/tic-tac-toe/desktop-version.png" alt="">
+This app was partially Inspired by Google's Material Design.
 
-# Challenges
-This was the first application I built using both react and flux. Previously I had only used Angular while managing state in an unorganized manor.
+
+## Challenges
+This was the first application I built using both React and Flux. Previously I had only used Angular v1.x +.
 
 Writing the logic for the computer in both the regular and impossible game modes proved to be more challenging than expected. The application had to be setup so that each time the user made a move, the computer evaluated the state of the board and made the best move.
 
-After writing the entire app, It was brought to my attention that algorithms exist for implementing such logic. However, the code and ideas used in this application came simply from my analysis of many tic-tac-toe games.
-
-# View
+After writing the entire app, It was brought to my attention that algorithms exist for implementing such logic. However, the code and ideas used in this application came strictly from my analysis of many, many tic-tac-toe games.

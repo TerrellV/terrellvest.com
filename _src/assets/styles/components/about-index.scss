@@ -1,40 +1,81 @@
+$text-offset: 1rem;
 
-// default styles
+.page-content {
+  padding-bottom: $footer-height;
+}
+
+article.about-section {
+  padding: 10rem 1rem;
+  padding-top: 4rem;
+}
+
+.profile-pic-wrapper {
+  $size: 355px;
+  height: $size;
+  width: $size;
+  border-radius: 50%;
+  overflow: hidden;
+  display: inline-block;
+  position:relative;
+  z-index:1;
+  transition: height 200ms ease, width 200ms ease;
+}
+
+#profile-pic {
+  display: inline-block;
+  height: 100%;
+  position: relative;
+  left: -43%;
+}
+
+// md content overides
 #about-content {
-  @extend %main_tag;
+  p + p {
+    text-indent: 0;
+    margin-top: 29px;
+  }
 }
 
-// small devices
-@media (max-width: $medium-break-point) {
-  #about-content{
-    #profile-pic {
-      width: 80%;
-      padding-bottom: 2rem;
-      @media (max-width: 550px){
-        width: 100%;
-      }
-    }
-    a {
-      color: $accent-blue;
-    }
+.about-name-heading {
+  width: 100%;
+  font-weight: 600;
+  font-size: 24px;
+  letter-spacing: 2px;
+  margin-bottom: $text-offset;
+}
+
+.about-text-content {
+  p {
+    font-size: 1rem;
+    color: rgba(0, 0, 0, 0.7);
+    line-height: 32px;
   }
 }
-  // large devices
-  @media (min-width: $medium-break-point + 1) {
-    article > div {
-      width: 72%;
-    }
-    #about-content {
-      #profile-pic {
-        width: 70%;
-        padding-bottom: 2rem;
-      }
-      a {
-        color: $text-grey;
-        transition: color 100ms ease;
-        &:hover{
-          color: $accent-blue;
-        }
-      }
-    }
+
+
+@media(max-width: $xl-bp){
+  article.about-section {
+    padding: 4rem 1rem;
+    padding-top: 0rem;
   }
+  .about-text-content {
+  }
+  .about-name-heading {
+    margin-top: 40px;
+  }
+}
+@media(max-width: $m-bp){
+  article.about-section {
+    // margin-top: -2rem;
+    padding: 6rem 1rem;
+    padding-top: 0rem;
+  }
+  .profile-pic-wrapper {
+    $size: 180px;
+    height: $size;
+    width: $size;
+  }
+  .about-name-heading {
+    font-size: 1.5rem;
+  }
+}

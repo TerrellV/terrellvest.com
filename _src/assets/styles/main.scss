@@ -1,9 +1,7 @@
-// tools and frameworks
-@import "./tools/Toast-master/scss/_grid.scss";
-
 // set variables for use in other style sheets
 @import "./partials/vars.scss";
 // define functions
+@import "./partials/mixins.scss";
 @import "./partials/functions.scss";
 
 // reset the browser styles
@@ -11,20 +9,20 @@
 
 // set typogrophy rules
 @import "./partials/typography.scss";
+@import "./partials/animations.scss";
+// styles for html from markdown
+@import "./partials/md-content.scss";
 
 /*
  * COMPONENTS BELOW
 */
 
-// navigation container
-@import "./components/nav-container.scss";
-
-//logo
-@import "./components/logo.scss";
-
-// site headers
-@import "./components/site-header.scss";
-@import "./components/sub-header.scss";
+// page wrapper
+@import "./components/page-wrapper.scss";
+// navigation
+@import "./components/navigation.scss";
+// footer
+@import "./components/footer.scss";
 
 // about page
 @import "./components/about-index.scss";
@@ -39,13 +37,11 @@
 
 // portfolio page
 @import "./components/portfolio-index.scss";
+@import "./components/portfolio-nav.scss";
   // proj post
   @import "./components/portfolio-post.scss";
   @import "./components/post-action-buttons.scss";
   @import "./partials/portfolio-button-classes.scss";
-
-// styles for html from markdown
-@import "./partials/md-content.scss";
 
 // styles for contact page
 @import "./components/contact.scss";

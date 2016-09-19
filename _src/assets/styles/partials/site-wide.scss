@@ -3,21 +3,19 @@
   margin: 0;
 }
 
-%main_tag {
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
-  max-width: $medium-large-break-point;
+html, body {
+  height: 100%;
 }
 
 :root {
   font: {
+    family: "Roboto", sans-serif;
     size: $root-font;
   }
 }
 
 body {
-  padding: $body-padding;
+  background-color: white;
   @media(max-width: 700px) {
     overflow-x: hidden;
   }

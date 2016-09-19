@@ -1,19 +1,52 @@
-%post-description {
-  display: inline-block;
-  margin-top: .75em;
-  margin-bottom: 1.5em;
-  span {
-    font-family: "Roboto",sans-serif;
-    display: block;
-    color: grey;
+.blog-post-main {
+  padding: 0 $body-padding;
+}
+
+.blog-post-wrap {
+  max-width: 650px;
+  width: 100%;
+}
+
+.blog-post-header {
+  margin-bottom: 2rem;
+}
+.blog-title {
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+.blog-date {
+  opacity: 0.7;
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+.blog-post-text {
+  margin-left: auto;
+  margin-right: auto;
+}
+// button at bottom for going back to list
+.back-blog-container {
+  position: relative;
+  margin-top: 75px;
+  margin-bottom: 2em;
+  .back-blog-btn {
+    position: relative;
+    box-sizing: border-box;
+    padding: 0.75rem 1.75rem;
+    border-radius: 50px;
+    border: 2px solid $text-grey;
+    text-decoration: none;
+    color: $text-grey;
+    text-align: center;
+    color: $text-grey;
+    cursor: pointer;
+    outline: none;
   }
 }
 
 .blog-post-content {
-  @extend %main_tag;
   #blog-header-wrap {
     header {
-      @extend %sub-header;
       @media(max-width:700px) {
         margin-left: -$body-padding;
         .page-title {
@@ -22,48 +55,27 @@
       }
     }
     .blog-post-description{
-      @media(min-width:$medium-break-point + 1) {
+      @media(min-width:$m-bp + 1) {
         padding-right: 50px;
       }
-      @media(max-width:$medium-break-point) {
+      @media(max-width:$m-bp) {
         // padding-right: 50px;
       }
-      @extend %post-description;
     }
-    @media(min-width:$medium-break-point + 1) {
+    @media(min-width:$m-bp + 1) {
       width: 28%;
       text-align: right;
     }
   }
   #blog-post-md-content {
-    @media(min-width:$medium-break-point + 1) {
+    @media(min-width:$m-bp + 1) {
       width: 72%;
-    }
-  }
-  // button at bottom for going back to list
-  #back-blog-container {
-    padding-left: $body-padding;
-    position: relative;
-    margin-top: 3em;
-    margin-bottom: 2em;
-    #back-blog {
-      position: relative;
-      box-sizing: border-box;
-      padding: 0.75rem 1.75rem;
-      border-radius: 50px;
-      border: 2px solid $text-grey;
-      text-decoration: none;
-      color: $text-grey;
-      text-align: center;
-      color: $text-grey;
-      cursor: pointer;
-      outline: none;
     }
   }
 }
 
 // large devices
-@media(min-width:$medium-break-point + 1) {
+@media(min-width:$m-bp + 1) {
   .blog-post-content{
     article{
       #back-blog-container{
@@ -81,7 +93,7 @@
   }
 }
 // small devices
-@media(max-width:$medium-break-point) {
+@media(max-width:$m-bp) {
   .blog-post-content{
     article{
       #back-blog-container{

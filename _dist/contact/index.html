@@ -8,65 +8,52 @@
     <link rel="icon" type="image/gif" href="../assets/images/site-wide/favicon-logo.png">
     <link rel="icon" type="image/jpeg" href="../assets/images/site-wide/favicon-logo.png">
     <link rel="icon" type="image/vnd.microsoft.icon" href="../assets/images/site-wide/favicon-logo.png">
+    <link href="../assets/styles/grizzly/grid.css" rel="stylesheet" type="text/css">
     <link href="../assets/styles/main.css" rel="stylesheet" type="text/css">
-    <style>
-      @media(max-width:700px){
-        .nav_container {
-          position: absolute;
-          width: 100%;
-          //- margin-top: -25px;
-          margin-left: -25px;
-          display: block;
-          height: 130px;
-          box-shadow: 1px 1px 4px  rgba(100,100,100,.2);
-        }
-        #page-header{
-          margin-bottom: 1rem;
-        }
-      }
-    </style>
   </head>
   <body>
-    <div class="nav_container"></div>
-    <header id="page-header">
-      <nav>
-        <div class="row">
-          <div id="logo-container"><a id="logo-link" href="/">
-              <svg id="logo-svg_elem">
-                <use xlink:href="../assets/images/sprites/sprites.svg#logo"></use>
-              </svg></a></div>
-          <div id="nav-list-container" class="col">
-            <ul id="nav-list"><a href="/" id="about-link" class="inactive">
-                <li>About</li></a><a href="/portfolio" id="portfolio-link" class="inactive">
-                <li>Portfolio</li></a><a href="/blog" id="blog-link" class="inactive">
-                <li>Blog</li></a><a href="/contact" id="contact-link" class="active">
-                <li>Contact</li></a></ul>
+    <div class="page-wrapper">
+      <nav class="row nav-parent-row">
+        <box class="wrapper">
+          <div class="row center--col-x nav-wrapper-row">
+            <div class="box logo-box auto--width"> <a href="/" class="nav-logo-link">
+                <svg id="nav-logo-svg">
+                  <use xlink:href="../assets/images/sprites/sprites.svg#logo"></use>
+                </svg></a></div>
+            <div class="box nav-list-box">
+              <div class="row nav-list"><a href="/" id="about-link" class="box nav-list-item-box auto--width inactive"><span class="nav-text-item">About</span></a><a href="/portfolio" id="portfolio-link" class="box nav-list-item-box auto--width inactive"><span class="nav-text-item">Portfolio</span></a><a href="/blog" id="blog-link" class="box nav-list-item-box auto--width inactive"><span class="nav-text-item">Blog</span></a><a href="/contact" id="contact-link" class="box nav-list-item-box auto--width active"><span class="nav-text-item">Contact</span></a></div>
+            </div>
           </div>
-        </div>
+        </box>
       </nav>
-    </header>
-    <main>
-      <div class="row icons">
-        <header id="contact-sub-header" class="sub-header col"></header>
-        <div id="contact-sections" class="col">
-          <div class="social-container">
-            <h1>Social</h1>
-            <p>Perfect for a brief message</p>
-            <row class="icons"><a href="https://twitter.com/TerrellVest7" target="_blank">
-                <div class="box col twitter_circle"><img src="../assets/images/social-icons/twitter-logo-blue.png" id="twitter" class="logo"></div></a><a href="https://www.facebook.com/terrell.vest7" target="_blank">
-                <div class="box col facebook_circle"><img src="../assets/images/social-icons/facebook-logo-white.png" id="facebook" class="logo"></div></a><a href="http://instagram.com/terrellvest7/" target="_blank">
-                <div class="box col instagram_circle"><img src="../assets/images/social-icons/Glyph_Logo_png.png" id="instagram" class="logo"></div></a><a href="https://www.linkedin.com/profile/preview?vpa=pub&amp;locale=en_US" target="_blank">
-                <div class="box col linkedIn_circle"><img src="../assets/images/social-icons/linkedIn-white.png" id="linkedIn" class="logo"></div></a><a href="https://github.com/MirPresT" target="_blank">
-                <div class="box col github_circle"><img src="../assets/images/social-icons/github-white.png" id="github" class="logo"></div></a>
-            </row>
-          </div>
-          <div class="email-container">
-            <h1>Email</h1>
-            <p>If your message is a bit longer</p>
-            <address> <a href="mailto:terrell@terrellvest.com">terrell@terrellvest.com</a></address>
+      <main>
+        <div class="row">
+          <div class="box wrapper">
+            <div class="row center--col-x social-container contact-section">
+              <div class="box social-header center--content header">
+                <h1 class="heading">Social</h1>
+                <p class="sub-heading">short messages</p>
+              </div>
+              <div class="box icons">
+                <div class="row center--col-x center--row-x icon-row"><a href="https://twitter.com/TerrellVest7" target="_blank" class="box auto--width social-link">
+                    <div class="social-icon-circle twitter_circle"><img src="../assets/images/social-icons/twitter-logo-blue.png" id="twitter" class="social-icon"></div></a><a href="https://www.facebook.com/terrell.vest7" target="_blank" class="box auto--width social-link">
+                    <div class="social-icon-circle facebook_circle"><img src="../assets/images/social-icons/facebook-logo-white.png" id="facebook" class="social-icon"></div></a><a href="https://www.instagram.com/terrellvest/" target="_blank" class="box auto--width social-link">
+                    <div class="social-icon-circle instagram_circle"><img src="../assets/images/social-icons/glyph-logo_May2016.png" id="instagram" class="social-icon"></div></a><a href="https://www.linkedin.com/in/terrell-vest" target="_blank" class="box auto--width social-link">
+                    <div class="social-icon-circle linkedIn_circle"><img src="../assets/images/social-icons/linkedIn-white.png" id="linkedIn" class="social-icon"></div></a><a href="https://github.com/MirPresT" target="_blank" class="box auto--width social-link">
+                    <div class="social-icon-circle github_circle"><img src="../assets/images/social-icons/github-white.png" id="github" class="social-icon"></div></a>
+                </div>
+              </div>
+            </div>
+            <div class="row center--col-x email-container contact-section">
+              <div class="box email-header center--content header">
+                <h1 class="heading">Email</h1>
+                <p class="sub-heading">longer messages</p>
+              </div>
+              <address class="box email center--content"><a href="mailto:terrell@terrellvest.com" class="email-link">terrell@terrellvest.com</a></address>
+            </div>
           </div>
         </div>
-      </div>
-    </main>
+      </main>
+    </div>
   </body>
 </html>

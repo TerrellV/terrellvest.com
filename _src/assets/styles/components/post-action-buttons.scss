@@ -63,7 +63,7 @@
 }
 
 // mobile view
-@media(max-width: #{$medium-break-point}){
+@media(max-width: #{$m-bp}){
   .actionButtons{
     .btn{
       margin-bottom: 1rem;
@@ -78,7 +78,7 @@
 }
 
 // medium and large view
-@media(min-width: #{$medium-break-point + 1px}){
+@media(min-width: #{$m-bp + 1px}){
   .actionButtons{
     left: 28%;
     width: 72%;

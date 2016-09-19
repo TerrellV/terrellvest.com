@@ -4,57 +4,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
+    <link href="../../assets/styles/grizzly/grid.css" rel="stylesheet" type="text/css">
     <link href="../../assets/styles/main.css" rel="stylesheet" type="text/css">
   </head>
   <body>
-    <div class="nav_container"></div>
-    <header>
-      <nav>
-        <div class="row">
-          <div id="logo-container"><a id="logo-link" href="/">
-              <svg id="logo-svg_elem">
-                <use xlink:href="../../assets/images/sprites/sprites.svg#logo"></use>
-              </svg></a></div>
-          <div id="nav-list-container" class="col">
-            <ul id="nav-list"><a href="/" id="about-link" class="inactive">
-                <li>About</li></a><a href="/portfolio" id="portfolio-link" class="active">
-                <li>Portfolio</li></a><a href="/blog" id="blog-link" class="inactive">
-                <li>Blog</li></a><a href="/contact" id="contact-link" class="inactive">
-                <li>Contact</li></a></ul>
+    <div class="page-wrapper">
+      <nav class="row nav-parent-row">
+        <box class="wrapper">
+          <div class="row center--col-x nav-wrapper-row">
+            <div class="box logo-box auto--width"> <a href="/" class="nav-logo-link">
+                <svg id="nav-logo-svg">
+                  <use xlink:href="../../assets/images/sprites/sprites.svg#logo"></use>
+                </svg></a></div>
+            <div class="box nav-list-box">
+              <div class="row nav-list"><a href="/" id="about-link" class="box nav-list-item-box auto--width inactive"><span class="nav-text-item">About</span></a><a href="/portfolio" id="portfolio-link" class="box nav-list-item-box auto--width active"><span class="nav-text-item">Portfolio</span></a><a href="/blog" id="blog-link" class="box nav-list-item-box auto--width inactive"><span class="nav-text-item">Blog</span></a><a href="/contact" id="contact-link" class="box nav-list-item-box auto--width inactive"><span class="nav-text-item">Contact</span></a></div>
+            </div>
           </div>
-        </div>
+        </box>
       </nav>
-    </header>
-    <main class="portfolio-post-main">
-      <article class="row">
-        <div id="portfolio-post-header-wrap" class="col">
-          <header class="sub-header">
-            <h1 class="page-title">Random Quote Generator</h1>
-          </header>
-          <div class="portfolio-post-description"><span>July 1, 2015</span></div>
-        </div>
-        <div id="portfolio-post-md-content" class="md-content col"><h1 id="project-description">Project Description</h1>
-<p>Each quote is chosen randomly from a pool of twenty. No single quote will be chosen twice except after all quotes have already been viewed.</p>
-<h1 id="used">Used</h1>
+      <main class="portfolio-post-main">
+        <article class="row center--col-x">
+          <div class="post-wrap box wrapper center-content">
+            <header style="border-color:#5499e1" class="portfolio-post-header header-web">
+              <h1 class="post-title web">Random Quote Generator</h1><span class="post-date">July 1st, 2015</span>
+              <div class="btn-links"><a target="_blank" href="https://rawgit.com/MirPresT/Random-Quote-Generator/master/html/index.html" class="btn-link-wrapper">
+                  <button style="background-color:#5499e1" class="btn">App</button></a><a target="_blank" href="https://github.com/MirPresT/Random-Quote-Generator" class="btn-link-wrapper">
+                  <button class="btn">Code</button></a></div>
+            </header>
+            <div class="box post-md-content md-content"><h2 id="project-description">Project Description</h2>
+<p>View a random quote. Each quote is chosen from a pool of twenty. No single quote will be chosen twice except after all quotes have already been viewed.</p>
+<h2 id="build">Build</h2>
 <p>Angular(most basic form), Grunt, Sass, jQuery</p>
-<h1 id="design">Design</h1>
-<p><img id="" class="landscape full" src="../../assets/images/random-quote-generator/final-mockup.png"></p>
-<p>I really enjoyed the simplicity in designing this project. There was only a single screen to design for and I could quickly create multiple variations to choose from. ¬I did zero design for a mobile screen size. The only mockups I generated were based on my personal monitor. At the time I understood mobile was important but I didn’t understand media queries. It’s funny looking back.</p>
-<p>Here are some of the alternate center components I made for the app. The portrait layout I considered would have been ideal for a mobile design. Unfortunately, they were merely intended to sit on top of a full width background for medium to large screens.</p>
-<p><img id="" class="landscape full" src="../../assets/images/random-quote-generator/cards.png"></p>
-<h1 id="challenges">Challenges</h1>
-<p>As the second project I ever built, this was an extremely straight forward project. The only challenge presented was randomly selecting from a pool and ensuring all items had been chosen before a quote was shown again. I used Math.random() and a reduce function to achieve such functionality.</p>
-<h1 id="view">View</h1>
-
-        </div>
-        <div class="actionButtons"><a href="https://rawgit.com/MirPresT/Random-Quote-Generator/master/html/index.html" target="_blank" class="toApp btn"><span>App</span>
-            <div class="content grad_random-quote-generator"></div></a><a href="https://github.com/MirPresT/Random-Quote-Generator" target="_blank" class="toGithub btn">&lt;Code&gt;</a></div>
-        <div id="back-portfolio-container">
-          <button id="back-portfolio-web" class="col">Portfolio</button>
-        </div>
-      </article>
-      <div id="disqus_thread"></div>
-    </main>
+<h2 id="design">Design</h2>
+<p>Designed in Photoshop and Illustrator.</p>
+<a href="/portfolio" style="color:#5499e1" class="back-portfolio-link">Back to portfolio</a>
+            </div>
+          </div>
+        </article>
+        <div id="disqus_thread"></div>
+      </main>
+      <footer class="site-footer"></footer>
+    </div>
     <script src="../../assets/scripts/g_a_code.js"></script>
     <script src="../../assets/scripts/portfolio-post.js"></script>
     <noscript>

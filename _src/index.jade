@@ -12,21 +12,23 @@ html(lang="en")
     meta(name="apple-mobile-web-app-capable" content="yes")
     meta(name="mobile-web-app-capable" content="yes")
     include ./assets/markup/favicon.jade
+    link(href="assets/styles/grizzly/grid.css" rel="stylesheet" type="text/css")
     link(href="assets/styles/main.css" rel="stylesheet" type="text/css")
   body
-    div.nav_container
-    header
-      nav
-        div.row
-          include ./assets/markup/logo.jade
-          include ./assets/markup/nav.jade
-    main#about-content
-      article.row
-        header.sub-header.col
-          h1.page-title Introduction
-        div.md-content.col
-          img(id="profile-pic" src="assets/images/Profile.jpg" alt="Profile image of Terrell Vest")
-          != postContent
+    .page-wrapper
+      include ./assets/markup/nav.jade
+      main.page-content#about-content
+        article.about-section.row.center--col-x
+          .box.wrapper
+            .row.center--col-x.center--col-y
+              .box.xl--6-12.center--content
+                .profile-pic-wrapper
+                  img(id="profile-pic" src="assets/images/Profile.jpg" alt="Profile image of Terrell Vest")
+              .box.s--10-12.m--6-12.about-text-content
+                h1.about-name-heading Terrell Vest
+                .md-content
+                  != pageMarkdownContent
+      footer.site-footer
     script(src="assets/scripts/g_a_code.js")
     
     

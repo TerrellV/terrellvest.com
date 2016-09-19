@@ -1,120 +1,131 @@
-.portfolio-post-main {
-  @extend %main_tag;
-  article {
-    @media(max-width:$medium-break-point) { // smaller than 700px
-      #portfolio-post-header-wrap {
-        margin-left: -$body-padding;
-        padding-bottom: 2rem;
-        .sub-header {
-          .page-title {
-            margin-left: $body-padding;
-          }
-        }
-        .portfolio-post-description {
-          margin-left: $body-padding;
-        }
-      }
-      #portfolio-post-md-content {
-        margin-left: $body-padding;
-        padding-left: 0px;
-      }
-      // button at bottom for going back to list
-      #back-portfolio-container {
-        padding-left: $body-padding;
-        position: relative;
-        margin-top: 3em;
-        margin-bottom: 2em;
-        font-family: "Roboto";
-        button {
-          position: relative;
-          box-sizing: border-box;
-          padding: 0.75rem 1.75rem;
-          text-align: center;
-          cursor: pointer;
-          outline: none;
-        }
-        #back-portfolio {
-          font-size: 1rem;
-          border-radius: 50px;
-          border: 2px solid $text-grey;
-          color: $text-grey;
-          background-color: transparent;
-        }
-        #back-portfolio-web {
-          background-color: transparent;
-          border-radius: 0;
-          color: $text-grey;
-          border: none;
-          border-radius: 5px;
-          padding: 0;
-          text-decoration: underline;
-          font-size: 1.2em;
-        }
-      }
-    }
-    @media(min-width:$medium-break-point + 1) { // larger than 700px
-      #portfolio-post-header-wrap {
-        width: 28%;
-        text-align: right;
-        .portfolio-post-description {
-          margin: .75em 0 1.5em 0;
-          padding-right: 50px;
-          margin-left: $body-padding;
-        }
-      }
-      #portfolio-post-md-content {
-        width: 72%;
-      }
-      // button at bottom for going back to list
-      #back-portfolio-container {
-        padding-left: $body-padding;
-        position: relative;
-        margin-top: 3em;
-        margin-bottom: 2em;
-        width: 72%;
-        left: 28%;
-        font-family: "Roboto";
-        button {
-          position: relative;
-          box-sizing: border-box;
-          padding: 0.75rem 1.75rem;
-          text-align: center;
-          cursor: pointer;
-          outline: none;
-          transition: background 250ms ease, color 250ms ease, opacity 200ms ease;
-          &:hover{
-            opacity: 1 !important;
-          }
-        }
-        #back-portfolio {
-          font-size: 1rem;
-          border-radius: 50px;
-          border: 2px solid $text-grey;
-          color: $text-grey;
-          opacity: .3;
-          background-color: transparent;
 
-        }
-        #back-portfolio-web {
-          background-color: transparent;
-          border-radius: 0;
-          color: $text-grey;
-          border: none;
-          border-radius: 5px;
-          padding: 0;
-          text-decoration: underline;
-          opacity: .4;
-          font-size: 1.2em;
-        }
-      }
+.post-wrap {
+  max-width: 620px;
+  width: 100%;
+  padding: 0 1.5rem;
+}
+
+// heading
+.portfolio-post-header {
+  transition: all 250ms ease-in-out;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 80px;
+  align-items: center;
+  padding: 4rem;
+  border: 4px solid;
+}
+
+.header-business {
+  border: 0px;
+  padding: 0;
+  margin-bottom: 2rem;
+  align-items: flex-start;
+}
+.post-title {
+  text-align: center;
+  font-size: 36px;
+  font-family: 'Open Sans', sans-serif;
+  &.business {
+    text-align: left;
+  }
+}
+.post-date {
+  $marginHeaderSpacing: 24px;
+  margin: {
+    top: $marginHeaderSpacing - 8px;
+    bottom: $marginHeaderSpacing;
+  }
+  font: {
+    family: 'Open Sans', sans-serif;
+    size: 22px;
+    weight: 300;
+  }
+}
+.btn-links {
+
+}
+.btn-link-wrapper {
+  $centerPadding: 10px;
+  position: relative;
+  display: inline-block;
+  width: 84px;
+  &:first-child {
+    margin-right: $centerPadding / 2;
+  }
+  &:not(:first-child) {
+    button {
+      background-color: #3a3a3a;
     }
-    // from 701 =  800px
-    @media (min-width:$medium-break-point + 1) and (max-width: $medium-break-point + 100px) {
-      #portfolio-post-header-wrap {
-        .portfolio-post-description {
-          padding-right: 33px;
-        }
-      }
+    margin-left: $centerPadding / 2;
+  }
+}
+.btn {
+  width: 100%;
+  border: 0;
+  border-radius: 100px;
+  padding: 10px 22px;
+  cursor: pointer;
+  color: white;
+  text-transform: capitalize;
+  font-weight: 600;
+  // only on medium to large devices
+  &:active {
+    outline: none;
+    @media (min-width: $m-bp + 1px) {
+      box-shadow: 2px 2px 16px rgba(158, 158, 158, 1);
     }
   }
+}
+.back-portfolio-link {
+  display: inline-block;
+  margin-top: 50px;
+  opacity: 0.7;
+  transition: all 300ms ease-out !important;
+  font: {
+    family: 'Open Sans', sans-serif;
+    size: 1.2em;
+  }
+  @media (min-width: $m-bp + 1px) {
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+@media (max-width: $m-bp) {
+  .post-title {
+    font-size: 28px;
+    font-family: 'Open Sans', sans-serif;
+  }
+  .post-date {
+    $marginHeaderSpacing: 18px;
+    margin: {
+      top: $marginHeaderSpacing - 6px;
+      bottom: $marginHeaderSpacing;
+    }
+    font: {
+      size: 18px;
+    }
+  }
+  .btn-links {
+    display: flex;
+    width: 100%;
+    flex-wrap: no-wrap;
+    justify-content: center;
+  }
+  .btn-link-wrapper {
+    width: 100%;
+    min-width: 60px;
+    max-width: 74px;
+  }
+  .btn {
+    padding: 8px 15px;
+    font-weight: 400;
+  }
+}
+
+// markdown content
+.post-md-content {
+  padding-bottom: $footer-height + 50px;
 }
