@@ -12,7 +12,7 @@ module.exports = {
     './_src/assets/scripts/entry.js',
   ],
   output: {
-    path: '/',
+    path: './_dist/portfolio',
     filename: 'bundle.js',
     publicPath: '/public/portfolio',
   },
@@ -79,7 +79,4 @@ module.exports = {
     './_src/assets/styles/partials/site-wide.scss',
     './_src/assets/styles/partials/typography.scss',
   ],
-  // eslint: {
-  //   configFile: './.eslintrc.json'
-  // }
 };
