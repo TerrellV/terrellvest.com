@@ -13,7 +13,13 @@ $nav-padding: 3rem;
   padding-right: $nav-padding / 2;
 }
 .nav-list-box {
+  max-width: 300px;
+  width: 100%;
   padding-left: $nav-padding / 2;
+}
+.nav-list {
+  justify-content: space-between;
+  flex-wrap: nowrap;
 }
 .nav-logo-link {
   position: relative;
@@ -35,12 +41,25 @@ $nav-padding: 3rem;
   opacity: 0.4;
   height: $nav-height;
   position: relative;
-  &:not(:last-child) {
-    padding-right: $nav-padding;
+  text-align: center;
+  &.active {
+    opacity: 1;
+  }
+  @media (max-width: $m-bp - 1px) {
+    &.active {
+      color: $accent-blue !important;
+    }
+  }
+  @media (min-width: $m-bp) {
+    transition: opacity 200ms ease, color 200ms ease;
+    &:hover {
+      opacity: 1;
+    }
   }
 }
 
 .nav-text-item {
+  padding: 8px;
   display: inline-block;
   @include center-vert(relative);
 }
@@ -63,7 +82,6 @@ $nav-padding: 3rem;
     opacity: 1;
     height: 28px;
     &:not(:last-child) {
-      padding-right: 1.5rem;
     }
   }
 }

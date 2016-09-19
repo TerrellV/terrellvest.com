@@ -20,7 +20,7 @@ html(lang="en")
         article.row.center--col-x
           div.post-wrap.box.wrapper.center-content
             header.portfolio-post-header(style='border-color:' + colorDark class="header-"+type)
-              h1.post-title #{title}
+              h1.post-title(class=type) #{title}
               span.post-date #{date}
               if type === 'web'
                 div.btn-links

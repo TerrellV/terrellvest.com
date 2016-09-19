@@ -31,6 +31,11 @@ $headingsMap: (
   @each $heading, $fontSize in $headingsMap {
     #{$heading} { font-size: $fontSize }
   }
+  @media (max-width: $m-bp - 1px) {
+    @each $heading, $fontSize in $headingsMap {
+      #{$heading} { font-size: $fontSize - 6px }
+    }
+  }
   p {
     color: rgba(0, 0, 0, 0.8);
     font-size: 1.125em;
