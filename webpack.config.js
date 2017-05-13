@@ -3,6 +3,8 @@ var scss_syntax = require('postcss-scss');
 var path = require('path');
 var webpack = require('webpack');
 
+console.log(__dirname);
+
 module.exports = {
   devtool: 'cheap-module-source-map',
   // devtool: 'eval-source-map',
@@ -12,7 +14,7 @@ module.exports = {
     './_src/assets/scripts/entry.js',
   ],
   output: {
-    path: './_dist/portfolio',
+    path: __dirname + '/_dist/portfolio',
     filename: 'bundle.js',
     publicPath: '/public/portfolio',
   },

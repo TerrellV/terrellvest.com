@@ -4,9 +4,10 @@
   "description": "Personal Website",
   "main": "",
   "scripts": {
-    "render": "nodemon --exec babel-node --ignore devServer.js site-build-utils/index.js",
+    "dev": "gulp",
     "sass": "node-sass --source-map true _src/assets/styles/main.scss _dist/assets/styles/main.css",
-    "server": "cross-env BABEL_ENV=SERVER nodemon devServer.js --ignore _src --ignore _dist --exec babel-node"
+    "server": "cross-env BABEL_ENV=SERVER nodemon devServer.js --ignore _src --ignore _dist --exec babel-node",
+    "babel-node": "babel-node --version"
   },
   "dependencies": {
     "body-parser": "^1.15.0",
@@ -24,6 +25,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^6.3.6",
+    "babel-cli": "^6.24.1",
     "babel-core": "^6.9.1",
     "babel-loader": "^6.2.4",
     "babel-plugin-syntax-async-generators": "^6.8.0",
@@ -64,6 +66,7 @@
     "moment": "^2.13.0",
     "morgan": "^1.7.0",
     "node-sass": "^3.7.0",
+    "nodemon": "^1.11.0",
     "postcss-loader": "^0.9.1",
     "postcss-scss": "^0.1.8",
     "run-sequence": "^1.1.5",
