@@ -1,0 +1,12 @@
+# extends "base.html"
+# block page
+
+<div class="writing-summary">
+    # for essay in posts:
+    <div class="writing-summary-row">
+        <a href="{{ essay.path }}">{{ essay.title }}</a>
+        <p>{{ essay.date }}</p>
+    </div>
+    # endfor
+</div>
+# endblock page
