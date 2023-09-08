@@ -62,3 +62,12 @@ if __name__ == "__main__":
 
     for year, group in itertools.groupby(all_posts, key=lambda p: dt.datetime.fromisoformat(p["date"]).year):
         build_writing_summary(posts=list(group), filename=f"by-year-{year}.html", route_prefix="../")
+
+    # copy css
+    for file_ in (Path.cwd() / "styles").iterdir():
+        if file_.is_file():
+
+            css = file_.read_text()
+            (BUILD_DIR / file_.name).write_text(css)
+
+    print("Built css")
