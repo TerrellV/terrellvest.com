@@ -1,0 +1,22 @@
+.writing-summary h1, h2, h3, h4 {
+    margin: 0;
+    margin-bottom: 0.5rem
+}
+
+.summary-link {
+    display: block;
+    width: 100%;
+    font-family: sans-serif;
+}
+
+
+.summary-link:hover {
+    /* color: dodgerblue; */
+    /* background-color: var(--light-grey); */
+    text-decoration: underline;
+}
+
+.writing-summary p {
+    margin: 0;
+    text-decoration: None;
+}

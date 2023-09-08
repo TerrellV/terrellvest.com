@@ -1,0 +1,24 @@
+
+html {
+    line-height: 1.5rem;
+}
+
+header {
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--light-grey);
+    margin-bottom: 2.5rem;
+}
+
+h1 {
+    font-family: sans-serif;
+}
+
+header p {
+    color: var(--text-light);
+}
+
+.post-date-span {
+    color: var(--text-light);
+    font-style: italic;
+    display: block;
+}

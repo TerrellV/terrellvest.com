@@ -1,12 +1,18 @@
 # extends "base.html"
-# block page
 
+# block pageStyles
+<link rel="stylesheet" href="{{ route_prefix }}writing.css">
+# endblock pageStyles
+
+# block page
 <div class="writing-summary">
     # for essay in posts:
-    <div class="writing-summary-row">
-        <a href="{{ essay.path }}">{{ essay.title }}</a>
+    <a class="summary-link" href="{{ essay.path }}">
+        <h3>
+            {{ essay.title }}
+        </h3>
         <p>{{ essay.date }}</p>
-    </div>
+    </a>
     # endfor
 </div>
 # endblock page

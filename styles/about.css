@@ -3,6 +3,7 @@
 }
 
 .h1, h2, h3 {
+    font-family: sans-serif;
     padding: 0;
     margin: 10px 0px;
 }

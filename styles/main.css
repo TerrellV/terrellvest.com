@@ -3,6 +3,7 @@
     --bg-color: #fffefb;
     --text-color: #212121;
     --text-light: #7e7e7e;
+    --light-grey: #dcdcdc;
     font-size: 18px;
 }
 
@@ -48,7 +49,7 @@ body {
     margin-left: 1rem;
 }
 
-a:hover {
+.nav a:hover {
     color: var(--text-color)
 }
 
