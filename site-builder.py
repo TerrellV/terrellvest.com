@@ -64,10 +64,11 @@ if __name__ == "__main__":
         build_writing_summary(posts=list(group), filename=f"by-year-{year}.html", route_prefix="../")
 
     # copy css
-    for file_ in (Path.cwd() / "styles").iterdir():
+    for file_ in Path("styles").iterdir():
         if file_.is_file():
 
             css = file_.read_text()
             (BUILD_DIR / file_.name).write_text(css)
 
     print("Built css")
+    print("Done building static site")

@@ -1,0 +1,54 @@
+
+:root {
+    --bg-color: #fffefb;
+    --text-color: #212121;
+    --text-light: #7e7e7e;
+    font-size: 18px;
+}
+
+a {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+body {
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: serif;
+}
+
+.app {
+    display: flex;
+    margin: 1.25rem;
+    width: 100%;
+    max-width: 750px;
+    flex-direction: column;
+}
+
+/* NAV STYLES */
+.nav {
+    font-family: sans-serif;
+    margin: 3rem 0;
+}
+
+.nav-link-active {
+    text-decoration: underline;
+}
+
+.nav-link-inactive {
+    color: var(--text-light);
+}
+
+.nav a + a {
+    margin-left: 1rem;
+}
+
+a:hover {
+    color: var(--text-color)
+}
+
