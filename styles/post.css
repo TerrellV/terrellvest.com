@@ -1,4 +1,3 @@
-
 html {
     line-height: 1.5rem;
 }
@@ -21,4 +20,11 @@ header p {
     color: var(--text-light);
     font-style: italic;
     display: block;
+}
+
+pre {
+    background-color: var(--light-grey);
+    white-space: pre-wrap;
+    padding: 1.25rem;
+    font-size: 0.8rem;
 }

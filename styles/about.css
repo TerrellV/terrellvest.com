@@ -11,3 +11,11 @@
 p {
     line-height: 1.5rem;
 }
+
+p a:hover {
+    text-decoration: underline;
+}
+
+p strong {
+    /* font-family: sans-serif; */
+}

@@ -1,9 +1,90 @@
-# block content
-<h1 class="writing-header">Introducing MapleChart.com</h1>
-<h3 class="writing-subheader">Introducing MapleChart.com</h1>
-<div class="writing-body">
-    <p>
-        This is some text about a post that I wanted to write
-    </p>
-</div>
-# endblock content
+# extends "post.html"
+
+# block title
+Introducing MapleChart.com
+# endblock title
+
+# block date
+2023-09-25
+# endblock date
+
+# block subheader
+MapleChart.com is a free rest api used for fetching timeseries cryptocurrency metrics. This is a post
+introducing its launch and the inspiration behind it.
+# endblock subheader
+
+# block body
+<h2>Summary:</h2>
+<p>
+    <a href="https://maplechart.com/docs/intro">MapleChart.com</a> is a free, publicly accesible REST api,
+    used for fetching historical timeseries indicators
+    and market data across numerous cryptocurrency pairs. I created MapleChart to save you time.
+    When I first started analyzing historical crypto metrics, I was severely limited by the amount
+    of time I had to spend fetching, updating, cleaning, calculating, and storing data. With
+    MapleChart, you can fetch pre-calculated metrics in a few api calls, and focus on your analysis. If
+    you must, feel free to skip this blog post and checkout MapleChart's
+    <a href="https://maplechart.com/docs/intro">awesome documentation</a> for more info.
+</p>
+
+<h2>Features:</h2>
+<ul>
+    <li>Fetch core market data like price, market-cap, 24hr global volume</li>
+    <li>Fetch timeseries indicators such as: simple moving average and trailing return</li>
+    <li>Free to use</li>
+    <li>No api key required</li>
+    <li>Easy to use documentation</li>
+    <li>Updated daily ~1hr after market close (01:00 UTC)</li>
+</ul>
+
+<h2>Data</h2>
+<ul>
+    <li>~10 of the largest crypto currencies vs USD & vs BTC (~20 pairs in total)</li>
+    <li>2 indicators and 12 signals</li>
+    <ul>
+        <li>Simple Moving Average (20, 50, 100, 200 day)</li>
+        <li>Trailing Return (1D, 7D, 30D, 90D, YTD, 1YR, 3YR 5YR)</li>
+    </ul>
+</ul>
+<p>
+    To start, only a core set of assets and
+    indicators are available. As time permits, I'll consider significantly increasing the available
+    indicators, and trading pairs.
+</p>
+
+<h2>A Python Example</h2>
+<p>
+    Below is a simple python snippet showcasing how to fetch the entire 200 day simple moving average
+    history for the ETH/USD trading pair.
+</p>
+<pre><code>import json
+import requests  # pip install requests
+
+url = "https://api.maplechart.com/v1/signals/sma-200d/history?pair=eth-usd"
+r = requests.get(url)
+data = r.json()["data"]
+
+print(json.dumps(data, indent=4))</code></pre>
+
+<h2>Inspiration</h2>
+<p>
+    As mentioned above, I built MapleChart to save you time. However I also built it for a few other
+    reasons. First, I believe alot of people don't fully appreciate how wild cryptocurrency markets are.
+    With a little information, people would be better prepared to handle the rollercoaster. Making data
+    available is the first step in an effort to help people make more informed decisions.
+</p>
+
+<p>
+    Are you really prepared to buy something that could lose 80% of its value, multiple times over? Is
+    someone trying to sell you a dream that sounds too good to be true? The mere existence of MapleChart
+    won't eradicate bad decisions completely but if it helps at least one person, better appreciate what
+    they are getting into, it was worth building.
+</p>
+
+<p>
+    Finally, I built MapleChart because I was looking for a great sideproject idea that
+    would force me to explore a few new AWS Services. I figured a serverless data pipeline and rest api
+    would be perfect. Maybe oneday I'll write another post about my learning process.
+</p>
+
+
+# endblock body

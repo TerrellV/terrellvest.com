@@ -3,6 +3,7 @@
 from pathlib import Path
 import itertools
 import datetime as dt
+import minify_html
 
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 from bs4 import BeautifulSoup
@@ -13,7 +14,7 @@ BUILD_DIR.mkdir(exist_ok=True, parents=True, mode=0o777)
 env = Environment(
     loader=FileSystemLoader(["writing", "templates"]),
     autoescape=select_autoescape,
-    line_statement_prefix="#"
+    line_statement_prefix="#",
 )
 
 
@@ -21,18 +22,34 @@ def build_writing_summary(posts, filename, route_prefix):
     """Build writing (posts) summary page"""
     template = env.get_template("writing-base.html")
 
-    with (BUILD_DIR / "writing" / filename).open(mode='w') as f:
-        html = template.render(title='Writing', activePage="writing", posts=posts, route_prefix=route_prefix)
-        f.write(BeautifulSoup(html, 'html.parser').prettify())
+    with (BUILD_DIR / "writing" / filename).open(mode="w") as f:
+        html = template.render(
+            title="Writing",
+            activePage="writing",
+            posts=posts,
+            route_prefix=route_prefix,
+        )
+        f.write(
+            minify_html.minify(
+                str(html), minify_js=True, remove_processing_instructions=True
+            )
+        )
         print(f"Built writing summary: {filename}")
 
 
 if __name__ == "__main__":
     # create index.html for root of website
     index_template = env.get_template("about.html")
-    with (BUILD_DIR / "index.html").open(mode='w') as f:
-        html = index_template.render(title='About', activePage="about", route_prefix="./")
-        f.write(BeautifulSoup(html, 'html.parser').prettify())
+    with (BUILD_DIR / "index.html").open(mode="w") as f:
+        html = index_template.render(
+            title="About", activePage="about", route_prefix="./"
+        )
+        f.write(
+            minify_html.minify(
+                str(html), minify_js=True, remove_processing_instructions=True
+            )
+        )
+
     print("Built index.html")
 
     # load posts
@@ -45,7 +62,7 @@ if __name__ == "__main__":
         if f.is_file() and not f.name.startswith("--ignore--"):
             template = env.get_template(f.name)
             html = template.render(activePage="", route_prefix="../")
-            html = BeautifulSoup(html, 'html.parser')
+            html = BeautifulSoup(html, "html.parser")
             post_date = dt.datetime.fromisoformat(html.time.text.strip())
             pretty_date = post_date.strftime(pretty_date_format)
             html.time.string.replace_with(pretty_date)
@@ -56,21 +73,33 @@ if __name__ == "__main__":
 
             # write the file
             with (BUILD_DIR / "writing" / clean_name).open(mode="w") as f_:
-                f_.write(html.prettify())
+                f_.write(
+                    minify_html.minify(
+                        str(html), minify_js=True, remove_processing_instructions=True
+                    )
+                )
 
-            posts[clean_name] = {"title": html.h1.text.strip(), "date": pretty_date, "path": f"./{clean_name}"}
+            posts[clean_name] = {
+                "title": html.h1.text.strip(),
+                "date": pretty_date,
+                "path": f"./{clean_name}",
+            }
 
     print("Built posts")
     all_posts = list(sorted(posts.values(), key=lambda p: (p["date"], p["title"])))
     build_writing_summary(posts=all_posts, filename="index.html", route_prefix="../")
 
-    for year, group in itertools.groupby(all_posts, key=lambda p: dt.datetime.strptime(p["date"].strip(), pretty_date_format).year):
-        build_writing_summary(posts=list(group), filename=f"by-year-{year}.html", route_prefix="../")
+    for year, group in itertools.groupby(
+        all_posts,
+        key=lambda p: dt.datetime.strptime(p["date"].strip(), pretty_date_format).year,
+    ):
+        build_writing_summary(
+            posts=list(group), filename=f"by-year-{year}.html", route_prefix="../"
+        )
 
     # copy css
     for file_ in Path("styles").iterdir():
         if file_.is_file():
-
             css = file_.read_text()
             (BUILD_DIR / file_.name).write_text(css)
 
