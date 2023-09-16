@@ -1,6 +1,7 @@
 """WORK IN PROGRESS 2023 ..."""
 
 from pathlib import Path
+import argparse
 import itertools
 import datetime as dt
 import time
@@ -198,6 +199,18 @@ def clear_dir(folder):
 
 if __name__ == "__main__":
     # create index.html for root of website
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--build-only", action="store_true")
+
+    args = parser.parse_args()
 
     spy = WatchDog(src_path="src")
-    spy.start()
+
+    if args.build_only:
+        print("building website once")
+        spy.pre_change_hook(spy.src_files, env)
+        spy.post_change_hook(spy.src_files, env)
+        print("site done building")
+    else:
+        print("Starting site watch dog...")
+        spy.start()
