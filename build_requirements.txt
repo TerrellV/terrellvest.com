@@ -1,3 +1,2 @@
  jinja2==3.1.2
  beautifulsoup4==4.12.2
- minify_html==0.11.1

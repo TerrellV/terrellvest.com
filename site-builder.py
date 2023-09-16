@@ -4,7 +4,6 @@ from pathlib import Path
 import itertools
 import datetime as dt
 import time
-import minify_html
 import os, shutil
 
 from jinja2 import Environment, FileSystemLoader, select_autoescape
@@ -78,8 +77,8 @@ class WatchDog:
         # build index.html
         index_dest = BUILD_DIR / "index.html"
         index_kwargs = dict(title="About", activePage="about", route_prefix="./")
-        html = render_template("about.html", index_kwargs, jinja_env, minify=True)
-        index_dest.write_text(html, encoding='utf-8')
+        html = render_template("about.html", index_kwargs, jinja_env)
+        index_dest.write_text(str(html), encoding='utf-8')
 
         # load posts
         pretty_date_format = "%b %d, %Y"
@@ -90,8 +89,7 @@ class WatchDog:
         for f in writing_dir.iterdir():
             if f.is_file() and not f.name.startswith("--ignore--"):
                 post_kwargs = dict(activePage="", route_prefix="../")
-                mini_html = render_template(f.name, post_kwargs, jinja_env, minify=True)
-                html = BeautifulSoup(mini_html, "html.parser")
+                html = render_template(f.name, post_kwargs, jinja_env)
 
                 post_date = dt.datetime.fromisoformat(html.time.text.strip())
                 pretty_date = post_date.strftime(pretty_date_format)
@@ -174,17 +172,15 @@ def writing_summary_builder(posts, filename, route_prefix, jinja_env):
     page_kwargs = dict(
         title="Writing", activePage="writing", posts=posts, route_prefix=route_prefix
     )
-    html = render_template("writing-base.html", page_kwargs, jinja_env, minify=True)
-    (BUILD_DIR / "writing" / filename).write_text(html, encoding="utf-8")
+    html = render_template("writing-base.html", page_kwargs, jinja_env)
+    (BUILD_DIR / "writing" / filename).write_text(str(html), encoding="utf-8")
 
 
-def render_template(template, template_kwargs, jinja_env, minify=True):
+def render_template(template, template_kwargs, jinja_env):
     template = jinja_env.get_template(template)
 
     html = template.render(**template_kwargs)
-    if minify:
-        return minify_html.minify(html, minify_js=True, remove_processing_instructions=True)
-
+    html = BeautifulSoup(html, "html.parser")
     return html
 
 
