@@ -5,23 +5,20 @@ import argparse
 import itertools
 import datetime as dt
 import time
-import os, shutil
+import shutil
 
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 from bs4 import BeautifulSoup
 
-BUILD_DIR = Path.cwd() / Path("built-website")
+BUILD_DIR = Path.cwd() / "built-website"
 BUILD_DIR.mkdir(exist_ok=True, parents=True, mode=0o777)
+SRC_DIR =  Path.cwd() / "src"
 
 env = Environment(
     loader=FileSystemLoader(["src/writing", "src/templates"]),
     autoescape=select_autoescape,
     line_statement_prefix="#",
 )
-
-
-# SITE BUILDER V2
-# if any file changes; rebuild entire website every 1 second
 
 
 class File:
@@ -84,7 +81,7 @@ class WatchDog:
         # load posts
         pretty_date_format = "%b %d, %Y"
         posts = {}
-        writing_dir = Path("src/writing")
+        writing_dir = SRC_DIR / "writing"
         (BUILD_DIR / "writing").mkdir(exist_ok=True, parents=True)
 
         for f in writing_dir.iterdir():
@@ -109,17 +106,17 @@ class WatchDog:
                     "path": f"./{clean_name}",
                 }
 
-        all_posts = list(sorted(posts.values(), key=lambda p: (p["date"], p["title"])))
-        writing_summary_builder(all_posts, "index.html", "../", jinja_env)
+        all_posts = list(sorted(posts.values(), key=lambda p: (p["date"], p["title"]), reverse=True))
+        writing_summary_builder(all_posts, "index.html", "../", year=None, jinja_env=jinja_env)
 
         def key_(p):
-            dt.datetime.strptime(p["date"].strip(), pretty_date_format).year
+            return dt.datetime.strptime(p["date"].strip(), pretty_date_format).year
 
         for year, group in itertools.groupby(all_posts, key=key_):
-            writing_summary_builder(list(group), f"by-year-{year}.html", "../", jinja_env)
+            writing_summary_builder(list(group), f"by-year-{year}.html", "../", year, jinja_env)
 
         # copy css
-        for file_ in Path("src/styles").iterdir():
+        for file_ in (SRC_DIR / "styles").iterdir():
             if file_.is_file():
                 css = file_.read_text()
                 (BUILD_DIR / file_.name).write_text(css, encoding="utf-8")
@@ -130,7 +127,7 @@ class WatchDog:
     def _find_new_src_files(self):
         if self.src_path.is_dir():
             prev_files = {f.path.as_posix() for f in self.src_files}
-            current_files = {f.as_posix() for f in self.src_path.iterdir() if f.is_file()}
+            current_files = {f.as_posix() for f in self.src_path.rglob("*") if f.is_file()}
             new_files = [File(_path) for _path in (current_files - prev_files)]
             self.src_files.extend(new_files)
 
@@ -168,10 +165,14 @@ class WatchDog:
             time.sleep(self.check_ever_n_seconds)
 
 
-def writing_summary_builder(posts, filename, route_prefix, jinja_env):
+def writing_summary_builder(posts, filename, route_prefix, year, jinja_env):
     """Build writing (posts) summary page"""
+    if year is None:
+        header_title = "All Posts"
+    else:
+        header_title = f"{year} Posts"
     page_kwargs = dict(
-        title="Writing", activePage="writing", posts=posts, route_prefix=route_prefix
+        title="Writing", activePage="writing", posts=posts, route_prefix=route_prefix, header_title=header_title
     )
     html = render_template("writing-base.html", page_kwargs, jinja_env)
     (BUILD_DIR / "writing" / filename).write_text(str(html), encoding="utf-8")
@@ -201,7 +202,6 @@ if __name__ == "__main__":
     # create index.html for root of website
     parser = argparse.ArgumentParser()
     parser.add_argument("--build-only", action="store_true")
-
     args = parser.parse_args()
 
     spy = WatchDog(src_path="src")

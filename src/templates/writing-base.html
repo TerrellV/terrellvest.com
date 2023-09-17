@@ -4,8 +4,12 @@
 # endblock pageStyles
 # block page
 <div class="writing-summary">
+    <header>
+        <h3> {{ header_title }} </h3>
+    </header>
+
     # for essay in posts:
-    <a class="summary-link" href="{{ essay.path }}">
+    <a class="post-link" href="{{ essay.path }}">
         <h3>{{ essay.title }}</h3>
         <p>{{ essay.date }}</p>
     </a>
